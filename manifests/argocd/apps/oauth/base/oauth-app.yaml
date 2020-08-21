@@ -2,6 +2,10 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: config-authentication
+  annotations:
+    argocd.argoproj.io/sync-wave: "11"
+  labels:
+    gitops.ownedBy: cluster-config
 spec:
   destination:
     namespace: argocd

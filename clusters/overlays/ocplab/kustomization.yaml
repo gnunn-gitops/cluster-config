@@ -19,3 +19,11 @@ patches:
     group: argoproj.io
     version: v1alpha1
     kind: Application
+- patch: |-
+    - op: replace
+      path: /spec/destination/namespace
+      value: argocd
+  target:
+    group: argoproj.io
+    version: v1alpha1
+    kind: Application
