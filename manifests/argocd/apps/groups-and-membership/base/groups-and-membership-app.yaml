@@ -12,7 +12,7 @@ spec:
     server: https://kubernetes.default.svc
   project: cluster-config
   source:
-    path: /manifests/configs/groups-and-membership/overlays/default
+    path: manifests/configs/groups-and-membership/overlays/default
     repoURL: https://github.com/gnunn-gitops/cluster-config.git
     targetRevision: master
   syncPolicy:
