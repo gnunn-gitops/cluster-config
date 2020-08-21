@@ -9,7 +9,7 @@ spec:
   project: cluster-config
   source:
     path: manifests/groups-and-membership/overlays/default
-    repoURL: https://github.com/gnunn-gitops/cluster-config-gn.git
+    repoURL: https://github.com/gnunn-gitops/cluster-config.git
     targetRevision: master
   syncPolicy:
     automated:

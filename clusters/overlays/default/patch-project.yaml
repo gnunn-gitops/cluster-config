@@ -1,3 +1,0 @@
-- op: replace
-  path: /spec/project
-  value: cluster-config
