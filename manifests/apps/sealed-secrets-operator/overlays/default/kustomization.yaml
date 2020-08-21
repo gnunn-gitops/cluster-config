@@ -3,8 +3,11 @@ kind: Kustomization
 
 namespace: sealed-secrets
 
+bases:
+- github.com/redhat-canada-gitops/catalog/sealed-secrets-operator/base
+
 resources:
 - role-anyuid.yaml
 
-bases:
-- github.com/redhat-canada-gitops/catalog/sealed-secrets-operator/base
+commonAnnotations:
+  argocd.argoproj.io/compare-options: IgnoreExtraneous
