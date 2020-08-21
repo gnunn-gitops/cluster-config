@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: config-container-security
+spec:
+  destination:
+    namespace: argocd
+    server: https://kubernetes.default.svc
+  project: cluster-config
+  source:
+    path: manifests/container-security-operator/base
+    repoURL: https://github.com/redhat-canada-gitops/01-cluster-config.git
+    targetRevision: master
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: false

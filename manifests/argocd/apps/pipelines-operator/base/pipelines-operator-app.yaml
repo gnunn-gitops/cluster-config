@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: config-pipeline-operator
+spec:
+  destination:
+    namespace: argocd
+    server: https://kubernetes.default.svc
+  project: cluster-config
+  source:
+    path: pipelines-operator/base
+    repoURL: https://github.com/redhat-canada-gitops/catalog.git
+    targetRevision: master
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: false

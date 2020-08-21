@@ -1,0 +1,21 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: argocd
+
+bases:
+- ../../../manifests/argocd/project/base
+- ../../../manifests/argocd/apps/oauth/base
+- ../../../manifests/argocd/apps/container-security-operator/base
+- ../../../manifests/argocd/apps/pipelines-operator/base
+- ../../../manifests/argocd/apps/groups-and-membership/base
+
+patches:
+- patch: |-
+    - op: replace
+      path: /spec/project
+      value: cluster-config
+  target:
+    group: argoproj.io
+    version: v1alpha1
+    kind: Application

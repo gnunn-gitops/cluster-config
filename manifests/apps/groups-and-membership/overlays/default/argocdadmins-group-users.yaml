@@ -1,0 +1,10 @@
+
+- op: add
+  path: /users/-
+  value: "kubeadmin"
+- op: add
+  path: /users/-
+  value: "opentlc-mgr"
+- op: add
+  path: /users/-
+  value: "admin"
