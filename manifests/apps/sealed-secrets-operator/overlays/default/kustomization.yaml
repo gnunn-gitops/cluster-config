@@ -8,7 +8,3 @@ bases:
 
 resources:
 - role-anyuid.yaml
-
-commonAnnotations:
-  argocd.argoproj.io/compare-options: IgnoreExtraneous
-  argocd.argoproj.io/sync-options: Prune=false
