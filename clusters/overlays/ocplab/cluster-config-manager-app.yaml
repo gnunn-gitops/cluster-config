@@ -1,10 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: sealed-secrets
-  annotations:
-    argocd.argoproj.io/sync-wave: "1"
-    argocd.argoproj.io/compare-options: IgnoreExtraneous
+  name: cluster-config-manager
   labels:
     gitops.ownedBy: cluster-config
 spec:
@@ -13,7 +10,7 @@ spec:
     server: https://kubernetes.default.svc
   project: cluster-config
   source:
-    path: manifests/apps/sealed-secrets-operator/overlays/default
+    path: environments/overlays/default
     repoURL: https://github.com/gnunn-gitops/cluster-config.git
     targetRevision: master
   syncPolicy:
