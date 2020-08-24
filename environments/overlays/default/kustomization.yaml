@@ -4,7 +4,7 @@ kind: Kustomization
 namespace: argocd
 
 bases:
-#- ../../../manifests/argocd/apps/sealed-secrets-operator/base
+- ../../../manifests/argocd/apps/sealed-secrets-operator/base
 - ../../../manifests/argocd/apps/oauth/base
 - ../../../manifests/argocd/apps/container-security-operator/base
 - ../../../manifests/argocd/apps/pipelines-operator/base
