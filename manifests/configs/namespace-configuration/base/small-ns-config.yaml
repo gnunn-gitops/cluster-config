@@ -1,0 +1,19 @@
+apiVersion: redhatcop.redhat.io/v1alpha1
+kind: NamespaceConfig
+metadata:
+  name: small
+spec:
+  labelSelector:
+    matchLabels:
+      size: small
+  templates:
+  - objectTemplate: |
+      apiVersion: v1
+      kind: ResourceQuota
+      metadata:
+        name: small
+        namespace: {{ .Name }}
+      spec:
+        hard:
+          requests.cpu: "4"
+          requests.memory: "2Gi"
