@@ -11,3 +11,10 @@ As per the standards document, the repo consists of three high level folders:
 * _clusters_ - Cluster specific configuration, it does not directly aggregate the environments but instead employs an app-of-app pattern to define one or more applications that point to the environment set of applications. It also includes anything that needs to be directly bootstrapped, i.e. a specific sealed-secrets key as an example,
 
 ![alt text](https://raw.githubusercontent.com/gnunn-gitops/cluster-config/master/docs/img/argocd.png)
+
+# Usage
+
+The usage of this repo is split into two components:
+
+* bootstrap. This applies the initial cluster-config project into ArgoCD and installs sealed-secrets which other artifcats depends on, see ```bootstrap.sh``` for this.
+* cluster specific configuration. This is applying a cluster specific configuration, right now I just have a single configuration performed by executing ```apply.sh```.

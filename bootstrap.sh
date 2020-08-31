@@ -1,0 +1,1 @@
+kustomize build environments/overlays/bootstrap | oc apply -f -
