@@ -3,6 +3,7 @@ kind: Kustomization
 
 bases:
 - ../bootstrap
+- ../../../manifests/argocd/project/base
 
 resources:
 - cluster-config-manager-app.yaml
