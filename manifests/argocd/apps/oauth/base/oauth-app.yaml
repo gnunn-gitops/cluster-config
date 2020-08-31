@@ -14,7 +14,7 @@ spec:
   source:
     path: manifests/configs/oauth/overlays/default
     repoURL: https://github.com/gnunn-gitops/cluster-config.git
-    targetRevision: unify
+    targetRevision: master
   syncPolicy:
     automated:
       prune: false
