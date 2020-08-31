@@ -1,5 +1,9 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
-resources:
-- cluster-config-manager-app.yaml
+bases:
+- ../../../environments/overlays/default
+
+# Having issues with app-of-app pattern, debug later
+# resources:
+# - cluster-config-manager-app.yaml
