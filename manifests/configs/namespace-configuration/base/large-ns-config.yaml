@@ -23,11 +23,12 @@ spec:
       kind: "LimitRange"
       metadata:
         name: "large"
+        namespace: {{ .Name }}
       spec:
         limits:
           - type: "Container"
             default:
               memory: "2Gi"
             defaultRequest:
-              cpu: "400m"
+              cpu: "500m"
               memory: "256Mi"

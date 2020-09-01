@@ -1,34 +1,34 @@
 apiVersion: redhatcop.redhat.io/v1alpha1
 kind: NamespaceConfig
 metadata:
-  name: small
+  name: medium
 spec:
   labelSelector:
     matchLabels:
-      size: small
+      size: medium
   templates:
   - objectTemplate: |
       apiVersion: v1
       kind: ResourceQuota
       metadata:
-        name: small
+        name: medium
         namespace: {{ .Name }}
       spec:
         hard:
-          requests.cpu: "2"
-          requests.memory: "1Gi"
-          limits.memory: "2Gi"
+          requests.cpu: "4"
+          requests.memory: "2Gi"
+          limits.memory: "4Gi"
   - objectTemplate: |
       apiVersion: "v1"
       kind: "LimitRange"
       metadata:
-        name: "small"
+        name: "medium"
         namespace: {{ .Name }}
       spec:
         limits:
           - type: "Container"
             default:
-              memory: "256Mi"
+              memory: "512Mi"
             defaultRequest:
-              cpu: "200m"
-              memory: "128Mi"
+              cpu: "300m"
+              memory: "256Mi"
