@@ -8,7 +8,7 @@ spec:
   destination:
     namespace: argocd
     server: https://kubernetes.default.svc
-  project: bootstrap
+  project: cluster-config
   source:
     path: environments/overlays/default
     repoURL: https://github.com/gnunn-gitops/cluster-config.git

@@ -14,7 +14,12 @@ As per the standards document, the repo consists of three high level folders:
 
 # Usage
 
-The usage of this repo is split into two components:
+Cluster specific configuration is stored in the clusters/overlays folder. To deploy the cluster configuration, simply do a ```oc apply -k clusters/overlays/{clustername}```. Under the hood this kustomize does the following:
 
-* bootstrap. This applies the initial cluster-config project into ArgoCD and installs sealed-secrets which other artifcats depends on, see ```bootstrap.sh``` for this.
-* cluster specific configuration. This is applying a cluster specific configuration, right now I just have a single configuration performed by executing ```apply.sh```.
+* Creates a sealedsecrets project and deploys a known private key into the namespace. This is done so I can re-use an existing key since my clusters are ephemeral and constantly being deployed. Creating new keys would mean re-encrypting all my secrets which is out of scope for demos.
+* Creates an ArgoCD AppProject called ```cluster-config```
+* Deploys a single application, cluster-config-manager, using the app-of-app pattern.
+
+The application cluster-config-manager simply points to the ```environments/overlays/default``` at this point in time. Additional environments could be created as needed to customize what is deployed. For example, I could a new environment that inherits from ```environments/overlays/default``` and adds the OpenShift Virtualization operator.
+
+Note that the applications in ```environments/overlays/default``` leverage the ArgoCD sync wave feature to ensure that sealed-secrets gets deployed first since many other configurations depend on it.
