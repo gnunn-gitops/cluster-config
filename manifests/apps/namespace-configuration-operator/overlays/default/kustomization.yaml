@@ -3,6 +3,9 @@ kind: Kustomization
 
 namespace: namespace-configuration-operator
 
+commonAnnotations:
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+
 bases:
 - github.com/redhat-canada-gitops/catalog/namespace-configuration-operator/overlays/default?ref=master
 
