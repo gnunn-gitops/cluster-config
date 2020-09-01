@@ -5,7 +5,6 @@ namespace: argocd
 
 bases:
 - ../../../manifests/argocd/apps/sealed-secrets-operator/base
-- ../../../manifests/argocd/project/cluster-config/base
 - ../../../manifests/argocd/apps/letsencrypt-certs/base
 - ../../../manifests/argocd/apps/oauth/base
 - ../../../manifests/argocd/apps/container-security-operator/base
