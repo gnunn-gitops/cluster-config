@@ -10,6 +10,7 @@ bases:
 - ../../../manifests/argocd/apps/container-security-operator/base
 - ../../../manifests/argocd/apps/pipelines-operator/base
 - ../../../manifests/argocd/apps/groups-and-membership/base
+- ../../../manifests/argocd/apps/namespace-configuration-operator/base
 
 patches:
 - target:
