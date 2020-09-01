@@ -28,7 +28,7 @@ spec:
         limits:
           - type: "Container"
             default:
-              memory: "256Mi"
+              memory: "1Gi"
             defaultRequest:
-              cpu: "200m"
-              memory: "128Mi"
+              cpu: "100m"
+              memory: "256Mi"
