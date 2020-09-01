@@ -17,3 +17,17 @@ spec:
         hard:
           requests.cpu: "4"
           requests.memory: "2Gi"
+          limits.memory: "4Gi"
+  - objectTemplate: |
+      apiVersion: "v1"
+      kind: "LimitRange"
+      metadata:
+        name: "small"
+      spec:
+        limits:
+          - type: "Container"
+            default:
+              memory: "1Gi"
+            defaultRequest:
+              cpu: "200m"
+              memory: "128Mi"
