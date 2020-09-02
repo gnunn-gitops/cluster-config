@@ -14,7 +14,7 @@ spec:
         name: allow-from-same-namespace
         namespace: {{ .Name }}
       spec:
-        podSelector:
+        podSelector: {}
         ingress:
         - from:
           - podSelector: {}
@@ -25,9 +25,39 @@ spec:
         name: allow-from-default-namespace
         namespace: {{ .Name }}
       spec:
-        podSelector:
+        podSelector: {}
         ingress:
         - from:
           - namespaceSelector:
               matchLabels:
                 name: default
+  - objectTemplate: |
+      apiVersion: networking.k8s.io/v1
+      kind: NetworkPolicy
+      metadata:
+        name: allow-from-openshift-monitoring
+        namespace: {{ .Name }}
+      spec:
+        ingress:
+        - from:
+          - namespaceSelector:
+              matchLabels:
+                network.openshift.io/policy-group: monitoring
+        podSelector: {}
+        policyTypes:
+        - Ingress
+  - objectTemplate: |
+      apiVersion: networking.k8s.io/v1
+      kind: NetworkPolicy
+      metadata:
+        name: allow-from-openshift-ingress
+        namespace: {{ .Name }}
+      spec:
+        ingress:
+        - from:
+          - namespaceSelector:
+              matchLabels:
+                network.openshift.io/policy-group: ingress
+        podSelector: {}
+        policyTypes:
+        - Ingress

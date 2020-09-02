@@ -1,0 +1,21 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: patch-default-ns-multitenant
+  annotations:
+    argocd.argoproj.io/hook: PreSync
+    argocd.argoproj.io/hook-delete-policy: HookSucceeded
+spec:
+  template:
+    spec:
+      containers:
+      - name: patch-default-ns-multitenant
+        image: registry.redhat.io/openshift4/ose-cli:v4.4
+        command:
+            - /bin/bash
+            - -c
+            - |
+
+              oc label namespace default 'network.openshift.io/policy-group=ingress'
+      restartPolicy: Never
+  backoffLimit: 0
