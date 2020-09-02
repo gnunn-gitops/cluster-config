@@ -8,17 +8,30 @@ metadata:
     argocd.argoproj.io/hook-delete-policy: HookSucceeded
 ---
 apiVersion: rbac.authorization.k8s.io/v1
-kind: RoleBinding
+kind: ClusterRole
+metadata:
+  name: patch-namespaces
+rules:
+  - apiGroups:
+      - ""
+    resources:
+      - namespaces
+    verbs:
+      - get
+      - list
+      - patch
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
 metadata:
   name: patch-job
-  namespace: default
   annotations:
     argocd.argoproj.io/hook: PreSync
     argocd.argoproj.io/hook-delete-policy: HookSucceeded
 roleRef:
   apiGroup: rbac.authorization.k8s.io
-  kind: Role
-  name: edit
+  kind: ClusterRole
+  name: patch-namespaces
 subjects:
   - kind: ServiceAccount
     name: patch-job
@@ -43,6 +56,7 @@ spec:
             - -c
             - |
 
-              oc label namespace default 'network.openshift.io/policy-group=ingress'
+              oc label namespace default 'network.openshift.io/policy-group=ingress' --overwrite
       restartPolicy: Never
+      serviceAccountName: patch-job
   backoffLimit: 0
