@@ -4,6 +4,7 @@ metadata:
   name: config-ns-config-operator
   annotations:
     argocd.argoproj.io/sync-wave: "21"
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
   labels:
     gitops.ownedBy: cluster-config
 spec:
@@ -18,4 +19,4 @@ spec:
   syncPolicy:
     automated:
       prune: false
-      selfHeal: false
+      selfHeal: true
