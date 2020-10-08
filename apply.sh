@@ -1,1 +1,1 @@
-kustomize build clusters/overlays/ocplab | oc apply -f -
+kustomize build clusters/overlays/home | oc apply -f -
