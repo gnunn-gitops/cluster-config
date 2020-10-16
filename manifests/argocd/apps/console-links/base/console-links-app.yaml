@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: config-console-links
+  annotations:
+    argocd.argoproj.io/sync-wave: "11"
+  labels:
+    gitops.ownedBy: cluster-config
+spec:
+  destination:
+    namespace: argocd
+    server: https://kubernetes.default.svc
+  project: cluster-config
+  source:
+    path: manifests/configs/consolelinks/base
+    repoURL: https://github.com/gnunn-gitops/cluster-config.git
+    targetRevision: master
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: false

@@ -1,0 +1,12 @@
+apiVersion: console.openshift.io/v1
+kind: ConsoleLink
+metadata:
+  name: quay
+spec:
+  href: 'https://quay.io/repository'
+  location: ApplicationMenu
+  text: Quay
+  applicationMenu:
+    section: Tools
+    # image that is 24x24 in size
+    imageURL: https://quay.io/static/img/quay_favicon.png

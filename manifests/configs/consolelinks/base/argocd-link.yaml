@@ -1,0 +1,12 @@
+apiVersion: console.openshift.io/v1
+kind: ConsoleLink
+metadata:
+  name: argocd
+spec:
+  href: 'https://argocd-server-argocd.apps.home.ocplab.com'
+  location: ApplicationMenu
+  text: ArgoCD
+  applicationMenu:
+    section: Tools
+    # image that is 24x24 in size
+    imageURL: https://raw.githubusercontent.com/gnunn-gitops/cluster-config/master/docs/img/argocd-logo.png
