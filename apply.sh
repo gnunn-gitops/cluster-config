@@ -1,1 +1,1 @@
-kustomize build clusters/overlays/home | oc apply -f -
+kustomize build clusters/overlays/home/argocd/manager | oc apply -f -
