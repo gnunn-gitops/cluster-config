@@ -23,3 +23,13 @@ Cluster specific configuration is stored in the clusters/overlays folder. To dep
 The application cluster-config-manager simply points to the ```environments/overlays/default``` at this point in time. Additional environments could be created as needed to customize what is deployed. For example, I could a new environment that inherits from ```environments/overlays/default``` and adds the OpenShift Virtualization operator.
 
 Note that the applications in ```environments/overlays/default``` leverage the ArgoCD sync wave feature to ensure that sealed-secrets gets deployed first since many other configurations depend on it.
+
+# Sequence
+
+This repo uses Argo CD sync waves to configure the configuration in an ordered manner. The following waves are used:
+
+1  - Sealed Secrets
+2  - Lets Encrypt for wildcard routes
+3  - Storage (iscsi storageclass and PVs)
+11 - Cluster Configuration (Authentication, AlertManager, etc)
+21 - Operators (Pipelines, CSO, etc)
