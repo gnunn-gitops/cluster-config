@@ -6,7 +6,7 @@ metadata:
     argocd.argoproj.io/sync-wave: "3"
     argocd.argoproj.io/compare-options: IgnoreExtraneous
   labels:
-    gitops.ownedBy: bootstrap
+    gitops.ownedBy: cluster-config
 spec:
   destination:
     namespace: argocd
