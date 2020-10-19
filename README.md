@@ -28,8 +28,8 @@ Note that the applications in ```environments/overlays/default``` leverage the A
 
 This repo uses Argo CD sync waves to configure the configuration in an ordered manner. The following waves are used:
 
-1  - Sealed Secrets
-2  - Lets Encrypt for wildcard routes
-3  - Storage (iscsi storageclass and PVs)
-11 - Cluster Configuration (Authentication, AlertManager, etc)
-21 - Operators (Pipelines, CSO, etc)
+1. Sealed Secrets
+2. Lets Encrypt for wildcard routes
+3. Storage (iscsi storageclass and PVs)
+11. Cluster Configuration (Authentication, AlertManager, etc)
+21. Operators (Pipelines, CSO, etc)
