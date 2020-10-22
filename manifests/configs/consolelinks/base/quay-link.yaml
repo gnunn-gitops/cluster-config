@@ -8,5 +8,4 @@ spec:
   text: Quay
   applicationMenu:
     section: Tools
-    # image that is 24x24 in size
     imageURL: https://quay.io/static/img/quay_favicon.png

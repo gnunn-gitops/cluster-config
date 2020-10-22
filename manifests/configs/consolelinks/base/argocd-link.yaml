@@ -8,5 +8,4 @@ spec:
   text: ArgoCD
   applicationMenu:
     section: Tools
-    # image that is 24x24 in size
     imageURL: https://raw.githubusercontent.com/gnunn-gitops/cluster-config/master/docs/img/argocd-logo.png
