@@ -5,7 +5,7 @@ commonAnnotations:
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
 
 bases:
-- github.com/redhat-canada-gitops/catalog/namespace-configuration-operator/overlays/default?ref=master
+- github.com/redhat-canada-gitops/catalog/namespace-configuration-operator/overlays/default
 
 resources:
 - small-ns-config.yaml
