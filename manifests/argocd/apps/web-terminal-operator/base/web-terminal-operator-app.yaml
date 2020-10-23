@@ -7,6 +7,11 @@ metadata:
   labels:
     gitops.ownedBy: cluster-config
 spec:
+  ignoreDifferences:
+  - group: workspace.devfile.io
+    kind: DevWorkspace
+    jsonPointers:
+    - /spec/started
   destination:
     namespace: argocd
     server: https://kubernetes.default.svc
