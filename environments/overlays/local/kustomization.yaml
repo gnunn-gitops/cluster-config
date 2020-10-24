@@ -9,6 +9,7 @@ bases:
 - ../../../manifests/argocd/apps/storage/base
 - ../../../manifests/argocd/apps/alertmanager/base
 - ../../../manifests/argocd/apps/console-links/base
+- ../../../manifests/argocd/apps/helm-repos/base
 - ../../../manifests/argocd/apps/oauth/base
 - ../../../manifests/argocd/apps/container-security-operator/base
 - ../../../manifests/argocd/apps/pipelines-operator/base
