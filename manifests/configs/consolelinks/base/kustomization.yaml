@@ -3,4 +3,5 @@ kind: Kustomization
 
 resources:
 - argocd-link.yaml
+- argocd-help-link.yaml
 - quay-link.yaml
