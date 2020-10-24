@@ -1,7 +1,7 @@
 apiVersion: helm.openshift.io/v1beta1
 kind: HelmChartRepository
 metadata:
-  name: gnunn-gitops-repo
+  name: demo-helm-charts
 spec:
   connectionConfig:
     url: 'https://gnunn-gitops.github.io/helm-charts'
