@@ -6,17 +6,17 @@ metadata:
   labels:
     app.kubernetes.io/name: kubeseal
     app.kubernetes.io/part-of: kubeseal
-    app.kubernetes.io/version: v0.12.1
+    app.kubernetes.io/version: v0.12.6
     name: sealed-secrets-key-anyuid
   name: sealed-secrets-key-anyuid
 rules:
 - apiGroups:
-  - security.openshift.io 
+  - security.openshift.io
   resourceNames:
-  - anyuid 
+  - anyuid
   resources:
-  - securitycontextconstraints 
-  verbs: 
+  - securitycontextconstraints
+  verbs:
   - use
 ---
 apiVersion: rbac.authorization.k8s.io/v1beta1
@@ -26,7 +26,7 @@ metadata:
   labels:
     app.kubernetes.io/name: kubeseal
     app.kubernetes.io/part-of: kubeseal
-    app.kubernetes.io/version: v0.12.1
+    app.kubernetes.io/version: v0.12.6
     name: sealed-secrets-controller-anyuid
   name: sealed-secrets-controller-anyuid
 roleRef:

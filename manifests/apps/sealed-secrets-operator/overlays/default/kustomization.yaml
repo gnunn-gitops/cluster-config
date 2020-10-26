@@ -8,3 +8,12 @@ bases:
 
 resources:
 - role-anyuid.yaml
+
+patchesJson6902:
+- target:
+    version: v1
+    group: apps
+    kind: Deployment
+    name: sealed-secrets-controller
+    namespace: sealed-secrets
+  path: patch-image.yaml
