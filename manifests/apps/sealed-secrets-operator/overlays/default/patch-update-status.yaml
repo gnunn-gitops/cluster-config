@@ -1,0 +1,5 @@
+- op: add
+  path: /spec/template/spec/containers/0/env
+  value:
+    - name: SEALED_SECRETS_UPDATE_STATUS
+      value: '1'

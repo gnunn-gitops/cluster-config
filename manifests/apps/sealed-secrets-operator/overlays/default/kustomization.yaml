@@ -16,4 +16,4 @@ patchesJson6902:
     kind: Deployment
     name: sealed-secrets-controller
     namespace: sealed-secrets
-  path: patch-image.yaml
+  path: patch-update-status.yaml
