@@ -3,5 +3,7 @@ kind: Kustomization
 
 resources:
 # overwrite the original secret so we can mark it as managed by sealed-secrets
-- alertmanager-main-secret.yaml
+#- alertmanager-main-secret.yaml
+- annotate-secret-job.yaml
+- annotate-secret-sa.yaml
 - alertmanager-main-sealed-secret.yaml
