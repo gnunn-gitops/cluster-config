@@ -12,8 +12,8 @@ spec:
     server: https://kubernetes.default.svc
   project: cluster-config
   source:
-    path: manifests/container-security-operator/base
-    repoURL: https://github.com/redhat-canada-gitops/01-cluster-config.git
+    path: container-security-operator/base
+    repoURL: https://github.com/redhat-canada-gitops/catalog.git
     targetRevision: master
   syncPolicy:
     automated:
