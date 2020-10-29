@@ -1,0 +1,8 @@
+apiVersion: compliance.openshift.io/v1alpha1
+debug: true
+kind: ScanSetting
+metadata:
+  name: moderate
+  namespace: openshift-operators
+roles:
+- master

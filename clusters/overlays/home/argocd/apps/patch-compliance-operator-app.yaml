@@ -1,0 +1,6 @@
+- op: replace
+  path: /spec/source/path
+  value: manifests/apps/compliance-operator/overlays/scheduled-master
+- op: replace
+  path: /spec/source/repoURL
+  value: https://github.com/gnunn-gitops/cluster-config.git
