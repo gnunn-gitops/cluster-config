@@ -17,5 +17,5 @@ patches:
     group: argoproj.io
     version: v1alpha1
     kind: Application
-    name: compliance-operator
+    name: config-compliance-security
   path: patch-compliance-operator-app.yaml
