@@ -32,4 +32,4 @@ This repo uses Argo CD sync waves to configure the configuration in an ordered m
 2. Lets Encrypt for wildcard routes
 3. Storage (iscsi storageclass and PVs)
 11. Cluster Configuration (Authentication, AlertManager, etc)
-21. Operators (Pipelines, CSO, etc)
+21. Operators (Pipelines, CSO, Compliance, Namespace Operator, etc)
