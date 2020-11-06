@@ -8,6 +8,7 @@ bases:
 - ../../../manifests/argocd/apps/letsencrypt-certs/base
 - ../../../manifests/argocd/apps/storage/base
 - ../../../manifests/argocd/apps/alertmanager/base
+- ../../../manifests/argocd/apps/prometheus-user-app/base
 - ../../../manifests/argocd/apps/console-links/base
 - ../../../manifests/argocd/apps/helm-repos/base
 - ../../../manifests/argocd/apps/oauth/base
