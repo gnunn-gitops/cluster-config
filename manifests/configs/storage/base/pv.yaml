@@ -3,7 +3,6 @@ kind: PersistentVolume
 metadata:
   name: iscsi-0-100
 spec:
-  persistentVolumeReclaimPolicy: Delete
   capacity:
     storage: 100Gi
   accessModes:
@@ -22,7 +21,6 @@ kind: PersistentVolume
 metadata:
   name: iscsi-1-100
 spec:
-  persistentVolumeReclaimPolicy: Delete
   capacity:
     storage: 100Gi
   accessModes:
@@ -41,7 +39,6 @@ kind: PersistentVolume
 metadata:
   name: iscsi-2-50
 spec:
-  persistentVolumeReclaimPolicy: Delete
   capacity:
     storage: 50Gi
   accessModes:
@@ -60,7 +57,6 @@ kind: PersistentVolume
 metadata:
   name: iscsi-3-50
 spec:
-  persistentVolumeReclaimPolicy: Delete
   capacity:
     storage: 50Gi
   accessModes:
@@ -79,7 +75,6 @@ kind: PersistentVolume
 metadata:
   name: iscsi-4-10
 spec:
-  persistentVolumeReclaimPolicy: Delete
   capacity:
     storage: 10Gi
   accessModes:
@@ -98,7 +93,6 @@ kind: PersistentVolume
 metadata:
   name: iscsi-5-10
 spec:
-  persistentVolumeReclaimPolicy: Delete
   capacity:
     storage: 10Gi
   accessModes:
@@ -117,7 +111,6 @@ kind: PersistentVolume
 metadata:
   name: iscsi-6-10
 spec:
-  persistentVolumeReclaimPolicy: Delete
   capacity:
     storage: 10Gi
   accessModes:
@@ -136,7 +129,6 @@ kind: PersistentVolume
 metadata:
   name: iscsi-7-10
 spec:
-  persistentVolumeReclaimPolicy: Delete
   capacity:
     storage: 10Gi
   accessModes:
@@ -155,7 +147,6 @@ kind: PersistentVolume
 metadata:
   name: iscsi-8-10
 spec:
-  persistentVolumeReclaimPolicy: Delete
   capacity:
     storage: 10Gi
   accessModes:
