@@ -8,9 +8,9 @@ secretGenerator:
   options:
     disableNameSuffixHash: true
   files:
-    - login/matrix-login-template.html
+    - login/login.html
 - name: matrix-providers-template
   options:
     disableNameSuffixHash: true
   files:
-    - login/matrix-providers-template.html    
+    - login/providers.html 
