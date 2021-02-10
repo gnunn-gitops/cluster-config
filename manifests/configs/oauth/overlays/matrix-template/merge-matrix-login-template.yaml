@@ -6,3 +6,5 @@ spec:
   templates:
     login:
       name: matrix-login-template
+    providerSelection:
+      name: matrix-providers-template    
