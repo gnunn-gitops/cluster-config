@@ -5,5 +5,7 @@ namespace: openshift-config
 
 secretGenerator:
 - name: matrix-login-template
+  options:
+    disableNameSuffixHash: true
   files:
     - login/login.html

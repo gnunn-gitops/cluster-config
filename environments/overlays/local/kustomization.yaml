@@ -19,6 +19,7 @@ bases:
 - ../../../manifests/argocd/apps/groups-and-membership/base
 - ../../../manifests/argocd/apps/namespace-configuration-operator/base
 
+
 patches:
 - target:
     group: argoproj.io
