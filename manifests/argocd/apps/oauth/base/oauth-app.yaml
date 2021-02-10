@@ -4,6 +4,7 @@ metadata:
   name: config-authentication
   annotations:
     argocd.argoproj.io/sync-wave: "11"
+    argocd.argoproj.io/compare-options: IgnoreExtraneous    
   labels:
     gitops.ownedBy: cluster-config
 spec:
