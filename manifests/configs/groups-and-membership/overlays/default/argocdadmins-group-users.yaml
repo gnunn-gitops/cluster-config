@@ -8,3 +8,6 @@
 - op: add
   path: /users/-
   value: "admin"
+- op: add
+  path: /users/-
+  value: "gnunn@redhat.com"  
