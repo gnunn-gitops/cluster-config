@@ -1,0 +1,20 @@
+apiVersion: apps.3scale.net/v1alpha1
+kind: APIManager
+metadata:
+  name: apimanager
+  namespace: 3scale
+spec:
+  wildcardDomain: 3scale.apps.home.ocplab.com
+  system:
+    database:
+      postgresql:
+        persistentVolumeClaim:
+          storageClassName: iscsi
+    redisPersistentVolumeClaim:
+      storageClassName: iscsi
+  backend:
+    redisPersistentVolumeClaim:
+      storageClassName: iscsi
+  fileStorage:
+    persistentVolumeClaim:
+      storageClassName: managed-nfs-storage
