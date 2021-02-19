@@ -1,0 +1,6 @@
+- op: replace
+  path: /spec/source/path
+  value: clusters/overlays/home/apps/cost-management-operator
+- op: replace
+  path: /spec/source/repoURL
+  value: https://github.com/gnunn-gitops/cluster-config.git

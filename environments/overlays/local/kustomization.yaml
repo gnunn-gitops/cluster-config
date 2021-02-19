@@ -19,9 +19,16 @@ bases:
 - ../../../manifests/argocd/apps/groups-and-membership/base
 - ../../../manifests/argocd/apps/namespace-configuration-operator/base
 
+
 patches:
 - target:
     group: argoproj.io
     version: v1alpha1
     kind: Application
   path: patch-application.yaml
+- target:
+    group: argoproj.io
+    version: v1alpha1
+    kind: Application
+    name: config-authentication
+  path: patch-authentication-application.yaml  
