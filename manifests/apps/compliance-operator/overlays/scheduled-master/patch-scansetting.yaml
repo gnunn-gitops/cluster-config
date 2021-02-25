@@ -3,6 +3,6 @@ debug: true
 kind: ScanSetting
 metadata:
   name: moderate
-  namespace: openshift-operators
+  namespace: openshift-compliance
 roles:
 - master
