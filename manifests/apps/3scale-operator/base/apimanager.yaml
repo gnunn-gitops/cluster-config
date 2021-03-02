@@ -12,6 +12,9 @@ spec:
           storageClassName: iscsi
     redisPersistentVolumeClaim:
       storageClassName: iscsi
+    fileStorage:
+      persistentVolumeClaim:
+        storageClassName: managed-nfs-storage
   backend:
     redisPersistentVolumeClaim:
       storageClassName: iscsi
