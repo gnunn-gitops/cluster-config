@@ -1,0 +1,1 @@
+kustomize build clusters/overlays/cluster/argocd/manager | oc apply -f -
