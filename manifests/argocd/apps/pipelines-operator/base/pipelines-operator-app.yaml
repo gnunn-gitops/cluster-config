@@ -12,7 +12,7 @@ spec:
     server: https://kubernetes.default.svc
   project: cluster-config
   source:
-    path: pipelines-operator/overlays/preview
+    path: openshift-pipelines-operator/overlays/stable
     repoURL: https://github.com/redhat-canada-gitops/catalog.git
     targetRevision: master
   syncPolicy:
