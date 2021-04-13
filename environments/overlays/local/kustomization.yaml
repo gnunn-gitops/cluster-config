@@ -18,7 +18,7 @@ bases:
 - ../../../manifests/argocd/apps/web-terminal-operator/base
 - ../../../manifests/argocd/apps/groups-and-membership/base
 - ../../../manifests/argocd/apps/namespace-configuration-operator/base
-- ../../../manifests/argocd/apps/sso-operator/base
+- ../../../manifests/argocd/apps/sso/base
 
 patches:
 - target:

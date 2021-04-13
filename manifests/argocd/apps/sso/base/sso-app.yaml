@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: config-sso-operator
+  name: config-sso
   annotations:
     argocd.argoproj.io/sync-wave: "21"
   labels:
@@ -12,8 +12,8 @@ spec:
     server: https://kubernetes.default.svc
   project: cluster-config
   source:
-    path: manifests/apps/sso-operator/overlays/default
-    repoURL: https://github.com/gnunn-gitops/cluster-config.git
+    path: rhsso/rhsso-standalone/overlays/default
+    repoURL: https://github.com/redhat-canada-gitops/catalog.git
     targetRevision: master
   syncPolicy:
     automated:
