@@ -4,6 +4,7 @@ metadata:
   name: apimanager
   namespace: 3scale
 spec:
+  resourceRequirementsEnabled: true
   wildcardDomain: 3scale.apps.home.ocplab.com
   system:
     database:
@@ -15,9 +16,23 @@ spec:
     fileStorage:
       persistentVolumeClaim:
         storageClassName: managed-nfs-storage
+    redisResources:
+      requests:
+        cpu: 150m
+        memory: 256Mi
+      limits:
+        cpu: 500m
+        memory: 4Gi
   backend:
     redisPersistentVolumeClaim:
       storageClassName: iscsi
+    redisResources:
+      limits:
+        cpu: 500m
+        memory: 4Gi
+      requests:
+        cpu: 150m
+        memory: 256Mi
   fileStorage:
     persistentVolumeClaim:
       storageClassName: managed-nfs-storage
