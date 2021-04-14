@@ -11,6 +11,7 @@ secretGenerator:
   files:
   - secrets/keycloak-changelog.yml
   - secrets/01-realms.yml
+  - secrets/02-clients-private.yml
 
 bases:
 - github.com/redhat-canada-gitops/catalog/rhsso/rhsso-standalone/overlays/default
