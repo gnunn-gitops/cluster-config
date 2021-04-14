@@ -1,7 +1,7 @@
 - op: add
   path: /spec/identityProviders/1
   value:
-    name: Internal-SSO
+    name: rhsso
     mappingMethod: claim
     type: OpenID
     openID:
