@@ -1,0 +1,19 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: sso
+
+generatorOptions:
+  disableNameSuffixHash: true
+
+secretGenerator:
+- name: keycloak-migration
+  files:
+  - secrets/keycloak-changelog.yml
+  - secrets/01-realms.yml
+
+bases:
+- github.com/redhat-canada-gitops/catalog/rhsso/rhsso-standalone/overlays/default
+
+resources:
+- keycloak-migration-job.yaml

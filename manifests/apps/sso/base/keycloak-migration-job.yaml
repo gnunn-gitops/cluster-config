@@ -1,0 +1,53 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: keycloak-migration
+  namespace: sso
+  annotations:
+    argocd.argoproj.io/hook: PostSync
+    argocd.argoproj.io/hook-delete-policy: HookSucceeded
+spec:
+  template:
+    spec:
+      containers:
+      - image: klg71/keycloakmigration
+        env:
+        - name: BASEURL
+          value: "https://sso-sso.apps.home.ocplab.com/auth"
+        - name: ADMIN_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: sso-admin-credential
+              key: ADMIN_USERNAME
+        - name: ADMIN_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: sso-admin-credential
+              key: ADMIN_PASSWORD
+        imagePullPolicy: Always
+        name: keycloak-migration
+        volumeMounts:
+        - name: keycloak-migration
+          mountPath: "/migration"
+          readOnly: true
+        - name: logs
+          mountPath: "/logs"
+        # command:
+        #   - /bin/sh
+        #   - -c
+        #   - |
+        #     pwd
+        #     echo "Files in migration"
+        #     ls /migration
+        #     echo "Read 01-realms.yml"
+        #     cat /migration
+
+      dnsPolicy: ClusterFirst
+      restartPolicy: OnFailure
+      terminationGracePeriodSeconds: 30
+      volumes:
+      - name: keycloak-migration
+        secret:
+          secretName: keycloak-migration
+      - name: logs
+        emptyDir: {}
