@@ -2,3 +2,5 @@ sealed-secrets-secret.yaml
 cloud-dns-credentials.yaml
 alertmanager.yaml
 google-secret.yaml
+*-private.yaml
+*-private.yml
