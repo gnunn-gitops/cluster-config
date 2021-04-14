@@ -3,18 +3,21 @@ kind: Kustomization
 
 namespace: sso
 
-generatorOptions:
-  disableNameSuffixHash: true
+# Used to generate an initial secret that we can then create the seal secret out of
+# generatorOptions:
+#   disableNameSuffixHash: true
 
-secretGenerator:
-- name: keycloak-migration
-  files:
-  - secrets/keycloak-changelog.yml
-  - secrets/01-realms.yml
-  - secrets/02-clients-private.yml
+# secretGenerator:
+# - name: keycloak-migration
+#   files:
+#   - secrets/keycloak-changelog.yml
+#   - secrets/01-realms.yml
+#   - secrets/02-clients-private.yml
+#   - secrets/03-openshift-users-private.yml
 
 bases:
 - github.com/redhat-canada-gitops/catalog/rhsso/rhsso-standalone/overlays/default
 
 resources:
 - keycloak-migration-job.yaml
+- keycloak-migration-sealed-secret.yaml
