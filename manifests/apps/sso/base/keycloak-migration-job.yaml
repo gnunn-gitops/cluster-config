@@ -32,16 +32,6 @@ spec:
           readOnly: true
         - name: logs
           mountPath: "/logs"
-        # command:
-        #   - /bin/sh
-        #   - -c
-        #   - |
-        #     pwd
-        #     echo "Files in migration"
-        #     ls /migration
-        #     echo "Read 01-realms.yml"
-        #     cat /migration
-
       dnsPolicy: ClusterFirst
       restartPolicy: OnFailure
       terminationGracePeriodSeconds: 30
