@@ -26,4 +26,4 @@
         email:
         - custom_email_claim
         - email
-      issuer: https://sso-sso.apps.home.ocplab.com/auth/realms/openshift
+      issuer: https://sso-sso.apps.example.com/auth/realms/openshift

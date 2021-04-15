@@ -1,17 +1,10 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
-commonAnnotations:
-  argocd.argoproj.io/compare-options: IgnoreExtraneous
-  argocd.argoproj.io/sync-options: Prune=false
-
 bases:
-- ../matrix-template
+- ../../../../../../manifests/configs/oauth/overlays/sso-with-matrix
 
-resources:
-- client-sealed-secret.yaml
-
-# Patch cluster specific
+# Patch cluster specific URL
 patchesJson6902:
   - path: patch-sso-idp.yaml
     target:

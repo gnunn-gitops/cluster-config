@@ -1,3 +1,0 @@
-- op: replace
-  path: /spec/source/path
-  value: manifests/configs/oauth/overlays/sso-with-matrix
