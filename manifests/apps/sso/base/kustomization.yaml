@@ -8,17 +8,17 @@ namespace: sso
 # own sealed secret since some items such as IdPs or clients require cluster specific
 # asettings.
 
-# generatorOptions:
-#   disableNameSuffixHash: true
+generatorOptions:
+  disableNameSuffixHash: true
 
-# secretGenerator:
-# - name: keycloak-migration
-#   files:
-#   - secrets/keycloak-changelog.yml
-#   - secrets/01-realms.yml
-#   - secrets/02-clients-private.yml
-#   - secrets/03-openshift-users-private.yml
-#   - secrets/04-google-idp-private.yml
+secretGenerator:
+- name: keycloak-migration
+  files:
+  - secrets/keycloak-changelog.yml
+  - secrets/01-realms.yml
+  - secrets/02-clients-private.yml
+  # - secrets/03-openshift-users-private.yml
+  # - secrets/04-google-idp-private.yml
 
 bases:
 - github.com/redhat-canada-gitops/catalog/rhsso/rhsso-standalone/overlays/default
