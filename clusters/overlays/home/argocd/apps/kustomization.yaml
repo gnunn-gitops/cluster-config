@@ -37,9 +37,9 @@ patches:
     name: config-authentication
   path: patch-authentication-application.yaml
 # Patch SSO app to use cluster specific sealed secret with keycloak migration configuration
-# - target:
-#     group: argoproj.io
-#     version: v1alpha1
-#     kind: Application
-#     name: config-sso
-#   path: patch-sso-app.yaml
+- target:
+    group: argoproj.io
+    version: v1alpha1
+    kind: Application
+    name: config-sso
+  path: patch-sso-app.yaml
