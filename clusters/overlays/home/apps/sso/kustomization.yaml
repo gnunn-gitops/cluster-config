@@ -6,3 +6,4 @@ bases:
 
 resources:
 - keycloak-migration-sealed-secret.yaml
+- sso-oauth-client.yaml
