@@ -1,5 +1,5 @@
 kind: OAuthClient
-apiVersion: v1
+apiVersion: oauth.openshift.io/v1
 metadata:
   name: keycloak-client
   namespace: openshift-config
