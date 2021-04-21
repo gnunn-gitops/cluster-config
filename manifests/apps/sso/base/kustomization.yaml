@@ -25,4 +25,4 @@ bases:
 
 resources:
 - keycloak-migration-job.yaml
-- sso-ouath-client.yaml
+- sso-oauth-client.yaml
