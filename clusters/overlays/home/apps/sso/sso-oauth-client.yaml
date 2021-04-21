@@ -2,6 +2,7 @@ kind: OAuthClient
 apiVersion: v1
 metadata:
   name: keycloak-client
+  namespace: openshift-config
 secret: "c2cb0aca-8814-4e52-a54e-1cb802052b4a"
 redirectURIs:
 - http://sso-sso.apps.home.ocplab.com/auth/realms/openshift/broker/openshift-v4/endpoint
