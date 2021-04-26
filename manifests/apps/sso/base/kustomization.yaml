@@ -18,6 +18,7 @@ namespace: sso
 #   - secrets/01-realms.yml
 #   - secrets/02-clients-private.yml
 #   - secrets/05-openshift-v4-idp-private.yml
+#   - secrets/06-codeready-public-client.yml
 
   # - secrets/03-openshift-users-private.yml
   # - secrets/04-google-idp-private.yml
