@@ -9,12 +9,12 @@ resources:
 
 patches:
 # Patch console links for cluster routes
-- target:
-    group: argoproj.io
-    version: v1alpha1
-    kind: Application
-    name: config-console-links
-  path: patch-console-link-app.yaml
+# - target:
+#     group: argoproj.io
+#     version: v1alpha1
+#     kind: Application
+#     name: config-console-links
+#   path: patch-console-link-app.yaml
 # Patch so compliance scan only runs on masters and doesn't get double-run
 - target:
     group: argoproj.io
