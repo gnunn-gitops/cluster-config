@@ -12,7 +12,7 @@ spec:
   source:
     path: clusters/home/argocd/overlays/default
     repoURL: https://github.com/gnunn-gitops/cluster-config.git
-    targetRevision: master
+    targetRevision: applicationsets
   syncPolicy:
     automated:
       prune: false
