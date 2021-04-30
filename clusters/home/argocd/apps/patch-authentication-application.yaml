@@ -1,4 +1,0 @@
-- op: replace
-  path: /spec/source/path
-  value: manifests/configs/oauth/overlays/google-with-matrix
-# value: clusters/overlays/home/configs/oauth/sso-with-matrix

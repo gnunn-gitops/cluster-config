@@ -1,3 +1,0 @@
-- op: replace
-  path: /spec/source/path
-  value: clusters/overlays/home/configs/consolelinks

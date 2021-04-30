@@ -5,4 +5,4 @@ bases:
 - ../../base
 
 resources:
-- cluster-config-applicationset.yaml
+- cluster-config-manager-app.yaml

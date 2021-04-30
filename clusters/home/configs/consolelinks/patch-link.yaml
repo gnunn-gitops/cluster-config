@@ -1,3 +1,0 @@
-- op: replace
-  path: /spec/href
-  value: 'https://argocd-server-argocd.apps.home.ocplab.com'

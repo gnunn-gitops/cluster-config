@@ -1,3 +1,0 @@
-- op: add
-  path: /spec/identityProviders/1/openID/issuer
-  value: https://sso-sso.apps.home.ocplab.com/auth/realms/openshift

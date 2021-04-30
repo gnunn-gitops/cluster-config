@@ -1,6 +1,0 @@
-- op: replace
-  path: /spec/destination/namespace
-  value: openshift-gitops
-- op: replace
-  path: /spec/project
-  value: cluster-config
