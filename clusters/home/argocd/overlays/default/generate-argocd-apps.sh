@@ -59,7 +59,7 @@ do
   path=${!apps[i]:3:1}
   wave=${!apps[i]:4:1}
   echo "Generating $name"
-  argocd-util app generate-spec ${name} --repo $repo} --revision ${revision} --path ${path} --dest-namespace $namespace --dest-server $dest_server --project=$project --label "gitops.ownedBy=cluster-config" > temp.yaml
+  argocd-util app generate-spec ${name} --repo $repo --revision $revision --path $path --dest-namespace $namespace --dest-server $dest_server --project=$project --label "gitops.ownedBy=cluster-config" > temp.yaml
   yq --yaml-output '.metadata |= ({annotations: {"argocd.argoproj.io/compare-options": "IgnoreExtraneous","argocd.argoproj.io/sync-wave":"'${wave}'"}} + .)' < temp.yaml > ${name}-app.yaml
 done
 rm temp.yaml

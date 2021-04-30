@@ -14,5 +14,5 @@ spec:
   project: cluster-config
   source:
     path: web-terminal-operator/overlays/aggregate
-    repoURL: https://github.com/redhat-canada-gitops/catalog.git}
+    repoURL: https://github.com/redhat-canada-gitops/catalog.git
     targetRevision: master
