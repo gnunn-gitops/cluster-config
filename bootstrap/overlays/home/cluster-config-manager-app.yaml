@@ -13,7 +13,7 @@ spec:
   source:
     path: clusters/home/argocd/apps/base
     repoURL: https://github.com/gnunn-gitops/cluster-config.git
-    targetRevision: applicationsets
+    targetRevision: master
   syncPolicy:
     automated:
       prune: false
