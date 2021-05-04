@@ -3,16 +3,19 @@ kind: Application
 metadata:
   annotations:
     argocd.argoproj.io/compare-options: IgnoreExtraneous
-    argocd.argoproj.io/sync-wave: '11'
+    argocd.argoproj.io/sync-wave: '21'
   labels:
     gitops.ownedBy: cluster-config
-  name: config-groups-and-membership
+  name: config-web-terminal-operator
 spec:
   destination:
     namespace: openshift-gitops
     server: https://kubernetes.default.svc
   project: cluster-config
   source:
-    path: components/configs/groups-and-membership/overlays/default
-    repoURL: https://github.com/gnunn-gitops/cluster-config.git
-    targetRevision: applicationsets
+    path: web-terminal-operator/overlays/aggregate
+    repoURL: https://github.com/redhat-canada-gitops/catalog.git
+    targetRevision: master
+  syncPolicy:
+    automated:
+      selfHeal: true

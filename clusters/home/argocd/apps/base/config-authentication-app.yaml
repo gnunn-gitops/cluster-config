@@ -3,16 +3,19 @@ kind: Application
 metadata:
   annotations:
     argocd.argoproj.io/compare-options: IgnoreExtraneous
-    argocd.argoproj.io/sync-wave: '21'
+    argocd.argoproj.io/sync-wave: '4'
   labels:
     gitops.ownedBy: cluster-config
-  name: config-container-security
+  name: config-authentication
 spec:
   destination:
     namespace: openshift-gitops
     server: https://kubernetes.default.svc
   project: cluster-config
   source:
-    path: container-security-operator/base
-    repoURL: https://github.com/redhat-canada-gitops/catalog.git
+    path: components/configs/oauth/overlays/google-with-matrix
+    repoURL: https://github.com/gnunn-gitops/cluster-config.git
     targetRevision: master
+  syncPolicy:
+    automated:
+      selfHeal: true

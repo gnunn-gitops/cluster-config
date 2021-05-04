@@ -3,16 +3,19 @@ kind: Application
 metadata:
   annotations:
     argocd.argoproj.io/compare-options: IgnoreExtraneous
-    argocd.argoproj.io/sync-wave: '11'
+    argocd.argoproj.io/sync-wave: '2'
   labels:
     gitops.ownedBy: cluster-config
-  name: config-helm-repos
+  name: letsencrypt-certs
 spec:
   destination:
     namespace: openshift-gitops
     server: https://kubernetes.default.svc
   project: cluster-config
   source:
-    path: components/configs/helm-repos/base
+    path: components/apps/letsencrypt-certs/overlays/default
     repoURL: https://github.com/gnunn-gitops/cluster-config.git
-    targetRevision: applicationsets
+    targetRevision: master
+  syncPolicy:
+    automated:
+      selfHeal: true

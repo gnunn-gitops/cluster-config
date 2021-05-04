@@ -3,16 +3,19 @@ kind: Application
 metadata:
   annotations:
     argocd.argoproj.io/compare-options: IgnoreExtraneous
-    argocd.argoproj.io/sync-wave: '3'
+    argocd.argoproj.io/sync-wave: '21'
   labels:
     gitops.ownedBy: cluster-config
-  name: config-storage
+  name: config-sso
 spec:
   destination:
     namespace: openshift-gitops
     server: https://kubernetes.default.svc
   project: cluster-config
   source:
-    path: components/configs/storage/base
+    path: clusters/home/apps/sso/overlays/default
     repoURL: https://github.com/gnunn-gitops/cluster-config.git
-    targetRevision: applicationsets
+    targetRevision: master
+  syncPolicy:
+    automated:
+      selfHeal: true
