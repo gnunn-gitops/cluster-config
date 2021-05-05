@@ -3,6 +3,9 @@ kind: ApplicationSet
 metadata:
   name: tenant-product-catalog
   namespace: openshift-gitops
+  annotations:
+    argocd.argoproj.io/compare-options: IgnoreExtraneous
+    argocd.argoproj.io/sync-options: Prune=false
 spec:
   generators:
     - list:
