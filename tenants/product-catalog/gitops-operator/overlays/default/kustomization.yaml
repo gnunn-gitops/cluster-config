@@ -4,6 +4,9 @@ kind: Kustomization
 
 namespace: product-catalog-gitops
 
+commonAnnotations:
+  argocd.argoproj.io/compare-options: IgnoreExtraneous
+
 bases:
 - ../../../../../components/apps/gitops-operator/base
 

@@ -17,23 +17,16 @@ spec:
           values:
             name: product-catalog-gitops
             path: tenants/product-catalog/gitops-operator/overlays/default
-      # template:
-      #   metadata:
-      #     name: '{{values.name}}'
-      #   spec:
-      #     destination: {}
-      #     source:
-      #       repoURL: https://github.com/gnunn-gitops/cluster-config
-      #       targetRevision: master
-      #       path: '{{values.path}}'
   template:
     metadata:
       name: '{{values.name}}'
+      annotations:
+        argocd.argoproj.io/compare-options: IgnoreExtraneous
     spec:
       project: tenant-product-catalog
       syncPolicy:
         automated:
-          prune: true
+          prune: false
           selfHeal: true
       source:
         repoURL: https://github.com/gnunn-gitops/cluster-config
