@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  annotations:
+    openshift.io/description: Project for monitoring tools of product catalog application
+    openshift.io/display-name:  Product Catalog Monitor
+  name: product-catalog-monitor

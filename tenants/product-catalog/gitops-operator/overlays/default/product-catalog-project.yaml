@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: apps-product-catalog
+spec:
+  clusterResourceBlacklist:
+  - group: '*'
+    kind: '*'
+  namespaceResourceBlacklist:
+  - group: ''
+    kind: ResourceQuota
+  - group: ''
+    kind: LimitRange
+  - group: 'networking.k8s.io'
+    kind: NetworkPolicy
+  destinations:
+  - namespace: '*'
+    server: '*'
+  roles:
+  - description: Users with admin to applications in project
+    name: users
+    policies:
+    - p, role:user, applications, *, *, allow
+    - p, role:user, projects, get, *, allow
+  sourceRepos:
+  - '*'

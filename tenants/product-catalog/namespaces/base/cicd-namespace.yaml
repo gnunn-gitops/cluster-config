@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  annotations:
+    openshift.io/description: Project for ci/cd tools for product catalog application
+    openshift.io/display-name:  Product Catalog CI/CD
+  name: product-catalog-cicd
