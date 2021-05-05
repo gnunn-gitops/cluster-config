@@ -6,6 +6,7 @@ namespace: product-catalog-gitops
 
 commonAnnotations:
   argocd.argoproj.io/compare-options: IgnoreExtraneous
+  argocd.argoproj.io/sync-options: Prune=false
 
 bases:
 - ../../../../../components/apps/gitops-operator/base
