@@ -18,4 +18,4 @@ resources:
 - config-namespace-config-operator-app.yaml
 - config-sso-app.yaml
 - config-web-terminal-operator-app.yaml
-- tenant-product-catalog-app.yaml
+# - tenant-product-catalog-app.yaml
