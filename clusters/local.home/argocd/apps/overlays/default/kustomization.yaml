@@ -1,0 +1,20 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: openshift-gitops
+
+resources:
+- ../../../../../../components/argocd/apps/base/sealed-secrets
+- ../../../../../../components/argocd/apps/base/letsencrypt-certs
+- ../../../../../../components/argocd/apps/base/config-storage
+- ../../../../../../components/argocd/apps/base/config-authentication
+- ../../../../../../components/argocd/apps/base/config-groups-and-membership
+- ../../../../../../components/argocd/apps/base/config-alertmanager
+- ../../../../../../components/argocd/apps/base/config-console-links
+- ../../../../../../components/argocd/apps/base/config-helm-repos
+- ../../../../../../components/argocd/apps/base/config-prometheus-user-app
+- ../../../../../../components/argocd/apps/base/config-container-security
+- ../../../../../../components/argocd/apps/base/config-namespace-config-operator
+- ../../../../../../components/argocd/apps/base/config-web-terminal-operator
+- ../../../../../../components/argocd/apps/base/config-sso
+- ../../../../../../components/argocd/apps/base/config-cost-management
