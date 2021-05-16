@@ -4,11 +4,14 @@ This repo contains the cluster configuration I use for my personal OpenShift clu
 
 # Structure
 
-Similar to standards document, the repo consists of three high level folders:
+Similar to my standards document, the repo consists of four high level folders:
 
 * _bootstrap_  - the minimal yaml needed to bootstrap the cluster-config into argocd. It deploys a known sealed-secret private key along with an "app of app" `cluster-config-manager` that deploys the entirety of the cluster configuration.
 * _components_ - a base set of kustomize manifests and yaml for applications, operators, configuration and ArgoCD app/project definitions. Everything is inherited from here
 * _clusters_ - Cluster specific configuration, this inherits and kustomizes from the components folder and uses an identical structure.
+* _tenants_ - Tenant specific artifacts required by different teams using the cluster. For example, a team will likely need a set of namespaces with quotas, there own gitops-operator installation, etc in order to deploy their work.
+
+While this structure follows the basic principles in my standards document I am in the process of re-factoring the naming as well as attempting to simplify the level of nesting.
 
 ![alt text](https://raw.githubusercontent.com/gnunn-gitops/cluster-config/master/docs/img/argocd.png)
 
