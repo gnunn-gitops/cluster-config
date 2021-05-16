@@ -19,3 +19,18 @@ resources:
 - ../../../../../../components/argocd/apps/base/config-sso
 - ../../../../../../components/argocd/apps/base/config-cost-management
 
+patches:
+- patch: |-
+    - op: replace
+      path: /spec/source/path
+      value: clusters/local.home/apps/sso/overlays/default
+  target:
+    kind: Application
+    name: config-sso
+- patch: |-
+    - op: replace
+      path: /spec/source/path
+      value: clusters/local.home/apps/cost-management-operator/overlays/default
+  target:
+    kind: Application
+    name: config-cost-management
