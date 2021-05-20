@@ -15,3 +15,16 @@ resources:
 - namespace.yaml
 - operatorgroup.yaml
 - product-catalog-project.yaml
+
+patches:
+-  target:
+     kind: ArgoCD
+   patch: |-
+    - op: add
+      path: /spec/rbac
+      value:
+        rbac:
+          defaultPolicy: role:readonly
+          policy: |
+            g, product-catalog-gitops:admins, role:admin
+          scopes: "[groups]"
