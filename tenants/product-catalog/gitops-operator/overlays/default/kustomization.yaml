@@ -27,5 +27,6 @@ patches:
         rbac:
           defaultPolicy: role:readonly
           policy: |
-            g, product-catalog-gitops:admins, role:admin
+            g, product-catalog-admins, role:admin
+            g, system:cluster-admins, role:admin
           scopes: "[groups]"
