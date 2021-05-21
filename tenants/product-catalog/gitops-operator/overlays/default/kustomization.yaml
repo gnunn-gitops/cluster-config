@@ -15,6 +15,7 @@ resources:
 - namespace.yaml
 - operatorgroup.yaml
 - product-catalog-project.yaml
+- console-link.yaml
 
 patches:
 -  target:
