@@ -8,3 +8,4 @@ resources:
 - monitor-operatorgroup.yaml
 - prod-namespace.yaml
 - test-namespace.yaml
+- user1-rolebinding.yaml
