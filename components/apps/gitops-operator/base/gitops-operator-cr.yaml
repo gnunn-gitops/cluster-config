@@ -9,6 +9,7 @@ spec:
   dex:
     openShiftOAuth: true
   applicationInstanceLabelKey: argocd.argoproj.io/instance
+  applicationSet: {}
   server:
     insecure: true
     route:
