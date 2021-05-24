@@ -14,6 +14,7 @@ bases:
 resources:
 - namespace.yaml
 - operatorgroup.yaml
+- user1-rolebinding.yaml
 - product-catalog-project.yaml
 - console-link.yaml
 
