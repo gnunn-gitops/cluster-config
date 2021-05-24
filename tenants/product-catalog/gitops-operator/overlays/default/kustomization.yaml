@@ -21,6 +21,9 @@ patches:
 -  target:
      kind: ArgoCD
    patch: |-
+    - op: replace
+      path: /spec/applicationInstanceLabelKey
+      value: argocd.argoproj.io/product-catalog-instance
     - op: add
       path: /spec/rbac
       value:
