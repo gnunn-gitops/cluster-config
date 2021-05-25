@@ -1,0 +1,24 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: product-catalog-monitor
+
+commonAnnotations:
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+
+bases:
+- https://github.com/redhat-canada-gitops/catalog/grafana-operator/overlays/user-app
+
+patchesJson6902:
+- target:
+    version: v1alpha1
+    group: integreatly.org
+    kind: Grafana
+    name: grafana
+  path: patch-grafana-sar.yaml
+- target:
+    version: v1
+    group: rbac.authorization.k8s.io
+    kind: ClusterRoleBinding
+    name: cluster-monitoring-view
+  path: patch-cluster-monitoring-view.yaml
