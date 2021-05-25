@@ -4,4 +4,5 @@ resources:
 - argocdadmins-group-base.yaml
 - argocdusers-group-base.yaml
 - cluster-admin-users-rolebinding.yaml
+- gitops-manager-role.yaml
 # - developer-group-base.yaml
