@@ -28,9 +28,8 @@ patches:
     - op: add
       path: /spec/rbac
       value:
-        rbac:
-          defaultPolicy: role:readonly
-          policy: |
-            g, product-catalog-admins, role:admin
-            g, system:cluster-admins, role:admin
-          scopes: "[groups]"
+        defaultPolicy: role:readonly
+        policy: |
+          g, product-catalog-admins, role:admin
+          g, system:cluster-admins, role:admin
+        scopes: "[groups]"
