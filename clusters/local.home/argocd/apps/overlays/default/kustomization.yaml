@@ -19,6 +19,7 @@ resources:
 # - ../../../../../../components/argocd/apps/base/config-sso
 - ../../../../../../components/argocd/apps/base/config-cost-management
 - ../../../../../../tenants/product-catalog/argocd/applicationset/base
+- github.com/gnunn-gitops/dev-tools/environments/overlays/argocd
 
 patches:
 - patch: |-
