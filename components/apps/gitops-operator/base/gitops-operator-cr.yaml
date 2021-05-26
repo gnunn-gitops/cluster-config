@@ -22,7 +22,7 @@ spec:
       ignoreDifferences: |
         jsonPointers:
         - /status/ingress
-    integreatly.org/GrafanaDataSource
+    integreatly.org/GrafanaDataSource:
       ignoreDifferences: |
         jsonPointers:
         - /spec/datasources/0/secureJsonData/httpHeaderValue1
