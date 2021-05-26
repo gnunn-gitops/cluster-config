@@ -4,15 +4,15 @@ kind: Kustomization
 namespace: openshift-gitops
 
 resources:
-- ../../../../../../components/argocd/apps/base/sealed-secrets
-- ../../../../../../components/argocd/apps/base/letsencrypt-certs
-- ../../../../../../components/argocd/apps/base/config-authentication
-- ../../../../../../components/argocd/apps/base/config-groups-and-membership
-- ../../../../../../components/argocd/apps/base/config-alertmanager
-- ../../../../../../components/argocd/apps/base/config-console-links
-- ../../../../../../components/argocd/apps/base/config-helm-repos
-- ../../../../../../components/argocd/apps/base/config-prometheus-user-app
-- ../../../../../../components/argocd/apps/base/config-container-security
-- ../../../../../../components/argocd/apps/base/config-namespace-config-operator
-- ../../../../../../components/argocd/apps/base/config-web-terminal-operator
+- ../../../../../../components/argocd/apps/sealed-secrets/base
+- ../../../../../../components/argocd/apps/letsencrypt-certs/base
+- ../../../../../../components/argocd/apps/config-authentication/base
+- ../../../../../../components/argocd/apps/config-groups-and-membership/base
+- ../../../../../../components/argocd/apps/config-alertmanager/base
+- ../../../../../../components/argocd/apps/config-console-links/base
+- ../../../../../../components/argocd/apps/config-helm-repos/base
+- ../../../../../../components/argocd/apps/config-prometheus-user-app/base
+- ../../../../../../components/argocd/apps/config-container-security/base
+- ../../../../../../components/argocd/apps/config-namespace-config-operator/base
+- ../../../../../../components/argocd/apps/config-web-terminal-operator/base
 - github.com/gnunn-gitops/dev-tools/environments/overlays/argocd

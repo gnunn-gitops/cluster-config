@@ -64,16 +64,16 @@ do
   echo "Generating $name"
   mkdir -p $name
   argocd-util app generate-spec ${name} --repo $repo --revision $revision --path $path --dest-namespace $namespace --dest-server $dest_server --project=$project --label "gitops.ownedBy=cluster-config" --sync-policy automated --self-heal > temp.yaml
-  yq --yaml-output '.metadata |= ({annotations: {"argocd.argoproj.io/compare-options": "IgnoreExtraneous","argocd.argoproj.io/sync-wave":"'${wave}'"}} + .)' < temp.yaml > ${name}/${name}-app.yaml
+  yq --yaml-output '.metadata |= ({annotations: {"argocd.argoproj.io/compare-options": "IgnoreExtraneous","argocd.argoproj.io/sync-wave":"'${wave}'"}} + .)' < temp.yaml > ${name}/base/${name}-app.yaml
 
   # Output kustomization file
-  printf "apiVersion: kustomize.config.k8s.io/v1beta1\n" > ${name}/kustomization.yaml
-  printf "kind: Kustomization\n" >> ${name}/kustomization.yaml
-  printf "\n" >> ${name}/kustomization.yaml
-  printf "namespace: openshift-gitops\n" >> ${name}/kustomization.yaml
-  printf "\n" >> ${name}/kustomization.yaml
-  printf "resources:\n" >> ${name}/kustomization.yaml
-  printf "%s\n" "- ${name}-app.yaml" >> ${name}/kustomization.yaml
+  printf "apiVersion: kustomize.config.k8s.io/v1beta1\n" > ${name}/base/kustomization.yaml
+  printf "kind: Kustomization\n" >> ${name}/base/kustomization.yaml
+  printf "\n" >> ${name}/base/kustomization.yaml
+  printf "namespace: openshift-gitops\n" >> ${name}/base/kustomization.yaml
+  printf "\n" >> ${name}/base/kustomization.yaml
+  printf "resources:\n" >> ${name}/base/kustomization.yaml
+  printf "%s\n" "- ${name}-app.yaml" >> ${name}/base/kustomization.yaml
 
 done
 rm temp.yaml
