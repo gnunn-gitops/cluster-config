@@ -1,14 +1,14 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: dev-tools
+  name: config-dev-tools
   labels:
-    gitops.ownedBy: dev-tools
+    gitops.ownedBy: cluster-config
 spec:
   destination:
     namespace: argocd
     server: https://kubernetes.default.svc
-  project: dev-tools
+  project: cluster-config
   source:
     path: components/apps/dev-tools/overlays/default
     repoURL: https://github.com/gnunn-gitops/cluster-config.git
