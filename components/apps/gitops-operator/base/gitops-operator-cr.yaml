@@ -22,6 +22,10 @@ spec:
       ignoreDifferences: |
         jsonPointers:
         - /status/ingress
+    integreatly.org/GrafanaDataSource
+      ignoreDifferences: |
+        jsonPointers:
+        - /spec/datasources/0/secureJsonData/httpHeaderValue1
     PersistentVolumeClaim:
       health.lua: |
         hs = {}
