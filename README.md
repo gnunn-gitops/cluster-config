@@ -32,6 +32,8 @@ This repo uses Argo CD sync waves to configure the configuration in an ordered m
 3. Storage (iscsi storageclass and PVs)
 11. Cluster Configuration (Authentication, AlertManager, etc)
 21. Operators (Pipelines, CSO, Compliance, Namespace Operator, etc)
+31. Common Apps (Developer Tools)
+51. Tenants
 
 # ArgoCD App Generation
 
