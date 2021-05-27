@@ -3,7 +3,7 @@ kind: Application
 metadata:
   annotations:
     argocd.argoproj.io/compare-options: IgnoreExtraneous
-    argocd.argoproj.io/sync-wave: '21'
+    argocd.argoproj.io/sync-wave: '31'
   name: config-dev-tools
   labels:
     gitops.ownedBy: cluster-config
