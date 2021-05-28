@@ -37,7 +37,7 @@ spec:
         argocd.argoproj.io/compare-options: IgnoreExtraneous
         argocd.argoproj.io/sync-options: Prune=false
     spec:
-      project: tenant-product-catalog
+      project: tenants
       syncPolicy:
         automated:
           prune: false

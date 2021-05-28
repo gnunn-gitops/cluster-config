@@ -4,5 +4,4 @@ kind: Kustomization
 namespace: openshift-gitops
 
 resources:
-- tenant-project.yaml
 - tenant-applicationset.yaml

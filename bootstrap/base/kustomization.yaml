@@ -5,3 +5,4 @@ resources:
 - cluster-config-project.yaml
 - sealed-secrets-namespace.yaml
 - sealed-secrets-secret.yaml
+- tenants-project.yaml
