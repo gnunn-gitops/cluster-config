@@ -4,3 +4,5 @@ kind: Kustomization
 resources:
 - gitops-operator-cr.yaml
 - gitops-workaround-993-role.yaml
+- patch-cluster-namespaces-rbac.yaml
+- patch-cluster-namespaces-job.yaml

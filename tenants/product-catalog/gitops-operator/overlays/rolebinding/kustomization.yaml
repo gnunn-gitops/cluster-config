@@ -8,3 +8,11 @@ bases:
 resources:
 - gitops-controller-rolebinding.yaml
 
+patches:
+-  target:
+     kind: Job
+     name: patch-cluster-namespaces-job
+   patch: |-
+    - op: replace
+      path: /spec/template/spec/containers/0/env/0/value
+      value: product-catalog-dev,product-catalog-test,product-catalog-prod,product-catalog-cicd,product-catalog-monitor
