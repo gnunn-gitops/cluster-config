@@ -9,6 +9,9 @@ commonAnnotations:
 bases:
 - https://github.com/redhat-canada-gitops/catalog/grafana-operator/overlays/user-app
 
+resources:
+- operatorgroup.yaml
+
 patchesJson6902:
 - target:
     version: v1alpha1
