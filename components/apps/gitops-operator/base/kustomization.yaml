@@ -5,5 +5,7 @@ resources:
 - gitops-operator-cr.yaml
 - gitops-workaround-993-role.yaml
 - in-cluster-secret.yaml
+# These can be used to patch an existing in-cluster secret. Not used
+# since I've opted to deploy the secret directly above.
 # - patch-cluster-namespaces-rbac.yaml
 # - patch-cluster-namespaces-job.yaml
