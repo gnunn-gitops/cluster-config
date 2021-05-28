@@ -28,8 +28,8 @@ spec:
         env:
         - name: NAMESPACES
           value: ""
-      imagePullPolicy: Always
-      name: patch-cluster-namespaces-job
+        imagePullPolicy: Always
+        name: patch-cluster-namespaces-job
       serviceAccount: patch-cluster-namespaces-job
       serviceAccountName: patch-cluster-namespaces-job
       dnsPolicy: ClusterFirst
