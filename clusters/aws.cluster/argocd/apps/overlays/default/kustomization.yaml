@@ -17,4 +17,4 @@ resources:
 - ../../../../../../components/argocd/apps/config-web-terminal-operator/base
 - ../../../../../../components/argocd/apps/config-pipeline-operator/base
 - ../../../../../../components/argocd/apps/config-dev-tools/base
-- ../../../../../../tenants/product-catalog/argocd/applicationset/base
+- ../../../../../../components/argocd/apps/tenant-product-catalog/base
