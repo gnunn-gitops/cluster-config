@@ -17,4 +17,14 @@ resources:
 - ../../../../../../../components/argocd/apps/config-web-terminal-operator/base
 - ../../../../../../../components/argocd/apps/config-pipeline-operator/base
 - ../../../../../../../components/argocd/apps/config-dev-tools/base
+- ../../../../../../../components/argocd/apps/config-cost-management/base
 - ../../../../../../../components/argocd/apps/tenant-product-catalog/base
+
+patches:
+- patch: |-
+    - op: replace
+      path: /spec/source/path
+      value: clusters/aws.cluster/apps/cost-management-operator/overlays/default
+  target:
+    kind: Application
+    name: config-cost-management
