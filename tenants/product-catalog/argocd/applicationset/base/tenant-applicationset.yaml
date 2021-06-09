@@ -42,6 +42,12 @@ spec:
         automated:
           prune: false
           selfHeal: true
+        retry:
+          limit: 2
+          backoff:
+            duration: 5s
+            factor: 2
+            maxDuration: 3m
       source:
         repoURL: https://github.com/gnunn-gitops/cluster-config
         targetRevision: master
@@ -49,9 +55,3 @@ spec:
       destination:
         server: https://kubernetes.default.svc
         namespace: openshift-gitops
-      retry:
-        limit: 2
-        backoff:
-          duration: 5s
-          factor: 2
-          maxDuration: 3m
