@@ -4,3 +4,11 @@ kind: Kustomization
 resources:
 - sc.yaml
 - pv.yaml
+
+# patches:
+#   - target:
+#       kind: PersistentVolume
+#     patch: |-
+#       - op: replace
+#         path: /spec/persistentVolumeReclaimPolicy
+#         value: Recycle
