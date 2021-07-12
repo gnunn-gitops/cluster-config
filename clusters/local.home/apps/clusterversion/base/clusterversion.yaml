@@ -6,6 +6,6 @@ spec:
   channel: fast-4.7
   clusterID: 4d11acb7-286f-42e1-868c-55f1e15687c7
   desiredUpdate:
-    image: quay.io/openshift-release-dev/ocp-release@sha256:783a2c963f35ccab38e82e6a8c7fa954c3a4551e07d2f43c06098828dd986ed4
-    version: 4.7.13
+    # image: quay.io/openshift-release-dev/ocp-release@sha256:783a2c963f35ccab38e82e6a8c7fa954c3a4551e07d2f43c06098828dd986ed4
+    version: 4.7.19
   upstream: https://api.openshift.com/api/upgrades_info/v1/graph
