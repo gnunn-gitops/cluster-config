@@ -9,7 +9,7 @@ metadata:
   name: config-acs
 spec:
   destination:
-    namespace: stackrox
+    namespace: openshift-gitops
     server: https://kubernetes.default.svc
   project: cluster-config
   source:
