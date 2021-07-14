@@ -13,7 +13,7 @@ spec:
     server: https://kubernetes.default.svc
   project: cluster-config
   source:
-    path: acs-operator/overlays/default
+    path: acs-operator/overlays/aggregate
     repoURL: https://github.com/redhat-canada-gitops/catalog.git
     targetRevision: acs
   syncPolicy:
