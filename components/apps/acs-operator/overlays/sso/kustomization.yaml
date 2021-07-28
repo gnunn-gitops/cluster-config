@@ -1,0 +1,8 @@
+namespace: stackrox
+
+bases:
+- https://github.com/redhat-canada-gitops/catalog/acs-operator/overlays/aggregate-minimal
+
+resources:
+- sso-sealed-secret.yaml
+- create-sso-auth-provider-job.yaml
