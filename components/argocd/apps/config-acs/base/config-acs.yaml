@@ -13,8 +13,8 @@ spec:
     server: https://kubernetes.default.svc
   project: cluster-config
   source:
-    path: acs-operator/overlays/aggregate-minimal
-    repoURL: https://github.com/redhat-canada-gitops/catalog.git
+    path: components/apps/acs-operator/overlays/sso
+    repoURL: https://github.com/gnunn-gitops/cluster-config.git
     targetRevision: acs
   syncPolicy:
     automated:
