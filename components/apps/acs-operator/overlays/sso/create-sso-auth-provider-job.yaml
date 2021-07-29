@@ -4,6 +4,7 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "10"
   name: create-sso-auth-provider
+  namespace: stackrox
 spec:
   template:
     spec:
