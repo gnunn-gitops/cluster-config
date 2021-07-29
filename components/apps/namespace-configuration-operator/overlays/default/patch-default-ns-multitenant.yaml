@@ -42,9 +42,9 @@ kind: Job
 metadata:
   name: patch-default-ns-multitenant
   namespace: namespace-configuration-operator
-  # annotations:
-  #   argocd.argoproj.io/hook: PreSync
-  #   argocd.argoproj.io/hook-delete-policy: HookSucceeded
+  annotations:
+    argocd.argoproj.io/hook: PreSync
+    argocd.argoproj.io/hook-delete-policy: HookSucceeded
 spec:
   template:
     spec:
