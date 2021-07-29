@@ -56,7 +56,7 @@ spec:
             - -c
             - |
 
-              echo "Adding label 'network.openshift.io/policy-group=ingress` to default namespace"
+              echo "Adding label 'network.openshift.io/policy-group=ingress' to default namespace"
               oc label namespace default 'network.openshift.io/policy-group=ingress' --overwrite
       restartPolicy: Never
       serviceAccountName: patch-job
