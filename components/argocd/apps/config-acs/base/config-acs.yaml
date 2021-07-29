@@ -15,7 +15,7 @@ spec:
   source:
     path: components/apps/acs-operator/overlays/sso
     repoURL: https://github.com/gnunn-gitops/cluster-config.git
-    targetRevision: acs
+    targetRevision: master
   syncPolicy:
     automated:
       selfHeal: true
