@@ -20,6 +20,7 @@ secretGenerator:
   - secrets/05-openshift-v4-idp-private.yml
   - secrets/06-codeready-public-client.yml
   - secrets/07-openshift-gitops-private.yml
+  - secrets/08-product-catalog-gitops-private.yml
 
   # - secrets/03-openshift-users-private.yml
   # - secrets/04-google-idp-private.yml
