@@ -55,7 +55,7 @@ spec:
                 exit 0
               fi
 
-              export DATA='{"name":"OpenShift","type":"oidc","uiEndpoint":"central-stackrox.apps.home.ocplab.com","enabled":true,"config":{"client_id":"stackrox","client_secret":"'$CLIENT_SECRET'","issuer":"'$ISSUER'","mode":"post"},"validated":true,"extraUiEndpoints":[],"active":true}'
+              export DATA='{"name":"OpenShift","type":"oidc","uiEndpoint":"central-stackrox.apps.home.ocplab.com","enabled":true,"config":{"client_id":"stackrox","client_secret":"'$CLIENT-SECRET'","issuer":"'$ISSUER'","mode":"post"},"validated":true,"extraUiEndpoints":[],"active":true}'
 
               curl -k -X POST -u "admin:$PASSWORD" -H "Content-Type: application/json" --data $DATA https://central/v1/authProviders
           imagePullPolicy: Always
