@@ -11,7 +11,7 @@ spec:
       containers:
         - image: image-registry.openshift-image-registry.svc:5000/openshift/cli:latest
           env:
-          - name: CLIENT-SECRET
+          - name: CLIENT_SECRET
             valueFrom:
               secretKeyRef:
                 name: sso-secret
@@ -55,7 +55,7 @@ spec:
                 exit 0
               fi
 
-              export DATA='{"name":"OpenShift","type":"oidc","uiEndpoint":"central-stackrox.apps.home.ocplab.com","enabled":true,"config":{"client_id":"stackrox","client_secret":"'$CLIENT-SECRET'","issuer":"'$ISSUER'","mode":"post"},"validated":true,"extraUiEndpoints":[],"active":true}'
+              export DATA='{"name":"OpenShift","type":"oidc","uiEndpoint":"central-stackrox.apps.home.ocplab.com","enabled":true,"config":{"client_id":"stackrox","client_secret":"'${CLIENT_SECRET}'","issuer":"'$ISSUER'","mode":"post"},"validated":true,"extraUiEndpoints":[],"active":true}'
 
               echo "Posting data: ${DATA}"
 
