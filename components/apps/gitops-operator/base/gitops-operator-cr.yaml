@@ -5,7 +5,7 @@ metadata:
 spec:
   # Use custom version with kustomize 4
   image: quay.io/gnunn/argocd-rhel8
-  version: v1.1.2
+  version: v1.2.0
   dex:
     openShiftOAuth: true
   applicationInstanceLabelKey: argocd.argoproj.io/instance
