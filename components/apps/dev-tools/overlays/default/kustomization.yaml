@@ -5,9 +5,9 @@ namespace: dev-tools
 
 bases:
 # Nexus
-- https://github.com/redhat-canada-gitops/catalog/nexus2/base
+- https://github.com/redhat-cop/gitops-catalog/nexus2/base
 # Sonarqube
-- https://github.com/redhat-canada-gitops/catalog/sonarqube8/overlays/plugins
+- https://github.com/redhat-cop/gitops-catalog/sonarqube8/overlays/plugins
 
 resources:
 - namespace.yaml

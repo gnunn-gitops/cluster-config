@@ -1,5 +1,5 @@
 bases:
-- https://github.com/redhat-canada-gitops/catalog/acs-operator/overlays/aggregate-minimal
+- https://github.com/redhat-cop/gitops-catalog/acs-operator/overlays/aggregate-minimal
 
 resources:
 - sso-sealed-secret.yaml

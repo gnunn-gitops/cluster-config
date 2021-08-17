@@ -2,7 +2,7 @@ kind: Kustomization
 apiVersion: kustomize.config.k8s.io/v1beta1
 
 bases:
-- https://github.com/redhat-canada-gitops/catalog/cost-management-operator/overlays/default
+- https://github.com/redhat-cop/gitops-catalog/cost-management-operator/overlays/default
 
 patchesJson6902:
   - path: patch-source-and-name.yaml

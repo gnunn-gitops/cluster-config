@@ -4,7 +4,7 @@ kind: Kustomization
 namespace: sso
 
 bases:
-- https://github.com/redhat-canada-gitops/catalog/rhsso/rhsso-standalone/overlays/default
+- https://github.com/redhat-cop/gitops-catalog/rhsso/rhsso-standalone/overlays/default
 
 resources:
 - keycloak-migration-job.yaml

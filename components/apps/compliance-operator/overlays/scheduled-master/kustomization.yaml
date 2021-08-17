@@ -5,7 +5,7 @@ kind: Kustomization
 namespace: openshift-compliance
 
 resources:
-- https://github.com/redhat-canada-gitops/catalog/compliance-operator/overlays/scheduled
+- https://github.com/redhat-cop/gitops-catalog/compliance-operator/overlays/scheduled
 
 patchesStrategicMerge:
   - patch-scansetting.yaml

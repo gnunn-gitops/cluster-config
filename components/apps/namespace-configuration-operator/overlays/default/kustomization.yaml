@@ -9,8 +9,8 @@ commonAnnotations:
 resources:
 - namespace.yaml
 - operator-group.yaml
-- github.com/redhat-canada-gitops/catalog/namespace-configuration-operator/base
-- github.com/redhat-canada-gitops/catalog/installplan-approver/base
+- github.com/redhat-cop/gitops-catalog/namespace-configuration-operator/base
+- github.com/redhat-cop/gitops-catalog/installplan-approver/base
 - small-ns-config.yaml
 - medium-ns-config.yaml
 - large-ns-config.yaml

@@ -14,7 +14,7 @@ spec:
   project: cluster-config
   source:
     path: container-security-operator/base
-    repoURL: https://github.com/redhat-canada-gitops/catalog.git
+    repoURL: https://github.com/redhat-cop/gitops-catalog.git
     targetRevision: clean
   syncPolicy:
     automated:

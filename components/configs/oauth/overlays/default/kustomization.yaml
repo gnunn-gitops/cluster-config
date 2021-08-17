@@ -6,7 +6,7 @@ commonAnnotations:
   argocd.argoproj.io/sync-options: Prune=false
 
 resources:
-- https://github.com/redhat-canada-gitops/catalog/oauth/overlays/htpass
+- https://github.com/redhat-cop/gitops-catalog/oauth/overlays/htpass
 
 patchesStrategicMerge:
 - patch-htpass-secret.yaml
