@@ -15,7 +15,7 @@ spec:
   source:
     path: container-security-operator/base
     repoURL: https://github.com/redhat-cop/gitops-catalog.git
-    targetRevision: clean
+    targetRevision: main
   syncPolicy:
     automated:
       selfHeal: true

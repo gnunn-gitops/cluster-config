@@ -14,7 +14,7 @@ spec:
   source:
     path: openshift-pipelines-operator/overlays/stable
     repoURL: https://github.com/redhat-cop/gitops-catalog.git
-    targetRevision: clean
+    targetRevision: main
   syncPolicy:
     automated:
       prune: false

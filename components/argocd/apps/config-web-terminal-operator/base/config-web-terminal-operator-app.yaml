@@ -16,7 +16,7 @@ spec:
   source:
     path: web-terminal-operator/overlays/aggregate
     repoURL: https://github.com/redhat-cop/gitops-catalog.git
-    targetRevision: master
+    targetRevision: main
   syncPolicy:
     automated:
       selfHeal: true
