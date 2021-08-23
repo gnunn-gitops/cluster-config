@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  annotations:
+    argocd.argoproj.io/compare-options: IgnoreExtraneous
+    argocd.argoproj.io/sync-wave: '41'
+  labels:
+    gitops.ownedBy: cluster-config
+  name: tekton-cluster-tasks
+spec:
+  destination:
+    namespace: openshift-gitops
+    server: https://kubernetes.default.svc
+  project: cluster-config
+  source:
+    path: components/apps/tekton-cluster-tasks/base
+    repoURL: https://github.com/gnunn-gitops/cluster-config.git
+    targetRevision: master
+  syncPolicy:
+    automated:
+      selfHeal: true

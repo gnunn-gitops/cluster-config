@@ -1,0 +1,4 @@
+resources:
+- https://raw.githubusercontent.com/stackrox/contributions/main/ci/Tekton/Tasks/rox-deployment-check-task.yml
+- https://raw.githubusercontent.com/stackrox/contributions/main/ci/Tekton/Tasks/rox-image-check-task.yml
+- https://raw.githubusercontent.com/stackrox/contributions/main/ci/Tekton/Tasks/rox-image-scan-task.yml

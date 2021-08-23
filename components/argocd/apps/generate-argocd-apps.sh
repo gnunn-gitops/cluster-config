@@ -27,6 +27,8 @@ ns=(config-namespace-config-operator "https://github.com/gnunn-gitops/cluster-co
 sso=(config-sso "https://github.com/gnunn-gitops/cluster-config.git"  master clusters/home/apps/sso/overlays/default "21")
 # Web Terminal
 web_terminal=(config-web-terminal-operator "https://github.com/redhat-cop/gitops-catalog.git" master web-terminal-operator/overlays/aggregate "21")
+# Tekton Cluster Tasks
+tekton_cluster_tasks=(tekton-cluster-tasks "https://github.com/gnunn-gitops/cluster-config.git" master components/apps/tekton-cluster-tasks/base "41")
 # Product Catalog Tenant (ApplicationSet)
 tenant_product_catalog=(tenant-product-catalog "https://github.com/gnunn-gitops/cluster-config.git" master tenants/product-catalog/argocd/applicationset/base "51")
 
