@@ -3,9 +3,6 @@ kind: ArgoCD
 metadata:
   name: argocd
 spec:
-  # Use custom version with kustomize 4
-  image: quay.io/gnunn/argocd-rhel8
-  version: v1.2.0
   dex:
     openShiftOAuth: true
   applicationInstanceLabelKey: argocd.argoproj.io/instance
@@ -45,28 +42,6 @@ spec:
         end
         hs.status = "Progressing"
         hs.message = "Waiting for certificate"
-        return hs
-    Job:
-      health.lua: |
-        hs = {}
-        if obj.status ~= nil then
-          if obj.status.active ~= nil then
-            if obj.status.active == "1" then
-              hs.status = "Progressing"
-              hs.message = obj.status.active .. " active job(s)."
-              return hs
-            end
-          end
-          if obj.status.succeeded ~= nil then
-            if obj.status.succeeded == 1 then
-              hs.status = "Healthy"
-              hs.message = "Job completed successfully."
-              return hs
-            end
-          end
-        end
-        hs.status = "Progressing"
-        hs.message = "Waiting for Job to complete."
         return hs
   resourceExclusions: |
     - apiGroups:
