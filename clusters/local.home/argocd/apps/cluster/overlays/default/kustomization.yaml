@@ -15,6 +15,7 @@ resources:
 - ../../../../../../../components/argocd/apps/config-helm-repos/base
 - ../../../../../../../components/argocd/apps/config-prometheus-user-app/base
 - ../../../../../../../components/argocd/apps/config-container-security/base
+- ../../../../../../../components/argocd/apps/config-compliance-operator/base
 - ../../../../../../../components/argocd/apps/config-acs/base
 - ../../../../../../../components/argocd/apps/config-namespace-config-operator/base
 # - ../../../../../../../components/argocd/apps/config-web-terminal-operator/base
