@@ -4,7 +4,7 @@ kind: Kustomization
 namespace: openshift-gitops
 
 resources:
-- ../../../clusterversion/base
+# - ../../../clusterversion/base
 - ../../../../../../../components/argocd/apps/sealed-secrets/base
 - ../../../../../../../components/argocd/apps/letsencrypt-certs/base
 - ../../../../../../../components/argocd/apps/config-storage/base
