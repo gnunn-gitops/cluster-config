@@ -15,4 +15,4 @@ resources:
 - medium-ns-config.yaml
 - large-ns-config.yaml
 - multitenant.yaml
-- patch-default-ns-multitenant.yaml
+# - patch-default-ns-multitenant.yaml
