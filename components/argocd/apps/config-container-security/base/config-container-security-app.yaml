@@ -13,8 +13,8 @@ spec:
     server: https://kubernetes.default.svc
   project: cluster-config
   source:
-    path: container-security-operator/base
-    repoURL: https://github.com/redhat-cop/gitops-catalog.git
+    path: container-security-operator/overlays/stable-3.6
+    repoURL: https://github.com/gnunn1/gitops-catalog.git
     targetRevision: main
   syncPolicy:
     automated:
