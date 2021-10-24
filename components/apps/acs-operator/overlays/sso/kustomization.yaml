@@ -1,5 +1,5 @@
 bases:
-- https://github.com/redhat-cop/gitops-catalog/acs-operator/overlays/aggregate-minimal
+- github.com/redhat-cop/gitops-catalog/advanced-cluster-security-operator/aggregate/minimal
 
 resources:
 - sso-sealed-secret.yaml
