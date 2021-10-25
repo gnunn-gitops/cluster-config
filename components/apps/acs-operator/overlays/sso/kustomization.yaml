@@ -1,6 +1,16 @@
-bases:
-- github.com/redhat-cop/gitops-catalog/advanced-cluster-security-operator/aggregate/minimal
+commonAnnotations:
+  argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
 
 resources:
-- sso-sealed-secret.yaml
-- create-sso-auth-provider-job.yaml
+  - github.com/redhat-cop/gitops-catalog/advanced-cluster-security-operator/operator/overlays/latest
+  - github.com/redhat-cop/gitops-catalog/advanced-cluster-security-operator/instance/overlays/internal-registry-integration
+  - sso-sealed-secret.yaml
+  - create-sso-auth-provider-job.yaml
+
+patchesJson6902:
+  - path: patch-resources.yaml
+    target:
+      group: platform.stackrox.io
+      kind: Central
+      name: central
+      version: v1alpha1
