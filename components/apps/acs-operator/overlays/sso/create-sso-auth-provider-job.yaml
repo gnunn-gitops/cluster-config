@@ -57,7 +57,7 @@ spec:
 
               export DATA='{"name":"OpenShift","type":"oidc","uiEndpoint":"central-stackrox.apps.home.ocplab.com","enabled":true,"config":{"client_id":"stackrox","client_secret":"'${CLIENT_SECRET}'","issuer":"'$ISSUER'","mode":"post"},"validated":true,"extraUiEndpoints":[],"active":true}'
 
-              #echo "Posting data: ${DATA}"
+              echo "Posting data: ${DATA}"
 
               curl -k -X POST -u "admin:$PASSWORD" -H "Content-Type: application/json" --data $DATA https://central/v1/authProviders
           imagePullPolicy: Always
