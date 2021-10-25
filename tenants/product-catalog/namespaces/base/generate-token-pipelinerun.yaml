@@ -1,0 +1,11 @@
+apiVersion: tekton.dev/v1beta1
+kind: PipelineRun
+metadata:
+  name: stackrox-token-secret-product-catalog-cicd
+  namespace: stackrox
+spec:
+  pipelineRef:
+    name: stackrox-token-secret-pipeline
+  params:
+     name: "NAMESPACE"
+     value: "product-catalog-cicd"

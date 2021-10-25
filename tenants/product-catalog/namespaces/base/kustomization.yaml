@@ -9,3 +9,4 @@ resources:
 - prod-namespace.yaml
 - test-namespace.yaml
 - user1-rolebinding.yaml
+- generate-token-pipelinerun.yaml
