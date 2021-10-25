@@ -7,5 +7,5 @@ spec:
   pipelineRef:
     name: stackrox-token-secret-pipeline
   params:
-     name: "NAMESPACE"
-     value: "product-catalog-cicd"
+    - name: "NAMESPACE"
+      value: "product-catalog-cicd"
