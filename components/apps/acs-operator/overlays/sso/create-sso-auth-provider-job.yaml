@@ -59,7 +59,15 @@ spec:
 
               echo "Posting data: ${DATA}"
 
-              curl -k -X POST -u "admin:$PASSWORD" -H "Content-Type: application/json" --data $DATA https://central/v1/authProviders
+              authid=$(curl -k -X POST -u "admin:$PASSWORD" -H "Content-Type: application/json" --data $DATA https://central/v1/authProviders | python3 -c "import sys, json; print(json.load(sys.stdin)['.id'], end = '')")
+
+              echo "Authentication Provider created with id ${authid}"
+              echo "Updating minimum role to Admin"
+
+              export DATA='{"previous_groups":[],"required_groups":[{"props":{"authProviderId":"'${authid}'"},"roleName":"Admin"}]}'
+
+              curl -k -X POST -u "admin:$PASSWORD" -H "Content-Type: application/json" --data $DATA https://central/v1/groupsbatch
+
           imagePullPolicy: Always
           name: create-sso-auth-provider
       dnsPolicy: ClusterFirst
