@@ -23,6 +23,8 @@ spec:
                 key: password
           - name: ISSUER
             value: https://sso-sso.apps.home.ocplab.com/auth/realms/openshift
+          - name: DEFAULT_ROLE
+            value: Admin
           command:
             - /bin/bash
             - -c
@@ -59,12 +61,12 @@ spec:
 
               echo "Posting data: ${DATA}"
 
-              authid=$(curl -k -X POST -u "admin:$PASSWORD" -H "Content-Type: application/json" --data $DATA https://central/v1/authProviders | python3 -c "import sys, json; print(json.load(sys.stdin)['.id'], end = '')")
+              authid=$(curl -k -X POST -u "admin:$PASSWORD" -H "Content-Type: application/json" --data $DATA https://central/v1/authProviders | python3 -c "import sys, json; print(json.load(sys.stdin)['id'], end = '')")
 
               echo "Authentication Provider created with id ${authid}"
               echo "Updating minimum role to Admin"
 
-              export DATA='{"previous_groups":[],"required_groups":[{"props":{"authProviderId":"'${authid}'"},"roleName":"Admin"}]}'
+              export DATA='{"previous_groups":[],"required_groups":[{"props":{"authProviderId":"'${authid}'"},"roleName":"'${DEFAULT_ROLE}'"}]}'
 
               curl -k -X POST -u "admin:$PASSWORD" -H "Content-Type: application/json" --data $DATA https://central/v1/groupsbatch
 
