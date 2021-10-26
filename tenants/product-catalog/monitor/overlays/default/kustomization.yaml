@@ -15,6 +15,12 @@ resources:
 patchesJson6902:
 - target:
     version: v1alpha1
+    group: operators.coreos.com
+    kind: Subscription
+    name: grafana
+  path: patch-grafana-channel.yaml
+- target:
+    version: v1alpha1
     group: integreatly.org
     kind: Grafana
     name: grafana
