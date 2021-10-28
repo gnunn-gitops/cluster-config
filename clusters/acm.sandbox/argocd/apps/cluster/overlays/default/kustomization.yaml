@@ -1,0 +1,19 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: openshift-gitops
+
+resources:
+- ../../../../../../../components/argocd/apps/sealed-secrets/base
+- ../../../../../../../components/argocd/apps/letsencrypt-certs/base
+- ../../../../../../../components/argocd/apps/config-authentication/base
+- ../../../../../../../components/argocd/apps/config-groups-and-membership/base
+- ../../../../../../../components/argocd/apps/config-alertmanager/base
+- ../../../../../../../components/argocd/apps/config-console-links/base
+- ../../../../../../../components/argocd/apps/config-helm-repos/base
+- ../../../../../../../components/argocd/apps/config-prometheus-user-app/base
+- ../../../../../../../components/argocd/apps/config-container-security/base
+- ../../../../../../../components/argocd/apps/config-namespace-config-operator/base
+- ../../../../../../../components/argocd/apps/config-pipeline-operator/base
+- ../../../../../../../components/argocd/apps/config-dev-tools/base
+- ../../../../../../../components/argocd/apps/tenant-product-catalog/base
