@@ -9,7 +9,7 @@ metadata:
   name: config-container-security
 spec:
   destination:
-    namespace: openshift-gitops
+    namespace: openshift-operators
     server: https://kubernetes.default.svc
   project: cluster-config
   source:

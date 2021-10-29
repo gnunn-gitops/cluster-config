@@ -9,7 +9,7 @@ metadata:
     gitops.ownedBy: cluster-config
 spec:
   destination:
-    namespace: argocd
+    namespace: dev-tools
     server: https://kubernetes.default.svc
   project: cluster-config
   source:
