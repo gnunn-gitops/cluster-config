@@ -13,7 +13,7 @@ spec:
     server: https://kubernetes.default.svc
   project: cluster-config
   source:
-    path: clusters/home/apps/sso/overlays/default
+    path: components/apps/sso/overlays/default
     repoURL: https://github.com/gnunn-gitops/cluster-config.git
     targetRevision: master
   syncPolicy:
