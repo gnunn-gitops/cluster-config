@@ -9,7 +9,7 @@ metadata:
   name: tekton-cluster-tasks
 spec:
   destination:
-    namespace: openshift-gitops
+    namespace: openshift
     server: https://kubernetes.default.svc
   project: cluster-config
   source:

@@ -9,7 +9,7 @@ metadata:
   name: config-alertmanager
 spec:
   destination:
-    namespace: openshift-gitops
+    namespace: openshift-monitoring
     server: https://kubernetes.default.svc
   project: cluster-config
   source:

@@ -10,7 +10,7 @@ metadata:
   name: config-namespace-config-operator
 spec:
   destination:
-    namespace: openshift-gitops
+    namespace: namespace-configuration-operator
     server: https://kubernetes.default.svc
   project: cluster-config
   source:

@@ -9,7 +9,7 @@ metadata:
   name: config-authentication
 spec:
   destination:
-    namespace: openshift-gitops
+    namespace: openshift-config
     server: https://kubernetes.default.svc
   project: cluster-config
   source:

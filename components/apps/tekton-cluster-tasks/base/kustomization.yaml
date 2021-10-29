@@ -1,3 +1,5 @@
+namespace: openshift
+
 resources:
 - https://raw.githubusercontent.com/stackrox/contributions/main/ci/Tekton/Tasks/rox-deployment-check-task.yml
 # Uncomment and remove gnunn custom one when PR is merged
