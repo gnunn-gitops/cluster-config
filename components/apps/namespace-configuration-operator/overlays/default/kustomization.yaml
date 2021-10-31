@@ -16,3 +16,10 @@ resources:
 - large-ns-config.yaml
 - multitenant.yaml
 # - patch-default-ns-multitenant.yaml
+
+patches:
+  - target:
+      kind: OperatorGroup
+    patch: |-
+      - op: remove
+        path: /spec/targetNamespaces/0
