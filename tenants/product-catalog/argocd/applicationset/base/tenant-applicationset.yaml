@@ -19,7 +19,7 @@ spec:
           url: https://kubernetes.default.svc
           values:
             name: product-catalog-gitops
-            path: tenants/product-catalog/gitops-operator/overlays/rolebinding
+            path: tenants/product-catalog/gitops-operator/overlays/default
         - cluster: local
           url: https://kubernetes.default.svc
           values:

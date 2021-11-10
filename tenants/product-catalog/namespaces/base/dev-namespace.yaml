@@ -6,4 +6,5 @@ metadata:
     openshift.io/display-name:  Product Catalog Development
   labels:
     size: medium
+    argocd.argoproj.io/managed-by: product-catalog-gitops
   name: product-catalog-dev

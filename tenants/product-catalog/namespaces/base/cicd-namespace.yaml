@@ -4,4 +4,6 @@ metadata:
   annotations:
     openshift.io/description: Project for ci/cd tools for product catalog application
     openshift.io/display-name:  Product Catalog CI/CD
+  labels:
+    argocd.argoproj.io/managed-by: product-catalog-gitops
   name: product-catalog-cicd
