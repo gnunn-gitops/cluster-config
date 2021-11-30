@@ -12,8 +12,8 @@ spec:
     server: https://kubernetes.default.svc
   project: cluster-config
   source:
-    path: openshift-pipelines-operator/overlays/stable
-    repoURL: https://github.com/redhat-cop/gitops-catalog.git
+    path: components/apps/pipelines-operator/overlays/patch-config-parameters
+    repoURL: https://github.com/gnunn-gitops/cluster-config.git
     targetRevision: main
   syncPolicy:
     automated:

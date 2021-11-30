@@ -1,0 +1,33 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: patch-tekton-config-parameters
+  namespace: openshift-operators
+  annotations:
+    argocd.argoproj.io/hook: PostSync
+    argocd.argoproj.io/hook-delete-policy: HookSucceeded
+spec:
+  template:
+    spec:
+      containers:
+        - image: registry.redhat.io/openshift4/ose-cli:v4.9
+          command:
+            - /bin/bash
+            - -c
+            - |
+              echo "Waiting for TektonConfig config to be present"
+              until oc get TektonConfig config -n openshift-operators
+              do
+                sleep $SLEEP;
+              done
+
+              echo "Patching TektonConfig config patameters"
+              oc patch TektonConfig config --type='json' -p='[{"op": "replace", "path": "/spec/pipeline/scope-when-expressions-to-task", "value":true}]'
+          imagePullPolicy: Always
+          name: patch-tekton-config-parameters
+          env:
+            - name: SLEEP
+              value: "5"
+      dnsPolicy: ClusterFirst
+      restartPolicy: OnFailure
+      terminationGracePeriodSeconds: 30
