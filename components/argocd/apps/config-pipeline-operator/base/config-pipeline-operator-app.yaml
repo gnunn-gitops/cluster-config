@@ -14,7 +14,7 @@ spec:
   source:
     path: components/apps/pipelines-operator/overlays/patch-config-parameters
     repoURL: https://github.com/gnunn-gitops/cluster-config.git
-    targetRevision: master
+    targetRevision: main
   syncPolicy:
     automated:
       prune: false

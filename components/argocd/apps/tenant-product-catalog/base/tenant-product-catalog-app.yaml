@@ -15,7 +15,7 @@ spec:
   source:
     path: tenants/product-catalog/argocd/applicationset/base
     repoURL: https://github.com/gnunn-gitops/cluster-config.git
-    targetRevision: master
+    targetRevision: main
   syncPolicy:
     automated:
       selfHeal: true

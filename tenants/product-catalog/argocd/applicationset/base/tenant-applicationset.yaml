@@ -50,7 +50,7 @@ spec:
             maxDuration: 3m
       source:
         repoURL: https://github.com/gnunn-gitops/cluster-config
-        targetRevision: master
+        targetRevision: main
         path: '{{values.path}}'
       destination:
         server: https://kubernetes.default.svc

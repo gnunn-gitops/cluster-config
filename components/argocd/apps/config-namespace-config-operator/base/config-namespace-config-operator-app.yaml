@@ -16,7 +16,7 @@ spec:
   source:
     path: components/apps/namespace-configuration-operator/overlays/default
     repoURL: https://github.com/gnunn-gitops/cluster-config.git
-    targetRevision: master
+    targetRevision: main
   syncPolicy:
     automated:
       selfHeal: true

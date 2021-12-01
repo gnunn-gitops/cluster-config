@@ -8,4 +8,4 @@ spec:
   text: ArgoCD
   applicationMenu:
     section: Tools
-    imageURL: https://raw.githubusercontent.com/gnunn-gitops/cluster-config/master/docs/img/argocd-logo.png
+    imageURL: https://raw.githubusercontent.com/gnunn-gitops/cluster-config/main/docs/img/argocd-logo.png
