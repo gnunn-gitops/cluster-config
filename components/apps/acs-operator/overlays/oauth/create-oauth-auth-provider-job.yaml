@@ -23,6 +23,8 @@ spec:
                 key: password
           - name: DEFAULT_ROLE
             value: Admin
+          - NAME: UI_ENDPOINT
+            value: central-stackrox.apps.home.ocplab.com
           command:
             - /bin/bash
             - -c
@@ -55,7 +57,7 @@ spec:
                 exit 0
               fi
 
-              export DATA='{"name":"OpenShift","type":"openshift","active":true}'
+              export DATA='{"name":"OpenShift","type":"openshift","active":true,"uiEndpoint":"'${UI_ENDPOINT}'","enabled":true}'
 
               echo "Posting data: ${DATA}"
 
