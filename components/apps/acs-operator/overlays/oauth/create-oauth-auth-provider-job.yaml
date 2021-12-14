@@ -23,7 +23,7 @@ spec:
                 key: password
           - name: DEFAULT_ROLE
             value: Admin
-          - NAME: UI_ENDPOINT
+          - name: UI_ENDPOINT
             value: central-stackrox.apps.home.ocplab.com
           command:
             - /bin/bash
