@@ -31,3 +31,5 @@ spec:
       dnsPolicy: ClusterFirst
       restartPolicy: OnFailure
       terminationGracePeriodSeconds: 30
+      serviceAccount: patch-tekton-config-parameters
+      serviceAccountName: patch-tekton-config-parameters

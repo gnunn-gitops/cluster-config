@@ -3,5 +3,5 @@ kind: Kustomization
 
 resources:
 - github.com/redhat-cop/gitops-catalog/openshift-pipelines-operator/overlays/stable
+- patch-config-parameters-sa.yaml
 - patch-config-parameters.yaml
-
