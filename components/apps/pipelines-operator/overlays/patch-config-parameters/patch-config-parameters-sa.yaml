@@ -5,29 +5,26 @@ metadata:
   namespace: openshift-operators
 ---
 apiVersion: rbac.authorization.k8s.io/v1
-kind: Role
+kind: ClusterRole
 metadata:
   name: patch-tekton-config-parameters
-  namespace: openshift-operators
 rules:
   - apiGroups:
-      - tektonconfigs.operator.tekton.dev
+      - operator.tekton.dev
     resources:
-      - config
+      - tektonconfigs
     verbs:
       - get
       - list
-      - watch
       - patch
 ---
 apiVersion: rbac.authorization.k8s.io/v1
-kind: RoleBinding
+kind: ClusterRoleBinding
 metadata:
   name: patch-tekton-config-parameters
-  namespace: openshift-operators
 roleRef:
   apiGroup: rbac.authorization.k8s.io
-  kind: Role
+  kind: ClusterRole
   name: patch-tekton-config-parameters
 subjects:
   - kind: ServiceAccount
