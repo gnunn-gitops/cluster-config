@@ -1,16 +1,20 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
-namespace: product-catalog-monitor
-
-commonAnnotations:
-    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
-
-bases:
-- https://github.com/redhat-cop/gitops-catalog/grafana-operator/overlays/user-app
-
 resources:
-- operatorgroup.yaml
+- ../../base
+- monitor-namespace.yaml
+- monitor-operatorgroup.yaml
+
+# Patch in namespace for Argo CD that is managing this namespace
+patches:
+- patch: |-
+    - op: replace
+      path: /subjects/0/namespace
+      value: product-catalog-gitops
+  target:
+    kind: ClusterRoleBinding
+    name: gitops-argocd-extended-rolebinding
 
 patchesJson6902:
 - target:

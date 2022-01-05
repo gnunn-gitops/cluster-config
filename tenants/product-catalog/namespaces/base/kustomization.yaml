@@ -2,11 +2,5 @@ kind: Kustomization
 apiVersion: kustomize.config.k8s.io/v1beta1
 
 resources:
-- cicd-namespace.yaml
-- dev-namespace.yaml
-- monitor-namespace.yaml
-- monitor-operatorgroup.yaml
-- prod-namespace.yaml
-- test-namespace.yaml
+- ../../../../components/apps/tenant-namespace/overlays/gitops
 - user1-rolebinding.yaml
-- generate-token-pipelinerun.yaml

@@ -2,63 +2,6 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
   name: user1-admin-rolebinding
-  namespace: product-catalog-dev
-roleRef:
-  apiGroup: rbac.authorization.k8s.io
-  kind: ClusterRole
-  name: admin
-subjects:
-- apiGroup: rbac.authorization.k8s.io
-  kind: User
-  name: user1
----
-apiVersion: rbac.authorization.k8s.io/v1
-kind: RoleBinding
-metadata:
-  name: user1-admin-rolebinding
-  namespace: product-catalog-test
-roleRef:
-  apiGroup: rbac.authorization.k8s.io
-  kind: ClusterRole
-  name: admin
-subjects:
-- apiGroup: rbac.authorization.k8s.io
-  kind: User
-  name: user1
----
-apiVersion: rbac.authorization.k8s.io/v1
-kind: RoleBinding
-metadata:
-  name: user1-admin-rolebinding
-  namespace: product-catalog-prod
-roleRef:
-  apiGroup: rbac.authorization.k8s.io
-  kind: ClusterRole
-  name: admin
-subjects:
-- apiGroup: rbac.authorization.k8s.io
-  kind: User
-  name: user1
----
-apiVersion: rbac.authorization.k8s.io/v1
-kind: RoleBinding
-metadata:
-  name: user1-admin-rolebinding
-  namespace: product-catalog-monitor
-roleRef:
-  apiGroup: rbac.authorization.k8s.io
-  kind: ClusterRole
-  name: admin
-subjects:
-- apiGroup: rbac.authorization.k8s.io
-  kind: User
-  name: user1
----
-apiVersion: rbac.authorization.k8s.io/v1
-kind: RoleBinding
-metadata:
-  name: user1-admin-rolebinding
-  namespace: product-catalog-cicd
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole

@@ -13,23 +13,23 @@ spec:
         - cluster: local
           url: https://kubernetes.default.svc
           values:
-            name: product-catalog-namespaces
-            path: tenants/product-catalog/namespaces/base
+            name: product-catalog-dev
+            path: tenants/product-catalog/namespaces/overlays/dev
         - cluster: local
           url: https://kubernetes.default.svc
           values:
-            name: product-catalog-gitops
-            path: tenants/product-catalog/gitops-operator/overlays/default
+            name: product-catalog-test
+            path: tenants/product-catalog/namespaces/overlays/test
+        - cluster: local
+          url: https://kubernetes.default.svc
+          values:
+            name: product-catalog-prod
+            path: tenants/product-catalog/namespaces/overlays/prod
         - cluster: local
           url: https://kubernetes.default.svc
           values:
             name: product-catalog-rbac
             path: tenants/product-catalog/rbac/base
-        - cluster: local
-          url: https://kubernetes.default.svc
-          values:
-            name: product-catalog-monitor
-            path: tenants/product-catalog/monitor/overlays/default
   template:
     metadata:
       name: '{{values.name}}'
