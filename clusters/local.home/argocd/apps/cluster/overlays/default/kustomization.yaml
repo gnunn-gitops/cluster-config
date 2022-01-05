@@ -23,7 +23,7 @@ resources:
 - ../../../../../../../components/argocd/apps/config-sso/base
 - ../../../../../../../components/argocd/apps/config-dev-tools/base
 - ../../../../../../../components/argocd/apps/config-cost-management/base
-- ../../../../../../../components/argocd/apps/tenant-product-catalog/base
+# - ../../../../../../../components/argocd/apps/tenant-product-catalog/base
 - ../../../../../../../components/argocd/apps/tekton-cluster-tasks/base
 
 patches:
