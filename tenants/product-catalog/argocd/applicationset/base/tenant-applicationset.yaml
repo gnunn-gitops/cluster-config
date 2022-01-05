@@ -15,26 +15,31 @@ spec:
           values:
             name: product-catalog-dev
             path: tenants/product-catalog/namespaces/overlays/dev
+            namespace: product-catalog-dev
         - cluster: local
           url: https://kubernetes.default.svc
           values:
             name: product-catalog-test
             path: tenants/product-catalog/namespaces/overlays/test
+            namespace: product-catalog-test
         - cluster: local
           url: https://kubernetes.default.svc
           values:
             name: product-catalog-prod
             path: tenants/product-catalog/namespaces/overlays/prod
+            namespace: product-catalog-prod
         - cluster: local
           url: https://kubernetes.default.svc
           values:
             name: product-catalog-monitor
             path: tenants/product-catalog/namespaces/overlays/monitor
+            namespace: product-catalog-monitor
         - cluster: local
           url: https://kubernetes.default.svc
           values:
             name: product-catalog-gitops
             path: tenants/product-catalog/namespaces/overlays/gitops
+            namespace: product-catalog-gitops
         - cluster: local
           url: https://kubernetes.default.svc
           values:
@@ -64,4 +69,4 @@ spec:
         path: '{{values.path}}'
       destination:
         server: https://kubernetes.default.svc
-        namespace: openshift-gitops
+        namespace: '{{values.namespace}}'
