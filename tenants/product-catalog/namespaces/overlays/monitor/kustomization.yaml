@@ -11,7 +11,7 @@ patches:
 - patch: |-
     - op: replace
       path: /subjects/0/namespace
-      value: product-catalog-gitops
+      value: product-catalog-monitor
   target:
     kind: ClusterRoleBinding
     name: gitops-argocd-extended-rolebinding
