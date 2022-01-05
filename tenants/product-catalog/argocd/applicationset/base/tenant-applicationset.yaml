@@ -28,6 +28,16 @@ spec:
         - cluster: local
           url: https://kubernetes.default.svc
           values:
+            name: product-catalog-monitor
+            path: tenants/product-catalog/namespaces/overlays/monitor
+        - cluster: local
+          url: https://kubernetes.default.svc
+          values:
+            name: product-catalog-gitops
+            path: tenants/product-catalog/namespaces/overlays/gitops
+        - cluster: local
+          url: https://kubernetes.default.svc
+          values:
             name: product-catalog-rbac
             path: tenants/product-catalog/rbac/base
   template:
