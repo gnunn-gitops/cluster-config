@@ -3,9 +3,6 @@ kind: Kustomization
 
 namespace: product-catalog-gitops
 
-commonLabels:
-  argocd.argoproj.io/instance: openshift-gitops
-
 resources:
 - ../../base
 - ../../../../../components/apps/gitops-operator/base
