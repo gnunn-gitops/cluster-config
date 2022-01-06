@@ -26,6 +26,7 @@ patches:
 # Update permissions for instance
 -  target:
      kind: ArgoCD
+     name: argocd
    patch: |-
     - op: replace
       path: /spec/applicationInstanceLabelKey
