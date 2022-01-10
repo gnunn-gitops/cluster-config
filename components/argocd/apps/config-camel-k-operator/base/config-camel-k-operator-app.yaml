@@ -16,6 +16,4 @@ spec:
     repoURL: https://github.com/gnunn-gitops/cluster-config.git
     targetRevision: main
   syncPolicy:
-    automated:
-      prune: false
-      selfHeal: false
+    automated: {}
