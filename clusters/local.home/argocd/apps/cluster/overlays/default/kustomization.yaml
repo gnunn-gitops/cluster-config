@@ -20,6 +20,7 @@ resources:
 - ../../../../../../../components/argocd/apps/config-namespace-config-operator/base
 # - ../../../../../../../components/argocd/apps/config-web-terminal-operator/base
 - ../../../../../../../components/argocd/apps/config-pipeline-operator/base
+- ../../../../../../../components/argocd/apps/config-camel-k-operator/base
 - ../../../../../../../components/argocd/apps/config-sso/base
 - ../../../../../../../components/argocd/apps/config-dev-tools/base
 - ../../../../../../../components/argocd/apps/config-cost-management/base
