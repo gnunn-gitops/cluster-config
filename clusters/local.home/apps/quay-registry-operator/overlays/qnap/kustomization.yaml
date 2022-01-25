@@ -6,3 +6,4 @@ namespace: quay
 resources:
 - ../../../../../../components/apps/quay-registry-operator/overlays/default
 - registry-config-bundle-secret.yaml
+- registry.yaml
