@@ -5,7 +5,7 @@ metadata:
 spec:
   components:
     - kind: objectstorage
-      managed: true
+      managed: false
     - managed: true
       kind: tls
   configBundleSecret: config-bundle-secret
