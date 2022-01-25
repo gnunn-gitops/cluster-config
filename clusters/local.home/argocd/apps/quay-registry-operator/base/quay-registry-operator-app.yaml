@@ -13,7 +13,7 @@ spec:
     server: https://kubernetes.default.svc
   project: cluster-config
   source:
-    path: clusters/local.home/apps/quay-registry-operator/base
+    path: clusters/local.home/apps/quay-registry-operator/overlays/qnap
     repoURL: https://github.com/gnunn-gitops/cluster-config.git
     targetRevision: main
   syncPolicy:
