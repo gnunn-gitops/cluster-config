@@ -29,8 +29,7 @@ spec:
   - namespace: 'product-catalog-gitops'
     server: 'https://kubernetes.default.svc'
   roles:
-  - description: Users with admin to applications in project
-    name: users
+  - name: users
     policies:
     - p, role:user, applications, *, *, allow
     - p, role:user, projects, get, *, allow
