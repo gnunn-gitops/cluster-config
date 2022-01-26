@@ -8,4 +8,6 @@ spec:
       managed: false
     - managed: true
       kind: tls
+    - managed: false
+      kind: horizontalpodautoscaler
   configBundleSecret: config-bundle-secret
