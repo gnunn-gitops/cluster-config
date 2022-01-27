@@ -1,0 +1,19 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: registry-quay-app
+  labels:
+    app: quay
+    quay-component: quay-app
+    quay-operator/quayregistry: registry
+spec:
+  host: registry.apps.home.ocplab.com
+  to:
+    kind: Service
+    name: registry-quay-app
+    weight: 100
+  port:
+    targetPort: https
+  tls:
+    termination: passthrough
+  wildcardPolicy: None
