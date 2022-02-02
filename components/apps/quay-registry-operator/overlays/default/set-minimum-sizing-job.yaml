@@ -39,7 +39,18 @@ spec:
             - |
               #!/usr/bin/env bash
 
+              echo "Waiting for deploy/registry-clair-app to start"
+              until oc get deployment registry-clair-app
+              do
+                sleep 5;
+              done
               oc scale deploy/registry-clair-app --replicas=1
+
+              echo "Waiting for deploy/registry-quay-app to start"
+              until oc get deployment registry-quay-app
+              do
+                sleep 5;
+              done
               oc scale deploy/registry-quay-app --replicas=1
 
           name: patch-quay-minimum-specs
