@@ -7,3 +7,4 @@ resources:
 - namespace.yaml
 - operator-group.yaml
 - github.com/redhat-cop/gitops-catalog/quay-registry-operator/operator/overlays/stable-3.6
+- set-minimum-sizing-job.yaml
