@@ -39,18 +39,28 @@ spec:
             - |
               #!/usr/bin/env bash
 
-              echo "Waiting for deploy/registry-clair-app to start"
+              sleep 60
+
+              echo "Waiting for deploy/registry-clair-postgres to be available"
+              until oc get deployment registry-clair-postgres
+              do
+                sleep 5;
+              done
+              oc set resources deploy/registry-clair-postgres -c=postgres --limits=memory=3Gi
+
+              echo "Waiting for deploy/registry-clair-app to be available"
               until oc get deployment registry-clair-app
               do
                 sleep 5;
               done
               oc scale deploy/registry-clair-app --replicas=1
 
-              echo "Waiting for deploy/registry-quay-app to start"
+              echo "Waiting for deploy/registry-quay-app to be available"
               until oc get deployment registry-quay-app
               do
                 sleep 5;
               done
+              oc set resources deploy/registry-quay-app -c=quay-app --requests=cpu=1,memory=1Gi --limits=cpu=2,memory=4Gi
               oc scale deploy/registry-quay-app --replicas=1
 
           name: patch-quay-minimum-specs
