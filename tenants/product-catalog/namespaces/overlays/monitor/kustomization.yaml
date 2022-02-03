@@ -5,6 +5,7 @@ resources:
 - ../../base
 - monitor-namespace.yaml
 - monitor-operatorgroup.yaml
+- github.com/redhat-cop/gitops-catalog/grafana-operator/overlays/user-app
 
 # Patch in namespace for Argo CD that is managing this namespace
 patches:
