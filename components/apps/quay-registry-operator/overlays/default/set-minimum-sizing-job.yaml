@@ -39,7 +39,8 @@ spec:
             - |
               #!/usr/bin/env bash
 
-              sleep 60
+              echo "Waiting five minutes for operator to do it's magic"
+              sleep 300
 
               echo "Waiting for deploy/registry-clair-postgres to be available"
               until oc get deployment registry-clair-postgres
