@@ -4,8 +4,6 @@ metadata:
   name: registry
 spec:
   components:
-    - kind: objectstorage
-      managed: false
     - managed: false
       kind: tls
     - managed: false
@@ -21,5 +19,7 @@ spec:
     - kind: mirror
       managed: true
     - kind: monitoring
+      managed: false
+    - kind: objectstorage
       managed: false
   configBundleSecret: config-bundle-secret
