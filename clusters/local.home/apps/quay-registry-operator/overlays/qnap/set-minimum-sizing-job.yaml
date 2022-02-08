@@ -4,7 +4,7 @@ metadata:
   name: quay-minimum-sizing
   annotations:
     argocd.argoproj.io/hook: PostSync
-    # argocd.argoproj.io/hook-delete-policy: HookSucceeded
+    argocd.argoproj.io/hook-delete-policy: HookSucceeded
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
@@ -12,7 +12,7 @@ metadata:
   name: quay-minimum-sizing
   annotations:
     argocd.argoproj.io/hook: PostSync
-#    argocd.argoproj.io/hook-delete-policy: HookSucceeded
+    argocd.argoproj.io/hook-delete-policy: HookSucceeded
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
@@ -21,13 +21,12 @@ subjects:
   - kind: ServiceAccount
     name: quay-minimum-sizing
 ---
+# Hopefully at some point Quay operator will allow control over resources or a minimal deployment
+# https://issues.redhat.com/browse/PROJQUAY-2877
 apiVersion: batch/v1
 kind: Job
 metadata:
   name: set-quay-minimum-sizing
-  annotations:
-    argocd.argoproj.io/hook: PostSync
-    argocd.argoproj.io/hook-delete-policy: HookSucceeded
 spec:
   template:
     spec:
@@ -39,7 +38,7 @@ spec:
             - |
               #!/usr/bin/env bash
 
-              echo "Waiting five minutes for operator to do it's magic"
+              # Sleep for 5 minutes to let everything settle
               sleep 300
 
               echo "Waiting for deploy/registry-clair-postgres to be available"

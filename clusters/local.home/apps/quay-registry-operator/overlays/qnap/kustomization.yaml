@@ -8,6 +8,9 @@ namespace: quay
 
 resources:
 - ../../../../../../components/apps/quay-registry-operator/overlays/default
+- init-user-password-secret.yaml
+- init-quay-job.yaml
+- set-minimum-sizing-job.yaml
 - registry-config-bundle-secret.yaml
 - registry.yaml
 - registry-app-route.yaml

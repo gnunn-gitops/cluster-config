@@ -1,0 +1,31 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: init-quay
+  annotations:
+    argocd.argoproj.io/hook: PostSync
+    # argocd.argoproj.io/hook-delete-policy: HookSucceeded
+spec:
+  template:
+    spec:
+      containers:
+        - image: registry.redhat.io/ansible-tower-38/ansible-runner-rhel7:1.4
+          envFrom:
+          - secretRef:
+              name: init-user-password
+          command:
+            - /bin/bash
+            - -c
+            - |
+              #!/usr/bin/env bash
+
+              git clone https://github.com/gnunn-gitops/quay-init
+
+
+              ansible-galaxy collection install -r collections/requirements.yml
+
+              ansible-playbook quay-init.yaml -e quay_init_password=$quay_init_password
+          name: init-quay
+      dnsPolicy: ClusterFirst
+      restartPolicy: Never
+      terminationGracePeriodSeconds: 30
