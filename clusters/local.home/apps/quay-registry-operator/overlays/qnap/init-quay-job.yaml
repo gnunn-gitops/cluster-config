@@ -19,6 +19,12 @@ spec:
             - |
               #!/usr/bin/env bash
 
+              echo "Setup temporary OCP user to make ansible happy"
+
+              echo "tempuser:x:$(id -u):$(id -g):,,,:${HOME}:/bin/bash" >> /etc/passwd
+              echo "tempuser:x:$(id -G | cut -d' ' -f 2)" >> /etc/group
+              id
+
               echo "Waiting for two minutes for quay to be ready"
 
               sleep 120
