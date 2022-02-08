@@ -25,6 +25,8 @@ spec:
 
               git clone https://github.com/gnunn-gitops/quay-init
 
+              cd quay-init
+
               ansible-galaxy collection install -r collections/requirements.yml
 
               ansible-playbook quay-init.yaml -e quay_init_password=$quay_init_password
