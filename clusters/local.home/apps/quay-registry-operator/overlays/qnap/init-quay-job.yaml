@@ -3,7 +3,7 @@ kind: Job
 metadata:
   name: init-quay
   annotations:
-    argocd.argoproj.io/hook: PostSync
+    # argocd.argoproj.io/hook: PostSync
     # argocd.argoproj.io/hook-delete-policy: HookSucceeded
 spec:
   template:
