@@ -9,7 +9,7 @@ spec:
   template:
     spec:
       containers:
-        - image: registry.redhat.io/ansible-tower-38/ansible-runner-rhel7:1.4
+        - image: registry.redhat.io/ansible-automation-platform-21/platform-resource-runner-rhel8:2.1
           envFrom:
           - secretRef:
               name: init-user-password
@@ -18,6 +18,8 @@ spec:
             - -c
             - |
               #!/usr/bin/env bash
+
+              echo "Waiting for two minutes for quay to be ready"
 
               sleep 120
 
