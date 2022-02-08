@@ -19,9 +19,6 @@ apiVersion: batch/v1
 kind: Job
 metadata:
   name: quay-init
-  annotations:
-    # argocd.argoproj.io/hook: PostSync
-    # argocd.argoproj.io/hook-delete-policy: HookSucceeded
 spec:
   template:
     spec:
