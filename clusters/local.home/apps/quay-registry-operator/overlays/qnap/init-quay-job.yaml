@@ -23,7 +23,7 @@ spec:
   template:
     spec:
       containers:
-        - image: registry.redhat.io/ansible-automation-platform-21/platform-resource-runner-rhel8:2.1
+        - image: registry.redhat.io/ansible-automation-platform-21/ee-supported-rhel8:1.0
           envFrom:
           - secretRef:
               name: init-user-password
