@@ -19,6 +19,8 @@ apiVersion: batch/v1
 kind: Job
 metadata:
   name: quay-init
+  annotations:
+    argocd.argoproj.io/sync-wave: "20"
 spec:
   template:
     spec:

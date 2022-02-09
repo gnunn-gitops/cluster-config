@@ -6,6 +6,8 @@ metadata:
     app: quay
     quay-component: quay-app
     quay-operator/quayregistry: registry
+  annotations:
+    argocd.argoproj.io/sync-wave: "0"
 spec:
   host: registry.apps.home.ocplab.com
   to:
@@ -22,6 +24,8 @@ apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
   name: registry-quay-builder
+  annotations:
+    argocd.argoproj.io/sync-wave: "0"
 spec:
   host: registry-builder.apps.home.ocplab.com
   port:
@@ -39,6 +43,8 @@ apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
   name: registry-quay-config-editor
+  annotations:
+    argocd.argoproj.io/sync-wave: "0"
 spec:
   host: registry-config-editor.apps.home.ocplab.com
   port:
