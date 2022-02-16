@@ -27,7 +27,7 @@ resources:
 - ../../../../../../../components/argocd/apps/tenant-product-catalog/base
 - ../../../../../../../components/argocd/apps/tekton-cluster-tasks/base
 # - ../../../quay-registry-operator/base
-- ../../../../../../../components/argocd/apps/kyverno/base
+- ../../../../../../../components/argocd/apps/config-kyverno/base
 
 patches:
 - patch: |-
