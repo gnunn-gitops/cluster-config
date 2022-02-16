@@ -12,10 +12,14 @@ spec:
     namespace: kyverno
     server: https://kubernetes.default.svc
   ignoreDifferences:
-    - group: kyverno.io
-      kind: ClusterPolicy
-      jqPathExpressions:
-      - .spec.rules[] | select(.name|test("autogen-."))
+  - group: kyverno.io
+    kind: ClusterPolicy
+    jsonPointers:
+    - /spec/rules
+  - group: kyverno.io
+    kind: Policy
+    jsonPointers:
+    - /spec/rules
   project: cluster-config
   source:
     path: components/apps/kyverno/overlays/policies
