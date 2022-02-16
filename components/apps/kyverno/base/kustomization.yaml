@@ -26,6 +26,9 @@ patches:
     - op: replace
       path: /spec/template/spec/containers/0/resources/limits/memory
       value: 768Mi
+    - op: replace
+      path: /spec/template/spec/containers/0/livenessProbe/initialDelaySeconds
+      value: 30
   target:
     kind: Deployment
     name: kyverno
