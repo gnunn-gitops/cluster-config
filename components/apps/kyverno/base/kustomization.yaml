@@ -1,0 +1,38 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+- https://raw.githubusercontent.com/kyverno/kyverno/main/config/release/install.yaml
+
+patches:
+- patch: |-
+    - op: add
+      path: /rules/1/resources/-
+      value: |-
+        policyreports/finalizers
+        clusterpolicyreports/finalizers
+  target:
+    kind: ClusterRole
+    name: kyverno:policies
+- patch: |-
+    - op: add
+      path: /rules/1/resources/-
+      value: |-
+        namespaces/finalizers
+  target:
+    kind: ClusterRole
+    name: kyverno:generate
+- patch: |-
+    - op: replace
+      path: /spec/template/spec/containers/0/resources/limits/memory
+      value: 768Mi
+  target:
+    kind: Deployment
+    name: kyverno
+- patch: |-
+    - op: replace
+      path: /data/resourceFilters
+      value: '[Event,*,*][*,kube-system,*][*,kube-public,*][*,kube-node-lease,*][Node,*,*][APIService,*,*][TokenReview,*,*][SubjectAccessReview,*,*][SelfSubjectAccessReview,*,*][*,kyverno,kyverno*][*,openshift-*,*][*,open-cluster-*,*][Binding,*,*][ReplicaSet,*,*][ReportChangeRequest,*,*][ClusterReportChangeRequest,*,*][PolicyReport,*,*][ClusterPolicyReport,*,*]'
+  target:
+    kind: ConfigMap
+    name: kyverno
