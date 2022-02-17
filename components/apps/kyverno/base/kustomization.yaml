@@ -28,7 +28,7 @@ patches:
       value: 768Mi
     - op: replace
       path: /spec/template/spec/containers/0/livenessProbe/initialDelaySeconds
-      value: 30
+      value: 60
   target:
     kind: Deployment
     name: kyverno
