@@ -17,8 +17,6 @@ patches:
     - op: replace
       path: /spec/template/spec/containers/0/env
       value:
-        - name: ARGOCD_HOST
-          value: "argocd-server-product-catalog-gitops.apps.home.ocplab.com"
         - name: CICD_NAMESPACE
           value: "product-catalog-cicd"
   target:

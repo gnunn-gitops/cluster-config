@@ -16,7 +16,7 @@ spec:
           - |
             echo "Checking if pipeline account already there..."
             HAS_ACCOUNT=$(kubectl get cm argocd-cm -o jsonpath={.data."accounts\.pipeline"})
-            if [ -z $HAS_ACCOUNT ];
+            if [ -z "$HAS_ACCOUNT" ];
             then
                 echo "Pipeline account doesn't exist, adding"
                 echo "Getting argocd admin credential..."
@@ -36,9 +36,6 @@ spec:
                 echo "Pipeline account already added, skipping"
             fi
         env:
-        # The ARGO CD host to connect to
-        - name: ARGOCD_HOST
-          value: ""
         # The CICD namespace where the token needs to be deployed to
         - name: CICD_NAMESPACE
           value: ""
