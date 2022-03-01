@@ -12,6 +12,18 @@ resources:
 - console-link.yaml
 
 patches:
+# Patch create-local-pipeline account job environment variables
+- patch: |-
+    - op: replace
+      path: /spec/template/spec/containers/0/env
+      value:
+        - name: ARGOCD_HOST
+          value: "argocd-server-product-catalog-gitops.apps.home.ocplab.com"
+        - name: CICD_NAMESPACE
+          value: "product-catalog-cicd"
+  target:
+    kind: Job
+    name: create-pipeline-local-user
 # Patch in namespace for Argo CD that is managing this namespace
 - patch: |-
     - op: replace

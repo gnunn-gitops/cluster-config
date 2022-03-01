@@ -1,0 +1,49 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: create-pipeline-local-user
+  annotations:
+    argocd.argoproj.io/hook: PostSync
+    argocd.argoproj.io/hook-delete-policy: HookSucceeded
+spec:
+  template:
+    spec:
+      containers:
+      - image: quay.io/argoproj/argocd:v2.2.2
+        command:
+          - /bin/bash
+          - -c
+          - |
+            echo "Checking if pipeline account already there..."
+            if oc get cm argocd-cm -o jsonpath={.data."accounts\.pipeline"};
+            then
+              echo "Pipeline account already added, skipping"
+            else
+              echo "Pipeline account doesn't exist, adding"
+              echo "Getting argocd admin credential..."
+              if oc get secret argocd-cluster;
+              then
+                # Create pipeline user
+                oc patch cm argocd-cm --patch '{"data": {"accounts.pipeline": "apiKey"}}'
+                # Update password
+                PASSWORD=$(oc get secret argocd-cluster -o jsonpath="{.data.admin\.password}" | base64 -d)
+                argocd login --username admin --password ${PASSWORD} ${ARGOCD_HOST}
+                TOKEN=$(argocd account generate-token --account pipeline)
+                oc create secret generic argocd-api-token --from-literal=token=${TOKEN} -n ${CICD_NAMESPACE}
+              else
+                echo "Secret argocd-cluster not available, could not interact with API"
+              fi
+        env:
+        # The ARGO CD host to connect to
+        - name: ARGOCD_HOST
+          value: ""
+        # The CICD namespace where the token needs to be deployed to
+        - name: CICD_NAMESPACE
+          value: ""
+        imagePullPolicy: Always
+        name: create-pipeline-local-user
+      serviceAccount: argocd-argocd-application-controller
+      serviceAccountName: argocd-argocd-application-controller
+      dnsPolicy: ClusterFirst
+      restartPolicy: OnFailure
+      terminationGracePeriodSeconds: 30
