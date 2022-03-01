@@ -28,7 +28,7 @@ spec:
                   PASSWORD=$(oc get secret argocd-cluster -o jsonpath="{.data.admin\.password}" | base64 -d)
                   argocd login --plaintext --username admin --password ${PASSWORD} argocd-server
                   TOKEN=$(argocd account generate-token --account pipeline)
-                  kubectl create secret generic argocd-api-token --from-literal=token=${TOKEN} -n ${CICD_NAMESPACE}
+                  kubectl create secret generic argocd-env-secret --from-literal=ARGOCD_AUTH_TOKEN=${TOKEN} -n ${CICD_NAMESPACE}
                 else
                   echo "Secret argocd-cluster not available, could not interact with API"
                 fi
