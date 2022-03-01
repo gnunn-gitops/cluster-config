@@ -33,6 +33,7 @@ spec:
               else
                 echo "Secret argocd-cluster not available, could not interact with API"
               fi
+            fi
         env:
         # The ARGO CD host to connect to
         - name: ARGOCD_HOST
