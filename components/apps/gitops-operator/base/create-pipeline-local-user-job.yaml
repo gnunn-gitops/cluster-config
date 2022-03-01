@@ -3,8 +3,8 @@ kind: Job
 metadata:
   name: create-pipeline-local-user
   annotations:
-    argocd.argoproj.io/hook: PostSync
-    argocd.argoproj.io/hook-delete-policy: HookSucceeded
+    # argocd.argoproj.io/hook: PostSync
+    # argocd.argoproj.io/hook-delete-policy: HookSucceeded
 spec:
   template:
     spec:
