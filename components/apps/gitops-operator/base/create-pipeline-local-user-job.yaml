@@ -15,14 +15,13 @@ spec:
           - -c
           - |
             echo "Checking if pipeline account already there..."
-            if kubectl get cm argocd-cm -o jsonpath={.data."accounts\.pipeline"};
+            HAS_ACCOUNT=$(kubectl get cm argocd-cm -o jsonpath={.data."accounts\.pipeline"})
+            if [ -z $HAS_ACCOUNT ];
             then
-              echo "Pipeline account already added, skipping"
-            else
-              echo "Pipeline account doesn't exist, adding"
-              echo "Getting argocd admin credential..."
-              if kubectl get secret argocd-cluster;
-              then
+                echo "Pipeline account doesn't exist, adding"
+                echo "Getting argocd admin credential..."
+                if kubectl get secret argocd-cluster;
+                then
                 # Create pipeline user
                 kubectl patch cm argocd-cm --patch '{"data": {"accounts.pipeline": "apiKey"}}'
                 # Update password
@@ -30,9 +29,11 @@ spec:
                 argocd login --username admin --password ${PASSWORD} ${ARGOCD_HOST}
                 TOKEN=$(argocd account generate-token --account pipeline)
                 kubectl create secret generic argocd-api-token --from-literal=token=${TOKEN} -n ${CICD_NAMESPACE}
-              else
+                else
                 echo "Secret argocd-cluster not available, could not interact with API"
-              fi
+                fi
+            else
+                echo "Pipeline account already added, skipping"
             fi
         env:
         # The ARGO CD host to connect to
