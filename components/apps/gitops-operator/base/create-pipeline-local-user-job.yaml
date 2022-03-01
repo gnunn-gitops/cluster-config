@@ -22,15 +22,15 @@ spec:
                 echo "Getting argocd admin credential..."
                 if kubectl get secret argocd-cluster;
                 then
-                # Create pipeline user
-                kubectl patch cm argocd-cm --patch '{"data": {"accounts.pipeline": "apiKey"}}'
-                # Update password
-                PASSWORD=$(oc get secret argocd-cluster -o jsonpath="{.data.admin\.password}" | base64 -d)
-                argocd login --plaintext --username admin --password ${PASSWORD} argocd-server
-                TOKEN=$(argocd account generate-token --account pipeline)
-                kubectl create secret generic argocd-api-token --from-literal=token=${TOKEN} -n ${CICD_NAMESPACE}
+                  # Create pipeline user
+                  kubectl patch cm argocd-cm --patch '{"data": {"accounts.pipeline": "apiKey"}}'
+                  # Update password
+                  PASSWORD=$(oc get secret argocd-cluster -o jsonpath="{.data.admin\.password}" | base64 -d)
+                  argocd login --plaintext --username admin --password ${PASSWORD} argocd-server
+                  TOKEN=$(argocd account generate-token --account pipeline)
+                  kubectl create secret generic argocd-api-token --from-literal=token=${TOKEN} -n ${CICD_NAMESPACE}
                 else
-                echo "Secret argocd-cluster not available, could not interact with API"
+                  echo "Secret argocd-cluster not available, could not interact with API"
                 fi
             else
                 echo "Pipeline account already added, skipping"
