@@ -14,6 +14,7 @@ spec:
           - /bin/bash
           - -c
           - |
+            export HOME=/home/argocd
             echo "Checking if pipeline account already there..."
             HAS_ACCOUNT=$(kubectl get cm argocd-cm -o jsonpath={.data."accounts\.pipeline"})
             if [ -z "$HAS_ACCOUNT" ];
