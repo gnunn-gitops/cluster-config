@@ -43,8 +43,9 @@ patches:
       value:
         defaultPolicy: role:readonly
         policy: |
+          p, role: pipeline, applications, get, apps-product-catalog/*, allow
+          p, role: pipeline, applications, sync, apps-product-catalog/*, allow
           g, product-catalog-admins, role:admin
           g, system:cluster-admins, role:admin
-          g, pipeline, get, apps-product-catalog/*, allow
-          g, pipeline, sync, apps-product-catalog/*, allow
+          g, pipeline, role: pipeline
         scopes: "[accounts,groups]"
