@@ -45,4 +45,5 @@ patches:
         policy: |
           g, product-catalog-admins, role:admin
           g, system:cluster-admins, role:admin
+          g, pipeline, role:org-admin
         scopes: "[groups]"
