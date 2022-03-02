@@ -60,9 +60,9 @@ spec:
     spec:
       project: tenants
       syncPolicy:
-        automated:
-          prune: false
-          selfHeal: false
+        # automated:
+        #   prune: false
+        #   selfHeal: false
         retry:
           limit: 2
           backoff:
