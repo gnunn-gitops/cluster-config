@@ -45,6 +45,6 @@ patches:
         policy: |
           g, product-catalog-admins, role:admin
           g, system:cluster-admins, role:admin
-          p, pipeline, get, apps-product-catalog/*, allow
-          p, pipeline, sync, apps-product-catalog/*, allow
+          g, pipeline, get, apps-product-catalog/*, allow
+          g, pipeline, sync, apps-product-catalog/*, allow
         scopes: "[accounts,groups]"
