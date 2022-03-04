@@ -10,6 +10,7 @@ resources:
 - operatorgroup.yaml
 - product-catalog-project.yaml
 - console-link.yaml
+- in-cluster-secret.yaml
 
 patches:
 # Patch create-local-pipeline account job environment variables
