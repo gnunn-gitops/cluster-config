@@ -7,6 +7,8 @@ spec:
     env:
     - name: "ARGOCD_K8S_CLIENT_BURST"
       value: "350"
+    - name: "ARGOCD_K8S_CLIENT_QPS"
+      value: "350"
   dex:
     openShiftOAuth: true
   applicationInstanceLabelKey: argocd.argoproj.io/instance
