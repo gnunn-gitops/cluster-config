@@ -3,6 +3,10 @@ kind: ArgoCD
 metadata:
   name: argocd
 spec:
+  controller:
+    env:
+    - name: "ARGOCD_K8S_CLIENT_BURST"
+      value: "350"
   dex:
     openShiftOAuth: true
   applicationInstanceLabelKey: argocd.argoproj.io/instance
