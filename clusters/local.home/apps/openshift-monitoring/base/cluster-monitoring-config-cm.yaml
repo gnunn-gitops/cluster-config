@@ -8,6 +8,8 @@ data:
     prometheusK8s:
       volumeClaimTemplate:
        spec:
+         accessModes:
+         - ReadWriteOnce
          storageClassName: csi-driver-lvm-linear
          volumeMode: Filesystem
          resources:
