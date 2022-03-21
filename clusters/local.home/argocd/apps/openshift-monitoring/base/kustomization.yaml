@@ -2,4 +2,4 @@ kind: Kustomization
 apiVersion: kustomize.config.k8s.io/v1beta1
 
 resources:
-- openshift-monitoring-app.yaml
+- openshift-monitoring-config-app.yaml
