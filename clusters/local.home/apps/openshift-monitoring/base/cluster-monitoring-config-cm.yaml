@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: cluster-monitoring-config
+  namespace: openshift-monitoring
+data:
+  config.yaml: |
+    prometheusK8s:
+      volumeClaimTemplate:
+       spec:
+         storageClassName: csi-driver-lvm-linear
+         volumeMode: Filesystem
+         resources:
+           requests:
+             storage: 40Gi
