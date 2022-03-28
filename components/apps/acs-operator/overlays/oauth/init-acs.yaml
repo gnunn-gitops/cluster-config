@@ -24,6 +24,9 @@ spec:
               echo "tempuser:x:$(id -G | cut -d' ' -f 2)" >> /etc/group
               id
 
+              # Install community general in order to get json_query filter
+              ansible-galaxy collection install community.general
+
               git clone https://github.com/gnunn-gitops/acs-automation
 
               cd acs-automation
