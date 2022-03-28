@@ -4,7 +4,8 @@ metadata:
   name: init-acs
   namespace: stackrox
   annotations:
-    argocd.argoproj.io/sync-wave: "20"
+    argocd.argoproj.io/hook: PostSync
+    argocd.argoproj.io/hook-delete-policy: HookSucceeded
 spec:
   template:
     spec:
@@ -18,6 +19,21 @@ spec:
             - -c
             - |
               #!/usr/bin/env bash
+
+              # Wait for central to be ready
+              attempt_counter=0
+              max_attempts=20
+              echo "Waiting for central to be available..."
+              until $(curl -k --output /dev/null --silent --head --fail https://central); do
+                  if [ ${attempt_counter} -eq ${max_attempts} ];then
+                    echo "Max attempts reached"
+                    exit 1
+                  fi
+                  printf '.'
+                  attempt_counter=$(($attempt_counter+1))
+                  echo "Made attempt $attempt_counter, waiting..."
+                  sleep 5
+              done
 
               echo "Setup temporary OCP user to make ansible happy"
 
