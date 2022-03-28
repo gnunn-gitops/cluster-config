@@ -4,7 +4,7 @@ commonAnnotations:
 resources:
   - github.com/redhat-cop/gitops-catalog/advanced-cluster-security-operator/operator/overlays/latest
   - github.com/redhat-cop/gitops-catalog/advanced-cluster-security-operator/instance/overlays/internal-registry-integration
-  - create-oauth-auth-provider-job.yaml
+  - init-acs.yaml
   # Use Andrew's Pipeline to create Stackrox API Tokens in tenant namespaces
   - github.com/pittar-gitops/gitops-mono-repo-admins/03-cluster-services/08-advanced-cluster-security/pipelines-and-secrets
 

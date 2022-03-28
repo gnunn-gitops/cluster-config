@@ -1,0 +1,39 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: init-acs
+  annotations:
+    argocd.argoproj.io/sync-wave: "20"
+spec:
+  template:
+    spec:
+      containers:
+        - image: registry.redhat.io/ansible-automation-platform-21/ee-supported-rhel8:1.0
+          envFrom:
+          - secretRef:
+              name: central-htpasswd
+          command:
+            - /bin/bash
+            - -c
+            - |
+              #!/usr/bin/env bash
+
+              echo "Setup temporary OCP user to make ansible happy"
+
+              echo "tempuser:x:$(id -u):$(id -g):,,,:${HOME}:/bin/bash" >> /etc/passwd
+              echo "tempuser:x:$(id -G | cut -d' ' -f 2)" >> /etc/group
+              id
+
+              git clone https://github.com/gnunn-gitops/acs-automation
+
+              cd acs-automation
+
+              # Use available admin user with password in central-htpasswd secret, override endpoint to use service
+              ansible-playbook acs.yaml -e username=admin -e password=$password -e api_endpoint=central
+
+          name: init-quay
+      dnsPolicy: ClusterFirst
+      restartPolicy: Never
+      terminationGracePeriodSeconds: 30
+      serviceAccount: default
+      serviceAccountName: default
