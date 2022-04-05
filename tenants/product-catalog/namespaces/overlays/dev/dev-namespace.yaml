@@ -5,6 +5,5 @@ metadata:
     openshift.io/description: Project for development environment of product catalog application
     openshift.io/display-name:  Product Catalog Development
   labels:
-    size: medium
     argocd.argoproj.io/managed-by: product-catalog-gitops
   name: product-catalog-dev

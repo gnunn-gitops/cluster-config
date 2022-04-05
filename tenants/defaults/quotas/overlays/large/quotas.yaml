@@ -1,0 +1,23 @@
+---
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: quota
+spec:
+  hard:
+    requests.cpu: "8"
+    requests.memory: "4Gi"
+    limits.memory: "8Gi"
+---
+apiVersion: "v1"
+kind: "LimitRange"
+metadata:
+  name: limitrange
+spec:
+  limits:
+    - type: "Container"
+      default:
+        memory: "512Mi"
+      defaultRequest:
+        cpu: "200m"
+        memory: "256Mi"
