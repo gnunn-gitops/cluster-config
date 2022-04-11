@@ -18,5 +18,5 @@ spec:
           region: ca-central-1
           accessKeyID: AKIAVW7HGAZVX3JBBJD2
           secretAccessKeySecretRef:
-            name: lets-encrypt-aws
+            name: letsencrypt-aws
             key: secret-access-key
