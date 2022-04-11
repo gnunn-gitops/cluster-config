@@ -29,7 +29,7 @@ roleRef:
   name: patch-cluster-wildcard-cert
 subjects:
   - kind: ServiceAccount
-    name: patch-cluster-certs
+    name: patch-cluster-wildcard-cert
 ---
 apiVersion: v1
 kind: ServiceAccount
