@@ -1,0 +1,13 @@
+apiVersion: certmanager.k8s.io/v1alpha1
+kind: Certificate
+metadata:
+  name: openshift-wildcard
+  namespace: openshift-ingress
+spec:
+  secretName: openshift-wildcard-certificate
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  commonName: '*.apps.home.ocplab.com'
+  dnsNames:
+  - '*.apps.home.ocplab.com'
