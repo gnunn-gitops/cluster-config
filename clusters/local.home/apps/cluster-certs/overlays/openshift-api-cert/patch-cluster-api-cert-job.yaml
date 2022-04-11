@@ -13,7 +13,7 @@ rules:
   - apiGroups:
       - config.openshift.io
     resources:
-      - apiserver
+      - apiservers
     verbs:
       - get
       - list
