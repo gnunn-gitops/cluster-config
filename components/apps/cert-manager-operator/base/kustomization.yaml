@@ -6,4 +6,5 @@ commonAnnotations:
 
 resources:
 - operator-namespace.yaml
+- operator-group.yaml
 - subscription.yaml
