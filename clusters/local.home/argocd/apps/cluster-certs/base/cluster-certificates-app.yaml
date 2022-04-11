@@ -16,3 +16,4 @@ spec:
     path: clusters/local.home/apps/cluster-certs/overlays/all
     repoURL: https://github.com/gnunn-gitops/cluster-config.git
     targetRevision: main
+  syncPolicy: {}
