@@ -4,7 +4,8 @@ metadata:
   name: central-tls-letsencrypt-cert
   namespace: stackrox
 spec:
-  secretName: central-tls-letsencrypt-cert
+  # Replace default secret since ACS doesn't support referencing a different secret
+  secretName: central-default-tls-cert
   issuerRef:
     name: letsencrypt-prod
     kind: ClusterIssuer
