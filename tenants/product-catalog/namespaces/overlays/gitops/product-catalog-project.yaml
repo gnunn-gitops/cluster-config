@@ -13,8 +13,6 @@ spec:
     kind: ResourceQuota
   - group: ''
     kind: LimitRange
-  - group: 'networking.k8s.io'
-    kind: NetworkPolicy
   destinations:
   - namespace: 'product-catalog-dev'
     server: 'https://kubernetes.default.svc'
