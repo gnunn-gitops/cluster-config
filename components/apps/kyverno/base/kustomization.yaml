@@ -22,16 +22,16 @@ patches:
 #   target:
 #     kind: ClusterRole
 #     name: kyverno:generate
-# - patch: |-
-#     - op: replace
-#       path: /spec/template/spec/containers/0/resources/limits/memory
-#       value: 768Mi
-#     - op: replace
-#       path: /spec/template/spec/containers/0/livenessProbe/initialDelaySeconds
-#       value: 60
-#   target:
-#     kind: Deployment
-#     name: kyverno
+- patch: |-
+    - op: replace
+      path: /spec/template/spec/containers/0/resources/limits/memory
+      value: 768Mi
+    - op: replace
+      path: /spec/template/spec/containers/0/livenessProbe/initialDelaySeconds
+      value: 60
+  target:
+    kind: Deployment
+    name: kyverno
 - patch: |-
     - op: replace
       path: /data/resourceFilters
