@@ -14,11 +14,11 @@ spec:
   applicationInstanceLabelKey: argocd.argoproj.io/instance
   applicationSet: {}
   server:
-    insecure: true
+    insecure: false
     route:
       enabled: true
       tls:
-        termination: edge
+        termination: reencrypt
         insecureEdgeTerminationPolicy: Redirect
   resourceCustomizations: |
     route.openshift.io/Route:
