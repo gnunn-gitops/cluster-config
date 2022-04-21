@@ -26,3 +26,10 @@ patches:
   target:
     group: rbac.authorization.k8s.io
     version: v1beta1
+- patch: |-
+    - op: replace
+      path: "/spec/template/spec/containers/0/image"
+      value: docker.io/bitnami/sealed-secrets-controller:v0.17.3
+  target:
+    kind: Deployment
+    name: sealed-secrets-controller
