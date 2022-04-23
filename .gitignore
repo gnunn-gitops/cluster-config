@@ -4,3 +4,4 @@ alertmanager.yaml
 google-secret.yaml
 *-private.yaml
 *-private.yml
+charts

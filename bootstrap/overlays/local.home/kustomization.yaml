@@ -5,4 +5,4 @@ bases:
 - ../../base
 
 resources:
-- cluster-config-manager-app.yaml
+- cluster-config-bootstrap-app.yaml

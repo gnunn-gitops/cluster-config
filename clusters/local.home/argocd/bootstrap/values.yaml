@@ -1,0 +1,95 @@
+default:
+  app:
+    enabled: true
+    enableAutoSync: true
+    autoSyncPrune: false
+    project: cluster-config
+    destination:
+      namespace: openshift-gitops
+      server: https://kubernetes.default.svc
+    source:
+      repoURL: https://github.com/gnunn-gitops/cluster-config.git
+      targetRevision: HEAD
+
+  tenants:
+    description: Project for individual tenant configuration (namespaces, quotas, etc)
+    namespace: openshift-gitops
+    sourceRepos:
+    - https://github.com/gnunn-gitops/cluster-config
+
+applications:
+
+  cert-manager-operator:
+    annotations:
+      argocd.argoproj.io/sync-wave: "2"
+    destination:
+      namespace: openshift-cert-manager-operator
+    source:
+      path: clusters/local.home/apps/cluster-certs/overlays/all
+
+  openshift-monitoring:
+    annotations:
+      argocd.argoproj.io/compare-options: IgnoreExtraneous
+      argocd.argoproj.io/sync-wave: '11'
+    source:
+      path: clusters/local.home/apps/openshift-monitoring/base
+
+  quay-registry:
+    # leave disabled unless needed for demo
+    enabled: false
+    annotations:
+      argocd.argoproj.io/compare-options: IgnoreExtraneous
+      argocd.argoproj.io/sync-wave: '21'
+    source:
+      path: clusters/local.home/apps/openshift-monitoring/base
+
+  sso:
+    # Leave disabled unless needed for demo
+    enabled: false
+    annotations:
+      argocd.argoproj.io/compare-options: IgnoreExtraneous
+      argocd.argoproj.io/sync-wave: '21'
+    destination:
+      namespace: sso
+    source:
+      path: clusters/local.home/apps/sso/overlays/default
+
+  cost-management:
+    annotations:
+      argocd.argoproj.io/compare-options: IgnoreExtraneous
+      argocd.argoproj.io/sync-wave: '21'
+    source:
+      path: clusters/local.home/apps/cost-management-operator/overlays/default
+
+  kyverno:
+    annotations:
+      argocd.argoproj.io/compare-options: IgnoreExtraneous
+      argocd.argoproj.io/sync-wave: '21'
+    destination:
+      namespace: kyverno
+    source:
+      path: components/apps/kyverno/overlays/policies
+    syncPolicyRetry:
+      limit: 5
+      backoff:
+        duration: 5s
+        factor: 2
+        maxDuration: 3m
+    extraFields: |
+      ignoreDifferences:
+        - group: kyverno.io
+          kind: ClusterPolicy
+          jsonPointers:
+          - /spec/rules
+        - group: kyverno.io
+          kind: Policy
+          jsonPointers:
+          - /spec/rules
+
+  tenant-product-catalog:
+    project: tenants
+    annotations:
+      argocd.argoproj.io/compare-options: IgnoreExtraneous
+      argocd.argoproj.io/sync-wave: '51'
+    source:
+      path: tenants/product-catalog/argocd/applicationset/base
