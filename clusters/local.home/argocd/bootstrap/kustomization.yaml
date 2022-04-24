@@ -11,3 +11,15 @@ helmCharts:
 
 resources:
 - ../../../default/argocd/bootstrap
+
+patches:
+  - target:
+      kind: Application
+      name: compliance-operator
+    patch: |-
+      - op: replace
+        path: /spec/source/path
+        value: 'components/apps/compliance-operator/overlays/scheduled-master'
+      - op: replace
+        path: /spec/source/repoURL
+        value: 'https://github.com/gnunn-gitops/cluster-config'

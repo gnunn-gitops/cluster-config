@@ -18,6 +18,7 @@ projects:
     namespace: openshift-gitops
     sourceRepos:
     - https://github.com/gnunn-gitops/cluster-config
+    - https://github.com/redhat-cop/gitops-catalog
     destinations: |
       - namespace: '*'
         server: https://kubernetes.default.svc
@@ -69,6 +70,7 @@ applications:
       namespace: openshift-compliance
     source:
       path: compliance-operator/aggregate/scheduled
+      repoURL: https://github.com/redhat-cop/gitops-catalog
 
   console-links:
     annotations:
@@ -85,6 +87,7 @@ applications:
       namespace: openshift-operators
     source:
       path: container-security-operator/overlays/stable-3.6
+      repoURL: https://github.com/redhat-cop/gitops-catalog
 
   dev-tools:
     annotations:
