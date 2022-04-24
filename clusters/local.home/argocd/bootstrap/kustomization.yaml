@@ -7,7 +7,7 @@ helmCharts:
   repo: https://gnunn-gitops.github.io/helm-charts
   valuesFile: values.yaml
   namespace: openshift-gitops
-  releaseName: argocd-app-of-app
+  releaseName: argocd-app-of-app-0.2.0
 
 resources:
 - ../../../default/argocd/bootstrap
