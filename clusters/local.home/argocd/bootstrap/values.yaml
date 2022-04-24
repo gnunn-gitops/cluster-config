@@ -11,11 +11,20 @@ default:
       repoURL: https://github.com/gnunn-gitops/cluster-config.git
       targetRevision: HEAD
 
+projects:
+
   tenants:
     description: Project for individual tenant configuration (namespaces, quotas, etc)
     namespace: openshift-gitops
     sourceRepos:
     - https://github.com/gnunn-gitops/cluster-config
+    destinations: |
+      - namespace: '*'
+        server: https://kubernetes.default.svc
+    extraFields: |
+      clusterResourceWhitelist:
+      - group: '*'
+        kind: '*'
 
 applications:
 
