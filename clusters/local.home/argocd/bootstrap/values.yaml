@@ -80,11 +80,11 @@ applications:
           jsonPointers:
           - /spec/rules
 
-  tenant-product-catalog:
-    project: tenants
+  product-catalog-root:
+    project: cluster-config
     enabled: false
     annotations:
       argocd.argoproj.io/compare-options: IgnoreExtraneous
       argocd.argoproj.io/sync-wave: '51'
     source:
-      path: tenants/product-catalog/argocd/applicationset/base
+      path: tenants/product-catalog/argocd/root/base

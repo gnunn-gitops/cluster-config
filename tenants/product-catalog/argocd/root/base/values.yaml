@@ -1,0 +1,89 @@
+default:
+  app:
+    enabled: true
+    enableAutoSync: true
+    autoSyncPrune: false
+    project: product-catalog
+    destination:
+      namespace: openshift-gitops
+      server: https://kubernetes.default.svc
+    source:
+      repoURL: https://github.com/gnunn-gitops/cluster-config.git
+      targetRevision: HEAD
+
+projects:
+
+  product-catalog:
+    description: Project for product-catalog tenant
+    namespace: openshift-gitops
+    sourceRepos:
+    - https://github.com/gnunn-gitops/cluster-config
+    destinations: |
+      - namespace: 'product-catalog-gitops'
+        server: https://kubernetes.default.svc
+      - namespace: 'product-catalog-monitor'
+        server: https://kubernetes.default.svc
+      - namespace: 'product-catalog-cicd'
+        server: https://kubernetes.default.svc
+      - namespace: 'product-catalog-dev'
+        server: https://kubernetes.default.svc
+      - namespace: 'product-catalog-test'
+        server: https://kubernetes.default.svc
+      - namespace: 'product-catalog-prod'
+        server: https://kubernetes.default.svc
+    extraFields: |
+      clusterResourceWhitelist:
+      - group: '*'
+        kind: '*'
+
+applications:
+
+  product-catalog-gitops:
+    destination:
+      namespace: product-catalog-gitops
+    source:
+      path: tenants/product-catalog/namespaces/overlays/gitops
+    syncPolicyRetry:
+      retry:
+        limit: 2
+        backoff:
+          duration: 5s
+          factor: 2
+          maxDuration: 3m
+
+  product-catalog-monitor:
+    destination:
+      namespace: product-catalog-monitor
+    source:
+      path: tenants/product-catalog/namespaces/overlays/monitor
+    syncPolicyRetry:
+      retry:
+        limit: 2
+        backoff:
+          duration: 5s
+          factor: 2
+          maxDuration: 3m
+
+  product-catalog-cicd:
+    destination:
+      namespace: product-catalog-cicd
+    source:
+      path: tenants/product-catalog/namespaces/overlays/cicd
+
+  product-catalog-dev:
+    destination:
+      namespace: product-catalog-dev
+    source:
+      path: tenants/product-catalog/namespaces/overlays/dev
+
+  product-catalog-test:
+    destination:
+      namespace: product-catalog-test
+    source:
+      path: tenants/product-catalog/namespaces/overlays/test
+
+  product-catalog-prod:
+    destination:
+      namespace: product-catalog-prod
+    source:
+      path: tenants/product-catalog/namespaces/overlays/prod
