@@ -31,6 +31,8 @@ projects:
         server: https://kubernetes.default.svc
       - namespace: 'product-catalog-prod'
         server: https://kubernetes.default.svc
+      - name: 'stackrox'
+        server: https://kubernetes.default.svc
     extraFields: |
       clusterResourceWhitelist:
       - group: '*'
