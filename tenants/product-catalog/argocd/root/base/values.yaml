@@ -44,12 +44,11 @@ applications:
     source:
       path: tenants/product-catalog/namespaces/overlays/gitops
     syncPolicyRetry:
-      retry:
-        limit: 2
-        backoff:
-          duration: 5s
-          factor: 2
-          maxDuration: 3m
+      limit: 2
+      backoff:
+        duration: 5s
+        factor: 2
+        maxDuration: 3m
 
   product-catalog-monitor:
     destination:
@@ -57,12 +56,11 @@ applications:
     source:
       path: tenants/product-catalog/namespaces/overlays/monitor
     syncPolicyRetry:
-      retry:
-        limit: 2
-        backoff:
-          duration: 5s
-          factor: 2
-          maxDuration: 3m
+      limit: 2
+      backoff:
+        duration: 5s
+        factor: 2
+        maxDuration: 3m
 
   product-catalog-cicd:
     destination:
