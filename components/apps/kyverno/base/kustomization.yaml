@@ -28,7 +28,13 @@ patches:
       value: 768Mi
     - op: replace
       path: /spec/template/spec/containers/0/livenessProbe/initialDelaySeconds
-      value: 60
+      value: 120
+    - op: add
+      path: /spec/template/spec/containers/0/args/-
+      value: '--clientRateLimitQPS=350'
+    - op: add
+      path: /spec/template/spec/containers/0/args/-
+      value: '--clientRateLimitBurst=350'
   target:
     kind: Deployment
     name: kyverno
