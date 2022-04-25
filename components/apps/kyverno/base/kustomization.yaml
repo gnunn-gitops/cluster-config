@@ -6,30 +6,10 @@ resources:
 
 
 patches:
-# - patch: |-
-#     - op: add
-#       path: /rules/1/resources/-
-#       value: |-
-#         policyreports/finalizers
-#         clusterpolicyreports/finalizers
-#   target:
-#     kind: ClusterRole
-#     name: kyverno:policies
-# - patch: |-
-#     - op: add
-#       path: /rules/1/resources/-
-#       value: |-
-#         namespaces/finalizers
-#   target:
-#     kind: ClusterRole
-#     name: kyverno:generate
 - patch: |-
     - op: replace
       path: /spec/template/spec/containers/0/resources/limits/memory
       value: 768Mi
-    - op: replace
-      path: /spec/template/spec/containers/0/livenessProbe/initialDelaySeconds
-      value: 30
     - op: add
       path: /spec/template/spec/containers/0/args/-
       value: '--clientRateLimitQPS=350'
