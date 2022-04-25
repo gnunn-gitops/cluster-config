@@ -82,7 +82,6 @@ applications:
 
   product-catalog-root:
     project: cluster-config
-    enabled: false
     annotations:
       argocd.argoproj.io/compare-options: IgnoreExtraneous
       argocd.argoproj.io/sync-wave: '51'
