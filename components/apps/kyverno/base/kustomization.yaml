@@ -29,7 +29,7 @@ patches:
       value: 768Mi
     - op: replace
       path: /spec/template/spec/containers/0/livenessProbe/initialDelaySeconds
-      value: 120
+      value: 30
     - op: add
       path: /spec/template/spec/containers/0/args/-
       value: '--clientRateLimitQPS=350'
