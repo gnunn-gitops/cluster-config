@@ -2,15 +2,8 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
-- namespace.yaml
-# - https://raw.githubusercontent.com/kyverno/kyverno/main/config/release/install.yaml
+- https://raw.githubusercontent.com/kyverno/kyverno/release-1.6/config/release/install.yaml
 
-helmCharts:
-- name: kyverno
-  version: v2.3.3
-  repo: https://kyverno.github.io/kyverno
-  namespace: kyverno
-  releaseName: kyverno-v2.3.3
 
 patches:
 # - patch: |-
