@@ -71,7 +71,6 @@ applications:
       path: clusters/local.home/apps/cost-management-operator/overlays/default
 
   kyverno:
-    enabled: false
     annotations:
       argocd.argoproj.io/compare-options: IgnoreExtraneous
       argocd.argoproj.io/sync-wave: '21'
