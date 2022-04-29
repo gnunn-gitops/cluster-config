@@ -9,7 +9,7 @@ spec:
   destination:
     namespace: openshift-gitops
     server: https://kubernetes.default.svc
-  project: cluster-config
+  project: default
   source:
     path: clusters/default/argocd/bootstrap
     repoURL: https://github.com/gnunn-gitops/cluster-config.git
