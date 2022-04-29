@@ -13,6 +13,22 @@ default:
 
 applications:
 
+  acs:
+    annotations:
+      argocd.argoproj.io/compare-options: IgnoreExtraneous
+      argocd.argoproj.io/sync-wave: '21'
+    source:
+      path: components/apps/acs-operator/overlays/oauth
+
+  authentication:
+    annotations:
+      argocd.argoproj.io/compare-options: IgnoreExtraneous
+      argocd.argoproj.io/sync-wave: '4'
+    destination:
+      namespace: openshift-config
+    source:
+      path: components/configs/oauth/overlays/google-with-matrix
+
   cert-manager-operator:
     annotations:
       argocd.argoproj.io/sync-wave: "2"

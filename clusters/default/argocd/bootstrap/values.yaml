@@ -29,13 +29,6 @@ projects:
 
 applications:
 
-  acs:
-    annotations:
-      argocd.argoproj.io/compare-options: IgnoreExtraneous
-      argocd.argoproj.io/sync-wave: '21'
-    source:
-      path: components/apps/acs-operator/overlays/oauth
-
   alertmanager:
     annotations:
       argocd.argoproj.io/compare-options: IgnoreExtraneous
@@ -44,15 +37,6 @@ applications:
       namespace: openshift-monitoring
     source:
       path: components/configs/alertmanager/base
-
-  authentication:
-    annotations:
-      argocd.argoproj.io/compare-options: IgnoreExtraneous
-      argocd.argoproj.io/sync-wave: '4'
-    destination:
-      namespace: openshift-config
-    source:
-      path: components/configs/oauth/overlays/google-with-matrix
 
   camel-k-operator:
     annotations:
