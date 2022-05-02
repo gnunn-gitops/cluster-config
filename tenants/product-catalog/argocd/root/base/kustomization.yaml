@@ -9,6 +9,9 @@ helmCharts:
   namespace: openshift-gitops
   releaseName: argocd-app-of-app-0.2.0
 
+resources:
+- ../../../rbac/base
+
 patches:
   - target:
       kind: Application
