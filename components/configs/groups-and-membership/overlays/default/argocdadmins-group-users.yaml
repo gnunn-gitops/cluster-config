@@ -10,4 +10,7 @@
   value: "admin"
 - op: add
   path: /users/-
-  value: "gnunn@redhat.com"  
+  value: "gnunn@redhat.com"
+- op: add
+  path: /users/-
+  value: "opentlc-mgr"
