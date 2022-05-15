@@ -1,0 +1,11 @@
+apiVersion: logging.openshift.io/v1
+kind: ClusterLogging
+metadata:
+  annotations:
+    logging.openshift.io/preview-vector-collector: enabled
+  name: instance
+spec:
+  collection:
+    logs:
+      fluentd: {}
+      type: fluentd

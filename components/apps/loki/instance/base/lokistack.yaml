@@ -1,0 +1,13 @@
+apiVersion: loki.grafana.com/v1beta1
+kind: LokiStack
+metadata:
+  name: lokistack
+spec:
+  size: 1x.extra-small
+  storage:
+    secret:
+      name: loki-storage
+      type: s3
+  storageClassName: csi-driver-lvm-linear
+  tenants:
+    mode: openshift-logging

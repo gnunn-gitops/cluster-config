@@ -1,0 +1,11 @@
+apiVersion: loki.grafana.com/v1beta1
+kind: LokiStack
+metadata:
+  name: lokistack
+spec:
+  limits:
+    global:
+      ingestion:
+        ingestionRate: 12
+        ingestionBurstSize: 15
+  size: 1x.extra-small
