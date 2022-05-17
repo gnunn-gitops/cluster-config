@@ -4,6 +4,7 @@ kind: Kustomization
 namespace: openshift-logging
 
 resources:
+- lokigateway-secret.yaml
 - role.yaml
 - lokistack.yaml
 - clusterlogforwarder.yaml
