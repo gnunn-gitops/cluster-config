@@ -4,4 +4,6 @@ metadata:
   annotations:
     openshift.io/description: Project for gitops tool for product catalog team
     openshift.io/display-name:  Product Catalog GitOps
+  labels:
+    tenant: product-catalog
   name: product-catalog-gitops

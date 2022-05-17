@@ -6,4 +6,5 @@ metadata:
     openshift.io/display-name:  Product Catalog CI/CD
   labels:
     argocd.argoproj.io/managed-by: product-catalog-gitops
+    tenant: product-catalog
   name: product-catalog-cicd
