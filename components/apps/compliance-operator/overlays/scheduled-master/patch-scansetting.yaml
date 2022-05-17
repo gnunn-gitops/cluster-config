@@ -6,4 +6,3 @@ metadata:
   namespace: openshift-compliance
 roles:
 - master
-schedule: 0 9 * * 1
