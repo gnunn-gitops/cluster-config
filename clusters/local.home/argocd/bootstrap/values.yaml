@@ -71,13 +71,13 @@ applications:
     source:
       path: clusters/local.home/apps/cost-management-operator/overlays/default
 
-  # lokistack:
-  #   annotations:
-  #     argocd.argoproj.io/compare-options: IgnoreExtraneous
-  #     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
-  #     argocd.argoproj.io/sync-wave: '21'
-  #   source:
-  #     path: clusters/local.home/apps/lokistack/overlays/qnap
+  lokistack:
+    annotations:
+      argocd.argoproj.io/compare-options: IgnoreExtraneous
+      argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+      argocd.argoproj.io/sync-wave: '21'
+    source:
+      path: clusters/local.home/apps/lokistack/overlays/qnap
 
   kyverno:
     annotations:
