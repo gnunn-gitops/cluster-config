@@ -7,3 +7,4 @@ resources:
 - role.yaml
 - lokistack.yaml
 - clusterlogforwarder.yaml
+- clusterlogging.yaml

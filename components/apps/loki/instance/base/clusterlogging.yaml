@@ -2,7 +2,7 @@ apiVersion: logging.openshift.io/v1
 kind: ClusterLogging
 metadata:
   annotations:
-    logging.openshift.io/preview-vector-collector: enabled
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
   name: instance
 spec:
   collection:
