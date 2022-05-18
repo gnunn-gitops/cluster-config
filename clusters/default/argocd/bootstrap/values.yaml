@@ -102,7 +102,13 @@ applications:
     destination:
       namespace: openshift-operators
     source:
-      path: components/apps/pipelines-operator/overlays/patch-config-parameters
+      path: components/apps/pipelines-operator/overlays/chains
+    syncPolicyRetry:
+      limit: 5
+      backoff:
+        duration: 5s
+        factor: 2
+        maxDuration: 3m
 
   sealed-secrets:
     annotations:
