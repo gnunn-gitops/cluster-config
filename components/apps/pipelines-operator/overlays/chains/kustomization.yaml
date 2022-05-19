@@ -4,3 +4,13 @@ kind: Kustomization
 resources:
 - github.com/redhat-cop/gitops-catalog/openshift-pipelines-operator/overlays/stable
 - tekton-chain.yaml
+
+patches:
+# Patch create-local-pipeline account job environment variables
+- patch: |-
+    - op: replace
+      path: /spec/channel
+      value: latest
+  target:
+    kind: Subscription
+    name: openshift-pipelines-operator
