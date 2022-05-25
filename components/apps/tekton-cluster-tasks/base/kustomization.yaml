@@ -5,5 +5,5 @@ resources:
 # Uncomment and remove gnunn custom one when PR is merged
 #- https://raw.githubusercontent.com/stackrox/contributions/main/ci/Tekton/Tasks/rox-image-check-task.yml
 - https://raw.githubusercontent.com/gnunn1/contributions/main/ci/Tekton/Tasks/rox-image-check-task.yml
-- https://raw.githubusercontent.com/gnunn1/contributions/main/ci/Tekton/Tasks/rox-image-scan-task.yml
+- https://raw.githubusercontent.com/stackrox/contributions/main/ci/Tekton/Tasks/rox-image-scan-task.yml
 - github.com/gnunn1/tekton-lease/base
