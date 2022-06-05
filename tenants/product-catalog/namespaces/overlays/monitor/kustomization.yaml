@@ -16,6 +16,14 @@ patches:
   target:
     kind: RoleBinding
     name: gitops-argocd-extended-rolebinding
+- patch: |-
+    - op: add
+      path: /spec/config/users
+      value:
+        default_theme: light
+  target:
+    kind: Grafana
+    name: grafana
 
 patchesJson6902:
 - target:
