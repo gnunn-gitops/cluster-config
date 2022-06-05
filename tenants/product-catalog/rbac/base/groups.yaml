@@ -3,7 +3,13 @@ kind: Group
 metadata:
   name: product-catalog-admins
 users:
-- user1
 - admin
 - gnunn@redhat.com
 - productcatalogadmin
+---
+apiVersion: user.openshift.io/v1
+kind: Group
+metadata:
+  name: product-catalog-users
+users:
+- user1
