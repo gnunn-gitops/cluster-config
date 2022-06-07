@@ -44,3 +44,16 @@ In my original version  of this repo I was storing individual ArgoCD application
 Unfortunately ApplicationSets does not currently support sync waves which I am relying on here to deploy things like sealed-secrets and certificates before everything else. Additionally the templating capability in ApplicationSet is currently not sophisticated enough for my needs. However as mentioned at it's core ApplicationSets is simply a templating pattern and I opted to just replicate this with a helm chart. In each cluster overlay you will see an Argo CD bootstrap folder (`clusters/<cluster-name>/argocd/bootstrap`) which uses kustomize to output the artifacts from a `helm template`.
 
 Each cluster references the `clusters/default/argocd/bootstrap` to load the base configuration common to all of my clusters, each cluster then defines another iteration of the helm chart that includes things specific to this cluster.
+
+Note to use this feature you do need to have Argo CD pass the `--enable-helm` flag to kustomize, you can do this via setting the `kustomizeBuildOptions` in the ArgoCD CR:
+
+```
+apiVersion: argoproj.io/v1alpha1
+kind: ArgoCD
+metadata:
+  name: openshift-gitops
+  namespace: openshift-gitops
+spec:
+  kustomizeBuildOptions: "--enable-helm"
+  ...
+```
