@@ -15,6 +15,8 @@ While this structure follows the basic principles in my standards document I am 
 
 ![alt text](https://raw.githubusercontent.com/gnunn-gitops/cluster-config/main/docs/img/argocd.png)
 
+Finally note that I deliberately have everything in the same repository for demo purposes. Folks dealing with a lot of clusters and tenants will likely want to split things out into multiple repositories.
+
 # Usage
 
 Cluster specific configuration is stored in the bootstrap/overlays folder. To deploy the cluster configuration, simply do a ```oc apply -k bootstrap/overlays/{clustername}```. Under the hood this kustomize does the following:
@@ -39,6 +41,6 @@ This repo uses Argo CD sync waves to configure the configuration in an ordered m
 
 In my original version  of this repo I was storing individual ArgoCD applications in the components (then manifests) directory and then patching these as needed to support cluster specific variations. This proved to be a lot of a yaml to maintain so with ApplicationSets being available in the gitops-operator I was excited about simplfying things.
 
-Unfortunately ApplicationSets does not currently support sync waves which I am relying on here to deploy things like sealed-secrets and certificates before everything else. However at it's core ApplicationSets is simply a templating pattern and I opted to just replicate this on the client side. In each cluster overlay you will see a set of Argo CD applications, i.e. `clusters/home/argocd/apps/base`. These are generated using a bash script called `generate-argocd-apps.sh` with the goal to reduce the overhead of managing ArgoCD applications.
+Unfortunately ApplicationSets does not currently support sync waves which I am relying on here to deploy things like sealed-secrets and certificates before everything else. Additionally the templating capability in ApplicationSet is currently not sophisticated enough for my needs. However as mentioned at it's core ApplicationSets is simply a templating pattern and I opted to just replicate this with a helm chart. In each cluster overlay you will see an Argo CD bootstrap folder (`clusters/<cluster-name>/argocd/bootstrap`) which uses kustomize to output the artifacts from a `helm template`.
 
-Once ApplicationSets support sync waves I plan on revisiting this.
+Each cluster references the `clusters/default/argocd/bootstrap` to load the base configuration common to all of my clusters, each cluster then defines another iteration of the helm chart that includes things specific to this cluster.
