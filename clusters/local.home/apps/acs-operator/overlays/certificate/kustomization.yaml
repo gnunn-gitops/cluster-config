@@ -1,0 +1,6 @@
+commonAnnotations:
+  argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+
+resources:
+- ../../../../../../components/apps/acs-operator/overlays/oauth
+- certificate.yaml

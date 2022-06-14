@@ -18,7 +18,7 @@ applications:
       argocd.argoproj.io/compare-options: IgnoreExtraneous
       argocd.argoproj.io/sync-wave: '21'
     source:
-      path: components/apps/acs-operator/overlays/oauth
+      path: clusters/local.home/apps/acs-operator/overlays/certificate
 
   authentication:
     annotations:
