@@ -20,12 +20,12 @@ applications:
     source:
       path: components/apps/acs-operator/overlays/oauth
 
-  acs-tokens:
-    annotations:
-      argocd.argoproj.io/compare-options: IgnoreExtraneous
-      argocd.argoproj.io/sync-wave: '61'
-    source:
-      path: tenants/acs-tokens/base
+  # acs-tokens:
+  #   annotations:
+  #     argocd.argoproj.io/compare-options: IgnoreExtraneous
+  #     argocd.argoproj.io/sync-wave: '61'
+  #   source:
+  #     path: tenants/acs-tokens/base
 
   openshift-monitoring:
     annotations:
