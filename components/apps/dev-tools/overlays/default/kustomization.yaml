@@ -11,3 +11,12 @@ bases:
 
 resources:
 - namespace.yaml
+
+patches:
+- patch: |-
+    - op: replace
+      path: /spec/template/spec/containers/0/image
+      value: sonarqube:lts-community
+  target:
+    kind: Deployment
+    name: sonarqube
