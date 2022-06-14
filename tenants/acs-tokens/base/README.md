@@ -1,0 +1,1 @@
+Uses a pipelinerun to generate ACS tokens for various namespaces to consume. Useful when there is a need to integrate with ACS for image scanning, etc

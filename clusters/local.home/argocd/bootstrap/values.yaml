@@ -20,6 +20,13 @@ applications:
     source:
       path: clusters/local.home/apps/acs-operator/overlays/certificate
 
+  acs-tokens:
+    annotations:
+      argocd.argoproj.io/compare-options: IgnoreExtraneous
+      argocd.argoproj.io/sync-wave: '61'
+    source:
+      path: tenants/acs-tokens/base
+
   authentication:
     annotations:
       argocd.argoproj.io/compare-options: IgnoreExtraneous

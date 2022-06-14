@@ -1,0 +1,4 @@
+namespace: stackrox
+
+resources:
+- product-catalog-cicd-pipelinerun.yaml
