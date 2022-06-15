@@ -27,6 +27,15 @@ applications:
   #   source:
   #     path: tenants/acs-tokens/base
 
+  authentication:
+    annotations:
+      argocd.argoproj.io/compare-options: IgnoreExtraneous
+      argocd.argoproj.io/sync-wave: '4'
+    destination:
+      namespace: openshift-config
+    source:
+      path: components/configs/oauth/overlays/default
+
   openshift-monitoring:
     annotations:
       argocd.argoproj.io/compare-options: IgnoreExtraneous
