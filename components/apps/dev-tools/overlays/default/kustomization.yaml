@@ -7,7 +7,9 @@ bases:
 # Nexus
 - https://github.com/redhat-cop/gitops-catalog/nexus2/base
 # Sonarqube
-- https://github.com/redhat-cop/gitops-catalog/sonarqube8/overlays/plugins
+- sonarqube-admin-secret.yaml
+- https://github.com/redhat-cop/gitops-catalog/sonarqube8/base
+- configure-sonarqube-job.yaml
 
 resources:
 - namespace.yaml
