@@ -29,15 +29,6 @@ projects:
 
 applications:
 
-  alertmanager:
-    annotations:
-      argocd.argoproj.io/compare-options: IgnoreExtraneous
-      argocd.argoproj.io/sync-wave: '11'
-    destination:
-      namespace: openshift-monitoring
-    source:
-      path: components/configs/alertmanager/base
-
   camel-k-operator:
     annotations:
       argocd.argoproj.io/sync-wave: "21"
