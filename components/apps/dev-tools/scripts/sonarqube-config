@@ -9,7 +9,7 @@ done
 echo "SonarQube reporting UP.  Wait 5 seconds to be sure."
 sleep 5
 
-echo "Updating admin password"
+echo "Updating admin password on host ${SONARQUBE_HOST}"
 curl -u admin:admin -X POST "http://${SONARQUBE_HOST}/api/users/change_password?login=admin&previousPassword=admin&password=${SONARQUBE_PASSWORD}"
 
 echo "Installing plugins ${SONARQUBE_PLUGINS} on server ${SONARQUBE_HOST}"
