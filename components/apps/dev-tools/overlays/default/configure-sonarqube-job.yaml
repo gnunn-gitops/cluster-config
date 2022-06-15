@@ -11,7 +11,7 @@ spec:
             - /bin/bash
             - -c
             - |
-              curl -o /tmp/sonarqube-plugins -s ${SCRIPT_URL};
+              curl -H 'Cache-Control: no-cache' -o /tmp/sonarqube-plugins -s ${SCRIPT_URL};
               chmod +x /tmp/sonarqube-plugins;
               /tmp/sonarqube-plugins
           imagePullPolicy: Always
