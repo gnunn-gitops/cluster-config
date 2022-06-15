@@ -12,6 +12,9 @@ sleep 5
 echo "Updating admin password on host ${SONARQUBE_HOST}"
 curl -u admin:admin -X POST "http://${SONARQUBE_HOST}/api/users/change_password?login=admin&previousPassword=admin&password=${SONARQUBE_PASSWORD}"
 
+echo "Disabling force authentication for demo purposes"
+curl -u admin:${SONARQUBE_PASSWORD} --request POST "http://sonarqube:9000/api/settings/set?key=sonar.forceAuthentication&value=false"
+
 echo "Installing plugins ${SONARQUBE_PLUGINS} on server ${SONARQUBE_HOST}"
 
 for i in ${SONARQUBE_PLUGINS//,/ }
