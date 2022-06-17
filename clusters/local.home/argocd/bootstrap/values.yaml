@@ -87,18 +87,18 @@ applications:
     source:
       path: clusters/local.home/apps/cost-management-operator/overlays/default
 
-  lokistack:
-    annotations:
-      argocd.argoproj.io/compare-options: IgnoreExtraneous
-      argocd.argoproj.io/sync-wave: '21'
-    source:
-      path: clusters/local.home/apps/lokistack/overlays/qnap
-    syncPolicyRetry:
-      limit: 5
-      backoff:
-        duration: 5s
-        factor: 2
-        maxDuration: 3m
+  # lokistack:
+  #   annotations:
+  #     argocd.argoproj.io/compare-options: IgnoreExtraneous
+  #     argocd.argoproj.io/sync-wave: '21'
+  #   source:
+  #     path: clusters/local.home/apps/lokistack/overlays/qnap
+  #   syncPolicyRetry:
+  #     limit: 5
+  #     backoff:
+  #       duration: 5s
+  #       factor: 2
+  #       maxDuration: 3m
 
   # kyverno:
   #   annotations:
