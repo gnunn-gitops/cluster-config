@@ -14,7 +14,6 @@ spec:
       default: json
   workspaces:
     - acs-central
-    - acs-token
   steps:
     - name: rox-image-scan
       image: centos:8
@@ -22,8 +21,8 @@ spec:
         #!/usr/bin/env bash
         set +x
 
-        ROX_CENTRAL_ENDPOINT=$(cat $(workspaces.acs-central.path)/ARGOCD_SERVER)
-        ROX_API_TOKEN=$(cat $(workspaces.acs-token.path)/ROX_API_TOKEN)
+        ROX_CENTRAL_ENDPOINT=$(cat $(workspaces.acs-central.path)/rox_central_endpoint)
+        ROX_API_TOKEN=$(cat $(workspaces.acs-central.path)/rox_api_token)
 
         export NO_COLOR="True"
         curl -k -L -H "Authorization: Bearer $ROX_API_TOKEN" https://$ROX_CENTRAL_ENDPOINT/api/cli/download/roxctl-linux --output ./roxctl  > /dev/null; echo "Getting roxctl"
