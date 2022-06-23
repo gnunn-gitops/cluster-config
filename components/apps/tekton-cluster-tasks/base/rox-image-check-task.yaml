@@ -29,8 +29,8 @@ spec:
           exit 0
         fi
 
-        ROX_CENTRAL_ENDPOINT=$(cat $(workspaces.acs-central.path)/rox_central_endpoint)
-        ROX_API_TOKEN=$(cat $(workspaces.acs-central.path)/rox_api_token)
+        export ROX_CENTRAL_ENDPOINT=$(cat $(workspaces.acs-central.path)/rox_central_endpoint)
+        export ROX_API_TOKEN=$(cat $(workspaces.acs-central.path)/rox_api_token)
 
         echo "Scanning against endpoint ${ROX_CENTRAL_ENDPOINT}"
 
