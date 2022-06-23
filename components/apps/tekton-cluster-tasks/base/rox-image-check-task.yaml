@@ -24,6 +24,11 @@ spec:
         #!/usr/bin/env bash
         set +x
 
+        if [ $(workspaces.acs-central.bound) == "false" ] ; then
+          echo "No acs-central workspace was bound to task"
+          exit 0
+        fi
+
         ROX_CENTRAL_ENDPOINT=$(cat $(workspaces.acs-central.path)/rox_central_endpoint)
         ROX_API_TOKEN=$(cat $(workspaces.acs-central.path)/rox_api_token)
 
