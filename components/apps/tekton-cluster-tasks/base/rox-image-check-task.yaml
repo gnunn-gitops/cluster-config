@@ -16,6 +16,7 @@ spec:
   workspaces:
     - name: acs-central
       description: The secret with the central endpoint (rox-central_endpoint) and api token (rox_api_token)
+      optional: true
   steps:
     - name: rox-image-check
       image: centos:8
