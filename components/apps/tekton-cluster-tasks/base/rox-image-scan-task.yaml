@@ -13,7 +13,8 @@ spec:
       description:  Output format (json | csv | table)
       default: json
   workspaces:
-    - acs-central
+    - name: acs-central
+      description: The secret with the central endpoint (rox-central_endpoint) and api token (rox_api_token)
   steps:
     - name: rox-image-scan
       image: centos:8
