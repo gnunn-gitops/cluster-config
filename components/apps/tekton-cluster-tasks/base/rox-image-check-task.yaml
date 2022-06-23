@@ -1,0 +1,36 @@
+
+
+apiVersion: tekton.dev/v1beta1
+kind: ClusterTask
+metadata:
+  name: rox-image-check
+  namespace: pipeline-demo
+spec:
+  params:
+    - name: image
+      type: string
+      description: Full name of image to scan (example -- gcr.io/rox/sample:5.0-rc1)
+  results:
+      - name: check_passed
+        description: Whether the task passed or failed, "true" for a pass, "false" for a fail.
+  workspaces:
+    - acs-central
+    - acs-token
+  steps:
+    - name: rox-image-check
+      image: centos:8
+      script: |
+        #!/usr/bin/env bash
+        set +x
+
+        ROX_CENTRAL_ENDPOINT=$(cat $(workspaces.acs-central.path)/ARGOCD_SERVER)
+        ROX_API_TOKEN=$(cat $(workspaces.acs-token.path)/ROX_API_TOKEN)
+
+        curl -k -L -H "Authorization: Bearer $ROX_API_TOKEN" https://$ROX_CENTRAL_ENDPOINT/api/cli/download/roxctl-linux --output ./roxctl  > /dev/null; echo "Getting roxctl"
+        chmod +x ./roxctl  > /dev/null
+        if ./roxctl image check --insecure-skip-tls-verify -e $ROX_CENTRAL_ENDPOINT --image $(params.image); then
+          echo -n "true" > $(results.check_passed.path)
+        else
+          echo -n "false" > $(results.check_passed.path)
+        fi
+        cd .

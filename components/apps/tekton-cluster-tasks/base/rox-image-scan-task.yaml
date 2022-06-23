@@ -1,0 +1,34 @@
+apiVersion: tekton.dev/v1beta1
+kind: ClusterTask
+metadata:
+  name: rox-image-scan
+  namespace: pipeline-demo
+spec:
+  params:
+    - name: image
+      type: string
+      description: Full name of image to scan (example -- gcr.io/rox/sample:5.0-rc1)
+    - name: output_format
+      type: string
+      description:  Output format (json | csv | table)
+      default: json
+  workspaces:
+    - acs-central
+    - acs-token
+  steps:
+    - name: rox-image-scan
+      image: centos:8
+      script: |
+        #!/usr/bin/env bash
+        set +x
+
+        ROX_CENTRAL_ENDPOINT=$(cat $(workspaces.acs-central.path)/ARGOCD_SERVER)
+        ROX_API_TOKEN=$(cat $(workspaces.acs-token.path)/ROX_API_TOKEN)
+
+        export NO_COLOR="True"
+        curl -k -L -H "Authorization: Bearer $ROX_API_TOKEN" https://$ROX_CENTRAL_ENDPOINT/api/cli/download/roxctl-linux --output ./roxctl  > /dev/null; echo "Getting roxctl"
+        chmod +x ./roxctl > /dev/null
+
+        echo "Scanning image: $(params.image)"
+
+        ./roxctl image scan --insecure-skip-tls-verify -e $ROX_CENTRAL_ENDPOINT --image $(params.image) --format $(params.output_format)
