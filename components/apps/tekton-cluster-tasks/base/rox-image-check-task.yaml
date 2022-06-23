@@ -32,6 +32,8 @@ spec:
         ROX_CENTRAL_ENDPOINT=$(cat $(workspaces.acs-central.path)/rox_central_endpoint)
         ROX_API_TOKEN=$(cat $(workspaces.acs-central.path)/rox_api_token)
 
+        echo "Scanning against endpoint ${ROX_CENTRAL_ENDPOINT}"
+
         curl -k -L -H "Authorization: Bearer $ROX_API_TOKEN" https://$ROX_CENTRAL_ENDPOINT/api/cli/download/roxctl-linux --output ./roxctl  > /dev/null; echo "Getting roxctl"
         chmod +x ./roxctl  > /dev/null
         if ./roxctl image check --insecure-skip-tls-verify -e $ROX_CENTRAL_ENDPOINT --image $(params.image); then
