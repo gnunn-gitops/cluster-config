@@ -10,7 +10,7 @@ spec:
       description: Full name of image to scan (example -- gcr.io/rox/sample:5.0-rc1)
     - name: output_format
       type: string
-      description:  Output format (json | csv | table)
+      description:  Output format (json | csv )
       default: json
   workspaces:
     - name: acs-central
