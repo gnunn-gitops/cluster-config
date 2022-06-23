@@ -18,7 +18,7 @@ spec:
       optional: true
   steps:
     - name: rox-image-scan
-      image: centos:8
+      image: registry.redhat.io/advanced-cluster-security/rhacs-roxctl-rhel8:3.70
       script: |
         #!/usr/bin/env bash
         set +x
@@ -34,9 +34,7 @@ spec:
         echo "Scanning against endpoint ${ROX_CENTRAL_ENDPOINT}"
 
         export NO_COLOR="True"
-        curl -k -L -H "Authorization: Bearer $ROX_API_TOKEN" https://$ROX_CENTRAL_ENDPOINT/api/cli/download/roxctl-linux --output ./roxctl  > /dev/null; echo "Getting roxctl"
-        chmod +x ./roxctl > /dev/null
 
         echo "Scanning image: $(params.image)"
 
-        ./roxctl image scan --insecure-skip-tls-verify -e $ROX_CENTRAL_ENDPOINT --image $(params.image) --output $(params.output_format)
+        roxctl image scan --insecure-skip-tls-verify -e $ROX_CENTRAL_ENDPOINT --image $(params.image) --output $(params.output_format)
