@@ -10,7 +10,7 @@ spec:
       description: Full name of image to scan (example -- gcr.io/rox/sample:5.0-rc1)
     - name: output_format
       type: string
-      description:  Output format (json | csv )
+      description:  Output format (json | csv | table )
       default: json
   workspaces:
     - name: acs-central
@@ -39,4 +39,4 @@ spec:
 
         echo "Scanning image: $(params.image)"
 
-        ./roxctl image scan --insecure-skip-tls-verify -e $ROX_CENTRAL_ENDPOINT --image $(params.image) --format $(params.output_format)
+        ./roxctl image scan --insecure-skip-tls-verify -e $ROX_CENTRAL_ENDPOINT --image $(params.image) --output $(params.output_format)
