@@ -442,7 +442,7 @@ placementRef:
   kind: PlacementRule
   apiGroup: apps.open-cluster-management.io
 subjects:
-  - name: policy-gatekeeper-containerlivenessprobenotset
+  - name: policy-gatekeeper-livenessprobe
     kind: Policy
     apiGroup: policy.open-cluster-management.io
 ---
