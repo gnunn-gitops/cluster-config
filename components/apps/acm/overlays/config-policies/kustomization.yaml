@@ -1,0 +1,5 @@
+namespace: open-cluster-management-config-policies
+
+resources:
+- config-policy-namespace.yaml
+- gatekeeper-install-policy.yaml

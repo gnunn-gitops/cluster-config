@@ -36,6 +36,13 @@ applications:
     source:
       path: components/apps/acm/overlays/aggregate
 
+  acm-config-policies:
+    annotations:
+      # Install after ACM
+      argocd.argoproj.io/sync-wave: '22'
+    source:
+      path: components/apps/acm/overlays/config-policies
+
   # acs-tokens:
   #   annotations:
   #     argocd.argoproj.io/compare-options: IgnoreExtraneous
