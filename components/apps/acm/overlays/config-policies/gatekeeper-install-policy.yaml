@@ -16,7 +16,7 @@ spec:
       metadata:
         name: gatekeeper-operator-ns
       spec:
-        remediationAction: inform
+        remediationAction: enforce
         severity: high
         object-templates:
           - complianceType: musthave
@@ -31,7 +31,7 @@ spec:
       metadata:
         name: gatekeeper-operator-catalog-source
       spec:
-        remediationAction: inform
+        remediationAction: enforce
         severity: high
         object-templates:
           - complianceType: musthave
@@ -55,7 +55,7 @@ spec:
       metadata:
         name: gatekeeper-operator-group
       spec:
-        remediationAction: inform
+        remediationAction: enforce
         severity: high
         object-templates:
           - complianceType: musthave
@@ -71,7 +71,7 @@ spec:
       metadata:
         name: gatekeeper-operator-subscription
       spec:
-        remediationAction: inform
+        remediationAction: enforce
         severity: high
         object-templates:
           - complianceType: musthave
@@ -92,7 +92,7 @@ spec:
       metadata:
         name: gatekeeper
       spec:
-        remediationAction: inform
+        remediationAction: enforce
         severity: high
         object-templates:
           - complianceType: musthave
