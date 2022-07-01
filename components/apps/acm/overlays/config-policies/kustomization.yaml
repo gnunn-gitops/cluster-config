@@ -4,4 +4,4 @@ resources:
 - config-policy-namespace.yaml
 - gatekeeper-install-policy.yaml
 - gatekeeper-exclude-namespaces.yaml
-- gatekeeper-probes-notset.yaml
+- gatekeeper-probes-livenessnotset.yaml

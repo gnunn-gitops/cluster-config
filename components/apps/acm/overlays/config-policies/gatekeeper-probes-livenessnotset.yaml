@@ -14,7 +14,7 @@ spec:
         apiVersion: policy.open-cluster-management.io/v1
         kind: ConfigurationPolicy
         metadata:
-          name: policy-gatekeeper-livenessprobenot
+          name: policy-gatekeeper-containerlivenessprobenotset
         spec:
           remediationAction: enforce
           severity: low
