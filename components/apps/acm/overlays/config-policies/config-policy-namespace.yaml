@@ -4,4 +4,4 @@ metadata:
   annotations:
     openshift.io/description: ACM Configuration Policies
     openshift.io/display-name:  ACM Configuration Policies
-  name: open-cluster-management-config-policies
+  name: acm-config-policies

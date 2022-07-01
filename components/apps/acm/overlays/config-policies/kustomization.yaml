@@ -1,4 +1,4 @@
-namespace: open-cluster-management-config-policies
+namespace: acm-config-policies
 
 resources:
 - config-policy-namespace.yaml
