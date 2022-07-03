@@ -1,5 +1,8 @@
 namespace: acm-config-policies
 
+commonAnnotations:
+  argocd.argoproj.io/compare-options: IgnoreExtraneous
+
 resources:
 - config-policy-namespace.yaml
 - gatekeeper-install-policy.yaml
