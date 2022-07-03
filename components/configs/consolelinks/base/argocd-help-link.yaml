@@ -1,8 +1,0 @@
-apiVersion: console.openshift.io/v1
-kind: ConsoleLink
-metadata:
-  name: argocd-help
-spec:
-  href: 'https://argoproj.github.io/argo-cd'
-  location: HelpMenu
-  text: ArgoCD

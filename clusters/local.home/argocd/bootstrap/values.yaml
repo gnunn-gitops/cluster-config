@@ -43,6 +43,13 @@ applications:
     source:
       path: components/apps/acm/overlays/config-policies
 
+  console-links:
+    annotations:
+      argocd.argoproj.io/compare-options: IgnoreExtraneous
+      argocd.argoproj.io/sync-wave: '11'
+    source:
+      path: clusters/local.home/apps/consolelinks/overlays/default
+
   # acs-tokens:
   #   annotations:
   #     argocd.argoproj.io/compare-options: IgnoreExtraneous

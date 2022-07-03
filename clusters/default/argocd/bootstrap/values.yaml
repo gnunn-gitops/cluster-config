@@ -47,13 +47,6 @@ applications:
       path: compliance-operator/aggregate/scheduled
       repoURL: https://github.com/redhat-cop/gitops-catalog
 
-  console-links:
-    annotations:
-      argocd.argoproj.io/compare-options: IgnoreExtraneous
-      argocd.argoproj.io/sync-wave: '11'
-    source:
-      path: components/configs/consolelinks/base
-
   container-security:
     annotations:
       argocd.argoproj.io/compare-options: IgnoreExtraneous
