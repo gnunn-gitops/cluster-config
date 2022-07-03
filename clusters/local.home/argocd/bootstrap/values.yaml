@@ -43,6 +43,13 @@ applications:
     source:
       path: components/apps/acm/overlays/config-policies
 
+  banner:
+    annotations:
+      argocd.argoproj.io/compare-options: IgnoreExtraneous
+      argocd.argoproj.io/sync-wave: '11'
+    source:
+      path: clusters/local.home/apps/banner/base
+
   console-links:
     annotations:
       argocd.argoproj.io/compare-options: IgnoreExtraneous
