@@ -3,9 +3,9 @@ kind: ConsoleLink
 metadata:
   name: nexus
 spec:
-  href: 'http://nexus-dev-tools.apps.home.ocplab.com'
+  href: 'https://nexus-dev-tools.apps.home.ocplab.com'
   location: ApplicationMenu
   text: Nexus
   applicationMenu:
     section: Tools
-    imageURL: http://nexus-dev-tools.apps.home.ocplab.com/favicon.png
+    imageURL: https://nexus-dev-tools.apps.home.ocplab.com/favicon.png
