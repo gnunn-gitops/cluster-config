@@ -3,9 +3,9 @@ kind: ConsoleLink
 metadata:
   name: sonarqube
 spec:
-  href: 'http://sonarqube-dev-tools.apps.home.ocplab.com'
+  href: 'https://sonarqube-dev-tools.apps.home.ocplab.com'
   location: ApplicationMenu
   text: SonarQube
   applicationMenu:
     section: Tools
-    imageURL: http://sonarqube-dev-tools.apps.home.ocplab.com/favicon.ico
+    imageURL: https://sonarqube-dev-tools.apps.home.ocplab.com/favicon.ico
