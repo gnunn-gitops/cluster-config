@@ -1,0 +1,11 @@
+apiVersion: console.openshift.io/v1
+kind: ConsoleLink
+metadata:
+  name: sonarqube
+spec:
+  href: 'http://sonarqube-dev-tools.apps.home.ocplab.com'
+  location: ApplicationMenu
+  text: SonarQube
+  applicationMenu:
+    section: Tools
+    imageURL: http://sonarqube-dev-tools.apps.home.ocplab.com/favicon.ico

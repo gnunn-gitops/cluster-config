@@ -4,3 +4,5 @@ kind: Kustomization
 resources:
 - ../../../../../../components/configs/consolelinks/base
 - acs-consolelink.yaml
+- nexus-consolelink.yaml
+- sonarqube-consolelink.yaml
