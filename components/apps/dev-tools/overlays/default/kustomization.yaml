@@ -22,3 +22,10 @@ patches:
   target:
     kind: Deployment
     name: sonarqube
+- patch: |-
+    - op: add
+      path: /spec/tls
+      value:
+        termination: edge
+  target:
+    kind: Route
