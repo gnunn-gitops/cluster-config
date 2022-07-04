@@ -136,4 +136,4 @@ spec:
     type: ManagedClusterConditionAvailable
   clusterSelector:
     matchExpressions:
-      - {key: name, operator: In, values: ["local-cluster"]}
+      - {key: policy, operator: In, values: ["opa"]}

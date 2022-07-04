@@ -1,7 +1,7 @@
 apiVersion: policy.open-cluster-management.io/v1
 kind: Policy
 metadata:
-  name: policy-gatekeeper-livenessprobe
+  name: policy-gatekeeper-readinessprobe
   annotations:
     policy.open-cluster-management.io/standards: NIST SP 800-53
     policy.open-cluster-management.io/categories: CM Configuration Management
@@ -14,7 +14,7 @@ spec:
         apiVersion: policy.open-cluster-management.io/v1
         kind: ConfigurationPolicy
         metadata:
-          name: policy-gatekeeper-containerlivenessprobenotset
+          name: policy-gatekeeper-containerreadinessprobenotset
         spec:
           remediationAction: enforce
           severity: low
@@ -25,12 +25,12 @@ spec:
                 kind: ConstraintTemplate
                 metadata:
                   creationTimestamp: null
-                  name: containerlivenessprobenotset
+                  name: containerreadinessprobenotset
                 spec:
                   crd:
                     spec:
                       names:
-                        kind: ContainerLivenessprobeNotset
+                        kind: ContainerReadinessprobeNotset
                   targets:
                     - libs:
                         - |
@@ -361,7 +361,7 @@ spec:
                             container = konstraint.containers[_]
                           }
                       rego: |-
-                        package ocp.bestpractices.container_livenessprobe_notset
+                        package ocp.bestpractices.container_readinessprobe_notset
 
                         import data.lib.konstraint
                         import data.lib.openshift
@@ -371,18 +371,18 @@ spec:
 
                           container := openshift.containers[_]
 
-                          konstraint.missing_field(container, "livenessProbe")
+                          konstraint.missing_field(container, "readinessProbe")
                           obj := konstraint.object
 
-                          msg := konstraint.format(sprintf("%s/%s: container '%s' has no livenessProbe. See: https://docs.openshift.com/container-platform/latest/applications/application-health.html", [obj.kind, obj.metadata.name, container.name]))
+                          msg := konstraint.format(sprintf("%s/%s: container '%s' has no readinessProbe. See: https://docs.openshift.com/container-platform/4.4/applications/application-health.html", [obj.kind, obj.metadata.name, container.name]))
                         }
                       target: admission.k8s.gatekeeper.sh
             - complianceType: musthave
               objectDefinition:
                 apiVersion: constraints.gatekeeper.sh/v1beta1
-                kind: ContainerLivenessprobeNotset
+                kind: ContainerReadinessprobeNotset
                 metadata:
-                  name: containerlivenessprobenotset
+                  name: containerreadinessprobenotset
                 spec:
                   enforcementAction: dryrun
                   match:
@@ -399,7 +399,7 @@ spec:
         apiVersion: policy.open-cluster-management.io/v1
         kind: ConfigurationPolicy
         metadata:
-          name: policy-gatekeeper-audit-liveness
+          name: policy-gatekeeper-audit-readiness
         spec:
           remediationAction: inform # will be overridden by remediationAction in parent policy
           severity: low
@@ -407,16 +407,16 @@ spec:
             - complianceType: musthave
               objectDefinition:
                 apiVersion: constraints.gatekeeper.sh/v1beta1
-                kind: ContainerLivenessprobeNotset
+                kind: ContainerReadinessprobeNotset
                 metadata:
-                  name: containerlivenessprobenotset
+                  name: containerreadinessprobenotset
                 status:
                   totalViolations: 0
     - objectDefinition:
         apiVersion: policy.open-cluster-management.io/v1
         kind: ConfigurationPolicy
         metadata:
-          name: policy-gatekeeper-admission-liveness
+          name: policy-gatekeeper-admission-readiness
         spec:
           remediationAction: inform # will be overridden by remediationAction in parent policy
           severity: low
@@ -429,27 +429,27 @@ spec:
                   namespace: openshift-gatekeeper-system # set it to the actual namespace where gatekeeper is running if different
                   annotations:
                     constraint_action: deny
-                    constraint_kind: ContainerLivenessprobeNotset
-                    constraint_name: containerlivenessprobenotset
+                    constraint_kind: ContainerReadinessprobeNotset
+                    constraint_name: containerreadinessprobenotset
                     event_type: violation
 ---
 apiVersion: policy.open-cluster-management.io/v1
 kind: PlacementBinding
 metadata:
-  name: binding-policy-gatekeeper-containerlivenessprobenotset
+  name: binding-policy-gatekeeper-containerreadinessprobenotset
 placementRef:
-  name: placement-policy-gatekeeper-containerlivenessprobenotset
+  name: placement-policy-gatekeeper-containerreadinessprobenotset
   kind: PlacementRule
   apiGroup: apps.open-cluster-management.io
 subjects:
-  - name: policy-gatekeeper-livenessprobe
+  - name: policy-gatekeeper-readinessprobe
     kind: Policy
     apiGroup: policy.open-cluster-management.io
 ---
 apiVersion: apps.open-cluster-management.io/v1
 kind: PlacementRule
 metadata:
-  name: placement-policy-gatekeeper-containerlivenessprobenotset
+  name: placement-policy-gatekeeper-containerreadinessprobenotset
 spec:
   clusterConditions:
     - status: "True"

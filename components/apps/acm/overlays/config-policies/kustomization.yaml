@@ -8,3 +8,5 @@ resources:
 - gatekeeper-install-policy.yaml
 - gatekeeper-exclude-namespaces.yaml
 - gatekeeper-probes-livenessnotset.yaml
+- gatekeeper-probes-readinessnotset.yaml
+- policy-check-reports.yaml
