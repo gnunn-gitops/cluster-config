@@ -26,7 +26,7 @@ spec:
           remediationAction: inform # will be overridden by remediationAction in parent policy
           severity: low
           namespaceSelector:
-            exclude: ["kube-*"]
+            exclude: ["kube-*","openshift-*"]
             include: ["*"]
           object-templates:
             - complianceType: musthave
