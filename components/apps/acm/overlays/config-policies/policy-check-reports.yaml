@@ -33,8 +33,8 @@ spec:
               objectDefinition:
                 apiVersion: wgpolicyk8s.io/v1alpha1
                 kind: PolicyReport
-                results:
-                  - status: fail
+                summary:
+                  fail: 0
     - objectDefinition:
         apiVersion: policy.open-cluster-management.io/v1
         kind: ConfigurationPolicy
@@ -44,12 +44,12 @@ spec:
           remediationAction: inform
           severity: low
           object-templates:
-            - complianceType: mustnothave
+            - complianceType: musthave
               objectDefinition:
                 apiVersion: wgpolicyk8s.io/v1alpha1
                 kind: ClusterPolicyReport
-                results:
-                  - status: fail
+                summary:
+                  fail: 0
 ---
 apiVersion: policy.open-cluster-management.io/v1
 kind: PlacementBinding
