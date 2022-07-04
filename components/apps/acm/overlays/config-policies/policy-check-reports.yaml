@@ -29,7 +29,7 @@ spec:
             exclude: ["kube-*"]
             include: ["*"]
           object-templates:
-            - complianceType: mustnothave
+            - complianceType: musthave
               objectDefinition:
                 apiVersion: wgpolicyk8s.io/v1alpha1
                 kind: PolicyReport
