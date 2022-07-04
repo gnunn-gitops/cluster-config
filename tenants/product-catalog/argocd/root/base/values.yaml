@@ -53,6 +53,8 @@ applications:
         maxDuration: 3m
 
   product-catalog-monitor:
+    annotations:
+      argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
     destination:
       namespace: product-catalog-monitor
     source:
