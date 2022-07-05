@@ -13,7 +13,8 @@ metadata:
     policies.kyverno.io/description: |-
             HTTP traffic is not encrypted and hence insecure. This policy prevents configuration of OpenShift HTTP routes.
 spec:
-  validationFailureAction: enforce
+  validationFailureAction: audit
+  failurePolicy: Ignore
   background: true
   rules:
     - name: require-tls-routes
