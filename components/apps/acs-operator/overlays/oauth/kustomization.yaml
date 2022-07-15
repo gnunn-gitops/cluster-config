@@ -1,3 +1,5 @@
+namespace: stackrox
+
 commonAnnotations:
   argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
 
