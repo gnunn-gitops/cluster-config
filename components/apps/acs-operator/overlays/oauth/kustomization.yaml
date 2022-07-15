@@ -5,8 +5,9 @@ resources:
   - github.com/redhat-cop/gitops-catalog/advanced-cluster-security-operator/operator/overlays/latest
   - github.com/redhat-cop/gitops-catalog/advanced-cluster-security-operator/instance/overlays/internal-registry-integration
   - init-acs.yaml
-  # Use Andrew's Pipeline to create Stackrox API Tokens in tenant namespaces
-  - github.com/pittar-gitops/gitops-mono-repo-admins/03-cluster-services/08-advanced-cluster-security/pipelines-and-secrets
+  - postsync-create-roxsecrets-sa-rbac.yaml
+  - postsync-create-roxsecrets-job.yaml
+  - postsync-roxsecret-namespaces.yaml
 
 patchesJson6902:
   - path: patch-resources.yaml
