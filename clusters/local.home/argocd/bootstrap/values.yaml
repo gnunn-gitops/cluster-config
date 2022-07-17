@@ -57,12 +57,12 @@ applications:
     source:
       path: clusters/local.home/apps/consolelinks/overlays/default
 
-  # acs-tokens:
-  #   annotations:
-  #     argocd.argoproj.io/compare-options: IgnoreExtraneous
-  #     argocd.argoproj.io/sync-wave: '61'
-  #   source:
-  #     path: tenants/acs-tokens/base
+  acs-tokens:
+    annotations:
+      argocd.argoproj.io/compare-options: IgnoreExtraneous
+      argocd.argoproj.io/sync-wave: '61'
+    source:
+      path: tenants/acs-tokens/base
 
   authentication:
     annotations:

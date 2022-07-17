@@ -1,4 +1,6 @@
 namespace: stackrox
 
 resources:
-- product-catalog-cicd-pipelinerun.yaml
+  - postsync-create-roxsecrets-sa-rbac.yaml
+  - postsync-create-roxsecrets-job.yaml
+  - postsync-roxsecret-namespaces.yaml
