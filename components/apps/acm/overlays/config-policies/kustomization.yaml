@@ -9,4 +9,4 @@ resources:
 - gatekeeper-exclude-namespaces.yaml
 - gatekeeper-probes-livenessnotset.yaml
 - gatekeeper-probes-readinessnotset.yaml
-- policy-check-reports.yaml
+# - policy-check-reports.yaml
