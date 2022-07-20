@@ -128,30 +128,30 @@ applications:
   #       factor: 2
   #       maxDuration: 3m
 
-  kyverno:
-    annotations:
-      argocd.argoproj.io/compare-options: IgnoreExtraneous
-      argocd.argoproj.io/sync-wave: '21'
-    destination:
-      namespace: kyverno
-    source:
-      path: components/apps/kyverno/overlays/policies
-    syncPolicyRetry:
-      limit: 5
-      backoff:
-        duration: 5s
-        factor: 2
-        maxDuration: 3m
-    extraFields: |
-      ignoreDifferences:
-        - group: kyverno.io
-          kind: ClusterPolicy
-          jsonPointers:
-          - /spec/rules
-        - group: kyverno.io
-          kind: Policy
-          jsonPointers:
-          - /spec/rules
+  # kyverno:
+  #   annotations:
+  #     argocd.argoproj.io/compare-options: IgnoreExtraneous
+  #     argocd.argoproj.io/sync-wave: '21'
+  #   destination:
+  #     namespace: kyverno
+  #   source:
+  #     path: components/apps/kyverno/overlays/policies
+  #   syncPolicyRetry:
+  #     limit: 5
+  #     backoff:
+  #       duration: 5s
+  #       factor: 2
+  #       maxDuration: 3m
+  #   extraFields: |
+  #     ignoreDifferences:
+  #       - group: kyverno.io
+  #         kind: ClusterPolicy
+  #         jsonPointers:
+  #         - /spec/rules
+  #       - group: kyverno.io
+  #         kind: Policy
+  #         jsonPointers:
+  #         - /spec/rules
 
   product-catalog-root:
     project: cluster-config
