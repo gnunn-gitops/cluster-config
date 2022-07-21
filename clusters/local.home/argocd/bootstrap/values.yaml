@@ -43,6 +43,13 @@ applications:
     source:
       path: components/apps/acm/overlays/config-policies
 
+  bad-apps:
+    annotations:
+      argocd.argoproj.io/sync-wave: '61'
+    source:
+      path: bad-apps/components/base/
+      repoURL: https://github.com/gnunn-gitops/acm-examples.git
+
   banner:
     annotations:
       argocd.argoproj.io/compare-options: IgnoreExtraneous
