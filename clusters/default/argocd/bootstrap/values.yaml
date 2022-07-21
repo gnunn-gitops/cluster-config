@@ -37,15 +37,15 @@ applications:
     source:
       path: components/apps/camel-k-operator/base
 
-  compliance-operator:
-    annotations:
-      argocd.argoproj.io/compare-options: IgnoreExtraneous
-      argocd.argoproj.io/sync-wave: '21'
-    destination:
-      namespace: openshift-compliance
-    source:
-      path: compliance-operator/aggregate/scheduled
-      repoURL: https://github.com/redhat-cop/gitops-catalog
+  # compliance-operator:
+  #   annotations:
+  #     argocd.argoproj.io/compare-options: IgnoreExtraneous
+  #     argocd.argoproj.io/sync-wave: '21'
+  #   destination:
+  #     namespace: openshift-compliance
+  #   source:
+  #     path: compliance-operator/aggregate/scheduled
+  #     repoURL: https://github.com/redhat-cop/gitops-catalog
 
   container-security:
     annotations:
