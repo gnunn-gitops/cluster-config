@@ -13,12 +13,12 @@ default:
 
 applications:
 
-  acs:
-    annotations:
-      argocd.argoproj.io/compare-options: IgnoreExtraneous
-      argocd.argoproj.io/sync-wave: '21'
-    source:
-      path: components/apps/acs-operator/overlays/oauth
+  # acs:
+  #   annotations:
+  #     argocd.argoproj.io/compare-options: IgnoreExtraneous
+  #     argocd.argoproj.io/sync-wave: '21'
+  #   source:
+  #     path: components/apps/acs-operator/overlays/oauth
 
   # acs-tokens:
   #   annotations:
@@ -34,13 +34,13 @@ applications:
     source:
       path: clusters/rhpds/apps/openshift-monitoring/base
 
-  product-catalog-root:
-    project: cluster-config
-    annotations:
-      argocd.argoproj.io/compare-options: IgnoreExtraneous
-      argocd.argoproj.io/sync-wave: '51'
-    source:
-      path: tenants/product-catalog/argocd/root/base
+  # product-catalog-root:
+  #   project: cluster-config
+  #   annotations:
+  #     argocd.argoproj.io/compare-options: IgnoreExtraneous
+  #     argocd.argoproj.io/sync-wave: '51'
+  #   source:
+  #     path: tenants/product-catalog/argocd/root/base
 
   kyverno:
     annotations:
