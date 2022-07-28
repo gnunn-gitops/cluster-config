@@ -2,5 +2,7 @@ apiVersion: v1
 kind: Namespace
 metadata:
   annotations:
-    openshift.io/display-name:  ACM Policies
+    openshift.io/description: ACM Configuration Policies
+    openshift.io/display-name: ACM Configuration Policies
+  labels:
   name: acm-policies
