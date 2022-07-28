@@ -1,0 +1,6 @@
+resources:
+- kyverno-policyset.yaml
+- policy-require-requests-limits.yaml
+- policy-require-tls.yaml
+- policy-require-pod-probes.yaml
+- policy-disallow-anyuid-scc.yaml

@@ -29,12 +29,13 @@ applications:
     source:
       path: clusters/local.home/apps/acs-operator/overlays/certificate
 
-  # bad-apps:
-  #   annotations:
-  #     argocd.argoproj.io/sync-wave: '61'
-  #   source:
-  #     path: bad-apps/components/base/
-  #     repoURL: https://github.com/gnunn-gitops/acm-examples.git
+  acm-policies:
+    annotations:
+      argocd.argoproj.io/compare-options: IgnoreExtraneous
+      # Deploy after Kyverno
+      argocd.argoproj.io/sync-wave: '22'
+    source:
+      path: components/apps/acm-policies/all/overlays/kyverno
 
   banner:
     annotations:

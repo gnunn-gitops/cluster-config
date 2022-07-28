@@ -1,0 +1,37 @@
+apiVersion: policy.open-cluster-management.io/v1beta1
+kind: PolicySet
+metadata:
+  name: kyverno-best-practices
+  namespace: acm-policies
+spec:
+  description: Policies for PCI compliance
+  policies:
+  - policy-disallow-anyuid-scc
+  - policy-require-pod-probes
+  - policy-requests-limits
+  - policy-require-tls
+---
+apiVersion: policy.open-cluster-management.io/v1
+kind: PlacementBinding
+metadata:
+  name: kyverno-best-practices
+placementRef:
+  apiGroup: apps.open-cluster-management.io
+  kind: PlacementRule
+  name: kyverno-best-practices
+subjects:
+- apiGroup: policy.open-cluster-management.io
+  kind: PolicySet
+  name: kyverno-best-practices
+---
+apiVersion: apps.open-cluster-management.io/v1
+kind: PlacementRule
+metadata:
+  name: kyverno-best-practices
+spec:
+  clusterConditions:
+  - status: "True"
+    type: ManagedClusterConditionAvailable
+  clusterSelector:
+    matchExpressions:
+      []
