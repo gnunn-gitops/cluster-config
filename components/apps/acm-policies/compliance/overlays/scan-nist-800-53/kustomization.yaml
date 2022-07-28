@@ -1,4 +1,0 @@
-resources:
-- ../../base
-- scan-nist-800-53-policy.yaml
-- check-result-policy.yaml
