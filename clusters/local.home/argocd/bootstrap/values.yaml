@@ -29,12 +29,12 @@ applications:
     source:
       path: clusters/local.home/apps/acs-operator/overlays/certificate
 
-  bad-apps:
-    annotations:
-      argocd.argoproj.io/sync-wave: '61'
-    source:
-      path: bad-apps/components/base/
-      repoURL: https://github.com/gnunn-gitops/acm-examples.git
+  # bad-apps:
+  #   annotations:
+  #     argocd.argoproj.io/sync-wave: '61'
+  #   source:
+  #     path: bad-apps/components/base/
+  #     repoURL: https://github.com/gnunn-gitops/acm-examples.git
 
   banner:
     annotations:

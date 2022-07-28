@@ -19,7 +19,6 @@ projects:
     sourceRepos:
     - https://github.com/gnunn-gitops/cluster-config
     - https://github.com/redhat-cop/gitops-catalog
-    - https://github.com/gnunn-gitops/acm-examples
     destinations: |
       - namespace: '*'
         server: https://kubernetes.default.svc
