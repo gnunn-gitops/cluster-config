@@ -34,6 +34,8 @@ applications:
       argocd.argoproj.io/compare-options: IgnoreExtraneous
       # Deploy after Kyverno
       argocd.argoproj.io/sync-wave: '22'
+    destination:
+      namespace: acm-policies
     source:
       path: components/apps/acm-policies/all/overlays/kyverno
 
