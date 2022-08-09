@@ -4,6 +4,8 @@ metadata:
   annotations:
     openshift.io/description: Project for test environment of product catalog application
     openshift.io/display-name:  Product Catalog Test
+    app.openshift.io/vcs-uri: https://github.com/gnunn-gitops/product-catalog
+    app.openshift.io/vcs-ref: main
   labels:
     argocd.argoproj.io/managed-by: product-catalog-gitops
     tenant: product-catalog
