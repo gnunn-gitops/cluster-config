@@ -11,7 +11,7 @@ data:
        spec:
          accessModes:
          - ReadWriteOnce
-         storageClassName: csi-driver-lvm-linear
+         storageClassName: odf-lvm-vg
          volumeMode: Filesystem
          resources:
            requests:
