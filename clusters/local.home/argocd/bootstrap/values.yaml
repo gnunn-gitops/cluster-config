@@ -147,10 +147,10 @@ applications:
     source:
       path: tenants/product-catalog/argocd/root/base
 
-  web-terminal:
-    project: cluster-config
-    annotations:
-      argocd.argoproj.io/compare-options: IgnoreExtraneous
-      argocd.argoproj.io/sync-wave: '21'
-    source:
-      path: components/apps/web-terminal-operator/base
+  # web-terminal:
+  #   project: cluster-config
+  #   annotations:
+  #     argocd.argoproj.io/compare-options: IgnoreExtraneous
+  #     argocd.argoproj.io/sync-wave: '21'
+  #   source:
+  #     path: components/apps/web-terminal-operator/base
