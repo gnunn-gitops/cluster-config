@@ -27,6 +27,7 @@ spec:
                   kubectl patch cm argocd-cm --patch '{"data": {"accounts.pipeline": "apiKey"}}'
                 else
                   echo "Secret argocd-cluster not available, could not interact with API"
+                  exit 1
                 fi
             else
                 echo "Pipeline account already added, skipping"
@@ -44,6 +45,7 @@ spec:
                 kubectl create secret generic argocd-env-secret --from-literal=ARGOCD_AUTH_TOKEN=${TOKEN} -n ${CICD_NAMESPACE}
               else
                 echo "Token $TOKEN could not be generated, no secret created"
+                exit 1
               fi
             else
               echo "The secret argocd-env-secret already exists, skipping"
