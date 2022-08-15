@@ -13,7 +13,7 @@ patches:
 - patch: |-
     - op: replace
       path: /spec/channel
-      value: latest
+      value: pipelines-1.7
   target:
     kind: Subscription
     name: openshift-pipelines-operator
