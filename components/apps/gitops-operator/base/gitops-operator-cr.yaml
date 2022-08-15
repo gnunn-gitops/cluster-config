@@ -11,6 +11,8 @@ spec:
       value: "350"
   dex:
     openShiftOAuth: true
+  extraConfig:
+    accounts.pipeline: apiKey
   applicationInstanceLabelKey: argocd.argoproj.io/instance
   applicationSet: {}
   kustomizeBuildOptions: "--enable-helm"
