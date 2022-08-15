@@ -19,6 +19,7 @@ spec:
             HAS_ACCOUNT=$(kubectl get cm argocd-cm -o jsonpath={.data."accounts\.pipeline"})
             if [ -z "$HAS_ACCOUNT" ];
             then
+                # Leave this in for compatibility however in 1.6 we use extraConfigs to handle this
                 echo "Pipeline account doesn't exist, adding"
                 echo "Getting argocd admin credential..."
                 if kubectl get secret argocd-cluster;
