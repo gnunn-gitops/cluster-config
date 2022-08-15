@@ -54,8 +54,8 @@ applications:
     destination:
       namespace: openshift-operators
     source:
-      path: container-security-operator/overlays/stable-3.6
-      repoURL: https://github.com/redhat-cop/gitops-catalog
+      path: container-security-operator/overlays/stable-3.7
+      repoURL: https://github.com/gnunn1/gitops-catalog
 
   dev-tools:
     annotations:
