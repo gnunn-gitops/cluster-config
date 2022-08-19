@@ -48,7 +48,7 @@ applications:
       argocd.argoproj.io/compare-options: IgnoreExtraneous
       argocd.argoproj.io/sync-wave: '61'
     source:
-      path: tenants/acs-tokens/base
+      path: clusters/local.home/apps/acs-tokens/overlays/endpoint
 
   authentication:
     annotations:

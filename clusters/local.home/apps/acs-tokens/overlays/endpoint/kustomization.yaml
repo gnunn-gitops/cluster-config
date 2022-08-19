@@ -1,0 +1,12 @@
+resources:
+- ../../../../../../tenants/acs-tokens/base
+
+patches:
+  - target:
+      kind: ConfigMap
+      name: roxsecret-namespaces
+    patch: |-
+      - op: replace
+        path: /data/CENTRAL_URL
+        value: https://central-stackrox.apps.home.ocplab.com
+      
