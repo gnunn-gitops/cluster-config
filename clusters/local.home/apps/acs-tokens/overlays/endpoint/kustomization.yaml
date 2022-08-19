@@ -8,5 +8,5 @@ patches:
     patch: |-
       - op: replace
         path: /data/CENTRAL_URL
-        value: https://central-stackrox.apps.home.ocplab.com
+        value: central-stackrox.apps.home.ocplab.com
       
