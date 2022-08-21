@@ -3,11 +3,11 @@ kind: Kustomization
 
 helmCharts:
 - name: argocd-app-of-app
-  version: 0.2.0
+  version: 0.2.3
   repo: https://gnunn-gitops.github.io/helm-charts
   valuesFile: values.yaml
   namespace: openshift-gitops
-  releaseName: argocd-app-of-app-0.2.0
+  releaseName: argocd-app-of-app-0.2.3
 
 resources:
 - ../../../default/argocd/bootstrap
