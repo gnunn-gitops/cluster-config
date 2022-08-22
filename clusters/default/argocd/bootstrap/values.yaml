@@ -33,13 +33,13 @@ projects:
 
 applications:
 
-  # camel-k-operator:
-  #   annotations:
-  #     argocd.argoproj.io/sync-wave: "21"
-  #   destination:
-  #     namespace: openshift-operators
-  #   source:
-  #     path: components/apps/camel-k-operator/base
+  camel-k-operator:
+    annotations:
+      argocd.argoproj.io/sync-wave: "21"
+    destination:
+      namespace: openshift-operators
+    source:
+      path: components/apps/camel-k-operator/base
 
   # compliance-operator:
   #   annotations:
