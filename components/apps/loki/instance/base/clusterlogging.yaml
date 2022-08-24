@@ -5,7 +5,8 @@ metadata:
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
   name: instance
 spec:
+  logStore:
+    lokistack:
+      name: logging-loki
   collection:
-    logs:
-      fluentd: {}
-      type: fluentd
+    type: vector      

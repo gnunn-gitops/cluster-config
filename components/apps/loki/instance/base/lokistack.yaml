@@ -1,15 +1,18 @@
 apiVersion: loki.grafana.com/v1beta1
 kind: LokiStack
 metadata:
-  name: lokistack
+  name: logging-loki
   annotations:
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
 spec:
   size: 1x.extra-small
   storage:
+    schemas:
+      - version: v12
+        effectiveDate: 2022-06-01  
     secret:
       name: loki-storage
       type: s3
-  storageClassName: csi-driver-lvm-linear
+  storageClassName: odf-lvm-vg
   tenants:
     mode: openshift-logging

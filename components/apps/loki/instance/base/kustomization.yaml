@@ -5,7 +5,7 @@ namespace: openshift-logging
 
 resources:
 - lokigateway-secret.yaml
-- role.yaml
+# - role.yaml
 - lokistack.yaml
-- clusterlogforwarder.yaml
+# - clusterlogforwarder.yaml
 - clusterlogging.yaml

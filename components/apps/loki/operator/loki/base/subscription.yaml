@@ -3,7 +3,7 @@ kind: Subscription
 metadata:
   name: loki-operator
 spec:
-  channel: candidate
+  channel: stable
   installPlanApproval: Automatic
   name: loki-operator
   source: redhat-operators

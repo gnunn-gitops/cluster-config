@@ -3,7 +3,7 @@ kind: Subscription
 metadata:
   name: cluster-logging
 spec:
-  channel: stable-5.4
+  channel: stable-5.5
   installPlanApproval: Automatic
   name: cluster-logging
   source: redhat-operators
