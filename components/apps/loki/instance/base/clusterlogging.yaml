@@ -6,6 +6,7 @@ metadata:
   name: instance
 spec:
   logStore:
+    type: lokistack  
     lokistack:
       name: logging-loki
   collection:
