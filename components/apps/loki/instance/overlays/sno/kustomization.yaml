@@ -13,8 +13,8 @@ patches:
       value: 1x.extra-small
   target:
     kind: LokiStack
-    name: lokistack
+    name: logging-loki
 - path: ingestion-rate-patch.yaml
   target:
     kind: LokiStack
-    name: lokistack
+    name: logging-loki
