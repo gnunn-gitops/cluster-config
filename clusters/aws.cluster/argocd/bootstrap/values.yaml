@@ -13,34 +13,29 @@ default:
 
 applications:
 
-  # acs:
-  #   annotations:
-  #     argocd.argoproj.io/compare-options: IgnoreExtraneous
-  #     argocd.argoproj.io/sync-wave: '21'
-  #   source:
-  #     path: components/apps/acs-operator/overlays/oauth
+  authentication:
+    annotations:
+      argocd.argoproj.io/compare-options: IgnoreExtraneous
+      argocd.argoproj.io/sync-wave: '4'
+    destination:
+      namespace: openshift-config
+    source:
+      path: components/configs/oauth/overlays/google-with-matrix
 
-  # acs-tokens:
-  #   annotations:
-  #     argocd.argoproj.io/compare-options: IgnoreExtraneous
-  #     argocd.argoproj.io/sync-wave: '61'
-  #   source:
-  #     path: tenants/acs-tokens/base
+  banner:
+    annotations:
+      argocd.argoproj.io/compare-options: IgnoreExtraneous
+      argocd.argoproj.io/sync-wave: '11'
+    source:
+      path: clusters/aws.cluster/apps/banner/base
 
-  # openshift-monitoring:
-  #   annotations:
-  #     argocd.argoproj.io/compare-options: IgnoreExtraneous
-  #     argocd.argoproj.io/sync-wave: '11'
-  #   source:
-  #     path: clusters/rhpds/apps/openshift-monitoring/base
-
-  # product-catalog-root:
-  #   project: cluster-config
-  #   annotations:
-  #     argocd.argoproj.io/compare-options: IgnoreExtraneous
-  #     argocd.argoproj.io/sync-wave: '51'
-  #   source:
-  #     path: tenants/product-catalog/argocd/root/base
+  cert-manager-operator:
+    annotations:
+      argocd.argoproj.io/sync-wave: "2"
+    destination:
+      namespace: openshift-cert-manager-operator
+    source:
+      path: clusters/local.home/apps/cluster-certs/overlays/all
 
   kyverno:
     annotations:
@@ -66,3 +61,11 @@ applications:
           kind: Policy
           jsonPointers:
           - /spec/rules
+
+  product-catalog-root:
+    project: cluster-config
+    annotations:
+      argocd.argoproj.io/compare-options: IgnoreExtraneous
+      argocd.argoproj.io/sync-wave: '51'
+    source:
+      path: tenants/product-catalog/argocd/root/base
