@@ -8,3 +8,12 @@ resources:
 - ../../../../../../components/apps/cert-manager-operator/overlays/letsencrypt
 - ../openshift-api-cert
 - ../openshift-wildcard-cert
+
+patches:
+  - patch: |-
+      - op: replace
+        path: /spec/acme/solvers/0/selector/dnsZones
+        value:
+          - "cluster.ocplab.com"
+    target:
+      kind: ClusterIssuer
