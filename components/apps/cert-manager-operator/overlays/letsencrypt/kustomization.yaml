@@ -8,4 +8,5 @@ resources:
 - ../../base
 - instance-namespace.yaml
 - letsencrypt-aws-sealed-secret.yaml
+- letsencrypt-staging-cluster-issuer.yaml
 - letsencrypt-prod-cluster-issuer.yaml
