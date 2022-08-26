@@ -15,5 +15,8 @@ patches:
         path: /spec/acme/solvers/0/selector/dnsZones
         value:
           - "cluster.ocplab.com"
+      - op: add
+        path: /spec/acme/solvers/0/dns01/route53/hostedZoneID
+        value: 	Z06616181I7HNGEXSPQ96
     target:
       kind: ClusterIssuer
