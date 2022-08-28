@@ -51,7 +51,7 @@ spec:
         - image: image-registry.openshift-image-registry.svc:5000/openshift/cli:latest
           env:
             - name: API_HOST_NAME
-              value: api.cluster.ocplab.com
+              value: api.cluster.ocplab-aws.com
           command:
             - /bin/bash
             - -c
