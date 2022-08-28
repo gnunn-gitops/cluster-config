@@ -9,4 +9,4 @@ spec:
     name: letsencrypt-prod
     kind: ClusterIssuer
   dnsNames:
-  - api.cluster.ocplab-aws.com
+  - api.cluster.ocplab.com
