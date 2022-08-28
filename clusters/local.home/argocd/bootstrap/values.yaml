@@ -65,7 +65,15 @@ applications:
     destination:
       namespace: openshift-cert-manager-operator
     source:
-      path: clusters/local.home/apps/cluster-certs/overlays/all
+      path: components/apps/cert-manager-operator/aggregate/overlays/letsencrypt
+
+  certificates:
+    annotations:
+      argocd.argoproj.io/sync-wave: "3"
+    destination:
+      namespace: openshift-cert-manager
+    source:
+      path: clusters/local.home/apps/cluster-certs/overlays/home
 
   openshift-monitoring:
     annotations:

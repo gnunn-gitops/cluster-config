@@ -1,0 +1,3 @@
+resources:
+- instance-namespace.yaml
+- cluster-cert-manager.yaml

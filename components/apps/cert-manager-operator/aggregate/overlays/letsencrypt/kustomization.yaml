@@ -1,0 +1,3 @@
+resources:
+- ../../../operator/base
+- ../../../instance/overlays/letsencrypt

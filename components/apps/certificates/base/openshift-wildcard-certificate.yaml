@@ -8,6 +8,6 @@ spec:
   issuerRef:
     name: letsencrypt-prod
     kind: ClusterIssuer
-  commonName: '*.apps.home.ocplab.com'
+  commonName: '*.apps.replace.me'
   dnsNames:
-  - '*.apps.home.ocplab.com'
+  - '*.apps.replace.me'

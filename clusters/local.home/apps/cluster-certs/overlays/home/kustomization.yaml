@@ -1,0 +1,23 @@
+resources:
+- ../../../../../../components/apps/certificates/base
+
+patches:
+  - patch: |-
+      - op: replace
+        path: /spec/dnsNames
+        value:
+          - api.home.ocplab.com
+    target:
+      kind: Certificate
+      name: openshift-api
+  - patch: |-
+      - op: replace
+        path: /spec/dnsNames
+        value:
+          - '*.apps.home.ocplab.com'
+      - op: replace
+        path: /spec/commonName
+        value: '*.apps.home.ocplab.com'
+    target:
+      kind: Certificate
+      name: openshift-wildcard
