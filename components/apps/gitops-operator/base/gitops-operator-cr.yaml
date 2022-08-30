@@ -9,8 +9,9 @@ spec:
       value: "350"
     - name: "ARGOCD_K8S_CLIENT_QPS"
       value: "350"
-  dex:
-    openShiftOAuth: true
+  sso:
+    dex:
+      openShiftOAuth: true
   extraConfig:
     accounts.pipeline: apiKey
   applicationInstanceLabelKey: argocd.argoproj.io/instance
