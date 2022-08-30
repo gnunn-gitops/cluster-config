@@ -12,6 +12,7 @@ spec:
   sso:
     dex:
       openShiftOAuth: true
+    provider: dex      
   extraConfig:
     accounts.pipeline: apiKey
   applicationInstanceLabelKey: argocd.argoproj.io/instance
