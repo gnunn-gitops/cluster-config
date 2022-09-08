@@ -5,7 +5,5 @@ kind: Kustomization
 namespace: openshift-compliance
 
 resources:
-- github.com/redhat-cop/gitops-catalog/compliance-operator/aggregate/scheduled/
-
-patchesStrategicMerge:
-  - patch-scansetting.yaml
+- github.com/redhat-cop/gitops-catalog/compliance-operator/operator/overlays/release-0.1
+- github.com/redhat-cop/gitops-catalog/compliance-operator/instance/overlays/ocp-cis
