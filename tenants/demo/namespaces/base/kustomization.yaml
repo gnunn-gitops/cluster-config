@@ -5,4 +5,4 @@ resources:
 - ../../../../components/apps/tenant-namespace/overlays/gitops
 - ../../../defaults/networkpolicy/base
 - demo-admins-rolebinding.yaml
-- demo-rolebinding.yaml
+- demo-users-rolebinding.yaml
