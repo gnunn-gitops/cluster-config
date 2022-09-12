@@ -1,0 +1,16 @@
+apiVersion: user.openshift.io/v1
+kind: Group
+metadata:
+  name: demo-admins
+users:
+- admin
+- gnunn@redhat.com
+- user3
+- opentlc-mgr
+---
+apiVersion: user.openshift.io/v1
+kind: Group
+metadata:
+  name: demo-users
+users:
+- user3

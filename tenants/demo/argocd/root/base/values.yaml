@@ -1,0 +1,75 @@
+default:
+  app:
+    enabled: true
+    enableAutoSync: true
+    autoSyncPrune: false
+    project: demo
+    destination:
+      namespace: openshift-gitops
+      server: https://kubernetes.default.svc
+    source:
+      repoURL: https://github.com/gnunn-gitops/cluster-config.git
+      targetRevision: HEAD
+
+projects:
+
+  demo:
+    description: Project for demo tenant
+    namespace: openshift-gitops
+    sourceRepos:
+    - https://github.com/gnunn-gitops/cluster-config
+    destinations: |
+      - namespace: 'demo-gitops'
+        server: https://kubernetes.default.svc
+      - namespace: 'demo-cicd'
+        server: https://kubernetes.default.svc
+      - namespace: 'demo-dev'
+        server: https://kubernetes.default.svc
+      - namespace: 'demo-test'
+        server: https://kubernetes.default.svc
+      - namespace: 'demo-prod'
+        server: https://kubernetes.default.svc
+      - namespace: 'stackrox'
+        server: https://kubernetes.default.svc
+    extraFields: |
+      clusterResourceWhitelist:
+      - group: '*'
+        kind: '*'
+
+applications:
+
+  demo-gitops:
+    destination:
+      namespace: demo-gitops
+    source:
+      path: tenants/demo/namespaces/overlays/gitops
+    syncPolicyRetry:
+      limit: 2
+      backoff:
+        duration: 5s
+        factor: 2
+        maxDuration: 3m
+
+  demo-cicd:
+    destination:
+      namespace: demo-cicd
+    source:
+      path: tenants/demo/namespaces/overlays/cicd
+
+  demo-dev:
+    destination:
+      namespace: demo-dev
+    source:
+      path: tenants/demo/namespaces/overlays/dev
+
+  demo-test:
+    destination:
+      namespace: demo-test
+    source:
+      path: tenants/demo/namespaces/overlays/test
+
+  demo-prod:
+    destination:
+      namespace: demo-prod
+    source:
+      path: tenants/demo/namespaces/overlays/prod

@@ -1,0 +1,8 @@
+kind: Kustomization
+apiVersion: kustomize.config.k8s.io/v1beta1
+
+resources:
+- ../../../../components/apps/tenant-namespace/overlays/gitops
+- ../../../defaults/networkpolicy/base
+- demo-admins-rolebinding.yaml
+- demo-rolebinding.yaml

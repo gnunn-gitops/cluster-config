@@ -1,0 +1,52 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: demo-gitops
+
+resources:
+- ../../base
+- ../../../../../components/apps/gitops-operator/base
+- gitops-namespace.yaml
+- operatorgroup.yaml
+- demo-project.yaml
+- console-link.yaml
+- in-cluster-secret.yaml
+
+patches:
+# Patch create-local-pipeline account job environment variables
+- patch: |-
+    - op: replace
+      path: /spec/template/spec/containers/0/env
+      value:
+        - name: CICD_NAMESPACE
+          value: "demo-cicd"
+  target:
+    kind: Job
+    name: create-pipeline-local-user
+# Patch in namespace for Argo CD that is managing this namespace
+- patch: |-
+    - op: replace
+      path: /subjects/0/namespace
+      value: demo-gitops
+  target:
+    kind: RoleBinding
+    name: gitops-argocd-extended-rolebinding
+# Update permissions for instance
+-  target:
+     kind: ArgoCD
+     name: argocd
+   patch: |-
+    - op: replace
+      path: /spec/applicationInstanceLabelKey
+      value: argocd.argoproj.io/demo-instance
+    - op: add
+      path: /spec/rbac
+      value:
+        defaultPolicy: role:readonly
+        policy: |
+          p, role: pipeline, applications, get, apps-demo/*, allow
+          p, role: pipeline, applications, sync, apps-demo/*, allow
+          g, demo-admins, role:admin
+          g, system:cluster-admins, role:admin
+          g, pipeline, role: pipeline
+        scopes: "[accounts,groups]"
