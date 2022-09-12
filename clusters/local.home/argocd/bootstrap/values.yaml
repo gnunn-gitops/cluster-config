@@ -156,6 +156,14 @@ applications:
     source:
       path: tenants/product-catalog/argocd/root/base
 
+  demo-root:
+    project: cluster-config
+    annotations:
+      argocd.argoproj.io/compare-options: IgnoreExtraneous
+      argocd.argoproj.io/sync-wave: '51'
+    source:
+      path: tenants/demo/argocd/root/base
+
   # web-terminal:
   #   project: cluster-config
   #   annotations:
