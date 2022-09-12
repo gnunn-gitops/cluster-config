@@ -73,3 +73,9 @@ applications:
       namespace: demo-prod
     source:
       path: tenants/demo/namespaces/overlays/prod
+
+  demo-petclinic:
+    destination:
+      namespace: demo-petclinic
+    source:
+      path: tenants/demo/namespaces/overlays/petclinic      
