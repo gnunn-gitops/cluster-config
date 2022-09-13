@@ -1,0 +1,4 @@
+namespace: acm-policies
+
+resources:
+- kyverno-acm-policies.yaml

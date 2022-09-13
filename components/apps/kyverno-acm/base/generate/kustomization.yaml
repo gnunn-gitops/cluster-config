@@ -1,0 +1,22 @@
+generators:
+- best-practices-policyGenerator.yaml
+- security-policyGenerator.yaml
+
+resources:
+- placement.yaml
+
+patches:
+  - target:
+      kind: ClusterPolicy
+    patch: |-
+      - op: replace
+        path: /spec/validationFailureAction
+        value: enforce
+  # Using Argo to deliver policies so just keep reporting on PolicyReports
+  - target:
+      kind: Policy
+    patch: |-
+      - op: remove
+        path: /spec/policy-templates/0
+     
+    
