@@ -10,4 +10,5 @@ spec:
     matchExpressions:
     - key: policies
       operator: In
-      value: kyverno
+      values: 
+      - kyverno
