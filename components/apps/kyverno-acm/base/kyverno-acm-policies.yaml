@@ -11,7 +11,7 @@ spec:
         - key: name
           operator: In
           values:
-          - localcluster
+          - local-cluster
 ---
 apiVersion: policy.open-cluster-management.io/v1
 kind: PlacementBinding
