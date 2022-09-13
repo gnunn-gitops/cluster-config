@@ -78,4 +78,4 @@ applications:
     destination:
       namespace: demo-petclinic
     source:
-      path: tenants/demo/namespaces/overlays/petclinic      
+      path: tenants/demo/namespaces/overlays/petclinic
