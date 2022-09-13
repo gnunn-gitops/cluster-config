@@ -7,4 +7,9 @@ resources:
 - require-requests-limits-policy.yaml
 - disallow-anyuid-scc-policy.yaml
 - require-tls-routes.yaml
-# - verify-signed-images.yaml
+- check-deprecated-apis.yaml
+- check-openshift-deprecated-apis.yaml
+- disallow-latest-tag.yaml
+- disallow-jenkins-pipeline-strategy.yaml
+- application-prevent-default-project.yaml
+- application-field-validation.yaml
