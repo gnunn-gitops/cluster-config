@@ -8,10 +8,10 @@ spec:
   - requiredClusterSelector:
       labelSelector:
         matchExpressions:
-        - key: policies
+        - key: name
           operator: In
           values:
-          - kyverno
+          - localcluster
 ---
 apiVersion: policy.open-cluster-management.io/v1
 kind: PlacementBinding
