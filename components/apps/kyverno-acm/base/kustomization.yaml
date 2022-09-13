@@ -1,4 +1,5 @@
 namespace: acm-policies
 
 resources:
+- placementrule.yaml
 - kyverno-acm-policies.yaml

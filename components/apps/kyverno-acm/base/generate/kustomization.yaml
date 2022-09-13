@@ -2,9 +2,6 @@ generators:
 - best-practices-policyGenerator.yaml
 - security-policyGenerator.yaml
 
-resources:
-- placement.yaml
-
 patches:
   - target:
       kind: ClusterPolicy

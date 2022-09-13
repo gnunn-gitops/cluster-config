@@ -1,18 +1,3 @@
-apiVersion: cluster.open-cluster-management.io/v1beta1
-kind: Placement
-metadata:
-  name: kyverno
-  namespace: kyverno-policies
-spec:
-  predicates:
-  - requiredClusterSelector:
-      labelSelector:
-        matchExpressions:
-        - key: name
-          operator: In
-          values:
-          - local-cluster
----
 apiVersion: policy.open-cluster-management.io/v1
 kind: PlacementBinding
 metadata:
