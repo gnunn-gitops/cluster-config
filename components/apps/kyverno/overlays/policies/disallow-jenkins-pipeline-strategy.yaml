@@ -22,7 +22,6 @@ spec:
       any:
       - resources:
           kinds:
-          - v1/BuildConfig
           - build.openshift.io/v1/BuildConfig
     validate:
       message: >-
