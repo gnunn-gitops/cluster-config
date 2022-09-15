@@ -29,6 +29,8 @@ projects:
         server: https://kubernetes.default.svc
       - namespace: 'demo-prod'
         server: https://kubernetes.default.svc
+      - namespace: 'demo-petclinic'
+        server: https://kubernetes.default.svc
       - namespace: 'stackrox'
         server: https://kubernetes.default.svc
     extraFields: |
