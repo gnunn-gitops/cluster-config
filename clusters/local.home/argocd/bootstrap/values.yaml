@@ -110,7 +110,7 @@ applications:
       path: clusters/local.home/apps/cost-management-operator/overlays/default
 
   lokistack:
-    enabled: false
+    enabled: true
     annotations:
       argocd.argoproj.io/compare-options: IgnoreExtraneous
       argocd.argoproj.io/sync-wave: '21'
