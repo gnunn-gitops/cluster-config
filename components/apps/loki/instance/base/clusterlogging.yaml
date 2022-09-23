@@ -5,6 +5,7 @@ metadata:
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
   name: instance
 spec:
+  managementState: Managed
   logStore:
     type: lokistack  
     lokistack:
