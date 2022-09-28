@@ -1,0 +1,11 @@
+apiVersion: machineconfiguration.openshift.io/v1
+kind: KubeletConfig
+metadata:
+  name: set-max-pods 
+spec:
+  machineConfigPoolSelector:
+    matchLabels:
+      kubernetes.io/hostname: openshift-server
+  kubeletConfig:
+    podsPerCore: 11
+    maxPods: 352

@@ -180,3 +180,10 @@ applications:
       argocd.argoproj.io/sync-wave: '21'
     source:
       path: components/apps/web-terminal-operator/base
+
+  node-config:
+    annotations:
+      argocd.argoproj.io/compare-options: IgnoreExtraneous
+      argocd.argoproj.io/sync-wave: '99'
+    source:
+      path: clusters/local.home/apps/node-config/base
