@@ -84,7 +84,7 @@ applications:
 
   quay-registry:
     # leave disabled unless needed for demo
-    enabled: false
+    enabled: true
     annotations:
       argocd.argoproj.io/compare-options: IgnoreExtraneous
       argocd.argoproj.io/sync-wave: '21'
