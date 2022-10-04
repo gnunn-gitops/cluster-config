@@ -7,3 +7,12 @@ resources:
 - namespace.yaml
 - operator-group.yaml
 - github.com/redhat-cop/gitops-catalog/quay-registry-operator/operator/overlays/stable-3.6
+
+patches:
+  - target:
+      kind: Subscription
+      name: quay-operator
+    patch: |-
+      - op: replace
+        path: /spec/channel
+        value: stable-3.7

@@ -5,3 +5,4 @@ google-secret.yaml
 *-private.yaml
 *-private.yml
 charts
+qnap-tls
