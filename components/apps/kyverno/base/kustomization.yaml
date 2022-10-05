@@ -15,6 +15,12 @@ patches:
     - op: add
       path: /spec/template/spec/containers/0/args/-
       value: '--clientRateLimitBurst=350'
+    - op: replace
+      path: /spec/template/spec/containers/0/readinessProbe/timeoutSeconds
+      value: 10
+    - op: replace
+      path: /spec/template/spec/containers/0/readinessProbe/failureThreshold
+      value: 5
   target:
     kind: Deployment
     name: kyverno
