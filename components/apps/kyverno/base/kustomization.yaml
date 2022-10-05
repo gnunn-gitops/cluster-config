@@ -21,6 +21,9 @@ patches:
     - op: replace
       path: /spec/template/spec/containers/0/readinessProbe/failureThreshold
       value: 5
+    - op: replace
+      path: /spec/template/spec/initContainers/0/resources/limits/cpu
+      value: 250m
   target:
     kind: Deployment
     name: kyverno
