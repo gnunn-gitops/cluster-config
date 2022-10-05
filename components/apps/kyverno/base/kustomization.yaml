@@ -8,7 +8,7 @@ patches:
 - patch: |-
     - op: replace
       path: /spec/template/spec/containers/0/resources/limits/memory
-      value: 768Mi
+      value: 1Gi
     - op: add
       path: /spec/template/spec/containers/0/args/-
       value: '--clientRateLimitQPS=350'
