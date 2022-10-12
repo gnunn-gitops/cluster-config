@@ -3,6 +3,8 @@ kind: IngressController
 metadata:
   name: default
   namespace: openshift-ingress-operator
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
 spec:
   defaultCertificate:
     name: openshift-wildcard-certificate

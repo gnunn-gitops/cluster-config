@@ -3,6 +3,8 @@ kind: Certificate
 metadata:
   name: openshift-wildcard
   namespace: openshift-ingress
+  annotations:
+    argocd.argoproj.io/sync-wave: "0"
 spec:
   secretName: openshift-wildcard-certificate
   issuerRef:
