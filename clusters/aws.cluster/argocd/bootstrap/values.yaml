@@ -43,7 +43,7 @@ applications:
     destination:
       namespace: openshift-cert-manager
     source:
-      path: clusters/aws.cluster/apps/cluster-certs/overlays/home
+      path: clusters/aws.cluster/apps/cluster-certs/overlays/cluster
 
   kyverno:
     annotations:

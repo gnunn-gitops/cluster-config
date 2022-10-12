@@ -20,4 +20,4 @@ spec:
           hostedZoneID: Z1LKUX3GLO9GW9
           secretAccessKeySecretRef:
             name: letsencrypt-aws
-            key: secret-access-key
+            key: secret-access-key            
