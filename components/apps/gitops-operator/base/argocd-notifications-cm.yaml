@@ -251,18 +251,6 @@ data:
         }]
       themeColor: '#FF0000'
       title: Failed to sync application {{.app.metadata.name}}.
-    webhook:
-      tekton:
-        method: POST
-        path: /
-        body: |
-          {
-            "name": "{{.app.metadata.name}}",
-            "operation": "sync",
-            "state": "Failed",
-            "revision": "{{.app.status.sync.revision}}",
-            "source": "ArgoCD"
-          }      
   template.app-sync-running: |-
     email:
       subject: Start syncing application {{.app.metadata.name}}.
@@ -341,18 +329,6 @@ data:
           }]
         }]
       title: Start syncing application {{.app.metadata.name}}.
-    webhook:
-      tekton:
-        method: POST
-        path: /
-        body: |
-          {
-            "name": "{{.app.metadata.name}}",
-            "operation": "sync",
-            "state": "Running",
-            "revision": "{{.app.status.sync.revision}}",
-            "source": "ArgoCD"
-          }      
   template.app-sync-status-unknown: |-
     email:
       subject: Application {{.app.metadata.name}} sync status is 'Unknown'
@@ -432,18 +408,6 @@ data:
           }]
         }]
       title: Application {{.app.metadata.name}} sync status is 'Unknown'
-    webhook:
-      tekton:
-        method: POST
-        path: /
-        body: |
-          {
-            "name": "{{.app.metadata.name}}",
-            "operation": "sync",
-            "state": "Unknown",
-            "revision": "{{.app.status.sync.revision}}",
-            "source": "ArgoCD"
-          }      
   template.app-sync-succeeded: |-
     email:
       subject: Application {{.app.metadata.name}} has been successfully synced.
@@ -523,18 +487,6 @@ data:
         }]
       themeColor: '#000080'
       title: Application {{.app.metadata.name}} has been successfully synced
-    webhook:
-      tekton:
-        method: POST
-        path: /
-        body: |
-          {
-            "name": "{{.app.metadata.name}}",
-            "operation": "sync",
-            "state": "Succeeded",
-            "revision": "{{.app.status.sync.revision}}",
-            "source": "ArgoCD"
-          }      
   trigger.on-created: |-
     - description: Application is created.
       oncePer: app.metadata.name
@@ -579,6 +531,26 @@ data:
       send:
       - app-sync-succeeded
       when: app.status.operationState.phase in ['Succeeded']
+  # Tekton Webhook Definitions
+  trigger.on-sync-succeeded: |-
+    - description: Application syncing has succeeded
+      send:
+      - webhook-app-sync-succeeded
+      when: app.status.operationState.phase in ['Succeeded']
+  template.webhook-app-sync-succeeded: |-
+    webhook:
+      tekton:
+        method: POST
+        path: /
+        body: |
+          {
+            "name": "{{.app.metadata.name}}",
+            "operation": "sync",
+            "state": "Succeeded",
+            "revision": "{{.app.status.sync.revision}}",
+            "source": "ArgoCD"
+          }      
+
 kind: ConfigMap
 metadata:
   labels:
