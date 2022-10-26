@@ -18,6 +18,8 @@ spec:
   applicationInstanceLabelKey: argocd.argoproj.io/instance
   applicationSet: {}
   kustomizeBuildOptions: "--enable-helm"
+  notifications:
+    enabled: true  
   server:
     insecure: false
     route:
