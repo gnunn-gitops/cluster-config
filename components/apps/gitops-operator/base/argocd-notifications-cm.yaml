@@ -1,5 +1,7 @@
 apiVersion: v1
 data:
+  service.webhook.tekton: |
+    url: product-catalog-cicd.el-server-post-prod.svc:8080
   template.app-created: |-
     email:
       subject: Application {{.app.metadata.name}} has been created.
