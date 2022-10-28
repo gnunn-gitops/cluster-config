@@ -30,6 +30,6 @@ roles:
 - worker
 scanTolerations:
 - operator: Exists
-schedule: * 1 * * *
+schedule: 0 1 * * *
 showNotApplicable: false
 strictNodeScan: true
