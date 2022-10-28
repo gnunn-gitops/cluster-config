@@ -7,5 +7,6 @@ namespace: openshift-compliance
 resources:
 - github.com/redhat-cop/gitops-catalog/compliance-operator/operator/overlays/release-0.1
 - ocp-cis-tailored-profile.yaml
+- ocp-cis-node-tailored-profile.yaml
 - cis-compliance-scan-setting-binding.yaml
 - cis-compliance-scansetting.yaml

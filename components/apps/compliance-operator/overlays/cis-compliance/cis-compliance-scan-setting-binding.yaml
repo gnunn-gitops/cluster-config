@@ -8,8 +8,8 @@ metadata:
   namespace: openshift-compliance
 profiles:
 - apiGroup: compliance.openshift.io/v1alpha1
-  kind: Profile
-  name: ocp4-cis-node
+  kind: TailoredProfile
+  name: ocp4-cis-node-lab
 - apiGroup: compliance.openshift.io/v1alpha1
   kind: TailoredProfile
   name: ocp4-cis-lab
