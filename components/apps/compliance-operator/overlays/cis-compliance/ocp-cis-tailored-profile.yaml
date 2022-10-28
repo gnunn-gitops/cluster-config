@@ -10,7 +10,5 @@ spec:
   description: NIST moderate profile
   title: My modified NIST moderate profile
   disableRules:
-  - name: ocp4-cis-api-server-encryption-provider-cipher
-    rationale: Using letsencrypt for certificates which does not set this
   - name: ocp4-cis-audit-log-forwarding-enabled
     rationale: Homelab so no log forwarding available
