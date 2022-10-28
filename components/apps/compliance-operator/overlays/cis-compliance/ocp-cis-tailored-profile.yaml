@@ -8,7 +8,7 @@ metadata:
 spec:
   extends: ocp4-cis
   description: NIST moderate profile
-  title: My modified NIST moderate profile
-  disableRules:
-  - name: ocp4-cis-audit-log-forwarding-enabled
-    rationale: Homelab so no log forwarding available
+  title: My modified CIS profile
+  # disableRules:
+  # - name: ocp4-cis-audit-log-forwarding-enabled
+  #   rationale: Homelab so no log forwarding available
