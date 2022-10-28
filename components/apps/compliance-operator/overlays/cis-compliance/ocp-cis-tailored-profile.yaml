@@ -9,6 +9,8 @@ spec:
   extends: ocp4-cis
   description: NIST moderate profile
   title: My modified CIS profile
-  # disableRules:
-  # - name: ocp4-cis-audit-log-forwarding-enabled
-  #   rationale: Homelab so no log forwarding available
+  disableRules:
+  - name: ocp4-api-server-encryption-provider-cipher
+    rationale: Using letsencrypt certificates, not applicable
+  - name: ocp4-audit-log-forwarding-enabled
+    rationale: Homelab so no log forwarding available
