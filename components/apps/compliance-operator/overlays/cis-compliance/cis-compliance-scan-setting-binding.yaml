@@ -11,7 +11,7 @@ profiles:
   kind: Profile
   name: ocp4-cis-node
 - apiGroup: compliance.openshift.io/v1alpha1
-  kind: Profile
+  kind: TailoredProfile
   name: ocp4-cis-lab
 settingsRef:
   apiGroup: compliance.openshift.io/v1alpha1
