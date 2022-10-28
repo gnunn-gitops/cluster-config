@@ -1,0 +1,5 @@
+resources:
+- ../cis-compliance
+
+patchesStrategicMerge:
+- patch-scansetting.yaml

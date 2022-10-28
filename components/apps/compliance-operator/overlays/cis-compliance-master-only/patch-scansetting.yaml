@@ -2,7 +2,7 @@ apiVersion: compliance.openshift.io/v1alpha1
 debug: true
 kind: ScanSetting
 metadata:
-  name: moderate
+  name: cis-compliance
   namespace: openshift-compliance
 roles:
 - master
