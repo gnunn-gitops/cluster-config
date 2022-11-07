@@ -23,6 +23,7 @@ projects:
     - https://github.com/gnunn-gitops/cluster-config
     - https://github.com/redhat-cop/gitops-catalog
     - https://github.com/gnunn1/gitops-catalog
+    - https://github.com/gnunn-gitops/acm-hub-bootstrap
     destinations: |
       - namespace: '*'
         server: https://kubernetes.default.svc
