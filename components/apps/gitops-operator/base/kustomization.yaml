@@ -5,8 +5,6 @@ resources:
 - create-pipeline-local-user-job.yaml
 - gitops-operator-cr.yaml
 - argocd-dex-server-rolebinding.yaml
-- argocd-notifications-cm.yaml
-# - gitops-workaround-993-role.yaml
 # These can be used to patch an existing in-cluster secret. Not used
 # since I've opted to deploy the secret directly above.
 # - patch-cluster-namespaces-rbac.yaml

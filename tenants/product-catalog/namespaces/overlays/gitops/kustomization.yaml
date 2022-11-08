@@ -11,6 +11,7 @@ resources:
 - product-catalog-project.yaml
 - console-link.yaml
 - in-cluster-secret.yaml
+- argocd-notifications-cm.yaml
 
 patches:
 # Patch create-local-pipeline account job environment variables
