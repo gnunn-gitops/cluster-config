@@ -1,7 +1,5 @@
 apiVersion: v1
 data:
-  service.webhook.tekton: |
-    url: product-catalog-cicd.el-server-post-prod.svc:8080
   template.app-created: |-
     email:
       subject: Application {{.app.metadata.name}} has been created.
@@ -530,27 +528,25 @@ data:
     - description: Application syncing has succeeded
       send:
       - app-sync-succeeded
+      - tekton-app-sync
       when: app.status.operationState.phase in ['Succeeded']
   # Tekton Webhook Definitions
-  trigger.on-sync-succeeded: |-
-    - description: Application syncing has succeeded
-      send:
-      - webhook-app-sync-succeeded
-      when: app.status.operationState.phase in ['Succeeded']
-  template.webhook-app-sync-succeeded: |-
+  service.webhook.tekton: |-
+    url: http://el-server-post-prod.product-catalog-cicd.svc:8080
+  template.tekton-app-sync: |-
     webhook:
       tekton:
         method: POST
         path: /
         body: |
           {
-            "name": "{{.app.metadata.name}}",
-            "operation": "sync",
-            "state": "Succeeded",
-            "revision": "{{.app.status.sync.revision}}",
-            "source": "ArgoCD"
-          }      
-
+            {{if eq .app.status.operationState.phase "Running"}} "state": "pending"{{end}}
+            {{if eq .app.status.operationState.phase "Succeeded"}} "state": "success"{{end}}
+            {{if eq .app.status.operationState.phase "Error"}} "state": "error"{{end}}
+            {{if eq .app.status.operationState.phase "Failed"}} "state": "error"{{end}},
+            "description": "ArgoCD",
+            "application": "{{.app.metadata.name}}"
+          }
 kind: ConfigMap
 metadata:
   labels:
