@@ -535,7 +535,7 @@ data:
     url: http://el-server-post-prod.product-catalog-cicd.svc:8080
   template.server-post-prod-app-sync: |-
     webhook:
-      server-post-prod-app-sync:
+      server-post-prod:
         method: POST
         path: /
         body: |
