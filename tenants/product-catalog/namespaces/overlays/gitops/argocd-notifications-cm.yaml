@@ -528,14 +528,14 @@ data:
     - description: Application syncing has succeeded
       send:
       - app-sync-succeeded
-      - tekton-app-sync
+      - server-post-prod-app-sync
       when: app.status.operationState.phase in ['Succeeded']
   # Tekton Webhook Definitions
-  service.webhook.tekton: |-
+  service.webhook.server-post-prod: |-
     url: http://el-server-post-prod.product-catalog-cicd.svc:8080
-  template.tekton-app-sync: |-
+  template.server-post-prod-app-sync: |-
     webhook:
-      tekton:
+      server-post-prod-app-sync:
         method: POST
         path: /
         body: |
