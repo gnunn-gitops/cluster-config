@@ -137,6 +137,8 @@ applications:
         duration: 5s
         factor: 2
         maxDuration: 3m
+    syncOptions:
+      - Replace=true
     extraFields: |
       ignoreDifferences:
         - group: kyverno.io
