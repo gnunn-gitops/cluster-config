@@ -40,7 +40,7 @@ projects:
 
 applications:
 
-  product-catalog-gitops:
+  tenant-product-catalog-gitops:
     destination:
       namespace: product-catalog-gitops
     source:
@@ -52,7 +52,7 @@ applications:
         factor: 2
         maxDuration: 3m
 
-  product-catalog-monitor:
+  tenant-product-catalog-monitor:
     annotations:
       argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
     destination:
@@ -66,25 +66,25 @@ applications:
         factor: 2
         maxDuration: 3m
 
-  product-catalog-cicd:
+  tenant-product-catalog-cicd:
     destination:
       namespace: product-catalog-cicd
     source:
       path: tenants/product-catalog/namespaces/overlays/cicd
 
-  product-catalog-dev:
+  tenant-product-catalog-dev:
     destination:
       namespace: product-catalog-dev
     source:
       path: tenants/product-catalog/namespaces/overlays/dev
 
-  product-catalog-test:
+  tenant-product-catalog-test:
     destination:
       namespace: product-catalog-test
     source:
       path: tenants/product-catalog/namespaces/overlays/test
 
-  product-catalog-prod:
+  tenant-product-catalog-prod:
     destination:
       namespace: product-catalog-prod
     source:

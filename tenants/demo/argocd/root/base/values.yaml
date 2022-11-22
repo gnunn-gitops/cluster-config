@@ -40,7 +40,7 @@ projects:
 
 applications:
 
-  demo-gitops:
+  tenant-demo-gitops:
     destination:
       namespace: demo-gitops
     source:
@@ -52,31 +52,31 @@ applications:
         factor: 2
         maxDuration: 3m
 
-  demo-cicd:
+  tenant-demo-cicd:
     destination:
       namespace: demo-cicd
     source:
       path: tenants/demo/namespaces/overlays/cicd
 
-  demo-dev:
+  tenant-demo-dev:
     destination:
       namespace: demo-dev
     source:
       path: tenants/demo/namespaces/overlays/dev
 
-  demo-test:
+  tenant-demo-test:
     destination:
       namespace: demo-test
     source:
       path: tenants/demo/namespaces/overlays/test
 
-  demo-prod:
+  tenant-demo-prod:
     destination:
       namespace: demo-prod
     source:
       path: tenants/demo/namespaces/overlays/prod
 
-  demo-petclinic:
+  tenant-demo-petclinic:
     destination:
       namespace: demo-petclinic
     source:
