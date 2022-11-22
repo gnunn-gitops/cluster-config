@@ -15,7 +15,7 @@ spec:
     provider: dex      
   extraConfig:
     accounts.pipeline: apiKey
-  applicationInstanceLabelKey: argocd.argoproj.io/instance
+  resourceTrackingMethod: annotation
   applicationSet: {}
   kustomizeBuildOptions: "--enable-helm"
   notifications:
