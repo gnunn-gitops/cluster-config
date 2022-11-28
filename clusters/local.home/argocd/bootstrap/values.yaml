@@ -159,22 +159,6 @@ applications:
     source:
       path: components/apps/kyverno-acm/base
 
-  product-catalog-root:
-    project: cluster-config
-    annotations:
-      argocd.argoproj.io/compare-options: IgnoreExtraneous
-      argocd.argoproj.io/sync-wave: '51'
-    source:
-      path: tenants/product-catalog/argocd/root/base
-
-  demo-root:
-    project: cluster-config
-    annotations:
-      argocd.argoproj.io/compare-options: IgnoreExtraneous
-      argocd.argoproj.io/sync-wave: '51'
-    source:
-      path: tenants/demo/argocd/root/base
-
   web-terminal:
     project: cluster-config
     annotations:
@@ -189,3 +173,20 @@ applications:
       argocd.argoproj.io/sync-wave: '99'
     source:
       path: clusters/local.home/apps/node-config/base
+
+# Tenants
+  product-catalog-root:
+    project: cluster-config
+    annotations:
+      argocd.argoproj.io/compare-options: IgnoreExtraneous
+      argocd.argoproj.io/sync-wave: '51'
+    source:
+      path: tenants/product-catalog/argocd/root/base
+
+  # demo-root:
+  #   project: cluster-config
+  #   annotations:
+  #     argocd.argoproj.io/compare-options: IgnoreExtraneous
+  #     argocd.argoproj.io/sync-wave: '51'
+  #   source:
+  #     path: tenants/demo/argocd/root/base
