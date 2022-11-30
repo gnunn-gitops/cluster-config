@@ -45,6 +45,13 @@ applications:
     source:
       path: clusters/aws.cluster/apps/cluster-certs/overlays/cluster
 
+  openshift-monitoring:
+    annotations:
+      argocd.argoproj.io/compare-options: IgnoreExtraneous
+      argocd.argoproj.io/sync-wave: '11'
+    source:
+      path: clusters/aws.cluster/apps/openshift-monitoring/base
+
   kyverno:
     annotations:
       argocd.argoproj.io/compare-options: IgnoreExtraneous
@@ -69,6 +76,14 @@ applications:
           kind: Policy
           jsonPointers:
           - /spec/rules
+
+  web-terminal:
+    project: cluster-config
+    annotations:
+      argocd.argoproj.io/compare-options: IgnoreExtraneous
+      argocd.argoproj.io/sync-wave: '21'
+    source:
+      path: components/apps/web-terminal-operator/base
 
   product-catalog-root:
     project: cluster-config
