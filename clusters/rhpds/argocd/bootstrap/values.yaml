@@ -27,6 +27,13 @@ applications:
   #   source:
   #     path: tenants/acs-tokens/base
 
+  banner:
+    annotations:
+      argocd.argoproj.io/compare-options: IgnoreExtraneous
+      argocd.argoproj.io/sync-wave: '11'
+    source:
+      path: clusters/rhpds/apps/banner/base
+
   openshift-monitoring:
     annotations:
       argocd.argoproj.io/compare-options: IgnoreExtraneous
