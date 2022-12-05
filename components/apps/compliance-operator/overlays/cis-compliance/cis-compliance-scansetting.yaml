@@ -2,7 +2,9 @@ apiVersion: compliance.openshift.io/v1alpha1
 kind: ScanSetting
 metadata:
   name: cis-compliance
-  namespace: openshift-compliance
+  annotations:
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+    argocd.argoproj.io/sync-wave: "1"
 rawResultStorage:
   nodeSelector:
     node-role.kubernetes.io/master: ""
