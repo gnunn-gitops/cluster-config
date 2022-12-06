@@ -12,20 +12,20 @@ spec:
   sso:
     dex:
       openShiftOAuth: true
-    provider: dex      
+    provider: dex
   extraConfig:
     accounts.pipeline: apiKey
   resourceTrackingMethod: annotation
   applicationSet: {}
   kustomizeBuildOptions: "--enable-helm"
   notifications:
-    enabled: true  
+    enabled: true
   server:
-    insecure: false
+    insecure: true
     route:
       enabled: true
       tls:
-        termination: reencrypt
+        termination: edge
         insecureEdgeTerminationPolicy: Redirect
   resourceCustomizations: |
     route.openshift.io/Route:
@@ -94,7 +94,7 @@ spec:
         end
         hs.status = "Progressing"
         hs.message = "Waiting for certificate"
-        return hs        
+        return hs
   resourceExclusions: |
     - apiGroups:
       - tekton.dev
