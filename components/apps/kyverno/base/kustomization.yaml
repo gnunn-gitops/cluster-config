@@ -8,10 +8,10 @@ patches:
 - patch: |-
     - op: replace
       path: /spec/template/spec/containers/0/resources/limits/memory
-      value: 2Gi
+      value: 3Gi
     - op: replace
       path: /spec/template/spec/containers/0/resources/requests/memory
-      value: 1Gi
+      value: 1.5Gi
     - op: add
       path: /spec/template/spec/containers/0/args/-
       value: '--clientRateLimitQPS=350'
