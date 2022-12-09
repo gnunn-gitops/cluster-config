@@ -28,6 +28,7 @@ applications:
       argocd.argoproj.io/sync-wave: '11'
     source:
       path: clusters/aws.cluster/apps/banner/base
+      targetRevision: cf737ac
 
   cert-manager-operator:
     annotations:
