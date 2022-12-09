@@ -28,7 +28,7 @@ applications:
       argocd.argoproj.io/sync-wave: '11'
     source:
       path: clusters/aws.cluster/apps/banner/base
-      targetRevision: "2469174"
+      targetRevision: "a83ccc1"
 
   cert-manager-operator:
     annotations:
