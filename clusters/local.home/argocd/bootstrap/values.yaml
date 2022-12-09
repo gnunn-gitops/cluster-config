@@ -35,6 +35,7 @@ applications:
       argocd.argoproj.io/sync-wave: '11'
     source:
       path: clusters/local.home/apps/banner/base
+      targetRevision: 5013aba
 
   console-links:
     annotations:
