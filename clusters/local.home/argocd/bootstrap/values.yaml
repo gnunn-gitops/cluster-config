@@ -9,7 +9,7 @@ default:
       server: https://kubernetes.default.svc
     source:
       repoURL: https://github.com/gnunn-gitops/cluster-config.git
-      targetRevision: a6d8637
+      targetRevision: "a6d8637"
 
 applications:
 
@@ -35,7 +35,7 @@ applications:
       argocd.argoproj.io/sync-wave: '11'
     source:
       path: clusters/local.home/apps/banner/base
-      targetRevision: 15cdf62
+      targetRevision: "15cdf62"
 
   console-links:
     annotations:

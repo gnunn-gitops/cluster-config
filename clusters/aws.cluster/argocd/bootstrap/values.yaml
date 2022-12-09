@@ -9,7 +9,7 @@ default:
       server: https://kubernetes.default.svc
     source:
       repoURL: https://github.com/gnunn-gitops/cluster-config.git
-      targetRevision: a6d8637
+      targetRevision: "a6d8637"
 
 applications:
 
@@ -28,7 +28,7 @@ applications:
       argocd.argoproj.io/sync-wave: '11'
     source:
       path: clusters/aws.cluster/apps/banner/base
-      targetRevision: 2469174
+      targetRevision: "2469174"
 
   cert-manager-operator:
     annotations:
