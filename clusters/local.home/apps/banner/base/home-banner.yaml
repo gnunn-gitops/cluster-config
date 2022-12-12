@@ -3,7 +3,7 @@ kind: ConsoleNotification
 metadata:
   name: home-banner
 spec:
-  text: "Cluster: local.home"
+  text: "Cluster: local.home - testing"
   location: BannerTop
   color: '#fff'
   backgroundColor: '#0088ce'
