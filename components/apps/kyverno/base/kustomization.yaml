@@ -37,3 +37,9 @@ patches:
   target:
     kind: ConfigMap
     name: kyverno
+- patch: |-
+    - op: add
+      path: /metadata/annotations/argocd.argoproj.io~1sync-options
+      value: Validate=false,ServerSideApply=true
+  target:
+    kind: CustomResourceDefinition
