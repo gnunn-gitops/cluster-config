@@ -15,24 +15,6 @@ spec:
           - -c
           - |
             export HOME=/home/argocd
-            echo "Checking if pipeline account already there..."
-            HAS_ACCOUNT=$(kubectl get cm argocd-cm -o jsonpath={.data."accounts\.pipeline"})
-            if [ -z "$HAS_ACCOUNT" ];
-            then
-                # Leave this in for compatibility however in 1.6 we use extraConfigs to handle this
-                echo "Pipeline account doesn't exist, adding"
-                echo "Getting argocd admin credential..."
-                if kubectl get secret argocd-cluster;
-                then
-                  # Create pipeline user
-                  kubectl patch cm argocd-cm --patch '{"data": {"accounts.pipeline": "apiKey"}}'
-                else
-                  echo "Secret argocd-cluster not available, could not interact with API"
-                  exit 1
-                fi
-            else
-                echo "Pipeline account already added, skipping"
-            fi
 
             HAS_SECRET=$(kubectl get secret argocd-env-secret -n $CICD_NAMESPACE --ignore-not-found)
             if [ -z "$HAS_SECRET" ];
