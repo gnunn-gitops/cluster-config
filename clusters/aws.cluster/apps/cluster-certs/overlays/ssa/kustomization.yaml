@@ -1,5 +1,0 @@
-resources:
-- openshift-api-certificate.yaml
-- openshift-wildcard-certificate.yaml
-- apiserver.yaml
-- ingresscontroller.yaml

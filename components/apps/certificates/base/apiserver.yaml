@@ -9,6 +9,6 @@ spec:
   servingCerts:
     namedCertificates:
     - names:
-      - api.home.ocplab.com
+      - dummy
       servingCertificate:
         name: openshift-api-certificate

@@ -4,6 +4,14 @@ resources:
 patches:
   - patch: |-
       - op: replace
+        path: /spec/servingCerts/namedCertificates/0/names/0
+        value: api.home.ocplab.com
+    target:
+      group: config.openshift.io
+      kind: APIServer
+      name: cluster
+  - patch: |-
+      - op: replace
         path: /spec/dnsNames
         value:
           - api.home.ocplab.com
