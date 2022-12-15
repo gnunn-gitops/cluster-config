@@ -1,0 +1,5 @@
+namespace: gitops
+
+resources:
+- namespace.yaml
+- ../../../../components/apps/gitops-operator/base

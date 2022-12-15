@@ -173,6 +173,14 @@ applications:
       path: clusters/local.home/apps/node-config/base
 
 # Tenants
+  gitops:
+    project: cluster-config
+    annotations:
+      argocd.argoproj.io/compare-options: IgnoreExtraneous
+      argocd.argoproj.io/sync-wave: '50'
+    source:
+      path: tenants/gitops/overlays/shared
+
   product-catalog-root:
     project: cluster-config
     annotations:
