@@ -2,6 +2,5 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
-- annotate-secret-job.yaml
-- annotate-secret-sa.yaml
+- alertmanager-main-secret.yaml
 - alertmanager-main-sealed-secret.yaml
