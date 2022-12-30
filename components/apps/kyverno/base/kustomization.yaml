@@ -36,7 +36,7 @@ patches:
       value: '[Event,*,*][*,kube-system,*][*,kube-public,*][*,kube-node-lease,*][Node,*,*][APIService,*,*][TokenReview,*,*][SubjectAccessReview,*,*][SelfSubjectAccessReview,*,*][*,kyverno,kyverno*][*,openshift,*][*,sealed-secrets,*][*,openshift-*,*][*,open-cluster-*,*][*,hive,*][*,stackrox,*][*,rhacs-operator,*][*,costmanagement-metrics-operator,*][Binding,*,*][ReplicaSet,*,*][ReportChangeRequest,*,*][ClusterReportChangeRequest,*,*][PolicyReport,*,*][ClusterPolicyReport,*,*]'
     - op: replace
       path: /data/webhooks
-      value: '[{"namespaceSelector": {"matchExpressions": [{"key":"kubernetes.io/metadata.name","operator":"NotIn","values":["kyverno","kube-public","kube-system","kube-node-lease","openshift","openshift-apiserver","openshift-apiserver-operator","openshift-kube-apiserver","openshift-kube-apiserver-operator","default",]}]}}]'
+      value: '[{"namespaceSelector": {"matchExpressions": [{"key":"kyverno-enabled","operator":"In","values":["true"]}]}}]'
   target:
     kind: ConfigMap
     name: kyverno
