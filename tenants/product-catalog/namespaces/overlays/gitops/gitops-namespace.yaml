@@ -6,4 +6,5 @@ metadata:
     openshift.io/display-name:  Product Catalog GitOps
   labels:
     tenant: product-catalog
+    kyverno: enabled
   name: product-catalog-gitops
