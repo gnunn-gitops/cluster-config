@@ -13,8 +13,8 @@ patches:
     - op: replace
       path: /spec/template/spec/containers/0/env
       value:
-        - name: CICD_NAMESPACE
-          value: "product-catalog-cicd"
+        - name: ACCOUNTS_NAMESPACES
+          value: "product-catalog-pipeline=product-catalog-cicd"
   target:
     kind: Job
     name: create-pipeline-local-user
