@@ -6,3 +6,24 @@ resources:
 - console-link.yaml
 # Tenant projects here
 - product-catalog-appproject.yaml
+
+patches:
+# Update permissions for tenants and local accounts
+-  target:
+     kind: ArgoCD
+     name: argocd
+   patch: |-
+    - op: replace
+      path: /spec/applicationInstanceLabelKey
+      value: argocd.argoproj.io/product-catalog-instance
+    - op: add
+      path: /spec/rbac
+      value:
+        defaultPolicy: role:readonly
+        policy: |
+          p, role: product-catalog-pipeline, applications, get, apps-product-catalog/*, allow
+          p, role: product-catalog-pipeline, applications, sync, apps-product-catalog/*, allow
+          g, product-catalog-admins, role:admin
+          g, system:cluster-admins, role:admin
+          g, pipeline, role: product-catalog-pipeline
+        scopes: "[accounts,groups]"
