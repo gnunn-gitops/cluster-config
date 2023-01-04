@@ -13,8 +13,6 @@ spec:
     dex:
       openShiftOAuth: true
     provider: dex
-  extraConfig:
-    accounts.pipeline: apiKey
   resourceTrackingMethod: annotation
   applicationSet: {}
   kustomizeBuildOptions: "--enable-helm"

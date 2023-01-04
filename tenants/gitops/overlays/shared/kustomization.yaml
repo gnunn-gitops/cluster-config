@@ -9,13 +9,24 @@ resources:
 
 patches:
 # Update permissions for tenants and local accounts
+- patch: |-
+    - op: replace
+      path: /spec/template/spec/containers/0/env
+      value:
+        - name: CICD_NAMESPACE
+          value: "product-catalog-cicd"
+  target:
+    kind: Job
+    name: create-pipeline-local-user
 -  target:
      kind: ArgoCD
      name: argocd
    patch: |-
-    - op: replace
-      path: /spec/applicationInstanceLabelKey
-      value: argocd.argoproj.io/product-catalog-instance
+    - op: add
+      path: /spec
+      value:
+        extraConfig:
+          accounts.product-catalog-pipeline: apiKey
     - op: add
       path: /spec/rbac
       value:
@@ -25,5 +36,5 @@ patches:
           p, role: product-catalog-pipeline, applications, sync, apps-product-catalog/*, allow
           g, product-catalog-admins, role:admin
           g, system:cluster-admins, role:admin
-          g, pipeline, role: product-catalog-pipeline
+          g, product-catalog-pipeline, role: product-catalog-pipeline
         scopes: "[accounts,groups]"
