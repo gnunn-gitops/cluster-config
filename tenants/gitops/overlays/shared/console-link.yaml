@@ -9,4 +9,4 @@ spec:
   href: 'https://argocd-server-gitops.apps.home.ocplab.com'
   location: ApplicationMenu
   # This text will appear in a box called "Launcher" under "namespace" or "project" in the web console
-  text: Shared Gitops
+  text: Shared Argo CD
