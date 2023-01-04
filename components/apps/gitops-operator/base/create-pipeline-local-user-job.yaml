@@ -31,7 +31,7 @@ spec:
                   TOKEN=$(argocd account generate-token --account $account)
                   if [ "$TOKEN" ];
                   then
-                    kubectl create secret generic argocd-env-secret --from-literal=ARGOCD_AUTH_TOKEN=${TOKEN} -n ${namespace}
+                    kubectl create secret generic argocd-env-secret --from-literal=ARGOCD_AUTH_TOKEN=${TOKEN} --from-literal=ACCOUNT=${account} -n ${namespace}
                   else
                     echo "Token $TOKEN could not be generated, no secret created"
                     exit 1
