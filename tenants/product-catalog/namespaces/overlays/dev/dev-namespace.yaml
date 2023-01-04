@@ -7,7 +7,7 @@ metadata:
     app.openshift.io/vcs-uri: https://github.com/gnunn-gitops/product-catalog
     app.openshift.io/vcs-ref: main
   labels:
-    argocd.argoproj.io/managed-by: product-catalog-gitops
+    # argocd.argoproj.io/managed-by: product-catalog-gitops
     kyverno: enabled
     tenant: product-catalog
   name: product-catalog-dev

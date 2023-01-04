@@ -5,7 +5,7 @@ metadata:
     openshift.io/description: Project for ci/cd tools for product catalog application
     openshift.io/display-name:  Product Catalog CI/CD
   labels:
-    argocd.argoproj.io/managed-by: product-catalog-gitops
+    # argocd.argoproj.io/managed-by: product-catalog-gitops
     kyverno: enabled
     tenant: product-catalog
   name: product-catalog-cicd
