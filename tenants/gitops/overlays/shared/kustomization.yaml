@@ -23,7 +23,7 @@ patches:
      name: argocd
    patch: |-
     - op: add
-      path: /spec/extraconfig
+      path: /spec/extraConfig
       value:
         accounts.product-catalog-pipeline: apiKey
     - op: add
