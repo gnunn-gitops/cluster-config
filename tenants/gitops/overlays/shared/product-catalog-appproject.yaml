@@ -1,0 +1,37 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: apps-product-catalog
+spec:
+  clusterResourceBlacklist:
+  - group: '*'
+    kind: '*'
+  namespaceResourceBlacklist:
+  - group: ''
+    kind: Namespace
+  - group: ''
+    kind: ResourceQuota
+  - group: ''
+    kind: LimitRange
+  destinations:
+  - namespace: 'product-catalog-dev'
+    server: 'https://kubernetes.default.svc'
+  - namespace: 'product-catalog-test'
+    server: 'https://kubernetes.default.svc'
+  - namespace: 'product-catalog-prod'
+    server: 'https://kubernetes.default.svc'
+  - namespace: 'product-catalog-cicd'
+    server: 'https://kubernetes.default.svc'
+  - namespace: 'product-catalog-monitor'
+    server: 'https://kubernetes.default.svc'
+  - namespace: 'product-catalog-gitops'
+    server: 'https://kubernetes.default.svc'
+  roles:
+  - name: users
+    policies:
+    - p, role:user, applications, *, *, allow
+    - p, role:user, projects, get, *, allow
+  sourceRepos:
+  - '*'
+  sourceNamespaces:
+  - product-catalog-gitops

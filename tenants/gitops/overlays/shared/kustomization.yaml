@@ -3,3 +3,5 @@ namespace: gitops
 resources:
 - namespace.yaml
 - ../../../../components/apps/gitops-operator/base
+# Tenant projects here
+- product-catalog-appproject.yaml
