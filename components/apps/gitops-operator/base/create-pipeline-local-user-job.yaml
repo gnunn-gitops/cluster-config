@@ -28,10 +28,12 @@ spec:
                   echo "No argo-env-secret present, creating"
                   PASSWORD=$(oc get secret argocd-cluster -o jsonpath="{.data.admin\.password}" | base64 -d)
                   argocd login --insecure --username admin --password ${PASSWORD} argocd-server
-                  TOKEN=$(argocd account generate-token --account $account)
+                  echo "Generating token for ${account}"
+                  TOKEN=$(argocd account generate-token --account ${account})
                   if [ "$TOKEN" ];
                   then
-                    kubectl create secret generic argocd-env-secret --from-literal=ARGOCD_AUTH_TOKEN=${TOKEN} --from-literal=ACCOUNT=${account} -n ${namespace}
+                    echo "Creating secret argocd-env-secret in namespace ${namespace}"
+                    kubectl create secret generic argocd-env-secret --from-literal=ARGOCD_AUTH_TOKEN=${TOKEN} --from-literal=ACCOUNT=${account} --from-literal=SERVER_URL=${ARGO_SERVER_HOST} -n ${namespace}
                   else
                     echo "Token $TOKEN could not be generated, no secret created"
                     exit 1
@@ -44,6 +46,8 @@ spec:
         # The account namespace where the token needs to be deployed to
         # Example value: product-catalog-pipeline=product-catalog-cicd demo-pipeline=demo-cicd
         - name: ACCOUNTS_NAMESPACES
+          value: ""
+        - name: ARGO_SERVER_HOST
           value: ""
         imagePullPolicy: Always
         name: create-pipeline-local-user
