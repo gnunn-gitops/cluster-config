@@ -6,7 +6,7 @@ namespace: product-catalog-gitops
 resources:
 - ../../base
 # - ../../../../../components/apps/gitops-operator/base
-# - gitops-namespace.yaml
+- gitops-namespace.yaml
 # - operatorgroup.yaml
 # - product-catalog-project.yaml
 # - console-link.yaml
