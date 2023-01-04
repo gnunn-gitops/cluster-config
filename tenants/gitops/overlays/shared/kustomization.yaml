@@ -23,10 +23,9 @@ patches:
      name: argocd
    patch: |-
     - op: add
-      path: /spec
+      path: /spec/extraconfig
       value:
-        extraConfig:
-          accounts.product-catalog-pipeline: apiKey
+        accounts.product-catalog-pipeline: apiKey
     - op: add
       path: /spec/rbac
       value:
