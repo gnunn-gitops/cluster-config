@@ -29,6 +29,10 @@ patches:
       value:
         accounts.product-catalog-pipeline: apiKey
     - op: add
+      path: /spec/sourceNamespaces
+      value:
+        - product-catalog-gitops
+    - op: add
       path: /spec/rbac
       value:
         defaultPolicy: role:readonly
