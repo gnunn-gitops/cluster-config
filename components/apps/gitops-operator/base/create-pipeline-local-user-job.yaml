@@ -9,7 +9,7 @@ spec:
   template:
     spec:
       containers:
-      - image: registry.redhat.io/openshift-gitops-1/argocd-rhel8:v1.5.0
+      - image: registry.redhat.io/openshift-gitops-1/argocd-rhel8:1.7
         command:
           - /bin/bash
           - -c
@@ -36,7 +36,6 @@ spec:
                 if [ -z "$HAS_SECRET" ];
                 then
                   echo "No argo-env-secret present, creating"
-                  PASSWORD=$(oc get secret argocd-cluster -o jsonpath="{.data.admin\.password}" | base64 -d)
                   argocd login --insecure --username admin --password ${PASSWORD} argocd-server
                   echo "Generating token for ${account}"
                   TOKEN=$(argocd account generate-token --account ${account})
