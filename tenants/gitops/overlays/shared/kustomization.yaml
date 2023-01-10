@@ -35,7 +35,6 @@ patches:
     - op: add
       path: /spec/rbac
       value:
-        defaultPolicy: role:''
         policy: |
           p, role: product-catalog-pipeline, applications, get, apps-product-catalog/*, allow
           p, role: product-catalog-pipeline, applications, sync, apps-product-catalog/*, allow
