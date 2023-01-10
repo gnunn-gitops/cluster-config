@@ -38,9 +38,11 @@ patches:
         policy: |
           p, role: product-catalog-pipeline, applications, get, apps-product-catalog/*, allow
           p, role: product-catalog-pipeline, applications, sync, apps-product-catalog/*, allow
+          p, role: product-catalog-admin, projects, get, apps-product-catalog, allow
           p, role: product-catalog-admin, applications, *, apps-product-catalog/*, allow
           p, role: product-catalog-user, applications, get, apps-product-catalog/*, allow
           p, role: product-catalog-user, applications, sync, apps-product-catalog/*, allow
+          p, role: product-catalog-user, projects, get, apps-product-catalog, allow
           g, product-catalog-admins, role:product-catalog-admin
           g, product-catalog-users, role:product-catalog-user
           g, system:cluster-admins, role:admin
