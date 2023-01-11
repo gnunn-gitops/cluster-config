@@ -35,6 +35,9 @@ applications:
       argocd.argoproj.io/sync-wave: '11'
     source:
       path: clusters/local.home/apps/banner/base
+      extraSourceFields: |
+        plugin:
+          name: kustomize-envvar
 
   console-links:
     annotations:
