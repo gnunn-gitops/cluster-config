@@ -1,0 +1,18 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: product-catalog-gitops
+
+resources:
+- ../../gitops
+- gitops-namespace.yaml
+
+patches:
+# Patch in namespace for Argo CD that is managing this namespace
+- patch: |-
+    - op: replace
+      path: /subjects/0/namespace
+      value: gitops
+  target:
+    kind: RoleBinding
+    name: gitops-argocd-extended-rolebinding

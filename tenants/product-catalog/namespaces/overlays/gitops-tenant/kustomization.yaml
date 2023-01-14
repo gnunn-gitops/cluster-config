@@ -4,14 +4,14 @@ kind: Kustomization
 namespace: product-catalog-gitops
 
 resources:
-- ../../base
-# - ../../../../../components/apps/gitops-operator/base
+- ../../gitops
+- ../../../../../components/apps/gitops-operator/base
 - gitops-namespace.yaml
-# - operatorgroup.yaml
-# - product-catalog-project.yaml
-# - console-link.yaml
-# - in-cluster-secret.yaml
-# - argocd-notifications-cm.yaml
+- operatorgroup.yaml
+- product-catalog-project.yaml
+- console-link.yaml
+- in-cluster-secret.yaml
+- argocd-notifications-cm.yaml
 
 patches:
 # Patch create-local-pipeline account job environment variables
