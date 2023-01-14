@@ -3,5 +3,4 @@ kind: Kustomization
 
 resources:
 - ../../base
-- gitops-extended-crd-role.yaml
 - gitops-extended-crd-rolebinding.yaml

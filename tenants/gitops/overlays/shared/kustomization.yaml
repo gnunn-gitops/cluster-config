@@ -1,6 +1,7 @@
 namespace: gitops
 
 resources:
+- gitops-extended-cluster-role.yaml
 - namespace.yaml
 - ../../../../components/apps/gitops-operator/base
 - console-link.yaml

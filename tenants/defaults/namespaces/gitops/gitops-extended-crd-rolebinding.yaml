@@ -6,8 +6,9 @@ metadata:
   name: gitops-argocd-extended-rolebinding
 roleRef:
   apiGroup: rbac.authorization.k8s.io
-  kind: Role
+  kind: ClusterRole
   name: gitops-argocd-extended-role
 subjects:
   - kind: ServiceAccount
     name: argocd-argocd-application-controller
+    namespace: gitops
