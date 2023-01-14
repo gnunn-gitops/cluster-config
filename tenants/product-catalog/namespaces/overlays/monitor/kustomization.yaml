@@ -10,13 +10,6 @@ resources:
 # Patch in namespace for Argo CD that is managing this namespace
 patches:
 - patch: |-
-    - op: replace
-      path: /subjects/0/namespace
-      value: product-catalog-monitor
-  target:
-    kind: RoleBinding
-    name: gitops-argocd-extended-rolebinding
-- patch: |-
     - op: add
       path: /spec/config/users
       value:
