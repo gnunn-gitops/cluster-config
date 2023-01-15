@@ -51,5 +51,5 @@ patches:
           g, product-catalog-users, role:product-catalog-user
           g, system:cluster-admins, role:admin
           g, cluster-admins, role:admin
-          g, product-catalog-pipeline, role: product-catalog-pipeline
+          g, product-catalog-pipeline, role:product-catalog-pipeline
         scopes: "[accounts,groups]"
