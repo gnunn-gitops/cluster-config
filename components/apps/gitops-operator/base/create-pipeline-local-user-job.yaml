@@ -42,7 +42,7 @@ spec:
                   if [ "$TOKEN" ];
                   then
                     echo "Creating secret argocd-env-secret in namespace ${namespace}"
-                    kubectl create secret generic argocd-env-secret --from-literal=ARGOCD_AUTH_TOKEN=${TOKEN} --from-literal=ACCOUNT=${account} --from-literal=SERVER_HOST=${ARGO_SERVER_HOST} -n ${namespace}
+                    kubectl create secret generic argocd-env-secret --from-literal=ARGOCD_AUTH_TOKEN=${TOKEN} --from-literal=ARGOCD_USERNAME=${account} --from-literal=ARGOCD_SERVER=${ARGO_SERVER_HOST} -n ${namespace}
                   else
                     echo "Token $TOKEN could not be generated, no secret created"
                     exit 1
