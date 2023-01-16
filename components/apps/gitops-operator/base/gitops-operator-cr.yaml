@@ -101,6 +101,34 @@ spec:
       kinds:
       - TaskRun
       - PipelineRun
+    - apiGroups:
+      - operators.coreos.com
+      - operator.openshift.io
+      - user.openshift.io
+      - config.openshift.io
+      - console.openshift.io
+      - storage.k8s.io
+      - machine.openshift.io
+      - machineconfiguration.openshift.io
+      - compliance.openshift.io
+      clusters:
+      - '*'
+      kinds:
+      - '*'
+    - apiGroups:
+      - ""
+      clusters:
+      - '*'
+      kinds:
+      - namespaces
+      - persistentvolumes
+    - apiGroups:
+      - rbac.authorization.k8s.io
+      clusters:
+      - '*'
+      kinds:
+      - ClusterRole
+      - ClusterRoleBinding
   ha:
     enabled: false
   # rbac:

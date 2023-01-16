@@ -5,6 +5,7 @@ resources:
 - namespace.yaml
 - ../../../../components/apps/gitops-operator/base
 - console-link.yaml
+- global-approject.yaml
 # Tenant projects here
 - product-catalog-appproject.yaml
 
@@ -28,6 +29,14 @@ patches:
     - op: add
       path: /spec/extraConfig
       value:
+        globalProjects: |-
+          - labelSelector:
+              matchExpressions:
+                - key: argocd.argoproj.io/project-inherit
+                  operator: In
+                  values:
+                    - global
+            projectName: global
         accounts.product-catalog-pipeline: apiKey
     - op: add
       path: /spec/sourceNamespaces
