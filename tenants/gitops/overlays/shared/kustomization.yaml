@@ -5,7 +5,7 @@ resources:
 - namespace.yaml
 - ../../../../components/apps/gitops-operator/base
 - console-link.yaml
-- global-approject.yaml
+- global-appproject.yaml
 # Tenant projects here
 - product-catalog-appproject.yaml
 
