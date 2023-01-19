@@ -3,12 +3,7 @@ kind: ArgoCD
 metadata:
   name: argocd
 spec:
-  controller:
-    env:
-    - name: "ARGOCD_K8S_CLIENT_BURST"
-      value: "350"
-    - name: "ARGOCD_K8S_CLIENT_QPS"
-      value: "350"
+  disableAdmin: true
   sso:
     dex:
       openShiftOAuth: true
