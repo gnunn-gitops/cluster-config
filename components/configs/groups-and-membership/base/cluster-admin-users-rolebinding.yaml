@@ -1,10 +1,6 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
-  annotations:
-    rbac.authorization.kubernetes.io/autoupdate: "true"
-  labels:
-    kubernetes.io/bootstrapping: rbac-defaults
   name: cluster-admin-users
 roleRef:
   apiGroup: rbac.authorization.k8s.io
@@ -12,8 +8,5 @@ roleRef:
   name: cluster-admin
 subjects:
   - apiGroup: rbac.authorization.k8s.io
-    kind: User
-    name: admin
-  - apiGroup: rbac.authorization.k8s.io
-    kind: User
-    name: gnunn@redhat.com   
+    kind: Group
+    name: cluster-admins
