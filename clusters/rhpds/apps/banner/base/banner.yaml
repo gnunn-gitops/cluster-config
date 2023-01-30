@@ -1,9 +1,0 @@
-apiVersion: console.openshift.io/v1
-kind: ConsoleNotification
-metadata:
-  name: banner
-spec:
-  text: "Cluster: RHPDS"
-  location: BannerTop
-  color: '#fff'
-  backgroundColor: '#0088ce'

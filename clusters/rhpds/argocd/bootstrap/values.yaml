@@ -32,7 +32,10 @@ applications:
       argocd.argoproj.io/compare-options: IgnoreExtraneous
       argocd.argoproj.io/sync-wave: '11'
     source:
-      path: clusters/rhpds/apps/banner/base
+      path: components/configs/banner/base
+      extraSourceFields: |
+        plugin:
+          name: kustomize-envvar
 
   openshift-monitoring:
     annotations:
