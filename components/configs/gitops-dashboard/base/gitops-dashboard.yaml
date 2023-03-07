@@ -2283,22 +2283,16 @@ data:
                 "align": false,
                 "alignLevel": null
             }
-            },
-            {
-            "content": "#### gRPC Services:",
-            "gridPos": {
-                "h": 2,
-                "w": 24,
-                "x": 0,
-                "y": 115
-            },
-            "id": 54,
-            "links": [],
-            "mode": "markdown",
-            "title": "",
-            "transparent": true,
-            "type": "text"
-            },
+            }
+        ]
+        },
+        {
+        "collapse": true,
+        "editable": false,
+        "height": "250px",
+        "title": "gRPC Services",
+        "showTitle": true,
+        "panels": [
             {
             "aliasColors": {},
             "bars": false,
@@ -2340,7 +2334,8 @@ data:
             "renderer": "flot",
             "seriesOverrides": [],
             "spaceLength": 10,
-            "stack": false,
+            "span": 2,
+            "stack": true,
             "steppedLine": false,
             "targets": [
                 {
@@ -2430,7 +2425,8 @@ data:
             "renderer": "flot",
             "seriesOverrides": [],
             "spaceLength": 10,
-            "stack": false,
+            "span": 2,
+            "stack": true,
             "steppedLine": false,
             "targets": [
                 {
@@ -2520,7 +2516,8 @@ data:
             "renderer": "flot",
             "seriesOverrides": [],
             "spaceLength": 10,
-            "stack": false,
+            "span": 2,
+            "stack": true,
             "steppedLine": false,
             "targets": [
                 {
@@ -2609,7 +2606,8 @@ data:
             "renderer": "flot",
             "seriesOverrides": [],
             "spaceLength": 10,
-            "stack": false,
+            "span": 2,
+            "stack": true,
             "steppedLine": false,
             "targets": [
                 {
@@ -2706,7 +2704,8 @@ data:
             "renderer": "flot",
             "seriesOverrides": [],
             "spaceLength": 10,
-            "stack": false,
+            "span": 2,
+            "stack": true,
             "steppedLine": false,
             "targets": [
                 {
@@ -2795,7 +2794,8 @@ data:
             "renderer": "flot",
             "seriesOverrides": [],
             "spaceLength": 10,
-            "stack": false,
+            "span": 2,
+            "stack": true,
             "steppedLine": false,
             "targets": [
                 {
@@ -2884,7 +2884,8 @@ data:
             "renderer": "flot",
             "seriesOverrides": [],
             "spaceLength": 10,
-            "stack": false,
+            "span": 2,
+            "stack": true,
             "steppedLine": false,
             "targets": [
                 {
@@ -2973,7 +2974,8 @@ data:
             "renderer": "flot",
             "seriesOverrides": [],
             "spaceLength": 10,
-            "stack": false,
+            "span": 2,
+            "stack": true,
             "steppedLine": false,
             "targets": [
                 {
