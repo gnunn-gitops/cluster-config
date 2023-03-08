@@ -41,6 +41,8 @@ applications:
     annotations:
       argocd.argoproj.io/compare-options: IgnoreExtraneous
       argocd.argoproj.io/sync-wave: '11'
+    destination:
+      namespace: openshift-monitoring
     source:
       path: clusters/rhpds/apps/openshift-monitoring/base
 
