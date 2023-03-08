@@ -52,46 +52,50 @@ applications:
     annotations:
       argocd.argoproj.io/compare-options: IgnoreExtraneous
       argocd.argoproj.io/sync-wave: '11'
+    destination:
+      namespace: openshift-monitoring
     source:
       path: clusters/aws.cluster/apps/openshift-monitoring/base
 
-  kyverno:
-    annotations:
-      argocd.argoproj.io/compare-options: IgnoreExtraneous
-      argocd.argoproj.io/sync-wave: '21'
-    destination:
-      namespace: kyverno
-    source:
-      path: components/apps/kyverno/overlays/policies
-    syncPolicyRetry:
-      limit: 5
-      backoff:
-        duration: 5s
-        factor: 2
-        maxDuration: 3m
-    extraFields: |
-      ignoreDifferences:
-        - group: kyverno.io
-          kind: ClusterPolicy
-          jsonPointers:
-          - /spec/rules
-        - group: kyverno.io
-          kind: Policy
-          jsonPointers:
-          - /spec/rules
+  # kyverno:
+  #   annotations:
+  #     argocd.argoproj.io/compare-options: IgnoreExtraneous
+  #     argocd.argoproj.io/sync-wave: '21'
+  #   destination:
+  #     namespace: kyverno
+  #   source:
+  #     path: components/apps/kyverno/overlays/policies
+  #   syncPolicyRetry:
+  #     limit: 5
+  #     backoff:
+  #       duration: 5s
+  #       factor: 2
+  #       maxDuration: 3m
+  #   extraFields: |
+  #     ignoreDifferences:
+  #       - group: kyverno.io
+  #         kind: ClusterPolicy
+  #         jsonPointers:
+  #         - /spec/rules
+  #       - group: kyverno.io
+  #         kind: Policy
+  #         jsonPointers:
+  #         - /spec/rules
 
   web-terminal:
     project: cluster-config
     annotations:
       argocd.argoproj.io/compare-options: IgnoreExtraneous
       argocd.argoproj.io/sync-wave: '21'
+    destination:
+      namespace: openshift-operators
     source:
       path: components/apps/web-terminal-operator/base
 
-  product-catalog-root:
-    project: cluster-config
-    annotations:
-      argocd.argoproj.io/compare-options: IgnoreExtraneous
-      argocd.argoproj.io/sync-wave: '51'
-    source:
-      path: tenants/product-catalog/argocd/root/base
+  # product-catalog-root:
+  #   project: cluster-config
+  #   annotations:
+  #     argocd.argoproj.io/compare-options: IgnoreExtraneous
+  #     argocd.argoproj.io/sync-wave: '51'
+  #   source:
+  #     path: tenants/product-catalog/argocd/root/base
