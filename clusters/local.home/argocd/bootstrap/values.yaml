@@ -26,6 +26,8 @@ applications:
     annotations:
       argocd.argoproj.io/compare-options: IgnoreExtraneous
       argocd.argoproj.io/sync-wave: '21'
+    destination:
+      namespace: stackrox
     source:
       path: clusters/local.home/apps/acs-operator/overlays/certificate
 
@@ -50,6 +52,8 @@ applications:
     annotations:
       argocd.argoproj.io/compare-options: IgnoreExtraneous
       argocd.argoproj.io/sync-wave: '61'
+    destination:
+      namespace: stackrox
     source:
       path: clusters/local.home/apps/acs-tokens/overlays/endpoint
 
@@ -82,6 +86,8 @@ applications:
     annotations:
       argocd.argoproj.io/compare-options: IgnoreExtraneous
       argocd.argoproj.io/sync-wave: '11'
+    destination:
+      namespace: openshift-monitoring
     source:
       path: clusters/local.home/apps/openshift-monitoring/base
 
@@ -109,6 +115,8 @@ applications:
     annotations:
       argocd.argoproj.io/compare-options: IgnoreExtraneous
       argocd.argoproj.io/sync-wave: '21'
+    destination:
+      namespace: costmanagement-metrics-operator
     source:
       path: clusters/local.home/apps/cost-management-operator/overlays/default
 
@@ -165,6 +173,8 @@ applications:
     annotations:
       argocd.argoproj.io/compare-options: IgnoreExtraneous
       argocd.argoproj.io/sync-wave: '21'
+    destination:
+      namespace: openshift-operators
     source:
       path: components/apps/web-terminal-operator/base
 
