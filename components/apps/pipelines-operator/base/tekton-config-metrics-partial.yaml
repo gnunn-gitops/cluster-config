@@ -4,7 +4,7 @@ metadata:
   name: config
   annotations:
     argocd.argoproj.io/sync-options: Validate=false,ServerSideApply=true
-    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=tru
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
 spec:
   pipeline:
     metrics.taskrun.level: taskrun
