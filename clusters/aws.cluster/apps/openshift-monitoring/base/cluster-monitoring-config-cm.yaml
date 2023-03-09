@@ -11,7 +11,7 @@ data:
        spec:
          accessModes:
          - ReadWriteOnce
-         storageClassName: gp2
+         storageClassName: gp3-csi
          volumeMode: Filesystem
          resources:
            requests:
