@@ -24,6 +24,23 @@ patches:
     name: sonarqube
 - patch: |-
     - op: add
+      path: /spec/template/spec/containers/0/env
+      value:
+        - name: SONAR_JDBC_PASSWORD
+          value: kHPdpIYtdtGXeStv
+        - name: SONAR_JDBC_URL
+          value: 'jdbc:postgresql://postgresql-sonarqube/sonar'
+        - name: SONAR_JDBC_USERNAME
+          value: sonar
+        - name: SONAR_TELEMETRY_ENABLE
+          value: 'false'
+        - name: SONAR_PLUGINS_RISK_CONSENT
+          value: ACCEPTED
+  target:
+    kind: Deployment
+    name: sonarqube
+- patch: |-
+    - op: add
       path: /spec/tls
       value:
         termination: edge
