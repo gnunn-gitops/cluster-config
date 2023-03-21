@@ -17,7 +17,7 @@ patches:
         - name: ACCOUNTS_NAMESPACES
           value: "product-catalog-pipeline=product-catalog-cicd"
         - name: ARGO_SERVER_HOST
-          value: "argocd-server-gitops.apps.home.ocplab.com"
+          value: "argocd-server-gitops.${SUB_DOMAIN}"
   target:
     kind: Job
     name: create-pipeline-local-user
