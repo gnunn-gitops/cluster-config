@@ -1,2 +1,4 @@
 resources:
-- gitops-dashboard.yaml
+- gitops-overview-dashboard.yaml
+- gitops-components-dashboard.yaml
+- gitops-grpc-dashboard.yaml
