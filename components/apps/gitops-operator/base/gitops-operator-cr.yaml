@@ -4,6 +4,11 @@ metadata:
   name: argocd
 spec:
   disableAdmin: true
+  configManagementPlugins: |-
+    - name: kustomize-envvar
+      generate:
+        command: ["sh", "-c"]
+        args: ["kustomize build --enable-helm . | perl -pe 's{\\$(\\{)?(\\w+)(?(1)\\})}{$ENV{$2} // $&}ge'"]
   sso:
     dex:
       openShiftOAuth: true
@@ -13,6 +18,10 @@ spec:
   kustomizeBuildOptions: "--enable-helm"
   notifications:
     enabled: true
+  repo:
+    env:
+      - name: SUB_DOMAIN
+        value: '${SUB_DOMAIN}'
   server:
     insecure: true
     route:
