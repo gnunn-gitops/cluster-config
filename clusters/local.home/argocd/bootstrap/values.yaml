@@ -193,6 +193,9 @@ applications:
       argocd.argoproj.io/sync-wave: '50'
     source:
       path: tenants/gitops/overlays/shared
+      extraSourceFields: |
+        plugin:
+          name: kustomize-envvar
 
   product-catalog-root:
     project: cluster-config
