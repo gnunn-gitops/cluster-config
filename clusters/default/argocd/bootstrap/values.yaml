@@ -73,6 +73,15 @@ applications:
     source:
       path: components/apps/dev-tools/overlays/default
 
+  gitops-dashboards:
+    annotations:
+      argocd.argoproj.io/compare-options: IgnoreExtraneous
+      argocd.argoproj.io/sync-wave: '11'
+    destination:
+      namespace: openshift-config-managed
+    source:
+      path: components/configs/gitops-dashboard/base
+
   groups-and-membership:
     annotations:
       argocd.argoproj.io/compare-options: IgnoreExtraneous
