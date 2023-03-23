@@ -70,7 +70,7 @@ applications:
     annotations:
       argocd.argoproj.io/sync-wave: "2"
     destination:
-      namespace: openshift-cert-manager-operator
+      namespace: cert-manager-operator
     source:
       path: components/apps/cert-manager-operator/aggregate/overlays/letsencrypt
 

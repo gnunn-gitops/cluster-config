@@ -4,6 +4,8 @@ kind: Kustomization
 commonAnnotations:
   argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
 
+namespace: cert-manager-operator
+
 resources:
 - operator-namespace.yaml
 - operator-group.yaml

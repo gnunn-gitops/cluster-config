@@ -5,4 +5,4 @@ metadata:
     openshift.io/display-name:  Red Hat Certificate Manager Operator
   labels:
     openshift.io/cluster-monitoring: 'true'
-  name: openshift-cert-manager-operator
+  name: cert-manager-operator
