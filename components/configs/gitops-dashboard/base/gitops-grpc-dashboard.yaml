@@ -776,7 +776,7 @@ data:
         {
             "allValue": ".+",
             "datasource": null,
-            "definition": "label_values(argocd_app_info, namespace)",
+            "definition": "label_values(argocd_cluster_info, namespace)",
             "description": null,
             "error": null,
             "hide": 0,
@@ -786,7 +786,7 @@ data:
             "name": "namespace",
             "options": [
             ],
-            "query": "label_values(argocd_app_info, namespace)",
+            "query": "label_values(argocd_cluster_info, namespace)",
             "refresh": 0,
             "regex": "",
             "skipUrlSync": false,
