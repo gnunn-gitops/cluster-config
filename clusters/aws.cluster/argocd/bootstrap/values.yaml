@@ -44,7 +44,7 @@ applications:
     annotations:
       argocd.argoproj.io/sync-wave: "3"
     destination:
-      namespace: openshift-cert-manager
+      namespace: cert-manager-operator
     source:
       path: clusters/aws.cluster/apps/cluster-certs/overlays/cluster
 

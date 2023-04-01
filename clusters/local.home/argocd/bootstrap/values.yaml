@@ -31,6 +31,15 @@ applications:
     source:
       path: clusters/local.home/apps/acs-operator/overlays/certificate
 
+  argo-rollouts:
+    annotations:
+      argocd.argoproj.io/compare-options: IgnoreExtraneous
+      argocd.argoproj.io/sync-wave: '21'
+    destination:
+      namespace: argo-rollouts
+    source:
+      path: components/apps/argo-rollouts/base
+
   banner:
     annotations:
       argocd.argoproj.io/compare-options: IgnoreExtraneous
@@ -78,7 +87,7 @@ applications:
     annotations:
       argocd.argoproj.io/sync-wave: "3"
     destination:
-      namespace: openshift-cert-manager
+      namespace: cert-manager-operator
     source:
       path: clusters/local.home/apps/cluster-certs/overlays/home
 
