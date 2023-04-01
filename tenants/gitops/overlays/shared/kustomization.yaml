@@ -16,7 +16,7 @@ patches:
       path: /spec/template/spec/containers/0/env
       value:
         - name: ACCOUNTS_NAMESPACES
-          value: "product-catalog-pipeline=product-catalog-cicd,rollouts-demo-pipeline=rollouts-demo-cicd"
+          value: "product-catalog-pipeline=product-catalog-cicd rollouts-demo-pipeline=rollouts-demo-cicd"
         - name: ARGO_SERVER_HOST
           value: "argocd-server-gitops.${SUB_DOMAIN}"
   target:
