@@ -3,7 +3,7 @@ default:
     enabled: true
     enableAutoSync: true
     autoSyncPrune: false
-    project: rollouts-demo
+    project: tenants-rollouts-demo
     destination:
       namespace: openshift-gitops
       server: https://kubernetes.default.svc
@@ -13,7 +13,7 @@ default:
 
 projects:
 
-  rollouts-demo:
+  tenants-rollouts-demo:
     description: Project for rollouts demo tenant
     namespace: openshift-gitops
     sourceRepos:
