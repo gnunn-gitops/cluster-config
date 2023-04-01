@@ -42,6 +42,7 @@ patches:
       path: /spec/sourceNamespaces
       value:
         - product-catalog-gitops
+        - rollouts-demo-gitops
     - op: add
       path: /spec/rbac
       value:
