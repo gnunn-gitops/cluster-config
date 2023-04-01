@@ -1,0 +1,8 @@
+kind: Kustomization
+apiVersion: kustomize.config.k8s.io/v1beta1
+
+resources:
+- ../../../defaults/namespaces/base
+- ../../../defaults/networkpolicy/base
+- admins-rolebinding.yaml
+- users-rolebinding.yaml

@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: rollouts-demo
+  labels:
+    argocd.argoproj.io/project-inherit: global
+spec:
+  description: Rolouts Demo Project
+  destinations:
+  - namespace: 'rollouts-demo-dev'
+    server: 'https://kubernetes.default.svc'
+  - namespace: 'rollouts-demo-prod'
+    server: 'https://kubernetes.default.svc'
+  - namespace: 'rollouts-demo-cicd'
+    server: 'https://kubernetes.default.svc'
+  - namespace: 'rollouts-demo-gitops'
+    server: 'https://kubernetes.default.svc'
+  sourceRepos:
+  - '*'
+  sourceNamespaces:
+  - rollouts-demo-gitops

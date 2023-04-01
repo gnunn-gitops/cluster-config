@@ -7,6 +7,7 @@ resources:
 - global-appproject.yaml
 # Tenant projects here
 - product-catalog-appproject.yaml
+- rollouts-demo-appproject.yaml
 
 patches:
 # Update permissions for tenants and local accounts
@@ -15,7 +16,7 @@ patches:
       path: /spec/template/spec/containers/0/env
       value:
         - name: ACCOUNTS_NAMESPACES
-          value: "product-catalog-pipeline=product-catalog-cicd"
+          value: "product-catalog-pipeline=product-catalog-cicd, rollouts-demo-pipeline=rollouts-demo-cicd"
         - name: ARGO_SERVER_HOST
           value: "argocd-server-gitops.${SUB_DOMAIN}"
   target:
@@ -45,6 +46,15 @@ patches:
       path: /spec/rbac
       value:
         policy: |
+          p, role:rollouts-demo-pipeline, projects, get, rollouts-demo, allow
+          p, role:rollouts-demo-pipeline, applications, get, rollouts-demo/*, allow
+          p, role:rollouts-demo-pipeline, applications, sync, rollouts-demo/*, allow
+          p, role:rollouts-demo-admin, clusters, get, *, allow
+          p, role:rollouts-demo-admin, projects, get, rollouts-demo, allow
+          p, role:rollouts-demo-admin, applications, *, rollouts-demo/*, allow
+          g, rollouts-demo-admins, role:rollouts-demo-admin
+          g, rollouts-demo-pipeline, role:rollouts-demo-pipeline
+
           p, role:product-catalog-pipeline, projects, get, apps-product-catalog, allow
           p, role:product-catalog-pipeline, applications, get, apps-product-catalog/*, allow
           p, role:product-catalog-pipeline, applications, sync, apps-product-catalog/*, allow
