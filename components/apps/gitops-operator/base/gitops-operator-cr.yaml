@@ -3,7 +3,7 @@ kind: ArgoCD
 metadata:
   name: argocd
 spec:
-  disableAdmin: true
+  disableAdmin: false
   configManagementPlugins: |-
     - name: kustomize-envvar
       generate:
