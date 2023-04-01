@@ -10,7 +10,7 @@ resources:
 - rollouts-demo-appproject.yaml
 
 patches:
-# Update permissions for tenants and local accounts
+# Update permissions for tenants and local accounts, note ACCOUNT_NAMESPACES is space separated
 - patch: |-
     - op: replace
       path: /spec/template/spec/containers/0/env
