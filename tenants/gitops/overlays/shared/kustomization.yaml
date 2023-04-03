@@ -56,7 +56,6 @@ patches:
           p, role:rollouts-demo-admin, applications, *, rollouts-demo/*, allow
           g, rollouts-demo-admins, role:rollouts-demo-admin
           g, rollouts-demo-pipeline, role:rollouts-demo-pipeline
-
           p, role:product-catalog-pipeline, projects, get, apps-product-catalog, allow
           p, role:product-catalog-pipeline, applications, get, apps-product-catalog/*, allow
           p, role:product-catalog-pipeline, applications, sync, apps-product-catalog/*, allow
