@@ -5,6 +5,5 @@ namespace: rollouts-demo-prod
 
 resources:
 - ../../base
-- ../../../../defaults/quotas/overlays/medium
 - prod-namespace.yaml
 - analysis-auth-monitoring.yaml

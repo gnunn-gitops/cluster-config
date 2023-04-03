@@ -5,5 +5,4 @@ namespace: rollouts-demo-dev
 
 resources:
 - ../../base
-- ../../../../defaults/quotas/overlays/medium
 - dev-namespace.yaml
