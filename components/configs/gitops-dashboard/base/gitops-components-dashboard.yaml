@@ -470,7 +470,7 @@ data:
             "steppedLine": false,
             "targets": [
                 {
-                "expr": "go_memstats_heap_alloc_bytes{job=\"argocd-metrics\",namespace=~\"$namespace\"}",
+                "expr": "go_memstats_heap_alloc_bytes{container=\"argocd-application-controller\",namespace=~\"$namespace\"}",
                 "format": "time_series",
                 "intervalFactor": 1,
                 "legendFormat": "{{namespace}}",
@@ -567,7 +567,7 @@ data:
             "steppedLine": false,
             "targets": [
                 {
-                "expr": "irate(process_cpu_seconds_total{job=\"argocd-metrics\",namespace=~\"$namespace\"}[1m])",
+                "expr": "irate(process_cpu_seconds_total{container=\"argocd-application-controller\",namespace=~\"$namespace\"}[1m])",
                 "format": "time_series",
                 "intervalFactor": 1,
                 "legendFormat": "{{namespace}}",
@@ -665,7 +665,7 @@ data:
             "steppedLine": false,
             "targets": [
                 {
-                "expr": "go_goroutines{job=\"argocd-metrics\",namespace=~\"$namespace\"}",
+                "expr": "go_goroutines{container=\"argocd-application-controller\",namespace=~\"$namespace\"}",
                 "format": "time_series",
                 "intervalFactor": 1,
                 "legendFormat": "{{namespace}}",
@@ -1133,7 +1133,7 @@ data:
             "steppedLine": false,
             "targets": [
                 {
-                "expr": "go_memstats_heap_alloc_bytes{job=\"argocd-server-metrics\",namespace=~\"$namespace\"}",
+                "expr": "go_memstats_heap_alloc_bytes{container=\"argocd-server\",namespace=~\"$namespace\"}",
                 "format": "time_series",
                 "intervalFactor": 1,
                 "legendFormat": "{{pod}}",
@@ -1219,7 +1219,7 @@ data:
             "steppedLine": false,
             "targets": [
                 {
-                "expr": "go_goroutines{job=\"argocd-server-metrics\",namespace=~\"$namespace\"}",
+                "expr": "go_goroutines{container=\"argocd-server\",namespace=~\"$namespace\"}",
                 "format": "time_series",
                 "intervalFactor": 1,
                 "legendFormat": "{{pod}}",
@@ -1305,7 +1305,7 @@ data:
             "steppedLine": false,
             "targets": [
                 {
-                "expr": "go_gc_duration_seconds{job=\"argocd-server-metrics\", quantile=\"1\", namespace=~\"$namespace\"}",
+                "expr": "go_gc_duration_seconds{container=\"argocd-server\", quantile=\"1\", namespace=~\"$namespace\"}",
                 "format": "time_series",
                 "intervalFactor": 2,
                 "legendFormat": "{{pod}}",
