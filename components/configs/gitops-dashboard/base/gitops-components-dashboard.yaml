@@ -79,7 +79,7 @@ data:
                 "expr": "sum(increase(argocd_app_reconcile_count{namespace=~\"$namespace\",dest_server=~\"$cluster\"}[$interval])) by (namespace)",
                 "format": "time_series",
                 "intervalFactor": 1,
-                "legendFormat": "namespace",
+                "legendFormat": "{{namespace}}",
                 "refId": "A"
                 }
             ],
@@ -473,7 +473,7 @@ data:
                 "expr": "go_memstats_heap_alloc_bytes{container=\"argocd-application-controller\",namespace=~\"$namespace\"}",
                 "format": "time_series",
                 "intervalFactor": 1,
-                "legendFormat": "{{namespace}}",
+                "legendFormat": "{{pod}}",
                 "refId": "A"
                 }
             ],
@@ -570,7 +570,7 @@ data:
                 "expr": "irate(process_cpu_seconds_total{container=\"argocd-application-controller\",namespace=~\"$namespace\"}[1m])",
                 "format": "time_series",
                 "intervalFactor": 1,
-                "legendFormat": "{{namespace}}",
+                "legendFormat": "{{pod}}",
                 "refId": "A"
                 }
             ],
@@ -668,7 +668,7 @@ data:
                 "expr": "go_goroutines{container=\"argocd-application-controller\",namespace=~\"$namespace\"}",
                 "format": "time_series",
                 "intervalFactor": 1,
-                "legendFormat": "{{namespace}}",
+                "legendFormat": "{{pod}}",
                 "refId": "A"
                 }
             ],
@@ -743,7 +743,7 @@ data:
                 "current": false,
                 "max": false,
                 "min": false,
-                "show": false,
+                "show": true,
                 "total": false,
                 "values": false
             },
@@ -834,7 +834,7 @@ data:
                 "current": false,
                 "max": false,
                 "min": false,
-                "show": false,
+                "show": true,
                 "total": false,
                 "values": false
             },
@@ -925,7 +925,7 @@ data:
                 "current": false,
                 "max": false,
                 "min": false,
-                "show": false,
+                "show": true,
                 "total": false,
                 "values": false
             },
@@ -1016,7 +1016,7 @@ data:
                 "current": false,
                 "max": false,
                 "min": false,
-                "show": false,
+                "show": true,
                 "total": false,
                 "values": false
             },
@@ -1114,7 +1114,7 @@ data:
                 "current": false,
                 "max": false,
                 "min": false,
-                "show": false,
+                "show": true,
                 "total": false,
                 "values": false
             },
@@ -1200,7 +1200,7 @@ data:
                 "current": false,
                 "max": false,
                 "min": false,
-                "show": false,
+                "show": true,
                 "total": false,
                 "values": false
             },
@@ -1404,6 +1404,8 @@ data:
             "targets": [
                 {
                 "expr": "sum(increase(argocd_redis_request_total{namespace=~\"$namespace\"}[$interval])) by (failed)",
+                "format": "time_series",
+                "legendFormat": "{{failed}}",
                 "refId": "A"
                 }
             ],
