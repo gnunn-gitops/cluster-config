@@ -75,7 +75,7 @@ data:
             "steppedLine": false,
             "targets": [
                 {
-                "expr": "sum(increase(grpc_server_handled_total{job=\"argocd-server-metrics\",grpc_service=\"application.ApplicationService\",namespace=~\"$namespace\"}[$interval])) by (grpc_code, grpc_method)",
+                "expr": "sum(increase(grpc_server_handled_total{container=\"argocd-server\",grpc_service=\"application.ApplicationService\",namespace=~\"$namespace\"}[$interval])) by (grpc_code, grpc_method)",
                 "format": "time_series",
                 "intervalFactor": 1,
                 "legendFormat": "{{grpc_code}},{{grpc_method}}",
@@ -166,7 +166,7 @@ data:
             "steppedLine": false,
             "targets": [
                 {
-                "expr": "sum(increase(grpc_server_handled_total{job=\"argocd-server-metrics\",grpc_service=\"cluster.ClusterService\",namespace=~\"$namespace\"}[$interval])) by (grpc_code, grpc_method)",
+                "expr": "sum(increase(grpc_server_handled_total{container=\"argocd-server\",grpc_service=\"cluster.ClusterService\",namespace=~\"$namespace\"}[$interval])) by (grpc_code, grpc_method)",
                 "format": "time_series",
                 "intervalFactor": 1,
                 "legendFormat": "{{grpc_code}},{{grpc_method}}",
@@ -257,7 +257,7 @@ data:
             "steppedLine": false,
             "targets": [
                 {
-                "expr": "sum(increase(grpc_server_handled_total{job=\"argocd-server-metrics\",grpc_service=\"project.ProjectService\",namespace=~\"$namespace\"}[$interval])) by (grpc_code, grpc_method)",
+                "expr": "sum(increase(grpc_server_handled_total{container=\"argocd-server\",grpc_service=\"project.ProjectService\",namespace=~\"$namespace\"}[$interval])) by (grpc_code, grpc_method)",
                 "format": "time_series",
                 "intervalFactor": 1,
                 "legendFormat": "{{grpc_code}},{{grpc_method}}",
@@ -347,7 +347,7 @@ data:
             "steppedLine": false,
             "targets": [
                 {
-                "expr": "sum(increase(grpc_server_handled_total{job=\"argocd-server-metrics\",grpc_service=\"repository.RepositoryService\",namespace=~\"$namespace\"}[$interval])) by (grpc_code, grpc_method)",
+                "expr": "sum(increase(grpc_server_handled_total{container=\"argocd-server\",grpc_service=\"repository.RepositoryService\",namespace=~\"$namespace\"}[$interval])) by (grpc_code, grpc_method)",
                 "format": "time_series",
                 "intervalFactor": 1,
                 "legendFormat": "{{grpc_code}},{{grpc_method}}",
@@ -445,7 +445,7 @@ data:
             "steppedLine": false,
             "targets": [
                 {
-                "expr": "sum(increase(grpc_server_handled_total{job=\"argocd-server-metrics\",grpc_service=\"session.SessionService\",namespace=~\"$namespace\"}[$interval])) by (grpc_code, grpc_method)",
+                "expr": "sum(increase(grpc_server_handled_total{container=\"argocd-server\",grpc_service=\"session.SessionService\",namespace=~\"$namespace\"}[$interval])) by (grpc_code, grpc_method)",
                 "format": "time_series",
                 "intervalFactor": 1,
                 "legendFormat": "{{grpc_code}},{{grpc_method}}",
@@ -535,7 +535,7 @@ data:
             "steppedLine": false,
             "targets": [
                 {
-                "expr": "sum(increase(grpc_server_handled_total{job=\"argocd-server-metrics\",grpc_service=\"version.VersionService\",namespace=~\"$namespace\"}[$interval])) by (grpc_code, grpc_method)",
+                "expr": "sum(increase(grpc_server_handled_total{container=\"argocd-server\",grpc_service=\"version.VersionService\",namespace=~\"$namespace\"}[$interval])) by (grpc_code, grpc_method)",
                 "format": "time_series",
                 "intervalFactor": 1,
                 "legendFormat": "{{grpc_code}},{{grpc_method}}",
@@ -625,7 +625,7 @@ data:
             "steppedLine": false,
             "targets": [
                 {
-                "expr": "sum(increase(grpc_server_handled_total{job=\"argocd-server-metrics\",grpc_service=\"account.AccountService\",namespace=~\"$namespace\"}[$interval])) by (grpc_code, grpc_method)",
+                "expr": "sum(increase(grpc_server_handled_total{container=\"argocd-server\",grpc_service=\"account.AccountService\",namespace=~\"$namespace\"}[$interval])) by (grpc_code, grpc_method)",
                 "format": "time_series",
                 "intervalFactor": 1,
                 "legendFormat": "{{grpc_code}},{{grpc_method}}",
@@ -715,7 +715,7 @@ data:
             "steppedLine": false,
             "targets": [
                 {
-                "expr": "sum(increase(grpc_server_handled_total{job=\"argocd-server-metrics\",grpc_service=\"settings.SettingsService\",namespace=~\"$namespace\"}[$interval])) by (grpc_code, grpc_method)",
+                "expr": "sum(increase(grpc_server_handled_total{container=\"argocd-server\",grpc_service=\"settings.SettingsService\",namespace=~\"$namespace\"}[$interval])) by (grpc_code, grpc_method)",
                 "format": "time_series",
                 "intervalFactor": 1,
                 "legendFormat": "{{grpc_code}},{{grpc_method}}",
