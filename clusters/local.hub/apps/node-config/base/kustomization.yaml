@@ -1,0 +1,2 @@
+resources:
+- set-max-pods.yaml

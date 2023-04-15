@@ -64,15 +64,6 @@ applications:
       repoURL: https://github.com/redhat-cop/gitops-catalog
       targetRevision: HEAD
 
-  dev-tools:
-    annotations:
-      argocd.argoproj.io/compare-options: IgnoreExtraneous
-      argocd.argoproj.io/sync-wave: '31'
-    destination:
-      namespace: dev-tools
-    source:
-      path: components/apps/dev-tools/overlays/default
-
   gitops-dashboards:
     annotations:
       argocd.argoproj.io/compare-options: IgnoreExtraneous

@@ -13,32 +13,32 @@ default:
 
 applications:
 
-  alertmanager:
-    annotations:
-      argocd.argoproj.io/compare-options: IgnoreExtraneous
-      argocd.argoproj.io/sync-wave: '11'
-    destination:
-      namespace: openshift-monitoring
-    source:
-      path: components/configs/alertmanager/base
+  # alertmanager:
+  #   annotations:
+  #     argocd.argoproj.io/compare-options: IgnoreExtraneous
+  #     argocd.argoproj.io/sync-wave: '11'
+  #   destination:
+  #     namespace: openshift-monitoring
+  #   source:
+  #     path: components/configs/alertmanager/base
 
-  acs:
-    annotations:
-      argocd.argoproj.io/compare-options: IgnoreExtraneous
-      argocd.argoproj.io/sync-wave: '21'
-    destination:
-      namespace: stackrox
-    source:
-      path: clusters/local.home/apps/acs-operator/overlays/certificate
+  # acs:
+  #   annotations:
+  #     argocd.argoproj.io/compare-options: IgnoreExtraneous
+  #     argocd.argoproj.io/sync-wave: '21'
+  #   destination:
+  #     namespace: stackrox
+  #   source:
+  #     path: clusters/local.hub/apps/acs-operator/overlays/certificate
 
-  argo-rollouts:
-    annotations:
-      argocd.argoproj.io/compare-options: IgnoreExtraneous
-      argocd.argoproj.io/sync-wave: '21'
-    destination:
-      namespace: argo-rollouts
-    source:
-      path: components/apps/argo-rollouts/base
+  # argo-rollouts:
+  #   annotations:
+  #     argocd.argoproj.io/compare-options: IgnoreExtraneous
+  #     argocd.argoproj.io/sync-wave: '21'
+  #   destination:
+  #     namespace: argo-rollouts
+  #   source:
+  #     path: components/apps/argo-rollouts/base
 
   banner:
     annotations:
@@ -55,16 +55,16 @@ applications:
       argocd.argoproj.io/compare-options: IgnoreExtraneous
       argocd.argoproj.io/sync-wave: '11'
     source:
-      path: clusters/local.home/apps/consolelinks/overlays/default
+      path: clusters/local.hub/apps/consolelinks/overlays/default
 
-  acs-tokens:
-    annotations:
-      argocd.argoproj.io/compare-options: IgnoreExtraneous
-      argocd.argoproj.io/sync-wave: '61'
-    destination:
-      namespace: stackrox
-    source:
-      path: clusters/local.home/apps/acs-tokens/overlays/endpoint
+  # acs-tokens:
+  #   annotations:
+  #     argocd.argoproj.io/compare-options: IgnoreExtraneous
+  #     argocd.argoproj.io/sync-wave: '61'
+  #   destination:
+  #     namespace: stackrox
+  #   source:
+  #     path: clusters/local.hub/apps/acs-tokens/overlays/endpoint
 
   authentication:
     annotations:
@@ -89,16 +89,7 @@ applications:
     destination:
       namespace: cert-manager-operator
     source:
-      path: clusters/local.home/apps/cluster-certs/overlays/home
-
-  dev-tools:
-    annotations:
-      argocd.argoproj.io/compare-options: IgnoreExtraneous
-      argocd.argoproj.io/sync-wave: '31'
-    destination:
-      namespace: dev-tools
-    source:
-      path: components/apps/dev-tools/overlays/default
+      path: clusters/local.hub/apps/certificates/overlays/hub
 
   openshift-monitoring:
     annotations:
@@ -107,7 +98,7 @@ applications:
     destination:
       namespace: openshift-monitoring
     source:
-      path: clusters/local.home/apps/openshift-monitoring/base
+      path: clusters/local.hub/apps/openshift-monitoring/base
 
   quay-registry:
     # leave disabled unless needed for demo
@@ -116,18 +107,7 @@ applications:
       argocd.argoproj.io/compare-options: IgnoreExtraneous
       argocd.argoproj.io/sync-wave: '21'
     source:
-      path: clusters/local.home/apps/quay-registry-operator/overlays/qnap
-
-  sso:
-    # Leave disabled unless needed for demo
-    enabled: false
-    annotations:
-      argocd.argoproj.io/compare-options: IgnoreExtraneous
-      argocd.argoproj.io/sync-wave: '21'
-    destination:
-      namespace: sso
-    source:
-      path: clusters/local.home/apps/sso/overlays/default
+      path: clusters/local.hub/apps/quay-registry-operator/overlays/qnap
 
   cost-management:
     annotations:
@@ -136,7 +116,7 @@ applications:
     destination:
       namespace: costmanagement-metrics-operator
     source:
-      path: clusters/local.home/apps/cost-management-operator/overlays/default
+      path: clusters/local.hub/apps/cost-management-operator/overlays/default
 
   lokistack:
     enabled: false
@@ -144,7 +124,7 @@ applications:
       argocd.argoproj.io/compare-options: IgnoreExtraneous
       argocd.argoproj.io/sync-wave: '21'
     source:
-      path: clusters/local.home/apps/lokistack/overlays/qnap
+      path: clusters/local.hub/apps/lokistack/overlays/qnap
     syncPolicyRetry:
       limit: 5
       backoff:
@@ -201,35 +181,35 @@ applications:
       argocd.argoproj.io/compare-options: IgnoreExtraneous
       argocd.argoproj.io/sync-wave: '99'
     source:
-      path: clusters/local.home/apps/node-config/base
+      path: clusters/local.hub/apps/node-config/base
 
 # Tenants
-  gitops:
-    project: cluster-config
-    annotations:
-      argocd.argoproj.io/compare-options: IgnoreExtraneous
-      argocd.argoproj.io/sync-wave: '50'
-    source:
-      path: tenants/gitops/overlays/shared
-      extraSourceFields: |
-        plugin:
-          name: kustomize-envvar
+  # gitops:
+  #   project: cluster-config
+  #   annotations:
+  #     argocd.argoproj.io/compare-options: IgnoreExtraneous
+  #     argocd.argoproj.io/sync-wave: '50'
+  #   source:
+  #     path: tenants/gitops/overlays/shared
+  #     extraSourceFields: |
+  #       plugin:
+  #         name: kustomize-envvar
 
-  product-catalog-root:
-    project: cluster-config
-    annotations:
-      argocd.argoproj.io/compare-options: IgnoreExtraneous
-      argocd.argoproj.io/sync-wave: '51'
-    source:
-      path: tenants/product-catalog/argocd/root/base
+  # product-catalog-root:
+  #   project: cluster-config
+  #   annotations:
+  #     argocd.argoproj.io/compare-options: IgnoreExtraneous
+  #     argocd.argoproj.io/sync-wave: '51'
+  #   source:
+  #     path: tenants/product-catalog/argocd/root/base
 
-  rollouts-demo-root:
-    project: cluster-config
-    annotations:
-      argocd.argoproj.io/compare-options: IgnoreExtraneous
-      argocd.argoproj.io/sync-wave: '51'
-    source:
-      path: tenants/rollouts-demo/argocd/root/base
+  # rollouts-demo-root:
+  #   project: cluster-config
+  #   annotations:
+  #     argocd.argoproj.io/compare-options: IgnoreExtraneous
+  #     argocd.argoproj.io/sync-wave: '51'
+  #   source:
+  #     path: tenants/rollouts-demo/argocd/root/base
 
   # demo-root:
   #   project: cluster-config

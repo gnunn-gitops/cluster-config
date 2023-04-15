@@ -1,0 +1,6 @@
+- op: replace
+  path: /spec/source/name
+  value: Hub
+- op: replace
+  path: /metadata/name
+  value: hub-cluster

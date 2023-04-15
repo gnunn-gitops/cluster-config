@@ -1,0 +1,27 @@
+apiVersion: quay.redhat.com/v1
+kind: QuayRegistry
+metadata:
+  name: registry
+  annotations:
+    argocd.argoproj.io/sync-wave: "10"
+spec:
+  components:
+    - managed: false
+      kind: tls
+    - managed: false
+      kind: horizontalpodautoscaler
+    - kind: route
+      managed: false
+    - kind: postgres
+      managed: true
+    - kind: clair
+      managed: true
+    - kind: redis
+      managed: true
+    - kind: mirror
+      managed: true
+    - kind: monitoring
+      managed: false
+    - kind: objectstorage
+      managed: false
+  configBundleSecret: config-bundle-secret

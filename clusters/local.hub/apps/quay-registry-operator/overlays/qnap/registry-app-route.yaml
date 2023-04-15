@@ -1,0 +1,59 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: registry-quay-app
+  labels:
+    app: quay
+    quay-component: quay-app
+    quay-operator/quayregistry: registry
+  annotations:
+    argocd.argoproj.io/sync-wave: "0"
+spec:
+  host: registry.apps.home.ocplab.com
+  to:
+    kind: Service
+    name: registry-quay-app
+    weight: 100
+  port:
+    targetPort: https
+  tls:
+    termination: passthrough
+  wildcardPolicy: None
+---
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: registry-quay-builder
+  annotations:
+    argocd.argoproj.io/sync-wave: "0"
+spec:
+  host: registry-builder.apps.home.ocplab.com
+  port:
+    targetPort: grpc
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: reencrypt
+  to:
+    kind: Service
+    name: registry-quay-app
+    weight: 100
+  wildcardPolicy: None
+---
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: registry-quay-config-editor
+  annotations:
+    argocd.argoproj.io/sync-wave: "0"
+spec:
+  host: registry-config-editor.apps.home.ocplab.com
+  port:
+    targetPort: http
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  to:
+    kind: Service
+    name: registry-quay-config-editor
+    weight: 100
+  wildcardPolicy: None
