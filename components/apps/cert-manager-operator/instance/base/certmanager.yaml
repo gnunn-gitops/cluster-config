@@ -11,11 +11,3 @@ spec:
     overrideArgs:
       - '--dns01-recursive-nameservers=8.8.8.8:53,8.8.4.4:53'
       - '--dns01-recursive-nameservers-only'
-  # unsupportedConfigOverrides:
-  #   controller:
-  #     args:
-  #       - --v=2
-  #       - --cluster-resource-namespace=$(POD_NAMESPACE)
-  #       - --leader-election-namespace=kube-system
-  #       - --dns01-recursive-nameservers-only
-  #       - --dns01-recursive-nameservers=8.8.8.8:53,8.8.4.4:53
