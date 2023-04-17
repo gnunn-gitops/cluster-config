@@ -6,6 +6,7 @@ metadata:
     argocd.argoproj.io/sync-options: Validate=false,ServerSideApply=true, SkipDryRunOnMissingResource=true
 spec:
   pipeline:
+    enable-custom-tasks: true
     metrics.taskrun.level: taskrun
     metrics.pipelinerun.level: pipelinerun
     metrics.taskrun.duration-type: lastvalue
