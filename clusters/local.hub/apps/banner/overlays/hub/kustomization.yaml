@@ -5,7 +5,7 @@ patches:
 - patch: |-
     - op: replace
       path: /spec/backgroundColor
-      value: "#1E4F18"
+      value: "#3E8635"
   target:
     kind: ConsoleNotification
     name: home-banner
