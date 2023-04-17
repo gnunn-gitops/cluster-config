@@ -11,7 +11,7 @@ data:
        spec:
          accessModes:
          - ReadWriteOnce
-         storageClassName: odf-lvm-vg
+         storageClassName: lvms-vg1
          volumeMode: Filesystem
          resources:
            requests:
