@@ -3,9 +3,7 @@ kind: TektonConfig
 metadata:
   name: config
   annotations:
-    argocd.argoproj.io/sync-options: Validate=false,ServerSideApply=true
-    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
-    argocd.argoproj.io/sync-wave: "9"
+    argocd.argoproj.io/sync-options: Validate=false,ServerSideApply=true, SkipDryRunOnMissingResource=true
 spec:
   pipeline:
     metrics.taskrun.level: taskrun
