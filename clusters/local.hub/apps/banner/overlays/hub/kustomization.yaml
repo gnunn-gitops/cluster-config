@@ -1,0 +1,11 @@
+resources:
+- ../../../../../../components/configs/banner/base
+
+patches:
+- patch: |-
+    - op: replace
+      path: /spec/backgroundColor
+      value: "#1E4F18"
+  target:
+    kind: ConsoleNotification
+    name: home-banner
