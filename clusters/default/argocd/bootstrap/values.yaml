@@ -82,6 +82,7 @@ applications:
   pipeline-operator:
     annotations:
       argocd.argoproj.io/sync-wave: "21"
+      argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
     destination:
       namespace: openshift-operators
     source:
