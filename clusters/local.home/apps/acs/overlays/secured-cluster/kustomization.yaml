@@ -5,3 +5,4 @@ resources:
 - github.com/redhat-cop/gitops-catalog/advanced-cluster-security-operator/operator/overlays/latest
 - namespace.yaml
 - home-cluster-init-secrets.yaml
+- secured-cluster.yaml

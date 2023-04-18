@@ -1,0 +1,8 @@
+kind: SecuredCluster
+apiVersion: platform.stackrox.io/v1alpha1
+metadata:
+  name: stackrox-secured-cluster-services
+  namespace: stackrox-secured-cluster-service
+spec:
+  clusterName: home
+  centralEndpoint: central-stackrox.apps.hub.ocplab.com:443
