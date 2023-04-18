@@ -2,18 +2,18 @@
   path: /spec/central/resources
   value:
     limits:
-      memory: 2Gi
+      memory: 8Gi
     requests:
-      cpu: 500m
-      memory: 512Mi
+      cpu: 1500m
+      memory: 4Gi
 - op: add
   path: /spec/scanner/analyzer/resources
   value:
     limits:
-      memory: 1Gi
+      memory: 2Gi
     requests:
-      cpu: 250m
-      memory: 500Mi
+      cpu: 500m
+      memory: 1Gi
 - op: replace
   path: /spec/scanner/analyzer/scaling/autoScaling
   value: Disabled
