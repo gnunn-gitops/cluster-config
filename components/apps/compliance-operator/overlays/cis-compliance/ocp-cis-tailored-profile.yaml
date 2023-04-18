@@ -4,7 +4,7 @@ metadata:
   name: ocp4-cis-lab
   annotations:
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
-    argocd.argoproj.io/sync-wave: "1"  
+    argocd.argoproj.io/sync-wave: "1"
 spec:
   extends: ocp4-cis
   description: Lab CIS profile
@@ -14,3 +14,7 @@ spec:
     rationale: Using letsencrypt certificates, not applicable
   - name: ocp4-audit-log-forwarding-enabled
     rationale: Homelab so no log forwarding available
+  - name: scc-limit-container-allowed-capabilities
+    rationale: Some containers require extra privileges
+  - name: configure-network-policies-namespaces
+    rationale: Home lab supports ad-hoc demos
