@@ -1,0 +1,7 @@
+# commonAnnotations:
+#   argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+
+resources:
+- github.com/redhat-cop/gitops-catalog/advanced-cluster-security-operator/operator/overlays/latest
+- namespace.yaml
+- home-cluster-init-secrets.yaml
