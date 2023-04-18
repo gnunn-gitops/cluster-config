@@ -12,7 +12,7 @@ spec:
   disableRules:
   - name: ocp4-file-permissions-etcd-data-dir
     rationale: Default value of `drwxr-xr-x.` is fine
-  - name: kubelet-enable-protect-kernel-defaults
+  - name: ocp4-kubelet-enable-protect-kernel-defaults
     rationale: Not applicable
-  - name: kubelet-enable-protect-kernel-sysctl
+  - name: ocp4-kubelet-enable-protect-kernel-sysctl
     rationale: Not applicable

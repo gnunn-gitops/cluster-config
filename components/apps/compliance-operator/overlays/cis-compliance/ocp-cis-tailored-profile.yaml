@@ -14,7 +14,7 @@ spec:
     rationale: Using letsencrypt certificates, not applicable
   - name: ocp4-audit-log-forwarding-enabled
     rationale: Homelab so no log forwarding available
-  - name: scc-limit-container-allowed-capabilities
+  - name: ocp4-scc-limit-container-allowed-capabilities
     rationale: Some containers require extra privileges
-  - name: configure-network-policies-namespaces
+  - name: ocp4-configure-network-policies-namespaces
     rationale: Home lab supports ad-hoc demos
