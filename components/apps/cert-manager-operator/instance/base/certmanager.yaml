@@ -1,6 +1,8 @@
 apiVersion: operator.openshift.io/v1alpha1
 kind: CertManager
 metadata:
+  annotations:
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
   name: cluster
 spec:
   logLevel: Normal
