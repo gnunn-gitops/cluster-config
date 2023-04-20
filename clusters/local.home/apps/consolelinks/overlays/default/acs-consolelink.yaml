@@ -8,4 +8,4 @@ spec:
   text: Advanced Cluster Security
   applicationMenu:
     section: Red Hat applications
-    imageURL: https://central-stackrox.apps.hub.ocplab.com/static/media/rh-favicon.0110fdfc.ico
+    imageURL: https://central-stackrox.apps.hub.ocplab.com/static/media/rh-favicon.0110fdfc5cab55416acf.ico
