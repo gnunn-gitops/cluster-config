@@ -48,26 +48,14 @@ patches:
       path: /spec/rbac
       value:
         policy: |
-          p, role:rollouts-demo-pipeline, projects, get, rollouts-demo, allow
-          p, role:rollouts-demo-pipeline, applications, get, rollouts-demo/*, allow
-          p, role:rollouts-demo-pipeline, applications, sync, rollouts-demo/*, allow
-          p, role:rollouts-demo-admin, clusters, get, *, allow
-          p, role:rollouts-demo-admin, projects, get, rollouts-demo, allow
-          p, role:rollouts-demo-admin, applications, *, rollouts-demo/*, allow
-          g, rollouts-demo-admins, role:rollouts-demo-admin
-          g, rollouts-demo-pipeline, role:rollouts-demo-pipeline
-          p, role:product-catalog-pipeline, projects, get, apps-product-catalog, allow
-          p, role:product-catalog-pipeline, applications, get, apps-product-catalog/*, allow
-          p, role:product-catalog-pipeline, applications, sync, apps-product-catalog/*, allow
-          p, role:product-catalog-admin, clusters, get, *, allow
-          p, role:product-catalog-admin, projects, get, apps-product-catalog, allow
-          p, role:product-catalog-admin, applications, *, apps-product-catalog/*, allow
-          p, role:product-catalog-user, clusters, get, *, allow
-          p, role:product-catalog-user, projects, get, apps-product-catalog, allow
-          p, role:product-catalog-user, applications, get, apps-product-catalog/*, allow
-          p, role:product-catalog-user, applications, sync, apps-product-catalog/*, allow
-          g, product-catalog-admins, role:product-catalog-admin
-          g, product-catalog-users, role:product-catalog-user
+          p, role:none, applications, get, */*, deny
+          p, role:none, certificates, get, *, deny
+          p, role:none, clusters, get, *, deny
+          p, role:none, repositories, get, *, deny
+          p, role:none, projects, get, *, deny
+          p, role:none, accounts, get, *, deny
+          p, role:none, gpgkeys, get, *, deny
+          g, system:cluster-admins, role:admin
           g, cluster-admins, role:admin
-          g, product-catalog-pipeline, role:product-catalog-pipeline
+          g, argocdadmins, role:admin
         scopes: "[accounts,groups]"

@@ -19,3 +19,24 @@ spec:
   - '*'
   sourceNamespaces:
   - rollouts-demo-gitops
+  roles:
+    - description: Rollouts Demo Admins
+      name: admin
+      groups:
+        - rollouts-demo-admins
+      policies:
+        - p, proj:rollouts-demo:admin, applications, *, rollouts-demo/*, allow
+    - description: Product Catalog Users
+      name: user
+      groups:
+        - rollouts-demo-users
+      policies:
+        - p, proj:rollouts-demo:user, applications, get, rollouts-demo/*, allow
+        - p, proj:rollouts-demo:user, applications, sync, rollouts-demo/*, allow
+    - description: Pipeline accounts
+      name: pipeline
+      groups:
+        - rollouts-demo-pipeline
+      policies:
+        - p, proj:rollouts-demo:pipeline, applications, get, rollouts-demo/*, allow
+        - p, proj:rollouts-demo:pipeline, applications, sync, rollouts-demo/*, allow
