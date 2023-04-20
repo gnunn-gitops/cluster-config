@@ -3,7 +3,7 @@ default:
     enabled: true
     enableAutoSync: true
     autoSyncPrune: false
-    project: product-catalog
+    project: tenants-product-catalog
     destination:
       namespace: openshift-gitops
       server: https://kubernetes.default.svc
@@ -13,7 +13,7 @@ default:
 
 projects:
 
-  product-catalog:
+  tenants-product-catalog:
     description: Project for product-catalog tenant
     namespace: openshift-gitops
     sourceRepos:
