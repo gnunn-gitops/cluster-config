@@ -1,0 +1,11 @@
+resources:
+- ../../../../../../components/configs/banner/base
+
+patches:
+- patch: |-
+    - op: replace
+      path: /spec/backgroundColor
+      value: "#FF9900"
+  target:
+    kind: ConsoleNotification
+    name: home-banner

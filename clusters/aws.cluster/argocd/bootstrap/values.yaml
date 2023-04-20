@@ -27,7 +27,7 @@ applications:
       argocd.argoproj.io/compare-options: IgnoreExtraneous
       argocd.argoproj.io/sync-wave: '11'
     source:
-      path: components/configs/banner/base
+      path: clusters/aws.cluster/apps/banner/overlays/hub
       extraSourceFields: |
         plugin:
           name: kustomize-envvar
