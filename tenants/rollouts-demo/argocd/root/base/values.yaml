@@ -31,6 +31,15 @@ projects:
       clusterResourceWhitelist:
       - group: '*'
         kind: '*'
+    roles:
+      # Give tenant the ability to see applications and sync
+      - description: Rollout Demo Admins
+        name: user
+        groups:
+          - rollout-demo-admins
+        policies:
+          - p, proj:tenants-rollouts-catalog:user, applications, get, tenants-rollouts-catalog/*, allow
+          - p, proj:tenants-rollouts-catalog:user, applications, sync, tenants-rollouts-catalog/*, allow
 
 applications:
 

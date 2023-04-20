@@ -37,6 +37,15 @@ projects:
       clusterResourceWhitelist:
       - group: '*'
         kind: '*'
+    roles:
+      # Give tenant the ability to see applications and sync
+      - description: Product Catalog Admins
+        name: user
+        groups:
+          - product-catalog-admins
+        policies:
+          - p, proj:tenants-product-catalog:user, applications, get, tenants-product-catalog/*, allow
+          - p, proj:tenants-product-catalog:user, applications, sync, tenants-product-catalog/*, allow
 
 applications:
 
