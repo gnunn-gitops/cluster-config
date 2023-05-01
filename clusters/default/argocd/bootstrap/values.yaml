@@ -109,3 +109,18 @@ applications:
       argocd.argoproj.io/sync-wave: '41'
     source:
       path: components/apps/tekton-cluster-tasks/base
+
+  dev-console-plugin:
+    destination:
+      namespace: dev-console-plugin
+      argocd.argoproj.io/sync-wave: '11'
+    source:
+      helm:
+        releaseName: dev-console-plugin
+        parameters:
+          - name: plugin.image
+            value: quay.io/gnunn/dev-console-plugin:latest
+      repoURL: https://github.com/gnunn1/dev-console-plugin
+      path: charts/openshift-console-plugin
+    syncOptions:
+      - CreateNamespace=true
