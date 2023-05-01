@@ -24,6 +24,7 @@ projects:
     - https://github.com/redhat-cop/gitops-catalog
     - https://github.com/gnunn1/gitops-catalog
     - https://github.com/gnunn-gitops/acm-hub-bootstrap
+    - https://github.com/gnunn1/dev-console-plugin
     destinations: |
       - namespace: '*'
         server: https://kubernetes.default.svc
