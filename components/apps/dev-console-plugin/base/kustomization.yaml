@@ -9,7 +9,7 @@ helmGlobals:
 
 helmCharts:
 - name: openshift-console-plugin
-  version: 0.2.0
+  version: 0.3.0
   repo: https://gnunn-gitops.github.io/helm-charts
   valuesFile: values.yaml
   namespace: dev-console-plugin
