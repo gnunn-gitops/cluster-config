@@ -9,7 +9,7 @@ bases:
 - ../matrix-template
 
 resources:
-- google-secret-sealed-secret.yaml
+- google-client-secret.yaml
 
 patchesJson6902:
   - path: patch-google-idp.yaml
