@@ -57,6 +57,14 @@ applications:
       repoURL: https://github.com/redhat-cop/gitops-catalog
       targetRevision: HEAD
 
+  external-secrets:
+    annotations:
+      argocd.argoproj.io/sync-wave: '1'
+    destination:
+      namespace: openshift-operators
+    source:
+      path: components/apps/eso/overlays/aggregate
+
   gitops-dashboards:
     annotations:
       argocd.argoproj.io/compare-options: IgnoreExtraneous
