@@ -11,6 +11,8 @@ spec:
         args: ["kustomize build --enable-helm . | perl -pe 's{\\$(\\{)?(\\w+)(?(1)\\})}{$ENV{$2} // $&}ge'"]
   sso:
     dex:
+      image: quay.io/gnunn/dex
+      version: token-exchange-1.8
       openShiftOAuth: true
     provider: dex
   resourceTrackingMethod: annotation
