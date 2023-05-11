@@ -6,5 +6,5 @@ commonAnnotations:
   argocd.argoproj.io/sync-options: Prune=false
 
 resources:
-- htpass-secret.yaml
+- htpass-secret-external.yaml
 - htpass-oauth.yaml
