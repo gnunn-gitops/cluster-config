@@ -9,10 +9,10 @@ spec:
   storage:
     schemas:
       - effectiveDate: '2022-06-01'
-        version: v12  
+        version: v12
     secret:
       name: loki-storage
       type: s3
-  storageClassName: odf-lvm-vg
+  storageClassName: lvms-vg1
   tenants:
     mode: openshift-logging
