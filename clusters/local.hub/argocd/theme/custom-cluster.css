@@ -1,9 +1,5 @@
-/* .top-bar__left-side,
+.top-bar__left-side,
 .top-bar__right-side {
     background: "#3E8635";
     color: "#fff";
-} */
-
-.top-bar__left-side {
-    background: black;
 }
