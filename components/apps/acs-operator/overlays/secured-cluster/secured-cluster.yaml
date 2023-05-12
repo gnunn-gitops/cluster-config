@@ -1,6 +1,8 @@
 kind: SecuredCluster
 apiVersion: platform.stackrox.io/v1alpha1
 metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "5"
   name: stackrox-secured-cluster-services
   namespace: stackrox-secured-cluster-service
 spec:
