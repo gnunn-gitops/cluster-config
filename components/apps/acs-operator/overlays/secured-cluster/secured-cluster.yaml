@@ -6,5 +6,5 @@ metadata:
   name: stackrox-secured-cluster-services
   namespace: stackrox-secured-cluster-service
 spec:
-  clusterName: $(CLUSTER_NAME)
+  clusterName: ${CLUSTER_NAME}
   centralEndpoint: central-stackrox.apps.hub.ocplab.com:443
