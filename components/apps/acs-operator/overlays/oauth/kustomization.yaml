@@ -13,49 +13,49 @@ patches:
     target:
       kind: Subscription
       name: rhacs-operator
-  - patch: |-
-      - op: add
-        path: /spec/central/resources
-        value:
-          limits:
-            memory: 12Gi
-          requests:
-            cpu: 2000m
-            memory: 6Gi
-    target:
-      group: platform.stackrox.io
-      kind: Central
-      name: central
-      version: v1alpha1
-  - patch: |-
-      - op: add
-        path: /spec/scanner/analyzer/resources
-        value:
-          limits:
-            memory: 4Gi
-          requests:
-            cpu: 1000m
-            memory: 2Gi
-    target:
-      group: platform.stackrox.io
-      kind: Central
-      name: central
-      version: v1alpha1
-  - patch: |-
-      - op: replace
-        path: /spec/scanner/analyzer/scaling/autoScaling
-        value: Disabled
-    target:
-      group: platform.stackrox.io
-      kind: Central
-      name: central
-      version: v1alpha1
-  - patch: |-
-      - op: replace
-        path: /spec/scanner/analyzer/scaling/replicas
-        value: 2
-    target:
-      group: platform.stackrox.io
-      kind: Central
-      name: central
-      version: v1alpha1
+  # - patch: |-
+  #     - op: add
+  #       path: /spec/central/resources
+  #       value:
+  #         limits:
+  #           memory: 12Gi
+  #         requests:
+  #           cpu: 2000m
+  #           memory: 6Gi
+  #   target:
+  #     group: platform.stackrox.io
+  #     kind: Central
+  #     name: central
+  #     version: v1alpha1
+  # - patch: |-
+  #     - op: add
+  #       path: /spec/scanner/analyzer/resources
+  #       value:
+  #         limits:
+  #           memory: 4Gi
+  #         requests:
+  #           cpu: 1000m
+  #           memory: 2Gi
+  #   target:
+  #     group: platform.stackrox.io
+  #     kind: Central
+  #     name: central
+  #     version: v1alpha1
+  # - patch: |-
+  #     - op: replace
+  #       path: /spec/scanner/analyzer/scaling/autoScaling
+  #       value: Disabled
+  #   target:
+  #     group: platform.stackrox.io
+  #     kind: Central
+  #     name: central
+  #     version: v1alpha1
+  # - patch: |-
+  #     - op: replace
+  #       path: /spec/scanner/analyzer/scaling/replicas
+  #       value: 2
+  #   target:
+  #     group: platform.stackrox.io
+  #     kind: Central
+  #     name: central
+  #     version: v1alpha1
