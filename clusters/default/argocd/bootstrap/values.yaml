@@ -103,15 +103,6 @@ applications:
         factor: 2
         maxDuration: 3m
 
-  sealed-secrets:
-    annotations:
-      argocd.argoproj.io/compare-options: IgnoreExtraneous
-      argocd.argoproj.io/sync-wave: '1'
-    destination:
-      namespace: sealed-secrets
-    source:
-      path: components/apps/sealed-secrets-operator/overlays/default
-
   tekton-cluster-tasks:
     annotations:
       argocd.argoproj.io/compare-options: IgnoreExtraneous
