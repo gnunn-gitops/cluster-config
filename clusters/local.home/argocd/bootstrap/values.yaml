@@ -20,7 +20,7 @@ applications:
     destination:
       namespace: rhacs-operator
     source:
-      path: clusters/local.home/apps/acs/overlays/secured-cluster
+      path: components/apps/acs-operator/overlays/secured-cluster
 
   alertmanager:
     annotations:
