@@ -3,4 +3,3 @@ kind: Kustomization
 
 resources:
 - alertmanager-main-secret.yaml
-- alertmanager-main-sealed-secret.yaml
