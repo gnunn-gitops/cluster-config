@@ -21,6 +21,9 @@ applications:
       namespace: rhacs-operator
     source:
       path: components/apps/acs-operator/overlays/secured-cluster
+      extraSourceFields: |
+        plugin:
+          name: kustomize-envvar
 
   alertmanager:
     annotations:
