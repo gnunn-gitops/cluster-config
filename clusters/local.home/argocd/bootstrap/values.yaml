@@ -82,15 +82,6 @@ applications:
     source:
       path: clusters/local.home/apps/cluster-certs/overlays/home
 
-  dev-tools:
-    annotations:
-      argocd.argoproj.io/compare-options: IgnoreExtraneous
-      argocd.argoproj.io/sync-wave: '31'
-    destination:
-      namespace: dev-tools
-    source:
-      path: components/apps/dev-tools/overlays/default
-
   openshift-monitoring:
     annotations:
       argocd.argoproj.io/compare-options: IgnoreExtraneous
