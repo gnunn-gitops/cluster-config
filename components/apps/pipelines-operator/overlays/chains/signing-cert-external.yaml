@@ -1,0 +1,21 @@
+apiVersion: external-secrets.io/v1beta1
+kind: ExternalSecret
+metadata:
+  name: signing-secrets
+  namespace: openshift-pipelines
+spec:
+  secretStoreRef:
+    kind: ClusterSecretStore
+    name: doppler-cluster
+  target:
+    name: signing-secrets
+  data:
+    - secretKey: cosign.key
+      remoteRef:
+        key: COSIGN_KEY
+    - secretKey: cosign.pub
+      remoteRef:
+        key: COSIGN_PUB
+    - secretKey: cosign.password
+      remoteRef:
+        key: COSIGN_PASSWORD
