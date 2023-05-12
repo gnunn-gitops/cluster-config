@@ -4,5 +4,5 @@ metadata:
   name: stackrox-secured-cluster-services
   namespace: stackrox-secured-cluster-service
 spec:
-  clusterName: home
+  clusterName: dummy
   centralEndpoint: central-stackrox.apps.hub.ocplab.com:443

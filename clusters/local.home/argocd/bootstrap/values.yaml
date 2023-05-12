@@ -13,14 +13,14 @@ default:
 
 applications:
 
-  # acs-secured-cluster:
-  #   annotations:
-  #     argocd.argoproj.io/compare-options: IgnoreExtraneous
-  #     argocd.argoproj.io/sync-wave: '21'
-  #   destination:
-  #     namespace: rhacs-operator
-  #   source:
-  #     path: clusters/local.home/apps/acs/overlays/secured-cluster
+  acs-secured-cluster:
+    annotations:
+      argocd.argoproj.io/compare-options: IgnoreExtraneous
+      argocd.argoproj.io/sync-wave: '21'
+    destination:
+      namespace: rhacs-operator
+    source:
+      path: clusters/local.home/apps/acs/overlays/secured-cluster
 
   alertmanager:
     annotations:

@@ -1,0 +1,19 @@
+# commonAnnotations:
+#   argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+
+resources:
+- github.com/redhat-cop/gitops-catalog/advanced-cluster-security-operator/operator/overlays/latest
+- namespace.yaml
+- acs-admission-control-tls-secret.yaml
+- acs-sensor-tls-secret.yaml
+- acs-collector-tls-secret.yaml
+- secured-cluster.yaml
+
+patches:
+  - patch: |-
+      - op: replace
+        path: /spec/channel
+        value: 'stable'
+    target:
+      kind: Subscription
+      name: rhacs-operator
