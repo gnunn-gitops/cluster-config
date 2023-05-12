@@ -2,7 +2,7 @@ commonAnnotations:
   argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
 
 resources:
-  - github.com/redhat-cop/gitops-catalog/advanced-cluster-security-operator/operator/overlays/latest
+  - github.com/redhat-cop/gitops-catalog/advanced-cluster-security-operator/aggregate/default
   - init-acs.yaml
 
 patches:
@@ -18,10 +18,10 @@ patches:
         path: /spec/central/resources
         value:
           limits:
-            memory: 8Gi
+            memory: 12Gi
           requests:
-            cpu: 1500m
-            memory: 4Gi
+            cpu: 2000m
+            memory: 6Gi
     target:
       group: platform.stackrox.io
       kind: Central
@@ -32,10 +32,10 @@ patches:
         path: /spec/scanner/analyzer/resources
         value:
           limits:
-            memory: 2Gi
+            memory: 4Gi
           requests:
-            cpu: 500m
-            memory: 1Gi
+            cpu: 1000m
+            memory: 2Gi
     target:
       group: platform.stackrox.io
       kind: Central
