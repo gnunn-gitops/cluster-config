@@ -3,11 +3,57 @@ commonAnnotations:
 
 resources:
   - github.com/redhat-cop/gitops-catalog/advanced-cluster-security-operator/operator/overlays/latest
-  - github.com/redhat-cop/gitops-catalog/advanced-cluster-security-operator/instance/overlays/internal-registry-integration
   - init-acs.yaml
 
-patchesJson6902:
-  - path: patch-resources.yaml
+patches:
+  - patch: |-
+      - op: replace
+        path: /spec/channel
+        value: 'stable'
+    target:
+      kind: Subscription
+      name: rhacs-operator
+  - patch: |-
+      - op: add
+        path: /spec/central/resources
+        value:
+          limits:
+            memory: 8Gi
+          requests:
+            cpu: 1500m
+            memory: 4Gi
+    target:
+      group: platform.stackrox.io
+      kind: Central
+      name: central
+      version: v1alpha1
+  - patch: |-
+      - op: add
+        path: /spec/scanner/analyzer/resources
+        value:
+          limits:
+            memory: 2Gi
+          requests:
+            cpu: 500m
+            memory: 1Gi
+    target:
+      group: platform.stackrox.io
+      kind: Central
+      name: central
+      version: v1alpha1
+  - patch: |-
+      - op: replace
+        path: /spec/scanner/analyzer/scaling/autoScaling
+        value: Disabled
+    target:
+      group: platform.stackrox.io
+      kind: Central
+      name: central
+      version: v1alpha1
+  - patch: |-
+      - op: replace
+        path: /spec/scanner/analyzer/scaling/replicas
+        value: 2
     target:
       group: platform.stackrox.io
       kind: Central
