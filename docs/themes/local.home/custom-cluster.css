@@ -1,5 +1,9 @@
 .top-bar__left-side,
 .top-bar__right-side {
-    background: "#0066CC";
-    color: "#fff";
+    background: #0066CC;
+    color: #fff;
+}
+.top-bar__breadcrumbs,
+.top-bar__title {
+    color: #fff;
 }
