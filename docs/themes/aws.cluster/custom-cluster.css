@@ -1,0 +1,14 @@
+div.columns.small-9.top-bar__left-side {
+    background: #fefefe;
+}
+div.columns.top-bar__left-side,
+div.top-bar__title.text-truncate.top-bar__right-side {
+    background: #FF9900;
+    color: #252F3E;
+}
+.top-bar__breadcrumbs {
+    color: #252F3E !important;
+}
+.top-bar__title {
+    color: #252F3E !important;
+}
