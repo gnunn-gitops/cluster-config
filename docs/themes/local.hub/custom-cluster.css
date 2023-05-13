@@ -4,8 +4,8 @@
     color: #fff;
 }
 .top-bar__breadcrumbs {
-    color: #fff;
+    color: #fff !important;
 }
 .top-bar__title {
-    color: #fff;
+    color: #fff !important;
 }
