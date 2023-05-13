@@ -3,7 +3,9 @@
     background: #0066CC;
     color: #fff;
 }
-.top-bar__breadcrumbs,
+.top-bar__breadcrumbs {
+    color: #fff;
+}
 .top-bar__title {
     color: #fff;
 }
