@@ -1,5 +1,5 @@
-.top-bar__left-side,
-.top-bar__right-side {
+.columns.top-bar__left-side,
+.top-bar__title.text-truncate.top-bar__right-side {
     background: #0066CC;
     color: #fff;
 }
