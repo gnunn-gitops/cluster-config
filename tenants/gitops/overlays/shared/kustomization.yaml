@@ -1,6 +1,7 @@
 namespace: gitops
 
 resources:
+- gitops-monitoring-cluster-role.yaml
 - namespace.yaml
 - ../../../../components/apps/gitops-operator/base
 - console-link.yaml
