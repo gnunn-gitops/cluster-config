@@ -9,6 +9,7 @@ metadata:
     app.kubernetes.io/part-of: openshift-monitoring
     app.kubernetes.io/version: 8.3.4
     console.openshift.io/dashboard: 'true'
+    console.openshift.io/odc-dashboard: 'true'
 data:
   gitops-overview.json: |-
     {
