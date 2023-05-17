@@ -9,13 +9,6 @@ spec:
     name: doppler-cluster
   target:
     name: signing-secrets
-  data:
-    - secretKey: cosign.key
-      remoteRef:
-        key: COSIGN_KEY
-    - secretKey: cosign.pub
-      remoteRef:
-        key: COSIGN_PUB
-    - secretKey: cosign.password
-      remoteRef:
-        key: COSIGN_PASSWORD
+  dataFrom:
+  - extract:
+      key: COSIGN
