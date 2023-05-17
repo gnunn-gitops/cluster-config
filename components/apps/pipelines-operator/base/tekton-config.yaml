@@ -1,0 +1,77 @@
+apiVersion: operator.tekton.dev/v1alpha1
+kind: TektonConfig
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-options: Validate=false,ServerSideApply=true, SkipDryRunOnMissingResource=true
+    argocd.argoproj.io/sync-wave: "99"
+    argocd.argoproj.io/tracking-id: pipeline-operator:operator.tekton.dev/TektonConfig:openshift-operators/config
+  labels:
+    openshift-pipelines.tekton.dev/sa-created: "true"
+  name: config
+spec:
+  addon:
+    params:
+    - name: clusterTasks
+      value: "true"
+    - name: pipelineTemplates
+      value: "true"
+    - name: communityClusterTasks
+      value: "true"
+  dashboard:
+    readonly: false
+  params:
+  - name: createRbacResource
+    value: "true"
+  pipeline:
+    await-sidecar-readiness: true
+    default-service-account: pipeline
+    disable-affinity-assistant: true
+    disable-creds-init: false
+    embedded-status: both
+    enable-api-fields: stable
+    enable-bundles-resolver: true
+    enable-cluster-resolver: true
+    enable-custom-tasks: false
+    enable-git-resolver: true
+    enable-hub-resolver: true
+    enable-provenance-in-status: false
+    enable-tekton-oci-bundles: false
+    metrics.pipelinerun.duration-type: lastvalue
+    metrics.pipelinerun.level: pipelinerun
+    metrics.taskrun.duration-type: lastvalue
+    metrics.taskrun.level: taskrun
+    params:
+    - name: enableMetrics
+      value: "true"
+    require-git-ssh-secret-known-hosts: false
+    running-in-environment-with-injected-sidecars: true
+    send-cloudevents-for-runs: false
+    verification-mode: skip
+  platforms:
+    openshift:
+      pipelinesAsCode:
+        enable: true
+        settings:
+          application-name: Pipelines as Code CI
+          auto-configure-new-github-repo: "false"
+          bitbucket-cloud-check-source-ip: "true"
+          error-detection-from-container-logs: "false"
+          error-detection-max-number-of-lines: "50"
+          error-detection-simple-regexp: ^(?P<filename>[^:]*):(?P<line>[0-9]+):(?P<column>[0-9]+):([
+            ]*)?(?P<error>.*)
+          error-log-snippet: "true"
+          hub-catalog-name: tekton
+          hub-url: https://api.hub.tekton.dev/v1
+          remote-tasks: "true"
+          secret-auto-create: "true"
+          secret-github-app-token-scoped: "true"
+  profile: all
+  pruner:
+    keep: 100
+    resources:
+    - pipelinerun
+    schedule: 0 8 * * *
+  targetNamespace: openshift-pipelines
+  trigger:
+    default-service-account: pipeline
+    enable-api-fields: stable
