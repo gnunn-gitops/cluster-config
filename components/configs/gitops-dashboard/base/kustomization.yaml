@@ -1,11 +1,13 @@
 namespace: openshift-config-managed
 
-commonLabels:
-  app.kubernetes.io/component: grafana
-  app.kubernetes.io/name: grafana
-  app.kubernetes.io/part-of: openshift-monitoring
-  app.kubernetes.io/version: 1.0.0
-  console.openshift.io/dashboard: 'true'
+generatorOptions:
+  disableNameSuffixHash: true
+  labels:
+    app.kubernetes.io/component: grafana
+    app.kubernetes.io/name: grafana
+    app.kubernetes.io/part-of: openshift-monitoring
+    app.kubernetes.io/version: 1.0.0
+    console.openshift.io/dashboard: 'true'
 
 configMapGenerator:
 - name: grafana-dashboard-gitops-overview
