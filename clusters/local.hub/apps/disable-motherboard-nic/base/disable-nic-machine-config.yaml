@@ -1,0 +1,16 @@
+apiVersion: machineconfiguration.openshift.io/v1
+kind: MachineConfig
+metadata:
+  labels:
+    machineconfiguration.openshift.io/role: master
+  name: 50-configure-master-disable-enp0s31f6-network-interface
+spec:
+  config:
+    ignition:
+      version: 3.1.0
+    storage:
+      files:
+        - contents:
+            source: data:text/plain;charset=utf-8;base64,W21haW5dCnBsdWdpbnM9a2V5ZmlsZQoKW2tleWZpbGVdCnVubWFuYWdlZC1kZXZpY2VzPWludGVyZmFjZS1uYW1lOmVucDBzMzFmNgo=
+          mode: 420
+          path: /etc/NetworkManager/conf.d/50-disable-enp0s31f6-interfaces.conf
