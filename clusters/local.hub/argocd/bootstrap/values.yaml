@@ -40,9 +40,9 @@ applications:
   #   source:
   #     path: components/apps/argo-rollouts/base
 
-  disable-nic:
-    source:
-      path: clusters/local.hub/apps/disable-motherboard-nic/base
+  # disable-nic:
+  #   source:
+  #     path: clusters/local.hub/apps/disable-motherboard-nic/base
 
   banner:
     annotations:
