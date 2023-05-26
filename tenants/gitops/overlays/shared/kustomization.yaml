@@ -3,6 +3,7 @@ namespace: gitops
 resources:
 - gitops-monitoring-cluster-role.yaml
 - namespace.yaml
+- argocd-notifications-cm.yaml
 - ../../../../components/apps/gitops-operator/base
 - console-link.yaml
 - global-appproject.yaml
