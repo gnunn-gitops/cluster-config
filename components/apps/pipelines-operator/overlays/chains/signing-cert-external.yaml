@@ -9,6 +9,8 @@ spec:
     name: doppler-cluster
   target:
     name: signing-secrets
+    # prevent fighting with tekton over ownership
+    creationPolicy: Orphan
   dataFrom:
   - extract:
       key: COSIGN
