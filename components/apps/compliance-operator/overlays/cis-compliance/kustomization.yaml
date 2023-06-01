@@ -10,3 +10,11 @@ resources:
 - ocp-cis-node-tailored-profile.yaml
 - cis-compliance-scan-setting-binding.yaml
 - cis-compliance-scansetting.yaml
+
+patches:
+- patch: |-
+    - op: add
+      path: /metadata/labels
+      value: {"openshift.io~1cluster-monitoring": true}
+  target:
+    kind: Namespace
