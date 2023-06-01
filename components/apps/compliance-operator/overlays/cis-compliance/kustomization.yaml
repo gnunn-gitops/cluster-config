@@ -15,6 +15,6 @@ patches:
 - patch: |-
     - op: add
       path: /metadata/labels
-      value: {"openshift.io~1cluster-monitoring": "true"}
+      value: {"openshift.io/cluster-monitoring": "true"}
   target:
     kind: Namespace
