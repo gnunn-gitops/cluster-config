@@ -21,6 +21,14 @@ applications:
     source:
       path: clusters/local.home/apps/lvm-operator/overlays/home
 
+  registry:
+    annotations:
+      argocd.argoproj.io/sync-wave: '5'
+    destination:
+      namespace: openshift-image-registry
+    source:
+      path: components/configs/registry-sno/base
+
   acs-secured-cluster:
     annotations:
       argocd.argoproj.io/sync-wave: '21'
