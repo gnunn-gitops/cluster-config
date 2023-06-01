@@ -13,9 +13,16 @@ default:
 
 applications:
 
+  lvm-operator:
+    annotations:
+      argocd.argoproj.io/sync-wave: '0'
+    destination:
+      namespace: openshift-storage
+    source:
+      path: clusters/local.home/apps/lvm-operator/overlays/home
+
   acs-secured-cluster:
     annotations:
-      argocd.argoproj.io/compare-options: IgnoreExtraneous
       argocd.argoproj.io/sync-wave: '21'
     destination:
       namespace: rhacs-operator

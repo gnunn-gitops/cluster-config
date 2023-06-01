@@ -1,0 +1,7 @@
+namespace: openshift-storage
+
+resources:
+- namespace.yaml
+- operatorgroup.yaml
+- subscription.yaml
+- lvmcluster.yaml

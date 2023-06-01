@@ -1,0 +1,12 @@
+resources:
+- ../../../../../../components/apps/lvm-operator/base
+
+patches:
+  - patch: |-
+      - op: add
+        path: /spec/storage/deviceClasses/0/deviceSelector
+        value:
+          paths:
+            - /dev/nvme1n1
+    target:
+      kind: LVMCluster
