@@ -15,7 +15,6 @@ spec:
       maxWaitInQueue: 0s
   rolloutStrategy: Recreate
   storage:
-    managementState: Unmanaged
     pvc:
       claim: image-registry
   unsupportedConfigOverrides: null
