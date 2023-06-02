@@ -4,7 +4,7 @@ metadata:
   name: cluster
 spec:
   logLevel: Normal
-  managementState: Removed
+  managementState: Managed
   observedConfig: null
   operatorLogLevel: Normal
   replicas: 1
