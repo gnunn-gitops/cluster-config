@@ -76,9 +76,10 @@ applications:
       repoURL: https://github.com/gnunn-gitops/acm-hub-bootstrap.git
       path: components/apps/acm/overlays/hub
 
-  # disable-nic:
-  #   source:
-  #     path: clusters/local.hub/apps/disable-motherboard-nic/base
+  # Maybe look at using NMState operator for this?
+  disable-nic:
+    source:
+      path: clusters/local.hub/apps/disable-motherboard-nic/base
 
   banner:
     annotations:
