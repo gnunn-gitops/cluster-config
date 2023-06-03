@@ -58,15 +58,6 @@ applications:
     source:
       path: clusters/local.hub/apps/acs-operator/overlays/certificate
 
-  acm-policies:
-    annotations:
-      argocd.argoproj.io/sync-wave: '31'
-    destinations:
-      namespace: acm-policies
-    source:
-      repoURL: https://github.com/gnunn-gitops/acm-hub-bootstrap.git
-      path: bootstrap/policies/overlays/default
-
   acm-hub:
     annotations:
       argocd.argoproj.io/sync-wave: '21'
@@ -75,6 +66,24 @@ applications:
     source:
       repoURL: https://github.com/gnunn-gitops/acm-hub-bootstrap.git
       path: components/apps/acm/overlays/hub
+
+  acm-observability:
+    annotations:
+      argocd.argoproj.io/sync-wave: '31'
+    destinations:
+      namespace: open-cluster-management-observability
+    source:
+      repoURL: https://github.com/gnunn-gitops/acm-hub-bootstrap.git
+      path: components/apps/acm/overlays/observability
+
+  acm-policies:
+    annotations:
+      argocd.argoproj.io/sync-wave: '31'
+    destinations:
+      namespace: acm-policies
+    source:
+      repoURL: https://github.com/gnunn-gitops/acm-hub-bootstrap.git
+      path: bootstrap/policies/overlays/default
 
   # Maybe look at using NMState operator for this?
   disable-nic:
