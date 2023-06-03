@@ -1,7 +1,8 @@
 namespace: openshift-storage
 
 resources:
-- namespace.yaml
-- operatorgroup.yaml
+# Let ODF operator manage these
+# - namespace.yaml
+# - operatorgroup.yaml
 - subscription.yaml
 - lvmcluster.yaml
