@@ -137,7 +137,6 @@ applications:
 
   cost-management:
     annotations:
-      argocd.argoproj.io/compare-options: IgnoreExtraneous
       argocd.argoproj.io/sync-wave: '21'
     destination:
       namespace: costmanagement-metrics-operator
@@ -147,7 +146,6 @@ applications:
   lokistack:
     enabled: false
     annotations:
-      argocd.argoproj.io/compare-options: IgnoreExtraneous
       argocd.argoproj.io/sync-wave: '21'
     source:
       path: clusters/local.hub/apps/lokistack/overlays/qnap
@@ -157,6 +155,13 @@ applications:
         duration: 5s
         factor: 2
         maxDuration: 3m
+
+  odf-operator:
+    annotations:
+      argocd.argoproj.io/sync-wave: '21'
+    source:
+      path: openshift-data-foundation-operator/operator/overlays/stable-4.12
+      repoURL: https://github.com/redhat-cop/gitops-catalog.git
 
   # kyverno:
   #   annotations:
