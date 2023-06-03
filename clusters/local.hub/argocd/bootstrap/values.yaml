@@ -51,6 +51,7 @@ applications:
     destinations:
       namespace: acm-policies
     source:
+      repoURL: https://github.com/gnunn-gitops/acm-hub-bootstrap.git
       path: bootstrap/policies/overlays/default
 
   acm-hub:
@@ -59,6 +60,7 @@ applications:
     destinations:
       namespace: open-cluster-management
     source:
+      repoURL: https://github.com/gnunn-gitops/acm-hub-bootstrap.git
       path: components/apps/acm/overlays/hub
 
   # disable-nic:
