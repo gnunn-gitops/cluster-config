@@ -31,7 +31,6 @@ applications:
 
   alertmanager:
     annotations:
-      argocd.argoproj.io/compare-options: IgnoreExtraneous
       argocd.argoproj.io/sync-wave: '11'
     destination:
       namespace: openshift-monitoring
@@ -40,12 +39,27 @@ applications:
 
   acs:
     annotations:
-      argocd.argoproj.io/compare-options: IgnoreExtraneous
       argocd.argoproj.io/sync-wave: '21'
     destination:
       namespace: stackrox
     source:
       path: clusters/local.hub/apps/acs-operator/overlays/certificate
+
+  acm-policies:
+    annotations:
+      argocd.argoproj.io/sync-wave: '31'
+    destinations:
+      namespace: acm-policies
+    source:
+      path: bootstrap/policies/overlays/default
+
+  acm-hub:
+    annotations:
+      argocd.argoproj.io/sync-wave: '21'
+    destinations:
+      namespace: open-cluster-management
+    source:
+      path: components/apps/acm/overlays/hub
 
   # disable-nic:
   #   source:
@@ -95,7 +109,6 @@ applications:
 
   dev-tools:
     annotations:
-      argocd.argoproj.io/compare-options: IgnoreExtraneous
       argocd.argoproj.io/sync-wave: '31'
     destination:
       namespace: dev-tools
