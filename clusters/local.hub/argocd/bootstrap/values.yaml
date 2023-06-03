@@ -13,6 +13,19 @@ default:
 
 applications:
 
+  odf-operator:
+    annotations:
+      argocd.argoproj.io/sync-wave: '0'
+    source:
+      path: openshift-data-foundation-operator/operator/overlays/stable-4.12
+      repoURL: https://github.com/redhat-cop/gitops-catalog.git
+
+  odf-instance:
+    annotations:
+      argocd.argoproj.io/sync-wave: '1'
+    source:
+      path: components/apps/odf-operator/instance/base
+
   lvm-operator:
     annotations:
       argocd.argoproj.io/sync-wave: '1'
@@ -20,13 +33,6 @@ applications:
       namespace: openshift-storage
     source:
       path: clusters/local.hub/apps/lvm-operator/overlays/hub
-
-  odf-operator:
-    annotations:
-      argocd.argoproj.io/sync-wave: '0'
-    source:
-      path: openshift-data-foundation-operator/operator/overlays/stable-4.12
-      repoURL: https://github.com/redhat-cop/gitops-catalog.git
 
   registry:
     annotations:
