@@ -90,7 +90,6 @@ applications:
       repoURL: https://github.com/gnunn-gitops/acm-hub-bootstrap.git
       path: bootstrap/policies/overlays/default
 
-  Maybe look at using NMState operator for this?
   nmstate:
     source:
       path: clusters/local.hub/apps/nmstate/overlays/sno
