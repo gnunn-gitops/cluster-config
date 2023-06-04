@@ -86,9 +86,9 @@ applications:
       path: bootstrap/policies/overlays/default
 
   # Maybe look at using NMState operator for this?
-  disable-nic:
-    source:
-      path: clusters/local.hub/apps/disable-motherboard-nic/base
+  # disable-nic:
+  #   source:
+  #     path: clusters/local.hub/apps/disable-motherboard-nic/base
 
   banner:
     annotations:
