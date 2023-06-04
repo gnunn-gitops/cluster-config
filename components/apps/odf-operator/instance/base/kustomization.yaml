@@ -2,4 +2,3 @@ resources:
 - storage-cluster.yaml
 - storage-system.yaml
 - noobaa-default-backing-store.yaml
-- bucket-class.yaml
