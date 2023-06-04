@@ -1,0 +1,11 @@
+resources:
+- github.com/redhat-cop/gitops-catalog/openshift-data-foundation-operator/operator/overlays/stable-4.12
+
+patches:
+  - patch: |-
+      - op: replace
+        path: /spec/template/spec/containers/0/image
+        value: registry.redhat.io/openshift4/ose-cli:latest
+    target:
+      kind: Job
+      name: enable-odf-console-plugin

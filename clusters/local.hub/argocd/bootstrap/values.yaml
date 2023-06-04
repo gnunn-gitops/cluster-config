@@ -17,8 +17,7 @@ applications:
     annotations:
       argocd.argoproj.io/sync-wave: '0'
     source:
-      path: openshift-data-foundation-operator/operator/overlays/stable-4.12
-      repoURL: https://github.com/redhat-cop/gitops-catalog.git
+      path: components/apps/odf-operator/operator/overlays/no-registry
 
   odf-instance:
     annotations:
