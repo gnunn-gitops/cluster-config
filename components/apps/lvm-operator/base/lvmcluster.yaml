@@ -1,7 +1,7 @@
 apiVersion: lvm.topolvm.io/v1alpha1
 kind: LVMCluster
 metadata:
-  name: home
+  name: lvmcluster
   namespace: openshift-storage
   annotations:
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
