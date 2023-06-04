@@ -1,0 +1,9 @@
+apiVersion: ocs.openshift.io/v1
+kind: StorageCluster
+metadata:
+  name: ocs-storagecluster
+  namespace: openshift-storage
+spec:
+  multiCloudGateway:
+    dbStorageClassName: lvms-vg1
+    reconcileStrategy: standalone
