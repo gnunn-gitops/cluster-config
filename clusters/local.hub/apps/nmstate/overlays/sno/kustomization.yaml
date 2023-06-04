@@ -1,0 +1,20 @@
+resources:
+- github.com/redhat-cop/gitops-catalog/nmstate/operator
+- github.com/redhat-cop/gitops-catalog/nmstate/instance
+- node-network-configuration-policy.yaml
+
+patches:
+  - patch: |-
+      - op: replace
+        path: /spec/channel
+        value: "4.13"
+    target:
+      kind: Subscription
+      name: kubernetes-nmstate-operator
+  - patch: |-
+      - op: add
+        path: /metadata/annotations/argocd.argoproj.io~1sync-options
+        value: SkipDryRunOnMissingResource=true
+    target:
+      kind: NMState
+      name: nmstate
