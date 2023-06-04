@@ -13,21 +13,28 @@ default:
 
 applications:
 
+  node-config:
+    annotations:
+      argocd.argoproj.io/compare-options: IgnoreExtraneous
+      argocd.argoproj.io/sync-wave: '0'
+    source:
+      path: clusters/local.hub/apps/node-config/base
+
   odf-operator:
     annotations:
-      argocd.argoproj.io/sync-wave: '0'
+      argocd.argoproj.io/sync-wave: '1'
     source:
       path: components/apps/odf-operator/operator/overlays/no-registry
 
   odf-instance:
     annotations:
-      argocd.argoproj.io/sync-wave: '1'
+      argocd.argoproj.io/sync-wave: '2'
     source:
       path: components/apps/odf-operator/instance/base
 
   lvm-operator:
     annotations:
-      argocd.argoproj.io/sync-wave: '1'
+      argocd.argoproj.io/sync-wave: '2'
     destination:
       namespace: openshift-storage
     source:
@@ -221,10 +228,3 @@ applications:
       namespace: openshift-operators
     source:
       path: components/apps/web-terminal-operator/base
-
-  node-config:
-    annotations:
-      argocd.argoproj.io/compare-options: IgnoreExtraneous
-      argocd.argoproj.io/sync-wave: '99'
-    source:
-      path: clusters/local.hub/apps/node-config/base
