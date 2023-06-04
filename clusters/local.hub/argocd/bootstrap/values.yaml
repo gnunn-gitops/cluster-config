@@ -15,7 +15,6 @@ applications:
 
   node-config:
     annotations:
-      argocd.argoproj.io/compare-options: IgnoreExtraneous
       argocd.argoproj.io/sync-wave: '0'
     source:
       path: clusters/local.hub/apps/node-config/base
@@ -159,7 +158,6 @@ applications:
     # leave disabled unless needed for demo
     enabled: false
     annotations:
-      argocd.argoproj.io/compare-options: IgnoreExtraneous
       argocd.argoproj.io/sync-wave: '21'
     source:
       path: clusters/local.hub/apps/quay-registry-operator/overlays/qnap
@@ -222,7 +220,6 @@ applications:
   web-terminal:
     project: cluster-config
     annotations:
-      argocd.argoproj.io/compare-options: IgnoreExtraneous
       argocd.argoproj.io/sync-wave: '21'
     destination:
       namespace: openshift-operators
