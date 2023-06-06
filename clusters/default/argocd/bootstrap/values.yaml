@@ -116,3 +116,10 @@ applications:
       argocd.argoproj.io/sync-wave: '41'
     source:
       path: components/apps/dev-console-plugin/base
+
+  gitops-admin-plugin:
+    destination:
+      namespace: gitops-admin-plugin
+      argocd.argoproj.io/sync-wave: '41'
+    source:
+      path: components/apps/gitops-admin-plugin/base

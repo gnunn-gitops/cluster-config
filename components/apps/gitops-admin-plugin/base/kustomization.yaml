@@ -1,0 +1,16 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+- namespace.yaml
+
+helmGlobals:
+  chartHome: charts/gitops-admin-plugin
+
+helmCharts:
+- name: gitops-admin-plugin
+  version: 0.1.0
+  repo: https://gnunn-gitops.github.io/helm-charts
+  valuesFile: values.yaml
+  namespace: gitops-admin-plugin
+  releaseName: gitops-admin-plugin
