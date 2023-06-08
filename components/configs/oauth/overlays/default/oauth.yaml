@@ -1,0 +1,28 @@
+apiVersion: config.openshift.io/v1
+kind: OAuth
+metadata:
+  name: cluster
+spec:
+  identityProviders:
+  - htpasswd:
+      fileData:
+        name: htpass-secret
+    mappingMethod: claim
+    name: htpasswd
+    type: HTPasswd
+  - name: glauth
+    mappingMethod: claim
+    type: LDAP
+    ldap:
+      attributes:
+        id:
+        - dn
+        name:
+        - cn
+        preferredUsername:
+        - cn
+      bindDN: "openshift,dc=ocplab,dc=com"
+      bindPassword:
+        name: ldap-secret
+      insecure: false
+      url: "ldap://proxy-server/dc=ocplab,dc=com?cn"

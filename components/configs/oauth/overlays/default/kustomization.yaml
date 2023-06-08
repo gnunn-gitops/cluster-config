@@ -7,4 +7,5 @@ commonAnnotations:
 
 resources:
 - htpass-secret-external.yaml
-- htpass-oauth.yaml
+- ldap-external-secret.yaml
+- oauth.yaml
