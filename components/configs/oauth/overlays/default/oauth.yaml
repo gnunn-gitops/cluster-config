@@ -20,9 +20,9 @@ spec:
         name:
         - cn
         preferredUsername:
-        - cn
+        - uid
       bindDN: "openshift,dc=ocplab,dc=com"
       bindPassword:
         name: ldap-secret
       insecure: false
-      url: "ldap://proxy-server/dc=ocplab,dc=com?cn"
+      url: "ldap://proxy-server:389/dc=ocplab,dc=com?uid"
