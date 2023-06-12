@@ -96,7 +96,6 @@ applications:
 
   banner:
     annotations:
-      argocd.argoproj.io/compare-options: IgnoreExtraneous
       argocd.argoproj.io/sync-wave: '11'
     source:
       path: clusters/local.hub/apps/banner/overlays/hub
@@ -106,19 +105,17 @@ applications:
 
   console-links:
     annotations:
-      argocd.argoproj.io/compare-options: IgnoreExtraneous
       argocd.argoproj.io/sync-wave: '11'
     source:
       path: clusters/local.hub/apps/consolelinks/overlays/default
 
   authentication:
     annotations:
-      argocd.argoproj.io/compare-options: IgnoreExtraneous
       argocd.argoproj.io/sync-wave: '4'
     destination:
       namespace: openshift-config
     source:
-      path: components/configs/oauth/overlays/google-with-matrix
+      path: components/configs/oauth/overlays/homelab
 
   cert-manager-operator:
     annotations:

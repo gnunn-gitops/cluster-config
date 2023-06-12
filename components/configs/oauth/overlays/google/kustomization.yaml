@@ -1,0 +1,24 @@
+apiVersion: kustomize.config.k8s.io/v1alpha1
+kind: Component
+
+resources:
+- google-client-secret.yaml
+
+patches:
+  - patch: |-
+      - op: add
+        path: /spec/identityProviders/-
+        value:
+            google:
+              clientID: 853224504221-d1vvbaokui9cnq5ge7pcih1sfl26sq69.apps.googleusercontent.com
+              clientSecret:
+                name: google-secret
+              hostedDomain: redhat.com
+            mappingMethod: claim
+            name: RedHatSSO
+            type: Google
+    target:
+      group: config.openshift.io
+      kind: OAuth
+      name: cluster
+      version: v1

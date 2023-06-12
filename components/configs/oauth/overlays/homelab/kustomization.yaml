@@ -1,0 +1,7 @@
+resources:
+- ../../base
+
+components:
+- ../glauth
+- ../google
+- ../matrix-template
