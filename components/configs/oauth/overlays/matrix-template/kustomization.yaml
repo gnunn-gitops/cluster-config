@@ -1,6 +1,9 @@
 apiVersion: kustomize.config.k8s.io/v1alpha1
 kind: Component
 
+resources:
+- ../../../login-template/base
+
 patches:
   - patch: |-
       - op: add
@@ -8,11 +11,7 @@ patches:
         value:
           login:
             name: matrix-login-template
-      - op: add
-        path: /spec/templates
-        value:
-          login:
-            providerSelection: matrix-providers-template
+          providerSelection: matrix-providers-template
     target:
         group: config.openshift.io
         kind: OAuth
