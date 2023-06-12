@@ -20,3 +20,7 @@ spec:
     rationale: Home lab supports ad-hoc demos
   - name: ocp4-api-server-encryption-provider-config
     rationale: Home lab, no need to encrypt etcd
+  - name: ocp4-cis-lab-api-server-audit-log-maxsize
+    rationale: Home lab, no need for auditing
+  - name: ocp4-cis-lab-ocp-api-server-audit-log-maxsize
+    rationale: Home lab, no need for auditing
