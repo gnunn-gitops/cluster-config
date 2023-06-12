@@ -11,7 +11,8 @@ patches:
         value:
           login:
             name: matrix-login-template
-          providerSelection: matrix-providers-template
+          providerSelection:
+            name: matrix-providers-template
     target:
         group: config.openshift.io
         kind: OAuth
