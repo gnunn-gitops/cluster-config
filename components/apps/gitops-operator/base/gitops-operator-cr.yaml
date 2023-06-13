@@ -31,13 +31,76 @@ spec:
       tls:
         termination: edge
         insecureEdgeTerminationPolicy: Redirect
-  resourceCustomizations: |
-    route.openshift.io/Route:
-      ignoreDifferences: |
-        jsonPointers:
-        - /status/ingress
-    image.openshift.io/ImageStream:
-      health.lua: |
+  resourceHealthChecks:
+    - group: argoproj.io
+      kind: Application
+      check: |
+        hs = {}
+        hs.status = "Progressing"
+        hs.message = ""
+        if obj.status ~= nil then
+          if obj.status.health ~= nil then
+            hs.status = obj.status.health.status
+            hs.message = obj.status.health.message
+          end
+        end
+        return hs
+    - group: operators.coreos.com
+      kind: Subscription
+      check: |
+        health_status = {}
+        if obj.status ~= nil then
+          if obj.status.conditions ~= nil then
+            numDegraded = 0
+            numPending = 0
+            msg = ""
+            for i, condition in pairs(obj.status.conditions) do
+              msg = msg .. i .. ": " .. condition.type .. " | " .. condition.status .. "\n"
+              if condition.type == "InstallPlanPending" and condition.status == "True" then
+                numPending = numPending + 1
+              elseif (condition.type == "InstallPlanMissing" and condition.reason ~= "ReferencedInstallPlanNotFound") then
+                numDegraded = numDegraded + 1
+              elseif (condition.type == "CatalogSourcesUnhealthy" or condition.type == "InstallPlanFailed" or condition.type == "ResolutionFailed") and condition.status == "True" then
+                numDegraded = numDegraded + 1
+              end
+            end
+            if numDegraded == 0 and numPending == 0 then
+              health_status.status = "Healthy"
+              health_status.message = msg
+              return health_status
+            elseif numPending > 0 and numDegraded == 0 then
+              health_status.status = "Progressing"
+              health_status.message = "An install plan for a subscription is pending installation"
+              return health_status
+            else
+              health_status.status = "Degraded"
+              health_status.message = msg
+              return health_status
+            end
+          end
+        end
+        health_status.status = "Progressing"
+        health_status.message = "An install plan for a subscription is pending installation"
+        return health_status
+    - group: operators.coreos.com
+      kind: InstallPlan
+      check: |
+        hs = {}
+        if obj.status ~= nil then
+          if obj.status.phase ~= nil then
+            if obj.status.phase == "Complete" then
+              hs.status = "Healthy"
+              hs.message = obj.status.phase
+              return hs
+            end
+          end
+        end
+        hs.status = "Progressing"
+        hs.message = "Waiting for InstallPlan to complete"
+        return hs
+    - group: image.openshift.io
+      kind: ImageStream
+      check: |
         hs = {}
         hs.status = "Progressing"
         hs.message = ""
@@ -64,8 +127,9 @@ spec:
           end
         end
         return hs
-    build.openshift.io/Build:
-      health.lua: |
+    - group: build.openshift.io
+      kind: Build
+      check: |
         hs = {}
         if obj.status ~= nil then
           if obj.status.phase ~= nil then
@@ -79,8 +143,8 @@ spec:
         hs.status = "Progressing"
         hs.message = "Waiting for Build to complete"
         return hs
-    PersistentVolumeClaim:
-      health.lua: |
+    - kind: PersistentVolumeClaim
+      check: |
         hs = {}
         if obj.status ~= nil then
           if obj.status.phase ~= nil then
@@ -97,44 +161,20 @@ spec:
           end
         end
         hs.status = "Progressing"
-        hs.message = "Waiting for certificate"
+        hs.message = "Waiting for PVC"
         return hs
-  resourceExclusions: |
-    - apiGroups:
-      - tekton.dev
-      clusters:
-      - '*'
-      kinds:
-      - TaskRun
-      - PipelineRun
-    - apiGroups:
-      - operators.coreos.com
-      - operator.openshift.io
-      - user.openshift.io
-      - config.openshift.io
-      - console.openshift.io
-      - storage.k8s.io
-      - machine.openshift.io
-      - machineconfiguration.openshift.io
-      - compliance.openshift.io
-      clusters:
-      - '*'
-      kinds:
-      - '*'
-    - apiGroups:
-      - ""
-      clusters:
-      - '*'
-      kinds:
-      - namespaces
-      - persistentvolumes
-    - apiGroups:
-      - rbac.authorization.k8s.io
-      clusters:
-      - '*'
-      kinds:
-      - ClusterRole
-      - ClusterRoleBinding
+  resourceIgnoreDifferences:
+    resourceIdentifiers:
+      - group: route.openshift.io
+        kind: Route
+        customization:
+          jsonPointers:
+            - /status/ingress
+      - group: quay.redhat.com
+        kind: QuayRegistry
+        customization:
+          jsonPointers:
+            - /status/ingress
   ha:
     enabled: false
   # rbac:
