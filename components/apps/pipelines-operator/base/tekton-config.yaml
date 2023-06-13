@@ -27,7 +27,7 @@ spec:
     default-service-account: pipeline
     disable-affinity-assistant: true
     disable-creds-init: false
-    embedded-status: both
+    embedded-status: minimal
     enable-api-fields: stable
     enable-bundles-resolver: true
     enable-cluster-resolver: true
