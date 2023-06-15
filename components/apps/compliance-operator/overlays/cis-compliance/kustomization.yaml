@@ -18,3 +18,10 @@ patches:
       value: {"openshift.io/cluster-monitoring": "true"}
   target:
     kind: Namespace
+- patch: |-
+    - op: replace
+      path: /spec/channel
+      value: stable
+  target:
+    kind: Subscription
+    name: compliance-operator
