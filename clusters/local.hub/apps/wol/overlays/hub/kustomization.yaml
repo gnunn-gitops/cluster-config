@@ -1,0 +1,11 @@
+resources:
+- ../../../../../../components/configs/wake-on-lan/base
+
+patches:
+  - patch: |
+      - op: replace
+        path: /spec/config/systemd/units/0/name
+        value: wol@enp0s31f6.service
+    target:
+      kind: MachineConfig
+      name: 98-wol-service
