@@ -9,7 +9,7 @@ patches:
         value: wol@enp0s31f6.service
       - op: add
         path: /metadata/labels/machineconfiguration.openshift.io~1role
-        value: worker
+        value: master
     target:
       kind: MachineConfig
       name: 99-wol-service
