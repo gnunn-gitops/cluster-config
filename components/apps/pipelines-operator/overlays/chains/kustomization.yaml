@@ -5,4 +5,3 @@ resources:
 - ../../base
 - openshift-pipelines-namespace.yaml
 - signing-cert-external.yaml
-- tekton-chain.yaml
