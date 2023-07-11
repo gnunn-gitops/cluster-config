@@ -49,6 +49,7 @@ patches:
     - op: add
       path: /spec/rbac
       value:
+        defaultPolicy: 'role:none'
         policy: |
           p, role:none, applications, get, */*, deny
           p, role:none, certificates, get, *, deny
