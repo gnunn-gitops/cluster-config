@@ -24,7 +24,7 @@ patches:
               bindPassword:
                 name: ldap-secret
               insecure: true
-              url: "ldap://proxy-server/ou=users,dc=ocplab,dc=com?uid"
+              url: "ldap://infra-server/ou=users,dc=ocplab,dc=com?uid"
     target:
       group: config.openshift.io
       kind: OAuth
