@@ -10,5 +10,5 @@ spec:
   clusterName: ${CLUSTER_NAME}
   centralEndpoint: central-stackrox.apps.hub.ocplab.com:443
   admissionControl:
-    listenOnCreates: false
-    listenOnUpdates: false
+    listenOnCreates: true
+    listenOnUpdates: true
