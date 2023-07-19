@@ -12,3 +12,4 @@ spec:
   admissionControl:
     listenOnCreates: true
     listenOnUpdates: true
+    timeoutSeconds: 6
