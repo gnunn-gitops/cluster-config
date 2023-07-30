@@ -1,0 +1,8 @@
+apiVersion: console.openshift.io/v1
+kind: ConsoleLink
+metadata:
+  name: sso-account
+spec:
+  href: 'https://sso.ocplab.com/realms/ocplab/account'
+  location: UserMenu
+  text: Account Settings
