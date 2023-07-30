@@ -2,7 +2,6 @@ resources:
 - ../../base
 
 components:
-- ../glauth
 - ../sso
 - ../google
 - ../matrix-template
