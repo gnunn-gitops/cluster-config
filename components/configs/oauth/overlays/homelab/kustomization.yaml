@@ -3,5 +3,6 @@ resources:
 
 components:
 - ../glauth
+- ../sso
 - ../google
 - ../matrix-template
