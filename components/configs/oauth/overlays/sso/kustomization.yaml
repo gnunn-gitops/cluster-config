@@ -16,8 +16,6 @@ patches:
             clientID: openshift
             clientSecret:
               name: oidc-client-secret
-            ca:
-              name: openidcacrt
             extraScopes:
             - email
             - profile
