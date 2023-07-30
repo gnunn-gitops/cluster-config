@@ -32,7 +32,7 @@ patches:
               email:
               - custom_email_claim
               - email
-            issuer: https://sso.ocplab.com/auth/realms/ocplab
+            issuer: https://sso.ocplab.com/realms/ocplab
     target:
       group: config.openshift.io
       kind: OAuth
