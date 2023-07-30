@@ -9,7 +9,7 @@ patches:
       - op: add
         path: /spec/identityProviders/-
         value:
-          name: Lab SSO
+          name: LabSSO
           mappingMethod: claim
           type: OpenID
           openID:
