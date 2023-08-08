@@ -1,7 +1,7 @@
 default:
   app:
     enabled: true
-    enableAutoSync: false
+    enableAutoSync: true
     autoSyncPrune: false
     project: cluster-config
     destination:
