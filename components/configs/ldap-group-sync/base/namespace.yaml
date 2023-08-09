@@ -3,5 +3,4 @@ kind: Namespace
 metadata:
   annotations:
     openshift.io/display-name: Sync LDAP from GLAuth
-  labels:
   name: ldap-sync
