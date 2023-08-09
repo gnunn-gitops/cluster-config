@@ -8,6 +8,3 @@ helmCharts:
   valuesFile: values.yaml
   namespace: openshift-gitops
   releaseName: argocd-app-of-app-0.2.6
-
-resources:
-- ../../../rbac/base
