@@ -35,6 +35,20 @@ applications:
     source:
       path: components/configs/registry-sno/base
 
+  rbac:
+    annotations:
+      argocd.argoproj.io/compare-options: IgnoreExtraneous
+      argocd.argoproj.io/sync-wave: '11'
+    source:
+      path: components/configs/rbac/base
+
+  ldap-group-sync:
+    annotations:
+      argocd.argoproj.io/compare-options: IgnoreExtraneous
+      argocd.argoproj.io/sync-wave: '11'
+    source:
+      path: components/configs/ldap-group-sync/base
+
   acs-secured-cluster:
     annotations:
       argocd.argoproj.io/sync-wave: '21'

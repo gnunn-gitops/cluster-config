@@ -103,6 +103,20 @@ applications:
         plugin:
           name: kustomize-envvar
 
+  rbac:
+    annotations:
+      argocd.argoproj.io/compare-options: IgnoreExtraneous
+      argocd.argoproj.io/sync-wave: '11'
+    source:
+      path: components/configs/rbac/base
+
+  ldap-group-sync:
+    annotations:
+      argocd.argoproj.io/compare-options: IgnoreExtraneous
+      argocd.argoproj.io/sync-wave: '11'
+    source:
+      path: components/configs/ldap-group-sync/base
+
   console-links:
     annotations:
       argocd.argoproj.io/sync-wave: '11'

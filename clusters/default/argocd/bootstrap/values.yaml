@@ -74,13 +74,6 @@ applications:
     source:
       path: components/configs/gitops-dashboard/base
 
-  groups-and-membership:
-    annotations:
-      argocd.argoproj.io/compare-options: IgnoreExtraneous
-      argocd.argoproj.io/sync-wave: '11'
-    source:
-      path: components/configs/groups-and-membership/overlays/default
-
   helm-repos:
     annotations:
       argocd.argoproj.io/compare-options: IgnoreExtraneous

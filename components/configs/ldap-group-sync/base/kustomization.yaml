@@ -1,0 +1,17 @@
+
+namespace: ldap-sync
+
+generatorOptions:
+  disableNameSuffixHash: true
+
+configMapGenerator:
+- name: ldap-group-syncer
+  files:
+    - config/sync.yaml
+
+resources:
+- namespace.yaml
+- ldap-bind-secret.yaml
+- serviceaccount.yaml
+- cluster-role.yaml
+- cronjob.yaml
