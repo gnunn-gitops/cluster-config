@@ -41,6 +41,12 @@ patches:
             projectName: global
         accounts.product-catalog-pipeline: apiKey
         accounts.rollouts-demo-pipeline: apiKey
+        oidc.config: |
+          name: Keycloak
+          issuer: https://sso.ocplab.com/realms/ocplab
+          clientID: argocd
+          clientSecret: $oidc.keycloak.clientSecret
+          requestedScopes: ["openid", "profile", "email", "groups"]
     - op: add
       path: /spec/sourceNamespaces
       value:
