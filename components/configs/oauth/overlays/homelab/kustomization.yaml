@@ -3,5 +3,3 @@ resources:
 
 components:
 - ../sso
-- ../google
-- ../matrix-template
