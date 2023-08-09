@@ -3,7 +3,7 @@ apiVersion: v1
 url: ldap://infra-server:389
 bindDN: openshift,dc=ocplab,dc=com
 bindPassword:
-  file: "/etc/secrets/bindPassword"
+  file: "/etc/secrets/ldap-bind-password"
 insecure: true
 rfc2307:
     groupsQuery:
