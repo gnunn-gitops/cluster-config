@@ -4,19 +4,19 @@ kind: Kustomization
 resources:
 - ../../base
 
-patchesJson6902:
-- target:
-    group: user.openshift.io
-    version: v1
-    kind: Group
-    name: argocdadmins
-  path: argocdadmins-group-users.yaml
-- target:
-    group: user.openshift.io
-    version: v1
-    kind: Group
-    name: argocdusers
-  path: argocdusers-group-users.yaml
+# patchesJson6902:
+# - target:
+#     group: user.openshift.io
+#     version: v1
+#     kind: Group
+#     name: argocdadmins
+#   path: argocdadmins-group-users.yaml
+# - target:
+#     group: user.openshift.io
+#     version: v1
+#     kind: Group
+#     name: argocdusers
+#   path: argocdusers-group-users.yaml
 # - target:
 #     group: user.openshift.io
 #     version: v1
