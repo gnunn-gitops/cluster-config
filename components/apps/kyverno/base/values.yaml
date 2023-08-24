@@ -34,13 +34,14 @@ config:
     - '[*/*,kube-system,*]'
     - '[*/*,kube-public,*]'
     - '[*/*,kube-node-lease,*]'
-    - '[*,openshift,*]'
+    - '[*/*,openshift,*]'
     - '[*/*, openshift-*, *]'
-    - '[*,open-cluster-*,*]'
-    - '[*,hive,*]'
-    - '[*,stackrox,*]'
-    - '[*,rhacs-operator,*]'
-    - '[*,costmanagement-metrics-operator,*]'
+    - '[*/*,open-cluster-*,*]'
+    - '[*/*,hive,*]'
+    - '[*/*, multicluster-engine,*]'
+    - '[*/*,stackrox,*]'
+    - '[*/*,rhacs-operator,*]'
+    - '[*/*,costmanagement-metrics-operator,*]'
     - '[Node,*,*]'
     - '[Node/*,*,*]'
     - '[APIService,*,*]'
@@ -167,9 +168,14 @@ config:
             - stackrox
             - stackrox-secured-cluster-service
             - rhacs-operator
+            - multicluster-engine
+            - open-cluster-management
+            - open-cluster-management-hub
+            - open-cluster-management-observability
             - open-cluster-management-addon-observability
             - open-cluster-management-agent
             - open-cluster-management-agent-addon
+            - open-cluster-management-global-set
             # Third Party
             - external-secrets
             # OpenShift namespaces
