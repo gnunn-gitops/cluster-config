@@ -2,50 +2,12 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
-- https://github.com/kyverno/kyverno/releases/download/v1.8.1/install.yaml
+- namespace.yaml
 
-patches:
-- patch: |-
-    - op: replace
-      path: /spec/template/spec/containers/0/resources/limits/memory
-      value: 3Gi
-    - op: replace
-      path: /spec/template/spec/containers/0/resources/requests/memory
-      value: 1.5Gi
-    - op: add
-      path: /spec/template/spec/containers/0/args/-
-      value: '--clientRateLimitQPS=350'
-    - op: add
-      path: /spec/template/spec/containers/0/args/-
-      value: '--clientRateLimitBurst=350'
-    - op: replace
-      path: /spec/template/spec/containers/0/readinessProbe/timeoutSeconds
-      value: 10
-    - op: replace
-      path: /spec/template/spec/containers/0/readinessProbe/failureThreshold
-      value: 5
-    - op: replace
-      path: /spec/template/spec/initContainers/0/resources/limits/cpu
-      value: 250m
-    - op: replace
-      path: /spec/template/spec/containers/0/resources/requests/cpu
-      value: 500m
-  target:
-    kind: Deployment
-    name: kyverno
-- patch: |-
-    - op: replace
-      path: /data/resourceFilters
-      value: '[Event,*,*][*,kube-system,*][*,kube-public,*][*,kube-node-lease,*][Node,*,*][APIService,*,*][TokenReview,*,*][SubjectAccessReview,*,*][SelfSubjectAccessReview,*,*][*,kyverno,kyverno*][*,openshift,*][*,sealed-secrets,*][*,openshift-*,*][*,open-cluster-*,*][*,hive,*][*,stackrox,*][*,rhacs-operator,*][*,costmanagement-metrics-operator,*][Binding,*,*][ReplicaSet,*,*][ReportChangeRequest,*,*][ClusterReportChangeRequest,*,*][PolicyReport,*,*][ClusterPolicyReport,*,*]'
-    - op: replace
-      path: /data/webhooks
-      value: '[{"namespaceSelector": {"matchExpressions": [{"key":"kyverno","operator":"In","values":["enabled"]}]}}]'
-  target:
-    kind: ConfigMap
-    name: kyverno
-- patch: |-
-    - op: add
-      path: /metadata/annotations/argocd.argoproj.io~1sync-options
-      value: Validate=false,ServerSideApply=true
-  target:
-    kind: CustomResourceDefinition
+helmCharts:
+- name: kyverno
+  version: 3.0.5
+  repo: https://kyverno.github.io/kyverno/
+  valuesFile: values.yaml
+  namespace: kyverno
+  releaseName: kyverno
