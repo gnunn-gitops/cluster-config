@@ -90,7 +90,9 @@ applications:
       repoURL: https://github.com/gnunn-gitops/acm-hub-bootstrap.git
       path: bootstrap/policies/overlays/default
 
+  # Disable while we work this out
   nmstate:
+    enabled: false
     source:
       path: clusters/local.hub/apps/nmstate/overlays/sno
 
