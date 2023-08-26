@@ -15,7 +15,7 @@ spec:
         enabled: true
         auto-dns: true
     - name: enp0s31f6
-      state: absent
+      state: up
       type: ethernet
       ipv4:
         dhcp: true
