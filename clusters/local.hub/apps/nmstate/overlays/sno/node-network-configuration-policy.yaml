@@ -10,10 +10,10 @@ spec:
     - name: enp4s0
       state: up
       type: ethernet
-      # ipv4:
-      #   dhcp: true
-      #   enabled: true
-      #   auto-dns: true
+      ipv4:
+        # dhcp: true
+        enabled: true
+        auto-dns: true
     - name: enp0s31f6
       state: up
       type: ethernet
