@@ -73,14 +73,6 @@ applications:
     source:
       path: components/cert-manager-operator/aggregate/overlays/letsencrypt
 
-  dev-tools:
-    annotations:
-      argocd.argoproj.io/sync-wave: '31'
-    destination:
-      namespace: dev-tools
-    source:
-      path: components/dev-tools/overlays/default
-
   # kyverno:
   #   annotations:
   #     argocd.argoproj.io/compare-options: IgnoreExtraneous
