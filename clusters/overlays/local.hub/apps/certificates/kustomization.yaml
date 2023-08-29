@@ -1,5 +1,5 @@
 resources:
-- ../../../../../../components/apps/certificates/base
+- ../../../../../components/apps/certificates/base
 
 patches:
   - patch: |-

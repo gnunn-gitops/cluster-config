@@ -147,7 +147,7 @@ applications:
     destination:
       namespace: cert-manager-operator
     source:
-      path: clusters/overlays/local.hub/apps/certificates/overlays/hub
+      path: clusters/overlays/local.hub/apps/certificates
 
   dev-tools:
     annotations:

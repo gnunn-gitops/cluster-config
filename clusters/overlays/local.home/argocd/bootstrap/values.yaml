@@ -106,7 +106,7 @@ applications:
     destination:
       namespace: cert-manager-operator
     source:
-      path: clusters/overlays/local.home/apps/cluster-certs/overlays/home
+      path: clusters/overlays/local.home/apps/certificates
 
   openshift-monitoring:
     annotations:
