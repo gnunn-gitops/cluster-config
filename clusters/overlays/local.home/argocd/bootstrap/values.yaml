@@ -82,7 +82,7 @@ applications:
     annotations:
       argocd.argoproj.io/sync-wave: '11'
     source:
-      path: clusters/overlays/local.home/apps/consolelinks/overlays/default
+      path: clusters/overlays/local.home/apps/consolelinks
 
   authentication:
     annotations:

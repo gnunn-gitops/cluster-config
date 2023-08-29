@@ -123,7 +123,7 @@ applications:
     annotations:
       argocd.argoproj.io/sync-wave: '11'
     source:
-      path: clusters/local.hub/apps/consolelinks/overlays/default
+      path: clusters/local.hub/apps/consolelinks
 
   authentication:
     annotations:
