@@ -144,7 +144,7 @@ applications:
     destination:
       namespace: costmanagement-metrics-operator
     source:
-      path: clusters/overlays/local.home/apps/cost-management-operator/overlays/default
+      path: clusters/overlays/local.home/apps/cost-management-operator
 
   lokistack:
     enabled: false
