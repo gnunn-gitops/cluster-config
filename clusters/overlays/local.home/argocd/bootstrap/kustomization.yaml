@@ -19,7 +19,7 @@ patches:
     patch: |-
       - op: replace
         path: /spec/source/path
-        value: 'components/apps/compliance-operator/overlays/cis-compliance-master-only'
+        value: 'components/compliance-operator/overlays/cis-compliance-master-only'
       - op: replace
         path: /spec/source/repoURL
         value: 'https://github.com/gnunn-gitops/cluster-config'
