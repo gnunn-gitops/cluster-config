@@ -18,7 +18,7 @@ applications:
   #     argocd.argoproj.io/compare-options: IgnoreExtraneous
   #     argocd.argoproj.io/sync-wave: '21'
   #   source:
-  #     path: components/apps/acs-operator/overlays/oauth
+  #     path: components/acs-operator/overlays/oauth
 
   # acs-tokens:
   #   annotations:
@@ -32,7 +32,7 @@ applications:
       argocd.argoproj.io/compare-options: IgnoreExtraneous
       argocd.argoproj.io/sync-wave: '11'
     source:
-      path: components/configs/banner/base
+      path: components/banner/base
       extraSourceFields: |
         plugin:
           name: kustomize-envvar
@@ -44,7 +44,7 @@ applications:
     destination:
       namespace: openshift-monitoring
     source:
-      path: clusters/overlays/rhpds/apps/openshift-monitoring/base
+      path: clusters/overlays/rhpds/components/openshift-monitoring/base
 
   # product-catalog-root:
   #   project: cluster-config
@@ -61,7 +61,7 @@ applications:
   #   destination:
   #     namespace: kyverno
   #   source:
-  #     path: components/apps/kyverno/overlays/policies
+  #     path: components/kyverno/overlays/policies
   #   syncPolicyRetry:
   #     limit: 5
   #     backoff:

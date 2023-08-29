@@ -20,14 +20,14 @@ applications:
     destination:
       namespace: openshift-config
     source:
-      path: components/configs/oauth/overlays/google-with-matrix
+      path: components/oauth/overlays/google-with-matrix
 
   banner:
     annotations:
       argocd.argoproj.io/compare-options: IgnoreExtraneous
       argocd.argoproj.io/sync-wave: '11'
     source:
-      path: clusters/overlays/aws.cluster/apps/banner/overlays/hub
+      path: clusters/overlays/aws.cluster/banner
       extraSourceFields: |
         plugin:
           name: kustomize-envvar
@@ -38,7 +38,7 @@ applications:
     destination:
       namespace: cert-manager-operator
     source:
-      path: components/apps/cert-manager-operator/aggregate/overlays/letsencrypt
+      path: components/cert-manager-operator/aggregate/overlays/letsencrypt
 
   certificates:
     annotations:
@@ -46,7 +46,7 @@ applications:
     destination:
       namespace: cert-manager-operator
     source:
-      path: clusters/overlays/aws.cluster/apps/cluster-certs/overlays/cluster
+      path: clusters/overlays/aws.cluster/components/cluster-certs
 
   openshift-monitoring:
     annotations:
@@ -55,7 +55,7 @@ applications:
     destination:
       namespace: openshift-monitoring
     source:
-      path: clusters/overlays/aws.cluster/apps/openshift-monitoring/base
+      path: clusters/overlays/aws.cluster/components/openshift-monitoring
 
   # kyverno:
   #   annotations:
@@ -64,7 +64,7 @@ applications:
   #   destination:
   #     namespace: kyverno
   #   source:
-  #     path: components/apps/kyverno/overlays/policies
+  #     path: components/kyverno/overlays/policies
   #   syncPolicyRetry:
   #     limit: 5
   #     backoff:
@@ -90,7 +90,7 @@ applications:
     destination:
       namespace: openshift-operators
     source:
-      path: components/apps/web-terminal-operator/base
+      path: components/web-terminal-operator/base
 
   # product-catalog-root:
   #   project: cluster-config
