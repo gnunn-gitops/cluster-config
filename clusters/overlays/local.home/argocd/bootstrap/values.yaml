@@ -117,26 +117,6 @@ applications:
     source:
       path: clusters/overlays/local.home/apps/openshift-monitoring
 
-  quay-registry:
-    # leave disabled unless needed for demo
-    enabled: false
-    annotations:
-      argocd.argoproj.io/compare-options: IgnoreExtraneous
-      argocd.argoproj.io/sync-wave: '21'
-    source:
-      path: clusters/overlays/local.home/apps/quay-registry-operator
-
-  sso:
-    # Leave disabled unless needed for demo
-    enabled: false
-    annotations:
-      argocd.argoproj.io/compare-options: IgnoreExtraneous
-      argocd.argoproj.io/sync-wave: '21'
-    destination:
-      namespace: sso
-    source:
-      path: clusters/overlays/local.home/apps/sso/overlays/default
-
   cost-management:
     annotations:
       argocd.argoproj.io/compare-options: IgnoreExtraneous
