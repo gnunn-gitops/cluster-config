@@ -94,13 +94,13 @@ applications:
   nmstate:
     enabled: true
     source:
-      path: clusters/overlays/local.hub/apps/nmstate/overlays/sno
+      path: clusters/overlays/local.hub/apps/nmstate
 
   banner:
     annotations:
       argocd.argoproj.io/sync-wave: '11'
     source:
-      path: clusters/overlays/local.hub/apps/banner/overlays/hub
+      path: clusters/overlays/local.hub/apps/banner
       extraSourceFields: |
         plugin:
           name: kustomize-envvar
