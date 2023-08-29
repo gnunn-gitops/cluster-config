@@ -37,7 +37,7 @@ applications:
     destination:
       namespace: openshift-storage
     source:
-      path: clusters/overlays/local.hub/apps/lvm-operator/overlays/hub
+      path: clusters/overlays/local.hub/apps/lvm-operator
 
   registry:
     annotations:

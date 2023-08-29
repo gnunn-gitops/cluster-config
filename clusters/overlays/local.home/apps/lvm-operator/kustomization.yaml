@@ -1,5 +1,5 @@
 resources:
-- ../../../../../../components/apps/lvm-operator/base
+- ../../../../../components/apps/lvm-operator/base
 
 patches:
   - patch: |-
