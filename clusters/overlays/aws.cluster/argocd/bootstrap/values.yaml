@@ -27,7 +27,7 @@ applications:
       argocd.argoproj.io/compare-options: IgnoreExtraneous
       argocd.argoproj.io/sync-wave: '11'
     source:
-      path: clusters/aws.cluster/apps/banner/overlays/hub
+      path: clusters/overlays/aws.cluster/apps/banner/overlays/hub
       extraSourceFields: |
         plugin:
           name: kustomize-envvar
@@ -46,7 +46,7 @@ applications:
     destination:
       namespace: cert-manager-operator
     source:
-      path: clusters/aws.cluster/apps/cluster-certs/overlays/cluster
+      path: clusters/overlays/aws.cluster/apps/cluster-certs/overlays/cluster
 
   openshift-monitoring:
     annotations:
@@ -55,7 +55,7 @@ applications:
     destination:
       namespace: openshift-monitoring
     source:
-      path: clusters/aws.cluster/apps/openshift-monitoring/base
+      path: clusters/overlays/aws.cluster/apps/openshift-monitoring/base
 
   # kyverno:
   #   annotations:

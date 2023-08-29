@@ -25,7 +25,7 @@ applications:
     destination:
       namespace: openshift-storage
     source:
-      path: clusters/local.home/apps/lvm-operator/overlays/home
+      path: clusters/overlays/local.home/apps/lvm-operator/overlays/home
 
   registry:
     annotations:
@@ -82,7 +82,7 @@ applications:
     annotations:
       argocd.argoproj.io/sync-wave: '11'
     source:
-      path: clusters/local.home/apps/consolelinks/overlays/default
+      path: clusters/overlays/local.home/apps/consolelinks/overlays/default
 
   authentication:
     annotations:
@@ -106,7 +106,7 @@ applications:
     destination:
       namespace: cert-manager-operator
     source:
-      path: clusters/local.home/apps/cluster-certs/overlays/home
+      path: clusters/overlays/local.home/apps/cluster-certs/overlays/home
 
   openshift-monitoring:
     annotations:
@@ -115,7 +115,7 @@ applications:
     destination:
       namespace: openshift-monitoring
     source:
-      path: clusters/local.home/apps/openshift-monitoring/base
+      path: clusters/overlays/local.home/apps/openshift-monitoring/base
 
   quay-registry:
     # leave disabled unless needed for demo
@@ -124,7 +124,7 @@ applications:
       argocd.argoproj.io/compare-options: IgnoreExtraneous
       argocd.argoproj.io/sync-wave: '21'
     source:
-      path: clusters/local.home/apps/quay-registry-operator/overlays/qnap
+      path: clusters/overlays/local.home/apps/quay-registry-operator/overlays/qnap
 
   sso:
     # Leave disabled unless needed for demo
@@ -135,7 +135,7 @@ applications:
     destination:
       namespace: sso
     source:
-      path: clusters/local.home/apps/sso/overlays/default
+      path: clusters/overlays/local.home/apps/sso/overlays/default
 
   cost-management:
     annotations:
@@ -144,7 +144,7 @@ applications:
     destination:
       namespace: costmanagement-metrics-operator
     source:
-      path: clusters/local.home/apps/cost-management-operator/overlays/default
+      path: clusters/overlays/local.home/apps/cost-management-operator/overlays/default
 
   lokistack:
     enabled: false
@@ -152,7 +152,7 @@ applications:
       argocd.argoproj.io/compare-options: IgnoreExtraneous
       argocd.argoproj.io/sync-wave: '21'
     source:
-      path: clusters/local.home/apps/lokistack/overlays/qnap
+      path: clusters/overlays/local.home/apps/lokistack/overlays/qnap
     syncPolicyRetry:
       limit: 5
       backoff:
@@ -209,7 +209,7 @@ applications:
       argocd.argoproj.io/compare-options: IgnoreExtraneous
       argocd.argoproj.io/sync-wave: '99'
     source:
-      path: clusters/local.home/apps/node-config/base
+      path: clusters/overlays/local.home/apps/node-config/base
 
 # Tenants
   gitops:
