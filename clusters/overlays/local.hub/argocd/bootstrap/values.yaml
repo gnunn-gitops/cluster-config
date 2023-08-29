@@ -61,7 +61,7 @@ applications:
     destination:
       namespace: stackrox
     source:
-      path: clusters/overlays/local.hub/apps/acs-operator/overlays/certificate
+      path: clusters/overlays/local.hub/apps/acs-operator
 
   acm-hub:
     annotations:
