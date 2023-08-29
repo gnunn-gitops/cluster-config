@@ -3,14 +3,14 @@ kind: Kustomization
 
 helmCharts:
 - name: argocd-app-of-app
-  version: 0.2.4
+  version: 0.2.5
   repo: https://gnunn-gitops.github.io/helm-charts
   valuesFile: values.yaml
   namespace: openshift-gitops
-  releaseName: argocd-app-of-app-0.2.4
+  releaseName: cluster-config-bootstrap
 
 resources:
-- ../../../../base/argocd/bootstrap
+- ../../base
 
 patches:
   - target:
@@ -19,7 +19,7 @@ patches:
     patch: |-
       - op: replace
         path: /spec/source/path
-        value: 'components/apps/compliance-operator/overlays/cis-compliance'
+        value: 'components/compliance-operator/overlays/cis-compliance-master-only'
       - op: replace
         path: /spec/source/repoURL
         value: 'https://github.com/gnunn-gitops/cluster-config'

@@ -19,41 +19,11 @@ applications:
     source:
       path: clusters/overlays/local.hub/components/node-config
 
-  odf-operator:
-    annotations:
-      argocd.argoproj.io/sync-wave: '1'
-    source:
-      path: components/odf-operator/operator/overlays/no-registry
-
   odf-instance:
     annotations:
       argocd.argoproj.io/sync-wave: '2'
     source:
       path: components/odf-operator/instance/base
-
-  lvm-operator:
-    annotations:
-      argocd.argoproj.io/sync-wave: '2'
-    destination:
-      namespace: openshift-storage
-    source:
-      path: clusters/overlays/local.hub/components/lvm-operator
-
-  registry:
-    annotations:
-      argocd.argoproj.io/sync-wave: '5'
-    destination:
-      namespace: openshift-image-registry
-    source:
-      path: components/registry-sno/base
-
-  alertmanager:
-    annotations:
-      argocd.argoproj.io/sync-wave: '11'
-    destination:
-      namespace: openshift-monitoring
-    source:
-      path: components/alertmanager/base
 
   acs:
     annotations:
@@ -105,41 +75,11 @@ applications:
         plugin:
           name: kustomize-envvar
 
-  rbac:
-    annotations:
-      argocd.argoproj.io/compare-options: IgnoreExtraneous
-      argocd.argoproj.io/sync-wave: '11'
-    source:
-      path: components/rbac/base
-
-  ldap-group-sync:
-    annotations:
-      argocd.argoproj.io/compare-options: IgnoreExtraneous
-      argocd.argoproj.io/sync-wave: '11'
-    source:
-      path: components/ldap-group-sync/base
-
   console-links:
     annotations:
       argocd.argoproj.io/sync-wave: '11'
     source:
       path: clusters/overlays/local.hub/components/consolelinks
-
-  authentication:
-    annotations:
-      argocd.argoproj.io/sync-wave: '4'
-    destination:
-      namespace: openshift-config
-    source:
-      path: components/oauth/overlays/homelab
-
-  cert-manager-operator:
-    annotations:
-      argocd.argoproj.io/sync-wave: "2"
-    destination:
-      namespace: cert-manager-operator
-    source:
-      path: components/cert-manager-operator/aggregate/overlays/letsencrypt
 
   certificates:
     annotations:
@@ -195,31 +135,6 @@ applications:
         factor: 2
         maxDuration: 3m
 
-  # kyverno:
-  #   annotations:
-  #     argocd.argoproj.io/compare-options: IgnoreExtraneous
-  #     argocd.argoproj.io/sync-wave: '21'
-  #   destination:
-  #     namespace: kyverno
-  #   source:
-  #     path: components/kyverno/overlays/policies
-  #   syncPolicyRetry:
-  #     limit: 5
-  #     backoff:
-  #       duration: 5s
-  #       factor: 2
-  #       maxDuration: 3m
-  #   extraFields: |
-  #     ignoreDifferences:
-  #       - group: kyverno.io
-  #         kind: ClusterPolicy
-  #         jsonPointers:
-  #         - /spec/rules
-  #       - group: kyverno.io
-  #         kind: Policy
-  #         jsonPointers:
-  #         - /spec/rules
-
   # kyverno-acm:
   #   annotations:
   #     argocd.argoproj.io/compare-options: IgnoreExtraneous
@@ -228,12 +143,3 @@ applications:
   #     namespace: acm-policies
   #   source:
   #     path: components/kyverno-acm/base
-
-  web-terminal:
-    project: cluster-config
-    annotations:
-      argocd.argoproj.io/sync-wave: '21'
-    destination:
-      namespace: openshift-operators
-    source:
-      path: components/web-terminal-operator/base

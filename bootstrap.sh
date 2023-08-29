@@ -7,4 +7,4 @@ else
 fi
 
 oc project openshift-gitops
-kustomize build bootstrap/overlays/${OVERLAY} | oc apply -f -
+kustomize build bootstrap/overlays/${OVERLAY} --enable-helm | oc apply -f -
