@@ -25,7 +25,7 @@ applications:
     destination:
       namespace: openshift-storage
     source:
-      path: clusters/overlays/local.home/apps/lvm-operator
+      path: clusters/overlays/local.home/components/lvm-operator
 
   registry:
     annotations:
@@ -82,7 +82,7 @@ applications:
     annotations:
       argocd.argoproj.io/sync-wave: '11'
     source:
-      path: clusters/overlays/local.home/apps/consolelinks
+      path: clusters/overlays/local.home/components/consolelinks
 
   authentication:
     annotations:
@@ -106,7 +106,7 @@ applications:
     destination:
       namespace: cert-manager-operator
     source:
-      path: clusters/overlays/local.home/apps/certificates
+      path: clusters/overlays/local.home/components/certificates
 
   openshift-monitoring:
     annotations:
@@ -115,7 +115,7 @@ applications:
     destination:
       namespace: openshift-monitoring
     source:
-      path: clusters/overlays/local.home/apps/openshift-monitoring
+      path: clusters/overlays/local.home/components/openshift-monitoring
 
   cost-management:
     annotations:
@@ -124,7 +124,7 @@ applications:
     destination:
       namespace: costmanagement-metrics-operator
     source:
-      path: clusters/overlays/local.home/apps/cost-management-operator
+      path: clusters/overlays/local.home/components/cost-management-operator
 
   lokistack:
     enabled: false
@@ -132,7 +132,7 @@ applications:
       argocd.argoproj.io/compare-options: IgnoreExtraneous
       argocd.argoproj.io/sync-wave: '21'
     source:
-      path: clusters/overlays/local.home/apps/lokistack
+      path: clusters/overlays/local.home/components/lokistack
     syncPolicyRetry:
       limit: 5
       backoff:
@@ -189,7 +189,7 @@ applications:
       argocd.argoproj.io/compare-options: IgnoreExtraneous
       argocd.argoproj.io/sync-wave: '99'
     source:
-      path: clusters/overlays/local.home/apps/node-config
+      path: clusters/overlays/local.home/components/node-config
 
 # Tenants
   gitops:

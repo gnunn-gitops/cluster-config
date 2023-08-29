@@ -17,7 +17,7 @@ applications:
     annotations:
       argocd.argoproj.io/sync-wave: '0'
     source:
-      path: clusters/overlays/local.hub/apps/node-config
+      path: clusters/overlays/local.hub/components/node-config
 
   odf-operator:
     annotations:
@@ -37,7 +37,7 @@ applications:
     destination:
       namespace: openshift-storage
     source:
-      path: clusters/overlays/local.hub/apps/lvm-operator
+      path: clusters/overlays/local.hub/components/lvm-operator
 
   registry:
     annotations:
@@ -61,7 +61,7 @@ applications:
     destination:
       namespace: stackrox
     source:
-      path: clusters/overlays/local.hub/apps/acs-operator
+      path: clusters/overlays/local.hub/components/acs-operator
 
   acm-hub:
     annotations:
@@ -94,13 +94,13 @@ applications:
   nmstate:
     enabled: true
     source:
-      path: clusters/overlays/local.hub/apps/nmstate
+      path: clusters/overlays/local.hub/components/nmstate
 
   banner:
     annotations:
       argocd.argoproj.io/sync-wave: '11'
     source:
-      path: clusters/overlays/local.hub/apps/banner
+      path: clusters/overlays/local.hub/components/banner
       extraSourceFields: |
         plugin:
           name: kustomize-envvar
@@ -123,7 +123,7 @@ applications:
     annotations:
       argocd.argoproj.io/sync-wave: '11'
     source:
-      path: clusters/overlays/local.hub/apps/consolelinks
+      path: clusters/overlays/local.hub/components/consolelinks
 
   authentication:
     annotations:
@@ -147,7 +147,7 @@ applications:
     destination:
       namespace: cert-manager-operator
     source:
-      path: clusters/overlays/local.hub/apps/certificates
+      path: clusters/overlays/local.hub/components/certificates
 
   dev-tools:
     annotations:
@@ -164,7 +164,7 @@ applications:
     destination:
       namespace: openshift-monitoring
     source:
-      path: clusters/overlays/local.hub/apps/openshift-monitoring
+      path: clusters/overlays/local.hub/components/openshift-monitoring
 
   quay-registry:
     # leave disabled unless needed for demo
@@ -172,7 +172,7 @@ applications:
     annotations:
       argocd.argoproj.io/sync-wave: '21'
     source:
-      path: clusters/overlays/local.hub/apps/quay-registry-operator
+      path: clusters/overlays/local.hub/components/quay-registry-operator
 
   cost-management:
     annotations:
@@ -180,14 +180,14 @@ applications:
     destination:
       namespace: costmanagement-metrics-operator
     source:
-      path: clusters/overlays/local.hub/apps/cost-management-operator
+      path: clusters/overlays/local.hub/components/cost-management-operator
 
   lokistack:
     enabled: false
     annotations:
       argocd.argoproj.io/sync-wave: '21'
     source:
-      path: clusters/overlays/local.hub/apps/lokistack
+      path: clusters/overlays/local.hub/components/lokistack
     syncPolicyRetry:
       limit: 5
       backoff:
