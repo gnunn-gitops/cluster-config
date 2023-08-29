@@ -172,7 +172,7 @@ applications:
     annotations:
       argocd.argoproj.io/sync-wave: '21'
     source:
-      path: clusters/overlays/local.hub/apps/quay-registry-operator/overlays/qnap
+      path: clusters/overlays/local.hub/apps/quay-registry-operator
 
   cost-management:
     annotations:

@@ -7,7 +7,7 @@ commonAnnotations:
 namespace: quay
 
 resources:
-- ../../../../../../components/apps/quay-registry-operator/overlays/default
+- github.com/redhat-cop/gitops-catalog/quay-operator/operator/overlays/stable-3.8
 - init-user-password-secret.yaml
 - init-quay-job.yaml
 - registry-config-bundle-secret.yaml
