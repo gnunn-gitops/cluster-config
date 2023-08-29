@@ -70,7 +70,7 @@ applications:
       namespace: open-cluster-management
     source:
       repoURL: https://github.com/gnunn-gitops/acm-hub-bootstrap.git
-      path: components/acm/overlays/hub
+      path: components/apps/acm/overlays/hub
 
   acm-observability:
     annotations:
@@ -79,7 +79,7 @@ applications:
       namespace: open-cluster-management-observability
     source:
       repoURL: https://github.com/gnunn-gitops/acm-hub-bootstrap.git
-      path: components/acm/overlays/observability
+      path: components/apps/acm/overlays/observability
 
   acm-policies:
     annotations:
