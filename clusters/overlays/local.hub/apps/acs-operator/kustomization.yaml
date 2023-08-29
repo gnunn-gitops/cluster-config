@@ -2,5 +2,5 @@ commonAnnotations:
   argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
 
 resources:
-- ../../../../../../components/acs-operator/overlays/oauth
+- ../../../../../components/acs-operator/overlays/oauth
 - certificate.yaml
