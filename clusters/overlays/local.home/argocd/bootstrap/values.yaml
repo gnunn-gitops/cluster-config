@@ -209,7 +209,7 @@ applications:
       argocd.argoproj.io/compare-options: IgnoreExtraneous
       argocd.argoproj.io/sync-wave: '99'
     source:
-      path: clusters/overlays/local.home/apps/node-config/base
+      path: clusters/overlays/local.home/apps/node-config
 
 # Tenants
   gitops:

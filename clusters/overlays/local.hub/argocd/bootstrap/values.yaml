@@ -17,7 +17,7 @@ applications:
     annotations:
       argocd.argoproj.io/sync-wave: '0'
     source:
-      path: clusters/overlays/local.hub/apps/node-config/base
+      path: clusters/overlays/local.hub/apps/node-config
 
   odf-operator:
     annotations:
