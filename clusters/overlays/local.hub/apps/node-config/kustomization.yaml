@@ -1,6 +1,6 @@
 resources:
 - set-max-pods.yaml
-- ../../../../../components/configs/wake-on-lan/base
+- ../../../../../components/wake-on-lan/base
 
 patches:
   - patch: |

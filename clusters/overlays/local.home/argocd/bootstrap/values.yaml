@@ -17,7 +17,7 @@ applications:
     annotations:
       argocd.argoproj.io/sync-wave: '0'
     source:
-      path: components/apps/odf-operator/operator/overlays/no-registry
+      path: components/odf-operator/operator/overlays/no-registry
 
   lvm-operator:
     annotations:
@@ -33,21 +33,21 @@ applications:
     destination:
       namespace: openshift-image-registry
     source:
-      path: components/configs/registry-sno/base
+      path: components/registry-sno/base
 
   rbac:
     annotations:
       argocd.argoproj.io/compare-options: IgnoreExtraneous
       argocd.argoproj.io/sync-wave: '11'
     source:
-      path: components/configs/rbac/base
+      path: components/rbac/base
 
   ldap-group-sync:
     annotations:
       argocd.argoproj.io/compare-options: IgnoreExtraneous
       argocd.argoproj.io/sync-wave: '11'
     source:
-      path: components/configs/ldap-group-sync/base
+      path: components/ldap-group-sync/base
 
   acs-secured-cluster:
     annotations:
@@ -55,7 +55,7 @@ applications:
     destination:
       namespace: rhacs-operator
     source:
-      path: components/apps/acs-operator/overlays/secured-cluster
+      path: components/acs-operator/overlays/secured-cluster
       extraSourceFields: |
         plugin:
           name: kustomize-envvar
@@ -67,13 +67,13 @@ applications:
     destination:
       namespace: openshift-monitoring
     source:
-      path: components/configs/alertmanager/base
+      path: components/alertmanager/base
 
   banner:
     annotations:
       argocd.argoproj.io/sync-wave: '11'
     source:
-      path: components/configs/banner/base
+      path: components/banner/base
       extraSourceFields: |
         plugin:
           name: kustomize-envvar
@@ -90,7 +90,7 @@ applications:
     destination:
       namespace: openshift-config
     source:
-      path: components/configs/oauth/overlays/homelab
+      path: components/oauth/overlays/homelab
 
   cert-manager-operator:
     annotations:
@@ -98,7 +98,7 @@ applications:
     destination:
       namespace: cert-manager-operator
     source:
-      path: components/apps/cert-manager-operator/aggregate/overlays/letsencrypt
+      path: components/cert-manager-operator/aggregate/overlays/letsencrypt
 
   certificates:
     annotations:
@@ -147,7 +147,7 @@ applications:
   #   destination:
   #     namespace: kyverno
   #   source:
-  #     path: components/apps/kyverno/overlays/policies
+  #     path: components/kyverno/overlays/policies
   #   syncPolicyRetry:
   #     limit: 5
   #     backoff:
@@ -172,7 +172,7 @@ applications:
   #   destination:
   #     namespace: acm-policies
   #   source:
-  #     path: components/apps/kyverno-acm/base
+  #     path: components/kyverno-acm/base
 
   web-terminal:
     project: cluster-config
@@ -182,7 +182,7 @@ applications:
     destination:
       namespace: openshift-operators
     source:
-      path: components/apps/web-terminal-operator/base
+      path: components/web-terminal-operator/base
 
   node-config:
     annotations:

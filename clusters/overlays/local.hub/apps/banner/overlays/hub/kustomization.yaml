@@ -1,5 +1,5 @@
 resources:
-- ../../../../../../components/configs/banner/base
+- ../../../../../../components/banner/base
 
 patches:
 - patch: |-

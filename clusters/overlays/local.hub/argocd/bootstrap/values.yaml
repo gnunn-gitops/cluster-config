@@ -23,13 +23,13 @@ applications:
     annotations:
       argocd.argoproj.io/sync-wave: '1'
     source:
-      path: components/apps/odf-operator/operator/overlays/no-registry
+      path: components/odf-operator/operator/overlays/no-registry
 
   odf-instance:
     annotations:
       argocd.argoproj.io/sync-wave: '2'
     source:
-      path: components/apps/odf-operator/instance/base
+      path: components/odf-operator/instance/base
 
   lvm-operator:
     annotations:
@@ -45,7 +45,7 @@ applications:
     destination:
       namespace: openshift-image-registry
     source:
-      path: components/configs/registry-sno/base
+      path: components/registry-sno/base
 
   alertmanager:
     annotations:
@@ -53,7 +53,7 @@ applications:
     destination:
       namespace: openshift-monitoring
     source:
-      path: components/configs/alertmanager/base
+      path: components/alertmanager/base
 
   acs:
     annotations:
@@ -70,7 +70,7 @@ applications:
       namespace: open-cluster-management
     source:
       repoURL: https://github.com/gnunn-gitops/acm-hub-bootstrap.git
-      path: components/apps/acm/overlays/hub
+      path: components/acm/overlays/hub
 
   acm-observability:
     annotations:
@@ -79,7 +79,7 @@ applications:
       namespace: open-cluster-management-observability
     source:
       repoURL: https://github.com/gnunn-gitops/acm-hub-bootstrap.git
-      path: components/apps/acm/overlays/observability
+      path: components/acm/overlays/observability
 
   acm-policies:
     annotations:
@@ -110,14 +110,14 @@ applications:
       argocd.argoproj.io/compare-options: IgnoreExtraneous
       argocd.argoproj.io/sync-wave: '11'
     source:
-      path: components/configs/rbac/base
+      path: components/rbac/base
 
   ldap-group-sync:
     annotations:
       argocd.argoproj.io/compare-options: IgnoreExtraneous
       argocd.argoproj.io/sync-wave: '11'
     source:
-      path: components/configs/ldap-group-sync/base
+      path: components/ldap-group-sync/base
 
   console-links:
     annotations:
@@ -131,7 +131,7 @@ applications:
     destination:
       namespace: openshift-config
     source:
-      path: components/configs/oauth/overlays/homelab
+      path: components/oauth/overlays/homelab
 
   cert-manager-operator:
     annotations:
@@ -139,7 +139,7 @@ applications:
     destination:
       namespace: cert-manager-operator
     source:
-      path: components/apps/cert-manager-operator/aggregate/overlays/letsencrypt
+      path: components/cert-manager-operator/aggregate/overlays/letsencrypt
 
   certificates:
     annotations:
@@ -155,7 +155,7 @@ applications:
     destination:
       namespace: dev-tools
     source:
-      path: components/apps/dev-tools/overlays/default
+      path: components/dev-tools/overlays/default
 
   openshift-monitoring:
     annotations:
@@ -202,7 +202,7 @@ applications:
   #   destination:
   #     namespace: kyverno
   #   source:
-  #     path: components/apps/kyverno/overlays/policies
+  #     path: components/kyverno/overlays/policies
   #   syncPolicyRetry:
   #     limit: 5
   #     backoff:
@@ -227,7 +227,7 @@ applications:
   #   destination:
   #     namespace: acm-policies
   #   source:
-  #     path: components/apps/kyverno-acm/base
+  #     path: components/kyverno-acm/base
 
   web-terminal:
     project: cluster-config
@@ -236,4 +236,4 @@ applications:
     destination:
       namespace: openshift-operators
     source:
-      path: components/apps/web-terminal-operator/base
+      path: components/web-terminal-operator/base

@@ -63,7 +63,7 @@ applications:
     destination:
       namespace: openshift-operators
     source:
-      path: components/apps/eso/overlays/aggregate
+      path: components/eso/overlays/aggregate
 
   gitops-dashboards:
     annotations:
@@ -72,14 +72,14 @@ applications:
     destination:
       namespace: openshift-config-managed
     source:
-      path: components/configs/gitops-dashboard/base
+      path: components/gitops-dashboard/base
 
   helm-repos:
     annotations:
       argocd.argoproj.io/compare-options: IgnoreExtraneous
       argocd.argoproj.io/sync-wave: '11'
     source:
-      path: components/configs/helm-repos/base
+      path: components/helm-repos/base
 
   pipeline-operator:
     annotations:
@@ -88,7 +88,7 @@ applications:
     destination:
       namespace: openshift-operators
     source:
-      path: components/apps/pipelines-operator/overlays/chains
+      path: components/pipelines-operator/overlays/chains
     syncPolicyRetry:
       limit: 5
       backoff:
@@ -101,18 +101,18 @@ applications:
       argocd.argoproj.io/compare-options: IgnoreExtraneous
       argocd.argoproj.io/sync-wave: '41'
     source:
-      path: components/apps/tekton-cluster-tasks/base
+      path: components/tekton-cluster-tasks/base
 
   dev-console-plugin:
     destination:
       namespace: dev-console-plugin
       argocd.argoproj.io/sync-wave: '41'
     source:
-      path: components/apps/dev-console-plugin/base
+      path: components/dev-console-plugin/base
 
   gitops-admin-plugin:
     destination:
       namespace: gitops-admin-plugin
       argocd.argoproj.io/sync-wave: '41'
     source:
-      path: components/apps/gitops-admin-plugin/base
+      path: components/gitops-admin-plugin/base
