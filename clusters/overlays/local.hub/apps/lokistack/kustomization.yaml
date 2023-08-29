@@ -1,0 +1,8 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+- ../../../../../components/apps/loki/operator/cluster-logging/base
+- ../../../../../components/apps/loki/operator/loki/base
+- ../../../../../components/apps/loki/instance/overlays/sno
+- loki-storage-qnap-secret.yaml
