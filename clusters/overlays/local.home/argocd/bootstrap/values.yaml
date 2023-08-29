@@ -115,7 +115,7 @@ applications:
     destination:
       namespace: openshift-monitoring
     source:
-      path: clusters/overlays/local.home/apps/openshift-monitoring/base
+      path: clusters/overlays/local.home/apps/openshift-monitoring
 
   quay-registry:
     # leave disabled unless needed for demo
