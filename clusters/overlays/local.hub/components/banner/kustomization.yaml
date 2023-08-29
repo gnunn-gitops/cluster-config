@@ -8,4 +8,4 @@ patches:
       value: "#3E8635"
   target:
     kind: ConsoleNotification
-    name: home-banner
+    name: banner
