@@ -10,7 +10,7 @@ helmCharts:
   releaseName: argocd-app-of-app-0.2.5
 
 resources:
-- ../../../default/argocd/bootstrap
+- ../../../../base/argocd/bootstrap
 
 patches:
   - target:

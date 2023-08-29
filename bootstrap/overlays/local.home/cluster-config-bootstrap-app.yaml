@@ -11,7 +11,7 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: clusters/local.home/argocd/bootstrap
+    path: clusters/overlays/local.home/argocd/bootstrap
     repoURL: https://github.com/gnunn-gitops/cluster-config.git
     targetRevision: main
   syncPolicy:
