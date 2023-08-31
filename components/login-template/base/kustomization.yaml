@@ -14,3 +14,7 @@ secretGenerator:
     disableNameSuffixHash: true
   files:
     - login/providers.html 
+
+generatorOptions:
+  annotations:
+    argocd.argoproj.io/compare-options: IgnoreExtraneous    
