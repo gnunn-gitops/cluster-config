@@ -27,6 +27,22 @@ applications:
     source:
       path: clusters/overlays/local.hub/components/lvm-operator
 
+  cert-manager-operator:
+    annotations:
+      argocd.argoproj.io/sync-wave: "2"
+    destination:
+      namespace: cert-manager-operator
+    source:
+      path: components/cert-manager-operator/aggregate/overlays/letsencrypt
+
+  authentication:
+    annotations:
+      argocd.argoproj.io/sync-wave: '4'
+    destination:
+      namespace: openshift-config
+    source:
+      path: components/oauth/overlays/homelab
+
   registry:
     annotations:
       argocd.argoproj.io/sync-wave: '5'
@@ -57,21 +73,6 @@ applications:
     source:
       path: components/ldap-group-sync/base
 
-  authentication:
-    annotations:
-      argocd.argoproj.io/sync-wave: '4'
-    destination:
-      namespace: openshift-config
-    source:
-      path: components/oauth/overlays/homelab
-
-  cert-manager-operator:
-    annotations:
-      argocd.argoproj.io/sync-wave: "2"
-    destination:
-      namespace: cert-manager-operator
-    source:
-      path: components/cert-manager-operator/aggregate/overlays/letsencrypt
 
   # kyverno:
   #   annotations:
@@ -107,3 +108,12 @@ applications:
       namespace: openshift-operators
     source:
       path: components/web-terminal-operator/base
+
+  defrag-etcd:
+    project: cluster-config
+    annotations:
+      argocd.argoproj.io/sync-wave: '99'
+    destination:
+      namespace: openshift-etcd
+    source:
+      path: components/defrag-etcd/base
