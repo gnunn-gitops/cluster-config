@@ -19,7 +19,7 @@ metadata:
 spec:
   validationFailureAction: audit
   failurePolicy: Ignore
-  background: true
+  background: false
   rules:
   - name: validate-livenessProbe-readinessProbe
     match:

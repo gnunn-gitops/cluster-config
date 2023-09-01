@@ -11,11 +11,11 @@ metadata:
       The ':latest' tag is mutable and can lead to unexpected errors if the
       image changes. A best practice is to use an immutable tag that maps to
       a specific version of an application Pod. This policy validates that the image
-      specifies a tag and that it is not called `latest`.      
+      specifies a tag and that it is not called `latest`.
 spec:
   validationFailureAction: audit
   failurePolicy: Ignore
-  background: true
+  background: false
   rules:
   - name: require-image-tag
     match:

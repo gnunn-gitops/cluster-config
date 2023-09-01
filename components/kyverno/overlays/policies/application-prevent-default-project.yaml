@@ -15,7 +15,7 @@ metadata:
 spec:
   validationFailureAction: audit
   failurePolicy: Ignore
-  background: true
+  background: false
   rules:
     - name: default-project
       match:

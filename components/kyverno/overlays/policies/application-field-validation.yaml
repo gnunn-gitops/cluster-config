@@ -13,11 +13,11 @@ metadata:
     policies.kyverno.io/description: >-
       This policy performs some best practices validation on Application fields.
       Path or chart must be specified but never both. And destination.name or
-      destination.server must be specified but never both.      
+      destination.server must be specified but never both.
 spec:
   validationFailureAction: audit
   failurePolicy: Ignore
-  background: true
+  background: false
   rules:
     - name: source-path-chart
       match:

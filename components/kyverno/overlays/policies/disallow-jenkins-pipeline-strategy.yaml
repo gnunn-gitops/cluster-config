@@ -3,7 +3,7 @@ kind: ClusterPolicy
 metadata:
   name: disallow-jenkins-pipeline-strategy
   annotations:
-    policies.kyverno.io/title: Disallow OpenShift Jenkins Pipeline Build Strategy 
+    policies.kyverno.io/title: Disallow OpenShift Jenkins Pipeline Build Strategy
     policies.kyverno.io/category: OpenShift
     policies.kyverno.io/severity: medium
     kyverno.io/kyverno-version: 1.6.0
@@ -15,7 +15,7 @@ metadata:
 spec:
   validationFailureAction: enforce
   failurePolicy: Ignore
-  background: true
+  background: false
   rules:
   - name: check-build-strategy
     match:
@@ -26,7 +26,7 @@ spec:
     validate:
       message: >-
                 Jenkins Pipeline Build Strategy has been deprecated and is not allowed
-      deny: 
+      deny:
         conditions:
           all:
           - key: "{{ keys(request.object.spec.strategy) | contains(@, 'jenkinsPipelineStrategy') }}"
