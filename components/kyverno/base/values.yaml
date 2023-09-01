@@ -45,6 +45,8 @@ config:
     - '[*/*,kube-node-lease,*]'
     - '[*/*,openshift,*]'
     - '[*/*, openshift-*, *]'
+    - '[*/*, openshift-apiserver, *]'
+    - '[*/*, openshift-apiserver-operator, *]'
     - '[*/*,open-cluster-*,*]'
     - '[*/*,hive,*]'
     - '[*/*, multicluster-engine,*]'
