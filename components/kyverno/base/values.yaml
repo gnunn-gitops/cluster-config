@@ -57,6 +57,7 @@ config:
     - '[*/*,open-cluster-management,*]'
     - '[*/*,open-cluster-management-hub,*]'
     - '[*/*,open-cluster-management-observability,*]'
+    - '[*/*,open-cluster-management-addon-observability,*]'
     - '[*/*,open-cluster-management-agent,*]'
     - '[*/*,open-cluster-management-agent-addon,*]'
     - '[*/*,open-cluster-management-global-set,*]'
