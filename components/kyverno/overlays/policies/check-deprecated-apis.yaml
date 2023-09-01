@@ -34,7 +34,6 @@ spec:
           - discovery.k8s.io/*/EndpointSlice
           - events.k8s.io/*/Event
           - policy/*/PodDisruptionBudget
-          - policy/*/PodSecurityPolicy
           - node.k8s.io/*/RuntimeClass
     preconditions:
       all:
