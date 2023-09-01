@@ -1,6 +1,10 @@
 apiVersionOverride:
   podDisruptionBudget: policy/v1
 
+features:
+  backgroundScan:
+    skipResourceFilters: false
+
 admissionController:
   replicas: 3
   antiAffinity:
