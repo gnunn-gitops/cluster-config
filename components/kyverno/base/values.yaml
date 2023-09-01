@@ -1,5 +1,5 @@
 apiVersionOverride:
-  podDisruptionBudget: v1/policy
+  podDisruptionBudget: policy/v1
 
 admissionController:
   replicas: 3
