@@ -10,7 +10,7 @@ spec:
         spec:
           containers:
           - name: defrag-etcd
-            image: image-registry.openshift-image-registry.svc:5000/openshift/cli:latest
+            image: registry.redhat.io/openshift4/ose-cli:latest
             imagePullPolicy: IfNotPresent
             command:
               - /bin/bash
