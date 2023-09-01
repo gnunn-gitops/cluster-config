@@ -24,6 +24,12 @@ reportsController:
   antiAffinity:
     # anti-affinity won't work on SNO
     enabled: false
+  resources:
+    limits:
+      memory: 384Mi
+    requests:
+      cpu: 100m
+      memory: 256Mi
 
 crds:
   install: true
