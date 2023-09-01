@@ -1,3 +1,6 @@
+apiVersionOverride:
+  podDisruptionBudget: v1/policy
+
 admissionController:
   replicas: 3
   antiAffinity:
