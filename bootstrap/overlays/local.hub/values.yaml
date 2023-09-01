@@ -135,11 +135,11 @@ applications:
         factor: 2
         maxDuration: 3m
 
-  # kyverno-acm:
-  #   annotations:
-  #     argocd.argoproj.io/compare-options: IgnoreExtraneous
-  #     argocd.argoproj.io/sync-wave: '21'
-  #   destination:
-  #     namespace: acm-policies
-  #   source:
-  #     path: components/kyverno-acm/base
+  kyverno-acm:
+    annotations:
+      argocd.argoproj.io/compare-options: IgnoreExtraneous
+      argocd.argoproj.io/sync-wave: '21'
+    destination:
+      namespace: acm-policies
+    source:
+      path: components/kyverno-acm/base
