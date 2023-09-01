@@ -33,7 +33,6 @@ spec:
         - authorization.k8s.io/*/SelfSubjectAccessReview
         - certificates.k8s.io/*/CertificateSigningRequest
         - coordination.k8s.io/*/Lease
-        - extensions/*/Ingress
         - networking.k8s.io/*/Ingress
         - networking.k8s.io/*/IngressClass
         - rbac.authorization.k8s.io/*/ClusterRole
