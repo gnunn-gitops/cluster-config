@@ -2,3 +2,6 @@
 - op: replace
   path: /spec/containers/0/env/0/value
   value: '-openshift-sar={"namespace":"product-catalog-monitor","resource":"routes","name":"grafana-route","verb":"get"}'
+- op: add
+  path: /spec/containers/0/ports/0/protocol
+  value: TCP
