@@ -52,6 +52,10 @@ spec:
     running-in-environment-with-injected-sidecars: true
     send-cloudevents-for-runs: false
     trusted-resources-verification-no-match-policy: ignore
+    git-resolver-config:
+      default-revision: main
+      fetch-timeout: 1m
+      default-url: https://github.com/gnunn-gitops/tekton-tasks
   platforms:
     openshift:
       pipelinesAsCode:
