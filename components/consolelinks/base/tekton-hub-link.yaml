@@ -1,0 +1,11 @@
+apiVersion: console.openshift.io/v1
+kind: ConsoleLink
+metadata:
+  name: tekton-hub
+spec:
+  href: 'https://tekton-hub-ui-openshift-pipelines.apps.hub.ocplab.com'
+  location: ApplicationMenu
+  text: Tekton Hub
+  applicationMenu:
+    section: Tools
+    imageURL: https://tekton-hub-ui-openshift-pipelines.apps.hub.ocplab.com/tekton.png
