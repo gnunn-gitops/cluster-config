@@ -31,7 +31,7 @@ spec:
     default-service-account: pipeline
     disable-affinity-assistant: true
     disable-creds-init: false
-    enable-api-fields: stable
+    enable-api-fields: beta
     enable-bundles-resolver: true
     enable-cluster-resolver: true
     enable-custom-tasks: true
