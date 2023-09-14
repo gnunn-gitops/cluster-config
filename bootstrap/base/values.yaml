@@ -96,13 +96,6 @@ applications:
         factor: 2
         maxDuration: 3m
 
-  tekton-cluster-tasks:
-    annotations:
-      argocd.argoproj.io/compare-options: IgnoreExtraneous
-      argocd.argoproj.io/sync-wave: '41'
-    source:
-      path: components/tekton-cluster-tasks/base
-
   dev-console-plugin:
     destination:
       namespace: dev-console-plugin
