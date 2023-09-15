@@ -6,3 +6,4 @@ resources:
 - acs-consolelink.yaml
 - nexus-consolelink.yaml
 - sonarqube-consolelink.yaml
+- tekton-hub-link.yaml

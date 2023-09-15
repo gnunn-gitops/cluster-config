@@ -4,4 +4,3 @@ kind: Kustomization
 resources:
 - quay-link.yaml
 - sso-link.yaml
-- tekton-hub-link.yaml
