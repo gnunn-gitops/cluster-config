@@ -3,6 +3,12 @@ admissionController:
   antiAffinity:
     # anti-affinity won't work on SNO
     enabled: false
+  resources:
+    limits:
+      memory: 512Mi
+    requests:
+      cpu: 100m
+      memory: 256Mi
 
 backgroundController:
   replicas: 1
