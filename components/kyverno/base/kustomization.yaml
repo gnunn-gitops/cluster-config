@@ -14,4 +14,10 @@ helmCharts:
 
 # Delete kyverno PDB, not useful on SNO
 patches:
-  - delete-pdb-patch.yaml
+  - patch: |-
+      $patch: delete
+      apiVersion: policy/v1
+      kind: PodDisruptionBudget
+      metadata:
+        name: kyverno-admission-controller
+        namespace: kyverno
