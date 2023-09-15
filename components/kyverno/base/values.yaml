@@ -15,6 +15,12 @@ cleanupController:
   antiAffinity:
     # anti-affinity won't work on SNO
     enabled: false
+  resources:
+    limits:
+      memory: 256Mi
+    requests:
+      cpu: 100m
+      memory: 128Mi
 
 reportsController:
   replicas: 1
