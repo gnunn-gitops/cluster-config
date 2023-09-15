@@ -11,3 +11,7 @@ helmCharts:
   valuesFile: values.yaml
   namespace: kyverno
   releaseName: kyverno
+
+# Delete kyverno PDB, not useful on SNO
+patches:
+  - delete-pdb-patch.yaml

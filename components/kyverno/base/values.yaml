@@ -27,6 +27,9 @@ crds:
   annotations:
     argocd.argoproj.io/sync-options: Validate=false,ServerSideApply=true
 
+apiVersionOverride:
+  podDisruptionBudget: policy/v1
+
 config:
   resourceFilters:
     - '[Event,*,*]'
