@@ -12,6 +12,7 @@ metadata:
       This policy adds an annotation to a route that will cause the Argo CD UI
       to display an icon representing a clickable link for the route.
 spec:
+  validationFailureAction: enforce
   rules:
   - name: add-annotations-for-https
     match:
