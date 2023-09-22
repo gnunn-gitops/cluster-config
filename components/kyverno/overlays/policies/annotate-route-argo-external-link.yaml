@@ -20,6 +20,8 @@ spec:
       - resources:
           kinds:
           - route.openshift.io/v1/Route
+          operations:
+          - UPDATE
     preconditions:
       all:
       - key: "{{ request.object.spec.host || '' }}"
@@ -42,6 +44,8 @@ spec:
       - resources:
           kinds:
           - route.openshift.io/v1/Route
+          operations:
+          - UPDATE
     preconditions:
       all:
       - key: "{{ request.object.spec.host || '' }}"
