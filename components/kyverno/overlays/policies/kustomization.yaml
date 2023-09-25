@@ -16,4 +16,4 @@ resources:
 - disallow-jenkins-pipeline-strategy.yaml
 - application-prevent-default-project.yaml
 - application-field-validation.yaml
-- annotate-route-argo-external-link.yaml
+# - annotate-route-argo-external-link.yaml
