@@ -10,8 +10,6 @@ default:
     source:
       repoURL: https://github.com/gnunn-gitops/cluster-config.git
       targetRevision: HEAD
-    labels:
-      app-source: local.home
 
 applications:
 
