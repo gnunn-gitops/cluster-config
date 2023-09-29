@@ -55,6 +55,11 @@ do
   echo "Validating $i"
   echo
 
+  if [ -f "$i/.skip_validation" ]; then
+    echo "Skipping validation due to .skip_validation marker file"
+    continue
+  fi
+
   KUSTOMIZE_BUILD_OUTPUT=$(${KUSTOMIZE_CMD} "$i" $KUSTOMIZE_OPTIONS)
 
   build_response=$?
