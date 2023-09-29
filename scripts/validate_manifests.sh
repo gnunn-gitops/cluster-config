@@ -21,6 +21,8 @@ IGNORE_MISSING_SCHEMAS="--ignore-missing-schemas"
 SCHEMA_LOCATION="${DIR}/openshift-json-schema"
 KUSTOMIZE_DIRS="${DIR}"
 
+errors=0
+
 for i in "$@"
 do
   case $i in
@@ -56,7 +58,7 @@ do
 
   if [ $build_response -ne 0 ]; then
     echo "Error building $i"
-    exit 1
+    errors=$build_response
   fi
 
 #  echo "$KUSTOMIZE_BUILD_OUTPUT" | kubeval ${IGNORE_MISSING_SCHEMAS} --schema-location="file://${SCHEMA_LOCATION}" --force-color
@@ -68,6 +70,11 @@ do
 #    exit 1
 #  fi
 done
+
+if [$errors -ne 0]; then
+  echo "Errors occurred, see logs"
+  exit $errors
+fi
 
 echo
 echo "Manifests successfully validated!"
