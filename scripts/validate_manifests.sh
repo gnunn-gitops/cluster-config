@@ -17,11 +17,12 @@ Where:
 which kustomize && KUSTOMIZE_CMD="kustomize build"
 
 KUSTOMIZE_CMD="${KUSTOMIZE_CMD:-oc kustomize}"
+KUSTOMIZE_OPTIONS="--enable-helm"
 IGNORE_MISSING_SCHEMAS="--ignore-missing-schemas"
 SCHEMA_LOCATION="${DIR}/openshift-json-schema"
 KUSTOMIZE_DIRS="${DIR}"
-
-errors=0
+ERROR_COLOR='\033[0;31m'
+NO_COLOR='\033[0m'
 
 for i in "$@"
 do
@@ -46,19 +47,21 @@ do
   esac
 done
 
+errors=0
+
 for i in $(find "${KUSTOMIZE_DIRS}" -name "kustomization.yaml" -exec dirname {} \;)
 do
   echo
   echo "Validating $i"
   echo
 
-  KUSTOMIZE_BUILD_OUTPUT=$(${KUSTOMIZE_CMD} "$i")
+  KUSTOMIZE_BUILD_OUTPUT=$(${KUSTOMIZE_CMD} "$i" $KUSTOMIZE_OPTIONS)
 
   build_response=$?
 
   if [ $build_response -ne 0 ]; then
-    echo "Error building $i"
-    errors=$build_response
+    >&2 echo -e "${ERROR_COLOR}Error building $i${NO_COLOR}"
+    errors=$((errors + 1))
   fi
 
 #  echo "$KUSTOMIZE_BUILD_OUTPUT" | kubeval ${IGNORE_MISSING_SCHEMAS} --schema-location="file://${SCHEMA_LOCATION}" --force-color
@@ -71,10 +74,10 @@ do
 #  fi
 done
 
-if [$errors -ne 0]; then
-  echo "Errors occurred, see logs"
-  exit $errors
-fi
-
 echo
-echo "Manifests successfully validated!"
+if [ $errors -ne 0 ]; then
+  echo -e "${ERROR_COLOR}$errors Errors occurred, see logs${NO_COLOR}"
+  exit 1
+else
+  echo "Manifests successfully validated!"
+fi
