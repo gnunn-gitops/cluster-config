@@ -1,0 +1,31 @@
+name: Validate Manifests
+on:
+  push:
+    branches:
+      - "*"
+  pull_request:
+    branches:
+      - "*"
+
+jobs:
+  lint-yaml:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Code Checkout
+        uses: actions/checkout@v3
+      - name: Validate YAML
+        uses: ibiqlik/action-yamllint@v3
+        with:
+          format: github
+  lint-kustomize:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Code Checkout
+        uses: actions/checkout@v3
+      - name: Verify Kustomize CLI Installation
+        run: |
+          which kustomize
+          kustomize version
+      - name: Validate Manifests
+        run: |
+          ./scripts/validate_manifests.sh          
