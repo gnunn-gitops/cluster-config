@@ -4,4 +4,4 @@ metadata:
   name: argo-rollouts
   annotations:
     openshift.io/description: Argo Rollouts Progressive Delivery
-    openshift.io/display-name:  Argo Rollouts
+    openshift.io/display-name: Argo Rollouts

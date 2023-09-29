@@ -7,8 +7,8 @@ metadata:
 spec:
   managementState: Managed
   logStore:
-    type: lokistack  
+    type: lokistack
     lokistack:
       name: logging-loki
   collection:
-    type: vector      
+    type: vector

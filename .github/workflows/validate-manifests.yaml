@@ -28,4 +28,4 @@ jobs:
           kustomize version
       - name: Validate Manifests
         run: |
-          ./scripts/validate_manifests.sh          
+          ./scripts/validate_manifests.sh

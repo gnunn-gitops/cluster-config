@@ -3,7 +3,7 @@ kind: Namespace
 metadata:
   annotations:
     openshift.io/description: Project for monitoring tools of product catalog application
-    openshift.io/display-name:  Product Catalog Monitor
+    openshift.io/display-name: Product Catalog Monitor
   labels:
     argocd.argoproj.io/managed-by: gitops
     tenant: product-catalog

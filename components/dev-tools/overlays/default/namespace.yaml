@@ -3,5 +3,5 @@ kind: Namespace
 metadata:
   annotations:
     openshift.io/description: Project for development tools like nexus and sonarqube
-    openshift.io/display-name:  Development Tools
+    openshift.io/display-name: Development Tools
   name: dev-tools

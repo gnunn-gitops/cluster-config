@@ -8,7 +8,7 @@ policyDefaults:
   policyAnnotations: {"policy.open-cluster-management.io/disable-templates": "true"}
   categories:
     - CM Configuration Management
-  controls: 
+  controls:
     - CM-2 Baseline Configuration
   namespace: kyverno-policies
   remediationAction: enforce
@@ -22,7 +22,7 @@ policies:
 - name: policy-require-pod-probes
   categories:
     - setup
-  controls: 
+  controls:
     - setup
   disabled: false
   manifests:
@@ -30,7 +30,7 @@ policies:
 - name: require-requests-limits
   categories:
     - setup
-  controls: 
+  controls:
     - setup
   disabled: false
   manifests:
@@ -38,7 +38,7 @@ policies:
 - name: application-field-validation
   categories:
     - setup
-  controls: 
+  controls:
     - setup
   disabled: false
   manifests:
@@ -46,7 +46,7 @@ policies:
 - name: application-prevent-default-project
   categories:
     - setup
-  controls: 
+  controls:
     - setup
   disabled: false
   manifests:
@@ -54,7 +54,7 @@ policies:
 - name: check-deprecated-apis
   categories:
     - setup
-  controls: 
+  controls:
     - setup
   disabled: false
   manifests:
@@ -62,7 +62,7 @@ policies:
 - name: check-openshift-deprecated-apis
   categories:
     - setup
-  controls: 
+  controls:
     - setup
   disabled: false
   manifests:
@@ -70,7 +70,7 @@ policies:
 - name: disallow-jenkins-pipeline-strategy
   categories:
     - setup
-  controls: 
+  controls:
     - setup
   disabled: false
   manifests:
@@ -78,7 +78,7 @@ policies:
 - name: disallow-latest-tag
   categories:
     - setup
-  controls: 
+  controls:
     - setup
   disabled: false
   manifests:

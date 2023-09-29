@@ -3,7 +3,7 @@ kind: Namespace
 metadata:
   annotations:
     openshift.io/description: Project for development environment of rollouts demo application
-    openshift.io/display-name:  Rollouts Demo Development
+    openshift.io/display-name: Rollouts Demo Development
   labels:
     argocd.argoproj.io/managed-by: gitops
     tenant: rollouts-demo

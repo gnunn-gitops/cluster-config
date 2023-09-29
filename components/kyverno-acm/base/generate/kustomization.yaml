@@ -15,5 +15,3 @@ patches:
     patch: |-
       - op: remove
         path: /spec/policy-templates/0
-     
-    

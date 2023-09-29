@@ -6,22 +6,22 @@ bindPassword:
   file: "/etc/secrets/ldap-bind-password"
 insecure: true
 rfc2307:
-    groupsQuery:
-        baseDN: "dc=ocplab,dc=com"
-        scope: sub
-        derefAliases: never
-        pageSize: 0
-        filter: (objectClass=posixGroup)
-    groupUIDAttribute: uid
-    groupNameAttributes: [ uid ]
-    groupMembershipAttributes: [ memberUid ]
-    usersQuery:
-        baseDN: "ou=users,dc=ocplab,dc=com"
-        scope: sub
-        derefAliases: never
-        pageSize: 0
-        filter: (objectclass=posixAccount)
-    userUIDAttribute: uid
-    userNameAttributes: [ cn ]
-    tolerateMemberNotFoundErrors: false
-    tolerateMemberOutOfScopeErrors: false
+  groupsQuery:
+    baseDN: "dc=ocplab,dc=com"
+    scope: sub
+    derefAliases: never
+    pageSize: 0
+    filter: (objectClass=posixGroup)
+  groupUIDAttribute: uid
+  groupNameAttributes: [uid]
+  groupMembershipAttributes: [memberUid]
+  usersQuery:
+    baseDN: "ou=users,dc=ocplab,dc=com"
+    scope: sub
+    derefAliases: never
+    pageSize: 0
+    filter: (objectclass=posixAccount)
+  userUIDAttribute: uid
+  userNameAttributes: [cn]
+  tolerateMemberNotFoundErrors: false
+  tolerateMemberOutOfScopeErrors: false

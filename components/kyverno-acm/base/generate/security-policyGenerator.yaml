@@ -8,7 +8,7 @@ policyDefaults:
   policyAnnotations: {"policy.open-cluster-management.io/disable-templates": "true"}
   categories:
     - CM Configuration Management
-  controls: 
+  controls:
     - CM-2 Baseline Configuration
   namespace: kyverno-policies
   remediationAction: enforce
@@ -22,7 +22,7 @@ policies:
 - name: disallow-scc-anyuid
   categories:
     - setup
-  controls: 
+  controls:
     - setup
   disabled: false
   manifests:
@@ -30,7 +30,7 @@ policies:
 - name: require-tls-routes
   categories:
     - setup
-  controls: 
+  controls:
     - setup
   disabled: false
   manifests:

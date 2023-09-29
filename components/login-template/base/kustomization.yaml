@@ -13,4 +13,4 @@ secretGenerator:
   options:
     disableNameSuffixHash: true
   files:
-    - login/providers.html 
+    - login/providers.html
