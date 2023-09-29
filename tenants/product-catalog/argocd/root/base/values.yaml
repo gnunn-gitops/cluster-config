@@ -53,7 +53,7 @@ applications:
     destination:
       namespace: product-catalog-gitops
     source:
-      path: tenants/product-catalog/namespaces/overlays/gitops-shared
+      path: tenants/product-catalog/namespaces/overlays/gitops
     syncPolicyRetry:
       limit: 2
       backoff:

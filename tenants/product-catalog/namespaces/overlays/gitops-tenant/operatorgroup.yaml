@@ -1,7 +1,0 @@
-apiVersion: operators.coreos.com/v1
-kind: OperatorGroup
-metadata:
-  name: product-catalog-gitops
-spec:
-  targetNamespaces:
-    - product-catalog-gitops
