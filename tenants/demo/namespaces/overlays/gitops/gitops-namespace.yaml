@@ -3,7 +3,7 @@ kind: Namespace
 metadata:
   annotations:
     openshift.io/description: Project for gitops tool for demo team
-    openshift.io/display-name:  Demo GitOps
+    openshift.io/display-name: Demo GitOps
   labels:
     tenant: demo
   name: demo-gitops

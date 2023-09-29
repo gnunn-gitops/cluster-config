@@ -4,41 +4,41 @@ kind: Kustomization
 namespace: demo-gitops
 
 resources:
-- ../../base
-- ../../../../../components/apps/gitops-operator/base
-- gitops-namespace.yaml
-- operatorgroup.yaml
-- demo-project.yaml
-- console-link.yaml
-- in-cluster-secret.yaml
+  - ../../base
+  - ../../../../../components/apps/gitops-operator/base
+  - gitops-namespace.yaml
+  - operatorgroup.yaml
+  - demo-project.yaml
+  - console-link.yaml
+  - in-cluster-secret.yaml
 
 patches:
-# Patch create-local-pipeline account job environment variables
-- patch: |-
-    - op: replace
-      path: /spec/template/spec/containers/0/env
-      value:
-        - name: CICD_NAMESPACE
-          value: "demo-cicd"
-  target:
-    kind: Job
-    name: create-pipeline-local-user
-# Update permissions for instance
--  target:
-     kind: ArgoCD
-     name: argocd
-   patch: |-
-    - op: replace
-      path: /spec/applicationInstanceLabelKey
-      value: argocd.argoproj.io/demo-instance
-    - op: add
-      path: /spec/rbac
-      value:
-        defaultPolicy: role:readonly
-        policy: |
-          p, role: pipeline, applications, get, apps-demo/*, allow
-          p, role: pipeline, applications, sync, apps-demo/*, allow
-          g, demo-admins, role:admin
-          g, system:cluster-admins, role:admin
-          g, pipeline, role: pipeline
-        scopes: "[accounts,groups]"
+  # Patch create-local-pipeline account job environment variables
+  - patch: |-
+      - op: replace
+        path: /spec/template/spec/containers/0/env
+        value:
+          - name: CICD_NAMESPACE
+            value: "demo-cicd"
+    target:
+      kind: Job
+      name: create-pipeline-local-user
+  # Update permissions for instance
+  - target:
+      kind: ArgoCD
+      name: argocd
+    patch: |-
+      - op: replace
+        path: /spec/applicationInstanceLabelKey
+        value: argocd.argoproj.io/demo-instance
+      - op: add
+        path: /spec/rbac
+        value:
+          defaultPolicy: role:readonly
+          policy: |
+            p, role: pipeline, applications, get, apps-demo/*, allow
+            p, role: pipeline, applications, sync, apps-demo/*, allow
+            g, demo-admins, role:admin
+            g, system:cluster-admins, role:admin
+            g, pipeline, role: pipeline
+          scopes: "[accounts,groups]"

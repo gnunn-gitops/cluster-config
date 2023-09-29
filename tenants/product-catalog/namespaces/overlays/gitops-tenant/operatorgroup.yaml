@@ -4,4 +4,4 @@ metadata:
   name: product-catalog-gitops
 spec:
   targetNamespaces:
-   - product-catalog-gitops
+    - product-catalog-gitops

@@ -1,4 +1,3 @@
-
 - op: replace
   path: /spec/channel
   value: "v4"

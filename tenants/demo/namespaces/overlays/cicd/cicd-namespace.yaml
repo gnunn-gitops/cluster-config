@@ -3,7 +3,7 @@ kind: Namespace
 metadata:
   annotations:
     openshift.io/description: Project for ci/cd tools for simple demo application
-    openshift.io/display-name:  Demo CI/CD
+    openshift.io/display-name: Demo CI/CD
   labels:
     argocd.argoproj.io/managed-by: demo-gitops
     tenant: demo

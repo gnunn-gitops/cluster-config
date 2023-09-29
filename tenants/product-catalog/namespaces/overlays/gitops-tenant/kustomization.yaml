@@ -4,42 +4,42 @@ kind: Kustomization
 namespace: product-catalog-gitops
 
 resources:
-- ../../gitops
-- ../../../../../components/apps/gitops-operator/base
-- gitops-namespace.yaml
-- operatorgroup.yaml
-- product-catalog-project.yaml
-- console-link.yaml
-- in-cluster-secret.yaml
-- argocd-notifications-cm.yaml
+  - ../../gitops
+  - ../../../../../components/apps/gitops-operator/base
+  - gitops-namespace.yaml
+  - operatorgroup.yaml
+  - product-catalog-project.yaml
+  - console-link.yaml
+  - in-cluster-secret.yaml
+  - argocd-notifications-cm.yaml
 
 patches:
-# Patch create-local-pipeline account job environment variables
-- patch: |-
-    - op: replace
-      path: /spec/template/spec/containers/0/env
-      value:
-        - name: CICD_NAMESPACE
-          value: "product-catalog-cicd"
-  target:
-    kind: Job
-    name: create-pipeline-local-user
-# Update permissions for instance
--  target:
-     kind: ArgoCD
-     name: argocd
-   patch: |-
-    - op: replace
-      path: /spec/applicationInstanceLabelKey
-      value: argocd.argoproj.io/product-catalog-instance
-    - op: add
-      path: /spec/rbac
-      value:
-        defaultPolicy: role:readonly
-        policy: |
-          p, role: pipeline, applications, get, apps-product-catalog/*, allow
-          p, role: pipeline, applications, sync, apps-product-catalog/*, allow
-          g, product-catalog-admins, role:admin
-          g, system:cluster-admins, role:admin
-          g, pipeline, role: pipeline
-        scopes: "[accounts,groups]"
+  # Patch create-local-pipeline account job environment variables
+  - patch: |-
+      - op: replace
+        path: /spec/template/spec/containers/0/env
+        value:
+          - name: CICD_NAMESPACE
+            value: "product-catalog-cicd"
+    target:
+      kind: Job
+      name: create-pipeline-local-user
+  # Update permissions for instance
+  - target:
+      kind: ArgoCD
+      name: argocd
+    patch: |-
+      - op: replace
+        path: /spec/applicationInstanceLabelKey
+        value: argocd.argoproj.io/product-catalog-instance
+      - op: add
+        path: /spec/rbac
+        value:
+          defaultPolicy: role:readonly
+          policy: |
+            p, role: pipeline, applications, get, apps-product-catalog/*, allow
+            p, role: pipeline, applications, sync, apps-product-catalog/*, allow
+            g, product-catalog-admins, role:admin
+            g, system:cluster-admins, role:admin
+            g, pipeline, role: pipeline
+          scopes: "[accounts,groups]"

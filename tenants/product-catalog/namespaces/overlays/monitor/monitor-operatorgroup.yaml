@@ -4,4 +4,4 @@ metadata:
   name: product-catalog-monitor
 spec:
   targetNamespaces:
-   - product-catalog-monitor
+    - product-catalog-monitor

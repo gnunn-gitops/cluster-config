@@ -5,5 +5,4 @@ commonLabels:
   size: large
 
 resources:
-- quotas.yaml
-
+  - quotas.yaml

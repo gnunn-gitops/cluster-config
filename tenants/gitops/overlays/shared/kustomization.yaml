@@ -1,70 +1,70 @@
 namespace: gitops
 
 resources:
-- gitops-monitoring-cluster-role.yaml
-- namespace.yaml
-- argocd-notifications-cm.yaml
-- ../../../../components/gitops-operator/base
-- console-link.yaml
-- global-appproject.yaml
-# Tenant projects here
-- product-catalog-appproject.yaml
-- rollouts-demo-appproject.yaml
+  - gitops-monitoring-cluster-role.yaml
+  - namespace.yaml
+  - argocd-notifications-cm.yaml
+  - ../../../../components/gitops-operator/base
+  - console-link.yaml
+  - global-appproject.yaml
+  # Tenant projects here
+  - product-catalog-appproject.yaml
+  - rollouts-demo-appproject.yaml
 
 patches:
-# Update permissions for tenants and local accounts, note ACCOUNT_NAMESPACES is space separated
-- patch: |-
-    - op: replace
-      path: /spec/template/spec/containers/0/env
-      value:
-        - name: ACCOUNTS_NAMESPACES
-          value: "product-catalog-pipeline=product-catalog-cicd rollouts-demo-pipeline=rollouts-demo-cicd"
-        - name: ARGO_SERVER_HOST
-          value: "argocd-server-gitops.${SUB_DOMAIN}"
-  target:
-    kind: Job
-    name: create-pipeline-local-user
--  target:
-     kind: ArgoCD
-     name: argocd
-   patch: |-
-    - op: add
-      path: /spec/extraConfig
-      value:
-        globalProjects: |-
-          - labelSelector:
-              matchExpressions:
-                - key: argocd.argoproj.io/project-inherit
-                  operator: In
-                  values:
-                    - global
-            projectName: global
-        accounts.product-catalog-pipeline: apiKey
-        accounts.rollouts-demo-pipeline: apiKey
-        oidc.config: |
-          name: Keycloak
-          issuer: https://sso.ocplab.com/realms/ocplab
-          clientID: argocd
-          clientSecret: $oidc.keycloak.clientSecret
-          requestedScopes: ["openid", "profile", "email", "groups"]
-    - op: add
-      path: /spec/sourceNamespaces
-      value:
-        - product-catalog-gitops
-        - rollouts-demo-gitops
-    - op: add
-      path: /spec/rbac
-      value:
-        defaultPolicy: 'role:none'
-        policy: |
-          p, role:none, applications, get, */*, deny
-          p, role:none, certificates, get, *, deny
-          p, role:none, clusters, get, *, deny
-          p, role:none, repositories, get, *, deny
-          p, role:none, projects, get, *, deny
-          p, role:none, accounts, get, *, deny
-          p, role:none, gpgkeys, get, *, deny
-          g, system:cluster-admins, role:admin
-          g, cluster-admins, role:admin
-          g, argocdadmins, role:admin
-        scopes: "[accounts,groups]"
+  # Update permissions for tenants and local accounts, note ACCOUNT_NAMESPACES is space separated
+  - patch: |-
+      - op: replace
+        path: /spec/template/spec/containers/0/env
+        value:
+          - name: ACCOUNTS_NAMESPACES
+            value: "product-catalog-pipeline=product-catalog-cicd rollouts-demo-pipeline=rollouts-demo-cicd"
+          - name: ARGO_SERVER_HOST
+            value: "argocd-server-gitops.${SUB_DOMAIN}"
+    target:
+      kind: Job
+      name: create-pipeline-local-user
+  - target:
+      kind: ArgoCD
+      name: argocd
+    patch: |-
+      - op: add
+        path: /spec/extraConfig
+        value:
+          globalProjects: |-
+            - labelSelector:
+                matchExpressions:
+                  - key: argocd.argoproj.io/project-inherit
+                    operator: In
+                    values:
+                      - global
+              projectName: global
+          accounts.product-catalog-pipeline: apiKey
+          accounts.rollouts-demo-pipeline: apiKey
+          oidc.config: |
+            name: Keycloak
+            issuer: https://sso.ocplab.com/realms/ocplab
+            clientID: argocd
+            clientSecret: $oidc.keycloak.clientSecret
+            requestedScopes: ["openid", "profile", "email", "groups"]
+      - op: add
+        path: /spec/sourceNamespaces
+        value:
+          - product-catalog-gitops
+          - rollouts-demo-gitops
+      - op: add
+        path: /spec/rbac
+        value:
+          defaultPolicy: 'role:none'
+          policy: |
+            p, role:none, applications, get, */*, deny
+            p, role:none, certificates, get, *, deny
+            p, role:none, clusters, get, *, deny
+            p, role:none, repositories, get, *, deny
+            p, role:none, projects, get, *, deny
+            p, role:none, accounts, get, *, deny
+            p, role:none, gpgkeys, get, *, deny
+            g, system:cluster-admins, role:admin
+            g, cluster-admins, role:admin
+            g, argocdadmins, role:admin
+          scopes: "[accounts,groups]"

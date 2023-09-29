@@ -3,5 +3,5 @@ kind: Namespace
 metadata:
   annotations:
     openshift.io/description: Project for tenants GitOps Operator instance
-    openshift.io/display-name:  GitOps
+    openshift.io/display-name: GitOps
   name: gitops

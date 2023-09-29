@@ -4,4 +4,4 @@ metadata:
   name: demo-gitops
 spec:
   targetNamespaces:
-   - demo-gitops
+    - demo-gitops

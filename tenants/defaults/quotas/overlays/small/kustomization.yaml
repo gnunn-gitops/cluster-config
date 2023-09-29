@@ -5,4 +5,4 @@ commonLabels:
   size: small
 
 resources:
-- quotas.yaml
+  - quotas.yaml
