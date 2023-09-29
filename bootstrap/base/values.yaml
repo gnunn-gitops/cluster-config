@@ -67,15 +67,6 @@ applications:
     source:
       path: components/eso/overlays/aggregate
 
-  gitops-dashboards:
-    annotations:
-      argocd.argoproj.io/compare-options: IgnoreExtraneous
-      argocd.argoproj.io/sync-wave: '11'
-    destination:
-      namespace: openshift-config-managed
-    source:
-      path: components/gitops-dashboard/base
-
   helm-repos:
     annotations:
       argocd.argoproj.io/compare-options: IgnoreExtraneous
