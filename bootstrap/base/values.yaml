@@ -11,7 +11,7 @@ default:
       repoURL: https://github.com/gnunn-gitops/cluster-config.git
       targetRevision: HEAD
     labels:
-      app-group: base
+      app-source: base
 
 projects:
 
