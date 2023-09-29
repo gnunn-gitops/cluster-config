@@ -1,14 +1,14 @@
 resources:
-- ../../../../../components/configs/banner/base
+  - ../../../../../components/banner/base
 
 patches:
-- patch: |-
-    - op: replace
-      path: /spec/backgroundColor
-      value: "#FF9900"
-    - op: replace
-      path: /spec/color
-      value: "#252F3E"
-  target:
-    kind: ConsoleNotification
-    name: banner
+  - patch: |-
+      - op: replace
+        path: /spec/backgroundColor
+        value: "#FF9900"
+      - op: replace
+        path: /spec/color
+        value: "#252F3E"
+    target:
+      kind: ConsoleNotification
+      name: banner
