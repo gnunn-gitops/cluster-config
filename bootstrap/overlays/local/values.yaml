@@ -75,6 +75,7 @@ applications:
 
 
   kyverno:
+    enabled: false
     annotations:
       argocd.argoproj.io/compare-options: IgnoreExtraneous
       argocd.argoproj.io/sync-wave: '21'
