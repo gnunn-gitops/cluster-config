@@ -73,9 +73,6 @@ applications:
       argocd.argoproj.io/sync-wave: '11'
     source:
       path: clusters/overlays/local.hub/components/banner
-      extraSourceFields: |
-        plugin:
-          name: kustomize-envvar
 
   console-links:
     annotations:

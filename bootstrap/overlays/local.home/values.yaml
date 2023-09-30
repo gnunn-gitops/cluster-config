@@ -20,18 +20,12 @@ applications:
       namespace: rhacs-operator
     source:
       path: components/acs-operator/overlays/secured-cluster
-      extraSourceFields: |
-        plugin:
-          name: kustomize-envvar
 
   banner:
     annotations:
       argocd.argoproj.io/sync-wave: '11'
     source:
       path: clusters/overlays/local.home/components/banner
-      extraSourceFields: |
-        plugin:
-          name: kustomize-envvar
 
   console-links:
     annotations:
@@ -94,9 +88,6 @@ applications:
       argocd.argoproj.io/sync-wave: '50'
     source:
       path: tenants/gitops/overlays/shared
-      extraSourceFields: |
-        plugin:
-          name: kustomize-envvar
 
   product-catalog-root:
     project: cluster-config
