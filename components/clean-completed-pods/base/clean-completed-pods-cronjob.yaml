@@ -1,0 +1,40 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: completed-pod-cleanup
+spec:
+  jobTemplate:
+    metadata:
+      name: completed-pod-cleanup
+    spec:
+      template:
+        spec:
+          containers:
+            - command:
+                - /bin/bash
+                - -c
+                - |
+                  set -euo pipefail
+                  echo "// Listed Completed Pod."
+                  oc get pods -o wide --all-namespaces --sort-by='{.metadata.creationTimestamp}','{.metadata.namespace}','{.metadata.name}' --field-selector=status.phase==Succeeded
+                  COMPLETED_POD=`oc get pods -o jsonpath="{range .items[*]}{.metadata.namespace}{'\t'}{.metadata.name}{'\n'}{end}" --all-namespaces --field-selector=metadata.namespace!=ocp-completed-pod-cleanup,status.phase==Succeeded`
+                  if [ -n "$COMPLETED_POD" ]; then
+                      echo "// Deleted Completed Pod."
+                      while read NS_NAME POD_NAME
+                      do
+                         oc -n $NS_NAME delete pod $POD_NAME;
+                      done <<< "$COMPLETED_POD"
+                  fi
+              image: registry.redhat.io/openshift4/ose-cli:latest # change the image in disconnected environment
+              imagePullPolicy: IfNotPresent
+              name: completed-pod-cleanup
+              terminationMessagePath: /dev/termination-log
+              terminationMessagePolicy: File
+          dnsPolicy: ClusterFirst
+          restartPolicy: OnFailure
+          serviceAccount: completed-pod-cleanup
+          serviceAccountName: completed-pod-cleanup
+          terminationGracePeriodSeconds: 30
+  schedule: "0 11 * * *"
+  suspend: false
+status: {}

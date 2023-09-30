@@ -100,7 +100,6 @@ applications:
           - /spec/rules
 
   web-terminal:
-    project: cluster-config
     annotations:
       argocd.argoproj.io/sync-wave: '21'
     destination:
@@ -109,10 +108,17 @@ applications:
       path: components/web-terminal-operator/base
 
   defrag-etcd:
-    project: cluster-config
     annotations:
       argocd.argoproj.io/sync-wave: '99'
     destination:
       namespace: openshift-etcd
     source:
       path: components/defrag-etcd/base
+
+  cleanup-completed-pods:
+    annotations:
+      argocd.argoproj.io/sync-wave: '99'
+    destination:
+      namespace: clean-completed-pods
+    source:
+      path: components/clean-completed-pods/base
