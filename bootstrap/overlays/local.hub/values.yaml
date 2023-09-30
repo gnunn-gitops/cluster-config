@@ -22,6 +22,8 @@ applications:
   odf-instance:
     annotations:
       argocd.argoproj.io/sync-wave: '2'
+    destination:
+      namespace: openshift-storage
     source:
       path: components/odf-operator/instance/base
 
