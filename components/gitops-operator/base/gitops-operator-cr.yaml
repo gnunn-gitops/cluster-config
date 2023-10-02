@@ -16,7 +16,7 @@ spec:
           - name: KUSTOMIZE_PLUGIN_HOME
             value: /etc/kustomize/plugin
           - name: SUB_DOMAIN
-            value: '{{ (lookup "config.openshift.io/v1" "Ingress" "openshift-ingress" "cluster").spec.domain }}'
+            value: ${SUB_DOMAIN}
         image: quay.io/gnunn/tools:latest
         imagePullPolicy: Always
         securityContext:
