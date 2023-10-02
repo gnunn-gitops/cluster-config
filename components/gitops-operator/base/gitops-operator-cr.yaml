@@ -3,7 +3,6 @@ kind: ArgoCD
 metadata:
   name: argocd
 spec:
-  disableAdmin: false
   resourceTrackingMethod: annotation
   applicationSet: {}
   kustomizeBuildOptions: "--enable-helm"
