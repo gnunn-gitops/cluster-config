@@ -64,7 +64,7 @@ applications:
 
   # Disable while we work this out
   nmstate:
-    enabled: false
+    enabled: true
     source:
       path: clusters/overlays/local.hub/components/nmstate
 
