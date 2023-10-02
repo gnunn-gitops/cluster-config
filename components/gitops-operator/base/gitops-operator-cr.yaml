@@ -4,20 +4,38 @@ metadata:
   name: argocd
 spec:
   disableAdmin: false
-  configManagementPlugins: |-
-    - name: kustomize-envvar
-      generate:
-        command: ["bash", "-c"]
-        args: ["set -o pipefail && kustomize build --enable-helm . | perl -pe 's{\\$(\\{)?(\\w+)(?(1)\\})}{$ENV{$2} // $&}ge'"]
   resourceTrackingMethod: annotation
   applicationSet: {}
   kustomizeBuildOptions: "--enable-helm"
   notifications:
     enabled: true
   repo:
-    env:
-      - name: SUB_DOMAIN
-        value: '${SUB_DOMAIN}'
+    sidecarContainers:
+      - name: setenv-plugin
+        command: [/var/run/argocd/argocd-cmp-server]
+        env:
+          - name: KUSTOMIZE_PLUGIN_HOME
+            value: /etc/kustomize/plugin
+          - name: SUB_DOMAIN
+            value: '{{ (lookup "config.openshift.io/v1" "Ingress" "openshift-ingress" "cluster").spec.domain }}'
+        image: quay.io/gnunn/tools:latest
+        imagePullPolicy: Always
+        securityContext:
+          runAsNonRoot: true
+        volumeMounts:
+          - mountPath: /var/run/argocd
+            name: var-files
+          - mountPath: /home/argocd/cmp-server/plugins
+            name: plugins
+          - mountPath: /tmp
+            name: tmp
+          - mountPath: /home/argocd/cmp-server/config/plugin.yaml
+            subPath: plugin.yaml
+            name: setenv-cmp-plugin
+    volumes:
+      - configMap:
+          name: setenv-cmp-plugin
+        name: setenv-cmp-plugin
   server:
     insecure: true
     route:
