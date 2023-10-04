@@ -15,7 +15,7 @@ spec:
       value: "true"
   chain:
     artifacts.taskrun.format: in-toto
-    artifacts.taskrun.storage: oci
+    artifacts.taskrun.storage: tekton
     artifacts.taskrun.signer: x509
     artifacts.oci.storage: oci
     artifacts.oci.format: simplesigning
