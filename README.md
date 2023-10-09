@@ -104,3 +104,7 @@ I am also a big fan of separating the cluster configuration use case from applic
 
 * Argo CD uses a single serviceaccount for the application-controller which must have enough k8s permissions to pusn out the manifests. By it's nature the cluster configuration use case requires near cluster-admin level permissions at the SA level and while you can remove access to this for App teams using Argo RBAC I prefer a more isolated approach.
 * As mentioned I prefer a distributed Argo CD topology for cluster configuration, however a more centralized model with respect to Argo CD instance(s)for application teams provides them with a single pane of glass. This can be very useful to them when a team's applications are distributed across multiple clusters. For cluster-configuration we can achieve the single pane of glass with ACM which is ideal for Ops teams.
+
+# Tenant Configuration
+
+Currently im managing tenants with kustonize but my feeling is this is too complicated. I'm planning on moving to a helm chart in the future.
