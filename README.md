@@ -98,9 +98,9 @@ This repo uses Argo CD sync waves to configure the configuration in an ordered m
 
 # Topology
 
-A note on Argo CD topology preferences. I am fine of distributed Argo CD for cluster configuration, my preference is to use the default `openshift-gitops` instance for cluster configuration and have an ACM Policy deploy OpenShift GitOps on each cluster. My preference for distributed Argo CD versus centralized Argo CD is to remove the Single-Point-Of-Failure (SPOF) as well remove an scalability issues when dealing with hundreds of clusters.
+A note on Argo CD topology preferences. I am a fan of distributed Argo CD for cluster configuration, my preference is to use the default `openshift-gitops` instance for cluster configuration and have an ACM Policy deploy OpenShift GitOps on each cluster. My preference for distributed Argo CD versus centralized Argo CD is to remove the Single-Point-Of-Failure (SPOF) as well mitigate any scalability issues when dealing with hundreds of clusters.
 
-I am a big fan of separating the cluster configuration use case from application deployment (i.e the stuff Application teams push out) into separate Argo CD instances for the following reasons:
+I am also a big fan of separating the cluster configuration use case from application deployment (i.e the stuff Application teams push out) into separate Argo CD instances for the following reasons:
 
 * Argo CD uses a single serviceaccount for the application-controller which must have enough k8s permissions to pusn out the manifests. By it's nature the cluster configuration use case requires near cluster-admin level permissions at the SA level and while you can remove access to this for App teams using Argo RBAC I prefer a more isolated approach.
 * As mentioned I prefer a distributed Argo CD topology for cluster configuration, however a more centralized model with respect to Argo CD instance(s)for application teams provides them with a single pane of glass. This can be very useful to them when a team's applications are distributed across multiple clusters. For cluster-configuration we can achieve the single pane of glass with ACM which is ideal for Ops teams.
