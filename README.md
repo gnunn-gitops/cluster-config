@@ -24,13 +24,13 @@ clusters as well as specific clusters.
 
 A helm chart managed by kustomize is used to generate the list of Argo CD Applications using the [App of App](https://argo-cd.readthedocs.io/en/stable/operator-manual/cluster-bootstrapping/#app-of-apps-pattern) pattern as well as a cluster-config AppProject. I had originally used kustomize to manage the Argo CD Applications directly but this generated a lot of yaml and made overriding applications for specific clusters much more verbose then necessary. This is an example of where templating is a more optimum solution then patching.
 
-In the bootstrap _base_ and cluster _overlays_ (`bootstrap/overlays/<cluster-name>`) there is a `kustomization.yaml` file along with a `values.yaml` file where we use kustomize to output the artifacts from a `helm template`.
+In the bootstrap _base_ and cluster _overlays_ (`bootstrap/overlays/<cluster-name>`) there is a `kustomization.yaml` file along with a `values.yaml` file where we use kustomize to generate the Application manifests from a `helm template`.
 
-This helm chart is run independently at each layer and is aggregated by higher levels. So for example my `local.home` cluster, which is one of my bare-metal servers in my homelab, has an application tree that aggregates as follows:
+This helm chart is run independently at each layer and is aggregated by higher levels. So for example my `local.home` cluster, which is one of my bare-metal servers in my homelab, has an application tree that aggregatesm Applications as follows:
 
 `base` > `local` > `local.home`
 
-At each layer the helm chart is run for that layer and generates the Application manifests for that layer. With each layer, kustomize can be used to override a lower level Application and point it to a cluster specific version by using kustomize to change it's path and/or repo via a patch.
+At each layer the helm chart is run for that layer and generates the Application manifests for that specific layer. The nice thing with this approach is group or cluster specific changes is easy, kustomize can be used to override a lower level layer's Application(s) and point it to a cluster specific version simply by patching it's path and/or repo.
 
 The `clusters/overlays/<cluster-name>/components` consists of components that are specific to this cluster or is cluster-specific overriden version of manifests from the _components_ folder. So at the bootstrap level, if the _base_ has an application pointing to manfiests in _components_, this can be overriden in the cluster specific bootstrap by patching it to point to the version in `clusters/overlays/<cluster-name>/components`.
 
@@ -70,7 +70,7 @@ How this bootstrap application gets generated and managed can happen in a variet
 
 # Secret Management
 
-I am currently using the External Secrets Operator to manage secrets, I am using ACM to automatically bootstrap the token secret needed by ESO to interact with my secrets provider [Doppler](doppler.com) from the Hub cluster.
+I am currently using the External Secrets Operator to manage secrets, I am using ACM to automatically bootstrap the token secret needed by ESO to interact with my secrets provider [Doppler](doppler.com) from the Hub cluster. I wrote a blog on this setup [here](https://cloud.redhat.com/blog/external-secrets-operator-and-doppler-with-openshift-gitops).
 
 I have used Sealed Secrets in the past but as I have expanded my homelab into multiple clusters, plus the occasional ephemeral cloud cluster, I found external secrets easier to manage.
 
