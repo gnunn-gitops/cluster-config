@@ -32,17 +32,17 @@ This helm chart is run independently at each layer and is aggregated by higher l
 
 At each layer the helm chart is run for that layer and generates the Application manifests for that specific layer. The nice thing with this approach is group or cluster specific changes is easy, kustomize can be used to override a lower level layer's Application(s) and point it to a cluster specific version simply by patching it's path and/or repo.
 
-The `clusters/overlays/<cluster-name>/components` consists of components that are specific to this cluster or is cluster-specific overriden version of manifests from the _components_ folder. So at the bootstrap level, if the _base_ has an application pointing to manfiests in _components_, this can be overriden in the cluster specific bootstrap by patching it to point to the version in `clusters/overlays/<cluster-name>/components`.
+The `clusters/overlays/<cluster-name>/components` consists of components that are specific to this cluster or is cluster-specific overriden version of manifests from the _components_ folder. So at the bootstrap level, if the _base_ has an application pointing to manfiests in _components_, this can be overriden in the cluster specific bootstrap by patching it to point to a version in `clusters/overlays/<cluster-name>/components/<component-name>/`.
 
 I've opted to use a dot notation to separate groups, i.e `local`, from specific clusters, `local.home` however in the future it may be worth considering seperating this into distinct `groups` and `clusters` folders.
 
 ## Why not ApplicationSet instead of App-of-App Helm Chart?
 
-Some folks may be wondering I don't use an ApplicationSet instead of this App-of-App Helm chart? The primary reason is that the Helm chart allows for easily post-processing the generated Applications to enable cluster overrides. While having an ApplicationSet with a list generator delivered by kustomize could enable this, the list generator is simply an array which is error-prone to patch correctly with JSON semantics (i.e. you can only reference items by ordinal rather then name so changing order causes issues with downstream patching).
+Some folks may be wondering why I do not use an ApplicationSet instead of this App-of-App Helm chart. The primary reason is that the Helm chart allows for easily post-processing the generated Applications to enable cluster overrides. While having an ApplicationSet with a list generator delivered by kustomize could also accomplish this, the list generator is simply an array which is challenging to patch correctly with JSON semantics (i.e. you can only reference items by ordinal rather then name. As a result trying to manage patching this would be error-prone if ordering ever changes in the list.
 
-Other generator types don't allow any post-processing meaning overriding for specific clusters needs to be packaged into the ApplicationSet which I felt was cumbersome.
+Other generator types don't allow any post-processing meaning overriding for specific clusters needs to be packaged into the ApplicationSet which I felt was overly cumbersome.
 
-Having said, the new feature supporting creating custom generator plugins may make it more amenable for this use case but I have not explored this as of yet.
+Having said, the new ApplicationSet feature supporting creating custom generator plugins may make it more amenable for this use case but I have not explored this as of yet.
 
 # Usage
 
@@ -94,3 +94,12 @@ This repo uses Argo CD sync waves to configure the configuration in an ordered m
 31. Common Apps (Developer Tools)
 41. OpenShift Console plugins
 51. Tenants
+
+# Topology
+
+A note on Argo CD topology preferences. I am fine of distributed Argo CD for cluster configuration, my preference is to use the default `openshift-gitops` instance for cluster configuration and have an ACM Policy deploy OpenShift GitOps on each cluster. My preference for distributed Argo CD versus centralized Argo CD is to remove the Single-Point-Of-Failure (SPOF) as well remove an scalability issues when dealing with hundreds of clusters.
+
+I am a big fan of separating the cluster configuration use case from application deployment (i.e the stuff Application teams push out) into separate Argo CD instances for the following reasons:
+
+* Argo CD uses a single serviceaccount for the application-controller which must have enough k8s permissions to pusn out the manifests. By it's nature the cluster configuration use case requires near cluster-admin level permissions at the SA level and while you can remove access to this for App teams using Argo RBAC I prefer a more isolated approach.
+* As mentioned I prefer a distributed Argo CD topology for cluster configuration, however a more centralized model with respect to Argo CD instance(s)for application teams provides them with a single pane of glass. This can be very useful to them when a team's applications are distributed across multiple clusters. For cluster-configuration we can achieve the single pane of glass with ACM which is ideal for Ops teams.
