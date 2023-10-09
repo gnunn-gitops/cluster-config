@@ -61,16 +61,15 @@ spec:
   ...
 ```
 
-
 How this bootstrap application gets generated and managed can happen in a variety of different ways:
 
-* Red Hat Advanced Cluster Manager can use a policy to deploy OpenShift GitOps plus a cluster specific bootstrap application across a fleet of clusters. This is my preferred approach and the [acm-bootstrap-hub](https://github.com/gnunn-gitops/acm-hub-bootstrap) is the repo where I have this policy along with other things I use to bootstrap the ACM Hub cluster.
+* [Red Hat Advanced Cluster Manager](https://www.redhat.com/en/technologies/management/advanced-cluster-management) can use a policy to deploy OpenShift GitOps plus a cluster specific bootstrap application across a fleet of clusters. This is my preferred approach and the [acm-bootstrap-hub](https://github.com/gnunn-gitops/acm-hub-bootstrap) is the repo where I have this policy along with other things I use to bootstrap the ACM Hub cluster.
 * Ansible. If you use Ansible for cluster provisioning you can have it deploy the OpenShift GitOps operator plus the bootstrap application
 * Other. If you use other automation tools to provision clusters they could do the same as Ansible.
 
 # Secret Management
 
-I am currently using the External Secrets Operator to manage secrets, I am using ACM to automatically bootstrap the token secret needed by ESO to interact with my secrets provider [Doppler](doppler.com) from the Hub cluster. I wrote a blog on this setup [here](https://cloud.redhat.com/blog/external-secrets-operator-and-doppler-with-openshift-gitops).
+I am currently using the [External Secrets Operator](https://external-secrets.io/latest/) to manage secrets, I am using ACM to automatically bootstrap the token secret needed by ESO to interact with my secrets provider [Doppler](doppler.com) from the Hub cluster. I wrote a blog on this setup [here](https://cloud.redhat.com/blog/external-secrets-operator-and-doppler-with-openshift-gitops).
 
 I have used Sealed Secrets in the past but as I have expanded my homelab into multiple clusters, plus the occasional ephemeral cloud cluster, I found external secrets easier to manage.
 
@@ -78,9 +77,11 @@ I have used Sealed Secrets in the past but as I have expanded my homelab into mu
 
 A common requirement is for a cluster configuration to be promoted across one or more clusters, i.e a change starts in the lab cluster, gets promoted to non-production and then finally production.
 
-I have only experimented with this a bit however it looks like commit pinning works well in this scenario, i.e. the lab cluster is pinned to HEAD and then other clusters are pinned to specific commits. When you want to promote you simply move the pin forward to the desired commit.
+I have only experimented with this a bit however it looks like commit pinning works well in this scenario, i.e. the lab cluster is pinned to HEAD and always gets the latest and greates. The other clusters are pinned to specific commits, when you want to promote you simply move the pin forward to the desired commit.
 
 In cases where a configuration spans multiple repositories you may need to have different commit pins based on the repo. This could be accomplished by labelling the Application objects with the repo and then using a kustomize patch targetted by label. Some improvements to the helm chart would be needed so that labels can be merged between default and specific applications to make this easier to manage.
+
+Commit pinning for specific applications is also straightforward, either by overriding the default `targetRevision` in the App-of-App Helm chart for a specific application or patching it via kustomize.
 
 # Sequence
 
