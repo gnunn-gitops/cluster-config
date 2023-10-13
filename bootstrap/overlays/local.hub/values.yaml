@@ -12,7 +12,7 @@ default:
       server: https://kubernetes.default.svc
     source:
       repoURL: https://github.com/gnunn-gitops/cluster-config.git
-      targetRevision: HEAD
+      targetRevision: d473880110e912553b46d0071bccec8470f5f747
 
 applications:
 
@@ -48,6 +48,7 @@ applications:
     source:
       repoURL: https://github.com/gnunn-gitops/acm-hub-bootstrap.git
       path: components/apps/acm/overlays/hub
+      targetRevision: e738f97b319a4c3df85389136d5d5596b93ac454
 
   acm-observability:
     annotations:
@@ -59,6 +60,7 @@ applications:
     source:
       repoURL: https://github.com/gnunn-gitops/acm-hub-bootstrap.git
       path: components/apps/acm/overlays/observability
+      targetRevision: e738f97b319a4c3df85389136d5d5596b93ac454
 
   acm-policies:
     annotations:
@@ -70,6 +72,7 @@ applications:
     source:
       repoURL: https://github.com/gnunn-gitops/acm-hub-bootstrap.git
       path: bootstrap/policies/overlays/default
+      targetRevision: e738f97b319a4c3df85389136d5d5596b93ac454
 
   # Disable while we work this out
   nmstate:

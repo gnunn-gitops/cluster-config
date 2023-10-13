@@ -12,7 +12,7 @@ default:
       server: https://kubernetes.default.svc
     source:
       repoURL: https://github.com/gnunn-gitops/cluster-config.git
-      targetRevision: HEAD
+      targetRevision: d473880110e912553b46d0071bccec8470f5f747
 
 applications:
 

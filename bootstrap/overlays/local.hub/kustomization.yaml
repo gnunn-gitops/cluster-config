@@ -9,7 +9,8 @@ helmCharts:
   namespace: openshift-gitops
 
 resources:
-- ../local
+# - ../local
+- github.com/gnunn-gitops/cluster-config/bootstrap/overlays/local?ref=d473880110e912553b46d0071bccec8470f5f747
 
 patches:
   - target:
@@ -23,24 +24,24 @@ patches:
         path: /spec/source/repoURL
         value: 'https://github.com/gnunn-gitops/cluster-config'
  # Patch Applications for commit pinning
-  - target:
-      kind: Application
-      labelSelector: repo=cluster-config
-    patch: |-
-      - op: replace
-        path: /spec/source/targetRevision
-        value: main
-  - target:
-      kind: Application
-      labelSelector: repo=acm-cluster-hub
-    patch: |-
-      - op: replace
-        path: /spec/source/targetRevision
-        value: main
-  - target:
-      kind: Application
-      labelSelector: repo=gitops-catalog
-    patch: |-
-      - op: replace
-        path: /spec/source/targetRevision
-        value: main
+  # - target:
+  #     kind: Application
+  #     labelSelector: repo=cluster-config
+  #   patch: |-
+  #     - op: replace
+  #       path: /spec/source/targetRevision
+  #       value: d473880110e912553b46d0071bccec8470f5f747
+  # - target:
+  #     kind: Application
+  #     labelSelector: repo=acm-cluster-hub
+  #   patch: |-
+  #     - op: replace
+  #       path: /spec/source/targetRevision
+  #       value: main
+  # - target:
+  #     kind: Application
+  #     labelSelector: repo=gitops-catalog
+  #   patch: |-
+  #     - op: replace
+  #       path: /spec/source/targetRevision
+  #       value: main
