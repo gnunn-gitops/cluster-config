@@ -9,8 +9,8 @@ helmCharts:
   namespace: openshift-gitops
 
 resources:
-# - ../local
-- github.com/gnunn-gitops/cluster-config/bootstrap/overlays/local?ref=6d3a43b61e9dac354b1feb4785e72430d78374bc
+- ../local
+#- github.com/gnunn-gitops/cluster-config/bootstrap/overlays/local?ref=6d3a43b61e9dac354b1feb4785e72430d78374bc
 
 patches:
   - target:
