@@ -45,8 +45,7 @@ applications:
     destination:
       namespace: openshift-compliance
     source:
-      path: compliance-operator/aggregate/scheduled
-      repoURL: https://github.com/redhat-cop/gitops-catalog
+      path: components/compliance-operator/overlays/cis-compliance
 
   container-security:
     annotations:
