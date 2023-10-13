@@ -12,7 +12,7 @@ default:
       server: https://kubernetes.default.svc
     source:
       repoURL: https://github.com/gnunn-gitops/cluster-config.git
-      targetRevision: d473880110e912553b46d0071bccec8470f5f747
+      targetRevision: HEAD
 
 projects:
 
@@ -47,7 +47,6 @@ applications:
     source:
       path: compliance-operator/aggregate/scheduled
       repoURL: https://github.com/redhat-cop/gitops-catalog
-      targetRevision: dc6a546e76b28dcaaa8ba2127d20dd24973bf540
 
   container-security:
     annotations:
@@ -60,7 +59,6 @@ applications:
     source:
       path: container-security-operator/overlays/stable-3.7
       repoURL: https://github.com/redhat-cop/gitops-catalog
-      targetRevision: dc6a546e76b28dcaaa8ba2127d20dd24973bf540
 
   external-secrets:
     annotations:

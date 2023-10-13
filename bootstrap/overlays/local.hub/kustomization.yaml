@@ -10,7 +10,6 @@ helmCharts:
 
 resources:
 - ../local
-#- github.com/gnunn-gitops/cluster-config/bootstrap/overlays/local?ref=6d3a43b61e9dac354b1feb4785e72430d78374bc
 
 patches:
   - target:
@@ -24,24 +23,24 @@ patches:
         path: /spec/source/repoURL
         value: 'https://github.com/gnunn-gitops/cluster-config'
  # Patch Applications for commit pinning
-  # - target:
-  #     kind: Application
-  #     labelSelector: repo=cluster-config
-  #   patch: |-
-  #     - op: replace
-  #       path: /spec/source/targetRevision
-  #       value: d473880110e912553b46d0071bccec8470f5f747
-  # - target:
-  #     kind: Application
-  #     labelSelector: repo=acm-cluster-hub
-  #   patch: |-
-  #     - op: replace
-  #       path: /spec/source/targetRevision
-  #       value: main
-  # - target:
-  #     kind: Application
-  #     labelSelector: repo=gitops-catalog
-  #   patch: |-
-  #     - op: replace
-  #       path: /spec/source/targetRevision
-  #       value: main
+  - target:
+      kind: Application
+      labelSelector: repo=cluster-config
+    patch: |-
+      - op: replace
+        path: /spec/source/targetRevision
+        value: 30d2e3fd9233677e0cb4ab6b2d164aca81cc74a5
+  - target:
+      kind: Application
+      labelSelector: repo=acm-cluster-hub
+    patch: |-
+      - op: replace
+        path: /spec/source/targetRevision
+        value: 840cfd74dcdc4828c1d0dd85ae01a16a405a8589
+  - target:
+      kind: Application
+      labelSelector: repo=gitops-catalog
+    patch: |-
+      - op: replace
+        path: /spec/source/targetRevision
+        value: dc6a546e76b28dcaaa8ba2127d20dd24973bf540
