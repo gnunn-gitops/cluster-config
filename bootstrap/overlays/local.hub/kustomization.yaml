@@ -3,11 +3,10 @@ kind: Kustomization
 
 helmCharts:
 - name: argocd-app-of-app
-  version: 0.2.5
+  version: 0.3.0
   repo: https://gnunn-gitops.github.io/helm-charts
   valuesFile: values.yaml
   namespace: openshift-gitops
-  releaseName: argocd-app-of-app-0.2.5
 
 resources:
 - ../local
@@ -23,3 +22,25 @@ patches:
       - op: replace
         path: /spec/source/repoURL
         value: 'https://github.com/gnunn-gitops/cluster-config'
+ # Patch Applications for commit pinning
+  - target:
+      kind: Application
+      labelSelector: repo=cluster-config
+    patch: |-
+      - op: replace
+        path: /spec/source/targetRevision
+        value: main
+  - target:
+      kind: Application
+      labelSelector: repo=acm-cluster-hub
+    patch: |-
+      - op: replace
+        path: /spec/source/targetRevision
+        value: main
+  - target:
+      kind: Application
+      labelSelector: repo=gitops-catalog
+    patch: |-
+      - op: replace
+        path: /spec/source/targetRevision
+        value: main
