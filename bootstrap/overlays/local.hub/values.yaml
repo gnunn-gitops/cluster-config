@@ -48,7 +48,7 @@ applications:
     source:
       repoURL: https://github.com/gnunn-gitops/acm-hub-bootstrap.git
       path: components/apps/acm/overlays/hub
-      targetRevision: 3fdb6ce5cefbc00c552d2ec289ce96969b5a9c09
+      targetRevision: 840cfd74dcdc4828c1d0dd85ae01a16a405a8589
 
   acm-observability:
     annotations:
@@ -60,7 +60,7 @@ applications:
     source:
       repoURL: https://github.com/gnunn-gitops/acm-hub-bootstrap.git
       path: components/apps/acm/overlays/observability
-      targetRevision: 3fdb6ce5cefbc00c552d2ec289ce96969b5a9c09
+      targetRevision: 840cfd74dcdc4828c1d0dd85ae01a16a405a8589
 
   acm-policies:
     annotations:
@@ -72,7 +72,7 @@ applications:
     source:
       repoURL: https://github.com/gnunn-gitops/acm-hub-bootstrap.git
       path: bootstrap/policies/overlays/default
-      targetRevision: 3fdb6ce5cefbc00c552d2ec289ce96969b5a9c09
+      targetRevision: 840cfd74dcdc4828c1d0dd85ae01a16a405a8589
 
   # Disable while we work this out
   nmstate:
