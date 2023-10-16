@@ -108,3 +108,7 @@ I am also a big fan of separating the cluster configuration use case from applic
 # Tenant Configuration
 
 Currently im managing tenants with kustonize but my feeling is this is too complicated. I'm planning on moving to a helm chart in the future.
+
+# Other Notes
+
+I am using annotation tracking with Argo CD and as result am not using IgnoreExtraneous (though I may still have some historical examples in the repo). Annotation tracking provides more capabilities then the default label tracking and should always be used to mitigate false positives from operator created resources.
