@@ -74,6 +74,8 @@ applications:
   acm-clusters:
     annotations:
       argocd.argoproj.io/sync-wave: '31'
+    labels:
+      repo: main
     destinations:
       namespace: openshift-gitops
     source:
