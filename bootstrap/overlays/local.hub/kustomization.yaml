@@ -29,7 +29,7 @@ patches:
         value: 30d2e3fd9233677e0cb4ab6b2d164aca81cc74a5
   - target:
       kind: Application
-      labelSelector: repo=acm-cluster-hub
+      labelSelector: repo=acm-hub-bootstrap
     patch: |-
       - op: replace
         path: /spec/source/targetRevision
