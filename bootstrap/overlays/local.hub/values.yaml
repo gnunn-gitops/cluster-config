@@ -74,13 +74,14 @@ applications:
   acm-clusters:
     annotations:
       argocd.argoproj.io/sync-wave: '31'
-    labels:
-      repo: acm-hub-bootstrap
     destinations:
       namespace: openshift-gitops
     source:
       repoURL: https://github.com/gnunn-gitops/acm-hub-bootstrap.git
       path: components/clusters/base
+      # Always use latest so we can can set gitops-revision for commit pinnning,
+      # otherwise it's chicken and egg problem.
+      targetRevision: main
 
   # Disable while we work this out
   nmstate:
