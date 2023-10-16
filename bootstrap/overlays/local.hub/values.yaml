@@ -71,6 +71,17 @@ applications:
       repoURL: https://github.com/gnunn-gitops/acm-hub-bootstrap.git
       path: bootstrap/policies/overlays/default
 
+  acm-clusters:
+    annotations:
+      argocd.argoproj.io/sync-wave: '31'
+    labels:
+      repo: acm-hub-bootstrap
+    destinations:
+      namespace: openshift-gitops
+    source:
+      repoURL: https://github.com/gnunn-gitops/acm-hub-bootstrap.git
+      path: components/clusters/base
+
   # Disable while we work this out
   nmstate:
     enabled: true
