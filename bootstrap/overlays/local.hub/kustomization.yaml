@@ -33,7 +33,7 @@ patches:
     patch: |-
       - op: replace
         path: /spec/source/targetRevision
-        value: 840cfd74dcdc4828c1d0dd85ae01a16a405a8589
+        value: e2cc8b364e40fc7966ac610b8c19b3c59313d753
   - target:
       kind: Application
       labelSelector: repo=gitops-catalog
