@@ -76,13 +76,13 @@ patches:
         value:
           defaultPolicy: 'role:none'
           policy: |
-            p, role:none, applications, get, */*, deny
-            p, role:none, certificates, get, *, deny
-            p, role:none, clusters, get, *, deny
-            p, role:none, repositories, get, *, deny
-            p, role:none, projects, get, *, deny
-            p, role:none, accounts, get, *, deny
-            p, role:none, gpgkeys, get, *, deny
+            p, role:none, applications, *, */*, deny
+            p, role:none, certificates, *, *, deny
+            p, role:none, clusters, *, *, deny
+            p, role:none, repositories, *, *, deny
+            p, role:none, projects, *, *, deny
+            p, role:none, accounts, *, *, deny
+            p, role:none, gpgkeys, *, *, deny
             g, system:cluster-admins, role:admin
             g, cluster-admins, role:admin
             g, argocdadmins, role:admin
