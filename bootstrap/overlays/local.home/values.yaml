@@ -86,6 +86,8 @@ applications:
 # Tenants
   gitops:
     project: cluster-config
+    labels:
+      repo: use-head
     annotations:
       argocd.argoproj.io/compare-options: IgnoreExtraneous
       argocd.argoproj.io/sync-wave: '50'
