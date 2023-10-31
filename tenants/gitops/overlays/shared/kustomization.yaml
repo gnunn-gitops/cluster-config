@@ -31,6 +31,7 @@ patches:
       - op: add
         path: /spec/extraConfig
         value:
+          exec.enabled: "true"
           resource.customizations.health.PersistentVolumeClaim: |
             hs = {}
             if obj.status ~= nil then
