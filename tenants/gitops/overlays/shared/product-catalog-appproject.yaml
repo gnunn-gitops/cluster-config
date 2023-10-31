@@ -29,19 +29,19 @@ spec:
       groups:
         - product-catalog-admins
       policies:
-        - p, proj:product-catalog:admin, applications, *, product-catalog/*, allow
-        - p, proj:product-catalog:admin, exec, create, product-catalog/*, allow
+        - p, proj:product-catalog:admin, applications, *, */*, allow
+        - p, proj:product-catalog:admin, exec, create, */*, allow
     - description: Product Catalog Users
       name: user
       groups:
         - product-catalog-users
       policies:
-        - p, proj:product-catalog:user, applications, get, product-catalog/*, allow
-        - p, proj:product-catalog:user, applications, sync, product-catalog/*, allow
+        - p, proj:product-catalog:user, applications, get, */*, allow
+        - p, proj:product-catalog:user, applications, sync, */*, allow
     - description: Pipeline accounts
       name: pipeline
       groups:
         - product-catalog-pipeline
       policies:
-        - p, proj:product-catalog:pipeline, applications, get, product-catalog/*, allow
-        - p, proj:product-catalog:pipeline, applications, sync, product-catalog/*, allow
+        - p, proj:product-catalog:pipeline, applications, get, */*, allow
+        - p, proj:product-catalog:pipeline, applications, sync, */*, allow
