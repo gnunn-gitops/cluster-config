@@ -30,6 +30,7 @@ spec:
         - product-catalog-admins
       policies:
         - p, proj:product-catalog:admin, applications, *, product-catalog/*, allow
+        - p, proj:product-catalog:admin, exec, create, product-catalog/*, allow
     - description: Product Catalog Users
       name: user
       groups:

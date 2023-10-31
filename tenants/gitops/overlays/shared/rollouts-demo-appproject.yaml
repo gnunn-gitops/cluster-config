@@ -26,6 +26,7 @@ spec:
         - rollouts-demo-admins
       policies:
         - p, proj:rollouts-demo:admin, applications, *, rollouts-demo/*, allow
+        - p, proj:rollouts-demo:admin, exec, create, product-catalog/*, allow
     - description: Rollout Demo Users
       name: user
       groups:
