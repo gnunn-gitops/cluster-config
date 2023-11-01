@@ -75,8 +75,9 @@ patches:
       - op: add
         path: /spec/rbac
         value:
-          defaultPolicy: ''
+          defaultPolicy: 'role:none'
           policy: |
+            p, role:none, *, *, */*, deny
             g, system:cluster-admins, role:admin
             g, cluster-admins, role:admin
           scopes: "[accounts,groups]"
