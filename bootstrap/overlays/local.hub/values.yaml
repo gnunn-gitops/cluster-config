@@ -22,12 +22,6 @@ applications:
     source:
       path: clusters/overlays/local.hub/components/node-config
 
-  odf-operator:
-    annotations:
-      argocd.argoproj.io/sync-wave: '1'
-    source:
-      path: components/odf-operator/operator/overlays/no-registry
-
   odf-instance:
     annotations:
       argocd.argoproj.io/sync-wave: '2'
