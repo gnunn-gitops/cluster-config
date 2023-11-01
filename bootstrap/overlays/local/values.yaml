@@ -16,12 +16,6 @@ default:
 
 applications:
 
-  odf-operator:
-    annotations:
-      argocd.argoproj.io/sync-wave: '1'
-    source:
-      path: components/odf-operator/operator/overlays/no-registry
-
   lvm-operator:
     annotations:
       argocd.argoproj.io/sync-wave: '2'
