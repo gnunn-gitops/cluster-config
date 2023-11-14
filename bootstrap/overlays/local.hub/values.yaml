@@ -75,7 +75,7 @@ applications:
     annotations:
       argocd.argoproj.io/sync-wave: '31'
     labels:
-      repo: ignore
+      repo: use-head
     destinations:
       namespace: openshift-gitops
     source:
