@@ -46,7 +46,6 @@ applications:
 
   openshift-monitoring:
     annotations:
-      argocd.argoproj.io/compare-options: IgnoreExtraneous
       argocd.argoproj.io/sync-wave: '11'
     destination:
       namespace: openshift-monitoring
@@ -55,7 +54,6 @@ applications:
 
   cost-management:
     annotations:
-      argocd.argoproj.io/compare-options: IgnoreExtraneous
       argocd.argoproj.io/sync-wave: '21'
     destination:
       namespace: costmanagement-metrics-operator
@@ -65,7 +63,6 @@ applications:
   lokistack:
     enabled: false
     annotations:
-      argocd.argoproj.io/compare-options: IgnoreExtraneous
       argocd.argoproj.io/sync-wave: '21'
     source:
       path: clusters/overlays/local.home/components/lokistack
@@ -78,7 +75,6 @@ applications:
 
   node-config:
     annotations:
-      argocd.argoproj.io/compare-options: IgnoreExtraneous
       argocd.argoproj.io/sync-wave: '99'
     source:
       path: clusters/overlays/local.home/components/node-config
@@ -89,7 +85,6 @@ applications:
     labels:
       repo: use-head
     annotations:
-      argocd.argoproj.io/compare-options: IgnoreExtraneous
       argocd.argoproj.io/sync-wave: '50'
     source:
       path: tenants/gitops/overlays/shared
@@ -97,7 +92,6 @@ applications:
   product-catalog-root:
     project: cluster-config
     annotations:
-      argocd.argoproj.io/compare-options: IgnoreExtraneous
       argocd.argoproj.io/sync-wave: '51'
     source:
       path: tenants/product-catalog/argocd/root/base
@@ -105,7 +99,6 @@ applications:
   rollouts-demo-root:
     project: cluster-config
     annotations:
-      argocd.argoproj.io/compare-options: IgnoreExtraneous
       argocd.argoproj.io/sync-wave: '51'
     source:
       path: tenants/rollouts-demo/argocd/root/base
