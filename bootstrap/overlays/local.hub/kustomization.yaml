@@ -19,25 +19,3 @@ patches:
       - op: replace
         path: /spec/source/path
         value: 'components/compliance-operator/overlays/cis-compliance-master-only'
- # Patch Applications for commit pinning
-  - target:
-      kind: Application
-      labelSelector: repo=cluster-config
-    patch: |-
-      - op: replace
-        path: /spec/source/targetRevision
-        value: e726120e4f79c9addc1aa54da0a6092e9d5ea6a0
-  - target:
-      kind: Application
-      labelSelector: repo=acm-hub-bootstrap
-    patch: |-
-      - op: replace
-        path: /spec/source/targetRevision
-        value: ee9fd5c497e28bbe6d2befeaf516545f50a00375
-  - target:
-      kind: Application
-      labelSelector: repo=gitops-catalog
-    patch: |-
-      - op: replace
-        path: /spec/source/targetRevision
-        value: dc6a546e76b28dcaaa8ba2127d20dd24973bf540
