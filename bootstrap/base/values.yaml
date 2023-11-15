@@ -49,13 +49,10 @@ applications:
     annotations:
       argocd.argoproj.io/compare-options: IgnoreExtraneous
       argocd.argoproj.io/sync-wave: '21'
-    labels:
-      repo: gitops-catalog
     destination:
       namespace: openshift-operators
     source:
-      path: container-security-operator/overlays/stable-3.7
-      repoURL: https://github.com/redhat-cop/gitops-catalog
+      path: container-security-operator/overlays/stable-3.9
 
   external-secrets:
     annotations:
