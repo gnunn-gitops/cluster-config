@@ -9,3 +9,10 @@ patches:
     target:
       kind: Job
       name: enable-odf-console-plugin
+  - patch: |-
+      - op: replace
+        path: /spec/channel
+        value: stable-4.14
+    target:
+      kind: Subscription
+      name: odf-operator
