@@ -17,23 +17,33 @@ patches:
   target:
     kind: Grafana
     name: grafana
-
-patchesJson6902:
-- target:
-    version: v1alpha1
-    group: operators.coreos.com
+- patch: |-
+    - op: replace
+      path: /spec/channel
+      value: v5
+  target:
     kind: Subscription
     name: grafana
-  path: patch-grafana-channel.yaml
-- target:
+- patch: |-
+    - op: replace
+      path: /spec/containers/0/env/0/value
+      value: '-openshift-sar={"namespace":"product-catalog-monitor","resource":"routes","name":"grafana-route","verb":"get"}'
+    - op: add
+      path: /spec/containers/0/ports/0/protocol
+      value: TCP
+  target:
     version: v1alpha1
     group: integreatly.org
     kind: Grafana
     name: grafana
-  path: patch-grafana-sar.yaml
-- target:
-    version: v1
+- patch: |-
+    - op: replace
+      path: /subjects/0/namespace
+      value: product-catalog-monitor
+    - op: replace
+      path: /metadata/name
+      value: cluster-monitoring-view-product-catalog-monitor
+  target:
     group: rbac.authorization.k8s.io
     kind: ClusterRoleBinding
     name: cluster-monitoring-view
-  path: patch-cluster-monitoring-view.yaml
