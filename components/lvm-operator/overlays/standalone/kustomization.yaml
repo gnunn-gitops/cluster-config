@@ -1,0 +1,4 @@
+resources:
+- ../../base
+- namespace.yaml
+- operatorgroup.yaml
