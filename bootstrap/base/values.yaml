@@ -52,7 +52,7 @@ applications:
     destination:
       namespace: openshift-operators
     source:
-      path: container-security-operator/overlays/stable-3.9
+      path: components/container-security-operator/overlays/stable-3.9
 
   external-secrets:
     annotations:
