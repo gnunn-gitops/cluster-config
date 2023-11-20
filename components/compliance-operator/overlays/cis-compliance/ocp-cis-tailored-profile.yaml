@@ -22,3 +22,5 @@ spec:
     rationale: Home lab, no need for auditing
   - name: ocp4-ocp-api-server-audit-log-maxsize
     rationale: Home lab, no need for auditing
+  - name: ocp4-audit-profile-set
+    rationale: Home lab, default auditing is sufficient
