@@ -24,3 +24,9 @@ spec:
     rationale: Home lab, no need for auditing
   - name: ocp4-audit-profile-set
     rationale: Home lab, default auditing is sufficient
+  - name: ocp4-ocp-allowed-registries
+    rationale: Home lab, open registries is fine
+  - name: ocp4-ocp-allowed-registries-for-import
+    rationale: Home lab, open registries is fine
+  - name: ocp4-api-server-api-priority-gate-enabled
+    rationale: Need to understand mis-behaving clients in Home lab
