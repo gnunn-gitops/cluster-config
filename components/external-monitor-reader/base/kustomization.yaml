@@ -1,0 +1,6 @@
+namespace: openshift-monitoring
+
+resources:
+- monitoring-role-binding.yaml
+- service-account.yaml
+- token-secret.yaml
