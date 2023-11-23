@@ -81,3 +81,6 @@ patches:
             g, system:cluster-admins, role:admin
             g, cluster-admins, role:admin
           scopes: "[accounts,groups]"
+      - op: add
+        path: /spec/server/host
+        value: argocd-server-gitops.apps.home.ocplab.com
