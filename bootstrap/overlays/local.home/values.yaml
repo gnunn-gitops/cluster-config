@@ -108,4 +108,4 @@ applications:
     annotations:
       argocd.argoproj.io/sync-wave: '51'
     source:
-      path:  clusters/overlays/local.home/components/tenants
+      path: clusters/overlays/local.home/components/tenants

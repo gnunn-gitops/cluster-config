@@ -1,21 +1,21 @@
 tenant: product-catalog
 
 default:
-    argocd:
-      cluster:
-        name: in-cluster
-    annotations:
-      app.openshift.io/vcs-uri: https://github.com/gnunn-gitops/product-catalog
-      app.openshift.io/vcs-ref: main
-    labels:
-      argocd.argoproj.io/managed-by: gitops
-      tenant: product-catalog
-    networkPolicy: true
-    rbac:
-      adminGroups:
-        - product-catalog-admins
-      editGroups:
-        - product-catalog-users
+  argocd:
+    cluster:
+      name: in-cluster
+  annotations:
+    app.openshift.io/vcs-uri: https://github.com/gnunn-gitops/product-catalog
+    app.openshift.io/vcs-ref: main
+  labels:
+    argocd.argoproj.io/managed-by: gitops
+    tenant: product-catalog
+  networkPolicy: true
+  rbac:
+    adminGroups:
+      - product-catalog-admins
+    editGroups:
+      - product-catalog-users
 
 argocd:
   namespace: gitops
