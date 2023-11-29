@@ -1,10 +1,10 @@
 namespace: gitops
 
 resources:
+  - ../../base
   - gitops-monitoring-cluster-role.yaml
   - namespace.yaml
   - argocd-notifications-cm.yaml
-  - ../../../../components/gitops-operator/base
   - console-link.yaml
   - global-appproject.yaml
   # Tenant projects here

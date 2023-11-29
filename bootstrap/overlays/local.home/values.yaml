@@ -101,7 +101,7 @@ applications:
     annotations:
       argocd.argoproj.io/sync-wave: '50'
     source:
-      path: tenants/gitops/overlays/shared
+      path: components/gitops-operator/overlays/shared
 
   product-catalog-root:
     project: cluster-config
