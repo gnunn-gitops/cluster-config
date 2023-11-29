@@ -7,9 +7,6 @@ resources:
   - argocd-notifications-cm.yaml
   - console-link.yaml
   - global-appproject.yaml
-  # Tenant projects here
-  - product-catalog-appproject.yaml
-  - rollouts-demo-appproject.yaml
 
 patches:
   # Update permissions for tenants and local accounts, note ACCOUNT_NAMESPACES is space separated
