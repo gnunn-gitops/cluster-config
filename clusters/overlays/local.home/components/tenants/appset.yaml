@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: tenants
+  namespace: openshift-gitops
+spec:
+  goTemplate: true
+  syncPolicy:
+    preserveResourcesOnDeletion: true
+  generators:
+    - git:
+        files:
+          - path: tenants/**/base
+        repoURL: 'https://github.com/gnunn-gitops/cluster-config'
+        revision: main
+  template:
+    metadata:
+      name: tenant-'{{ index .path.segments 1 | normalize }}-{{ .path.basename }}'
+    spec:
+      destination:
+        namespace: default
+        name: in-cluster
+      project: cluster-config
+      source:
+        path: "{{ .path.path }}"
+        repoURL: 'https://github.com/gnunn-gitops/cluster-config'
+        targetRevision: main

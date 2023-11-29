@@ -103,24 +103,9 @@ applications:
     source:
       path: components/gitops-operator/overlays/shared
 
-  product-catalog-root:
+  tenants:
     project: cluster-config
     annotations:
       argocd.argoproj.io/sync-wave: '51'
     source:
-      path: tenants/product-catalog/argocd/root/base
-
-  rollouts-demo-root:
-    project: cluster-config
-    annotations:
-      argocd.argoproj.io/sync-wave: '51'
-    source:
-      path: tenants/rollouts-demo/argocd/root/base
-
-  # demo-root:
-  #   project: cluster-config
-  #   annotations:
-  #     argocd.argoproj.io/compare-options: IgnoreExtraneous
-  #     argocd.argoproj.io/sync-wave: '51'
-  #   source:
-  #     path: tenants/demo/argocd/root/base
+      path:  clusters/overlays/local.home/components/tenants
