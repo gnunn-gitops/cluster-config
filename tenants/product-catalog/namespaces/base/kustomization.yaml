@@ -1,8 +1,0 @@
-kind: Kustomization
-apiVersion: kustomize.config.k8s.io/v1beta1
-
-resources:
-- ../../../defaults/networkpolicy/base
-- ../../../defaults/namespaces/overlays/gitops
-- product-catalog-admins-rolebinding.yaml
-- product-catalog-users-rolebinding.yaml

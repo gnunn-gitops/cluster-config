@@ -1,0 +1,62 @@
+tenant: rollouts-demo
+
+default:
+    argocd:
+      cluster:
+        name: in-cluster
+    labels:
+      argocd.argoproj.io/managed-by: gitops
+      tenant: rollouts-demo
+    networkPolicy: true
+    rbac:
+      adminGroups:
+        - rollouts-demo-admins
+      editGroups:
+        - rollouts-demo-users
+
+argocd:
+  namespace: gitops
+  sourceRepos:
+    - '*'
+  adminGroups:
+   - rollouts-demo-admins
+  userGroups:
+   - rollouts-demo-users
+  pipelineGroups:
+   - rollouts-demo-pipeline
+
+namespaces:
+
+  dev:
+    quota: medium
+    annotations:
+      app.openshift.io/vcs-uri: https://github.com/gnunn-gitops/product-catalog
+      app.openshift.io/vcs-ref: main
+
+  test:
+    quota: medium
+    annotations:
+      openshift.io/description: Project for test environment of product catalog application
+      openshift.io/display-name: Product Catalog Test
+
+  prod:
+    quota: medium
+    annotations:
+      openshift.io/description: Project for production environment of product catalog application
+      openshift.io/display-name: Product Catalog Prod
+
+  cicd:
+    annotations:
+      openshift.io/description: Project for ci/cd tools for product catalog application
+      openshift.io/display-name: Product Catalog CI/CD
+
+  gitops:
+    annotations:
+      openshift.io/description: Project for gitops tool for product catalog team
+      openshift.io/display-name: Product Catalog GitOps
+
+  monitor:
+    annotations:
+      openshift.io/description: Project for monitoring tools of product catalog application
+      openshift.io/display-name: Product Catalog Monitor
+    operatorGroup: true
