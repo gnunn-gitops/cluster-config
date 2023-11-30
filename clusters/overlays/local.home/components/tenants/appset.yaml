@@ -4,24 +4,24 @@ metadata:
   name: tenants
   namespace: openshift-gitops
 spec:
+  generators:
+  - git:
+      files:
+      - path: tenants/**/base/kustomization.yaml
+      repoURL: https://github.com/gnunn-gitops/cluster-config
+      revision: main
   goTemplate: true
   syncPolicy:
     preserveResourcesOnDeletion: true
-  generators:
-    - git:
-        files:
-          - path: tenants/**/base
-        repoURL: 'https://github.com/gnunn-gitops/cluster-config'
-        revision: main
   template:
     metadata:
-      name: tenant-'{{ index .path.segments 1 | normalize }}-{{ .path.basename }}'
+      name: tenant-{{ index .path.segments 1 | normalize }}
     spec:
       destination:
-        namespace: default
         name: in-cluster
+        namespace: default
       project: cluster-config
       source:
-        path: "{{ .path.path }}"
-        repoURL: 'https://github.com/gnunn-gitops/cluster-config'
+        path: '{{ .path.path }}'
+        repoURL: https://github.com/gnunn-gitops/cluster-config
         targetRevision: main
