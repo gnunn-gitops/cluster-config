@@ -24,7 +24,7 @@ spec:
       source:
         path: '{{ .path.path }}'
         repoURL: https://github.com/gnunn-gitops/cluster-config
-        targetRevision: v1.1.2
+        targetRevision: v1.1.3
       syncPolicy:
         automated:
           selfHeal: true
