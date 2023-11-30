@@ -30,33 +30,22 @@ namespaces:
   dev:
     quota: medium
     annotations:
-      app.openshift.io/vcs-uri: https://github.com/gnunn-gitops/product-catalog
-      app.openshift.io/vcs-ref: main
+      openshift.io/description: Project for dev environment of rollouts demo application
+      openshift.io/display-name: Rollouts Demo Development
 
-  test:
-    quota: medium
-    annotations:
-      openshift.io/description: Project for test environment of product catalog application
-      openshift.io/display-name: Product Catalog Test
 
   prod:
     quota: medium
     annotations:
-      openshift.io/description: Project for production environment of product catalog application
-      openshift.io/display-name: Product Catalog Prod
+      openshift.io/description: Project for prod environment of rollouts demo application
+      openshift.io/display-name: Rollouts Demo Production
 
   cicd:
     annotations:
-      openshift.io/description: Project for ci/cd tools for product catalog application
-      openshift.io/display-name: Product Catalog CI/CD
+      openshift.io/description: Project for ci/cd tools for rollouts demo application
+      openshift.io/display-name: Rollouts Demo CI/CD
 
   gitops:
     annotations:
-      openshift.io/description: Project for gitops tool for product catalog team
-      openshift.io/display-name: Product Catalog GitOps
-
-  monitor:
-    annotations:
-      openshift.io/description: Project for monitoring tools of product catalog application
-      openshift.io/display-name: Product Catalog Monitor
-    operatorGroup: true
+      openshift.io/description: Project for gitops tool for rollouts demo team
+      openshift.io/display-name: Rollouts Demo GitOps
