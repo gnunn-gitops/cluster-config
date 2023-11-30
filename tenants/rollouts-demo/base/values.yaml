@@ -19,11 +19,11 @@ argocd:
   sourceRepos:
     - '*'
   adminGroups:
-   - rollouts-demo-admins
+    - rollouts-demo-admins
   userGroups:
-   - rollouts-demo-users
+    - rollouts-demo-users
   pipelineGroups:
-   - rollouts-demo-pipeline
+    - rollouts-demo-pipeline
 
 namespaces:
 

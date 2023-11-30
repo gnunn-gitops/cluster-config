@@ -22,11 +22,11 @@ argocd:
   sourceRepos:
     - '*'
   adminGroups:
-   - product-catalog-admins
+    - product-catalog-admins
   userGroups:
-   - product-catalog-users
+    - product-catalog-users
   pipelineGroups:
-   - product-catalog-pipeline
+    - product-catalog-pipeline
 
 namespaces:
 
