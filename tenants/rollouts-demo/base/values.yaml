@@ -28,14 +28,12 @@ argocd:
 namespaces:
 
   dev:
-    quota: medium
     annotations:
       openshift.io/description: Project for dev environment of rollouts demo application
       openshift.io/display-name: Rollouts Demo Development
 
 
   prod:
-    quota: medium
     annotations:
       openshift.io/description: Project for prod environment of rollouts demo application
       openshift.io/display-name: Rollouts Demo Production
