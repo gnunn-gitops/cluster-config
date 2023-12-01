@@ -6,8 +6,8 @@ metadata:
 spec:
   generators:
   - git:
-      files:
-      - path: tenants/**/base/kustomization.yaml
+      directories:
+      - path: tenants/**/base
       repoURL: https://github.com/gnunn-gitops/cluster-config
       revision: main
   goTemplate: true
@@ -24,7 +24,6 @@ spec:
       source:
         path: '{{ .path.path }}'
         repoURL: https://github.com/gnunn-gitops/cluster-config
-        targetRevision: v1.1.5
       syncPolicy:
         automated:
           selfHeal: true
