@@ -38,7 +38,7 @@ I've opted to use a dot notation to separate groups, i.e `local`, from specific 
 
 ## Why not ApplicationSet instead of App-of-App Helm Chart?
 
-Some folks may be wondering why I do not use an ApplicationSet instead of this App-of-App Helm chart. The primary reason is that the Helm chart allows for easily post-processing the generated Applications to enable cluster overrides. While having an ApplicationSet with a list generator delivered by kustomize could also accomplish this, the list generator is simply an array which is challenging to patch correctly with JSON semantics (i.e. you can only reference items by ordinal rather then name. As a result trying to manage patching this would be error-prone if ordering ever changes in the list.
+Some folks may be wondering why I do not use an ApplicationSet instead of this App-of-App Helm chart. The primary reason is that the Helm chart allows for easily post-processing the generated Applications to enable cluster overrides. While having an ApplicationSet with a list generator delivered by kustomize could also accomplish this, the list generator is simply a list which is challenging to patch correctly with JSON semantics (i.e. you can only reference items by ordinal rather then name. As a result trying to manage patching this would be error-prone if ordering ever changes in the list.
 
 Other generator types don't allow any post-processing meaning overriding for specific clusters needs to be packaged into the ApplicationSet which I felt was overly cumbersome.
 
@@ -77,11 +77,13 @@ I have used Sealed Secrets in the past but as I have expanded my homelab into mu
 
 A common requirement is for a cluster configuration to be promoted across one or more clusters, i.e a change starts in the lab cluster, gets promoted to non-production and then finally production.
 
-I have only experimented with this a bit however it looks like commit pinning works well in this scenario, i.e. the lab cluster is pinned to HEAD and always gets the latest and greates. The other clusters are pinned to specific commits, when you want to promote you simply move the pin forward to the desired commit.
+I am currently trying this and so far commit pinning works well in this scenario, i.e. the lab cluster is pinned to HEAD and always gets the latest and greatest. The other clusters are pinned to specific commits, when you want to promote you simply move the pin forward to the desired commit.
 
 In cases where a configuration spans multiple repositories you may need to have different commit pins based on the repo. This could be accomplished by labelling the Application objects with the repo and then using a kustomize patch targetted by label. Some improvements to the helm chart would be needed so that labels can be merged between default and specific applications to make this easier to manage.
 
 Commit pinning for specific applications is also straightforward, either by overriding the default `targetRevision` in the App-of-App Helm chart for a specific application or patching it via kustomize.
+
+See the repo [cluster-config-pins](https://github.com/gnunn-gitops/cluster-config-pins) for more information on how commit pinning is being used here.
 
 # Sequence
 
@@ -107,7 +109,14 @@ I am also a big fan of separating the cluster configuration use case from applic
 
 # Tenant Configuration
 
-Currently im managing tenants with kustonize but my feeling is this is too complicated. I'm planning on moving to a helm chart in the future.
+Tenants are managed via a helm chart and an ApplicationSet with the git generator, it basically follows the high level approach laid out in this [blog](https://cloud.redhat.com/blog/project-onboarding-using-gitops-and-helm) from Thomas Jungbauer.
+
+I am using my own Helm chart and this chart is wrapped in kustomize and leverages the helm inflator feature in kustomize. The benefit of this approach is that using kustomize makes it easy to add additional, tenant specific resources and avoids
+the helm chart having to be an all singing all dancing sort of thing.
+
+As an example, you can set the quota size (small, medium, large) you want in the chart but if you want a custom quota you just create your own quota object versus the helm chart having to support a custom quota.
+
+Finally note that tenant configuration is exempted from commit pinning, it doesn't make much sense to have promotions for individual tenants and structural promotion is handled already by versioning the helm chart.
 
 # Other Notes
 
