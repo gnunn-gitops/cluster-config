@@ -62,7 +62,6 @@ applications:
     source:
       path: components/ldap-group-sync/base
 
-
   kyverno:
     enabled: false
     annotations:
@@ -89,13 +88,13 @@ applications:
           jsonPointers:
           - /spec/rules
 
-  web-terminal:
-    annotations:
-      argocd.argoproj.io/sync-wave: '21'
-    destination:
-      namespace: openshift-operators
-    source:
-      path: components/web-terminal-operator/base
+  # web-terminal:
+  #   annotations:
+  #     argocd.argoproj.io/sync-wave: '21'
+  #   destination:
+  #     namespace: openshift-operators
+  #   source:
+  #     path: components/web-terminal-operator/base
 
   defrag-etcd:
     annotations:
