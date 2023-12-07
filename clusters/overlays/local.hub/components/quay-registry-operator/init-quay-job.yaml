@@ -51,7 +51,7 @@ spec:
 
               ansible-galaxy collection install -r collections/requirements.yaml
 
-              ansible-playbook quay-init.yaml -e quay_init_password=$quay_init_password
+              ansible-playbook quay-init.yaml -e quay_init_password=$quay_init_password -e ansible_remote_tmp=/tmp
 
               echo "Waiting for deploy/registry-clair-app to be available"
               until oc get deployment registry-clair-app
