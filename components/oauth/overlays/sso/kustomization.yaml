@@ -32,6 +32,8 @@ patches:
               email:
               - custom_email_claim
               - email
+              groups:
+              - groups
             issuer: https://sso.ocplab.com/realms/ocplab
     target:
       group: config.openshift.io

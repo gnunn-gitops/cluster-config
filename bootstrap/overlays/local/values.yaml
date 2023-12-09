@@ -55,13 +55,6 @@ applications:
     source:
       path: components/rbac/base
 
-  ldap-group-sync:
-    annotations:
-      argocd.argoproj.io/compare-options: IgnoreExtraneous
-      argocd.argoproj.io/sync-wave: '11'
-    source:
-      path: components/ldap-group-sync/base
-
   kyverno:
     enabled: false
     annotations:

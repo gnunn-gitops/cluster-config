@@ -10,5 +10,4 @@ helmCharts:
   releaseName: product-catalog
 
 resources:
-- groups.yaml
 - analysis-auth-monitoring.yaml

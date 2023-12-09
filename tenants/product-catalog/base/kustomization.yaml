@@ -11,5 +11,4 @@ helmCharts:
 
 resources:
 - ./monitor
-- groups.yaml
 - github-pipeline-scc-rolebinding.yaml
