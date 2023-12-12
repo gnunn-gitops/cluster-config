@@ -77,6 +77,8 @@ patches:
             p, role:none, *, *, */*, deny
             g, system:cluster-admins, role:admin
             g, cluster-admins, role:admin
+            p, role:developers, clusters, get, *, allow
+            g, developers, role:developers
           scopes: "[accounts,groups]"
       - op: add
         path: /spec/server/host

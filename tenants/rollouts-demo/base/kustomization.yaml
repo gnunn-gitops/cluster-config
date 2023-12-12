@@ -3,7 +3,7 @@ kind: Kustomization
 
 helmCharts:
 - name: tenant
-  version: 0.2.3
+  version: 0.2.4
   repo: https://gnunn-gitops.github.io/helm-charts
   valuesFile: values.yaml
   namespace: gitops
