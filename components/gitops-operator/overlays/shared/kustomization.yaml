@@ -80,6 +80,3 @@ patches:
             p, role:developers, clusters, get, *, allow
             g, developers, role:developers
           scopes: "[accounts,groups]"
-      - op: add
-        path: /spec/server/host
-        value: argocd-server-gitops.apps.home.ocplab.com
