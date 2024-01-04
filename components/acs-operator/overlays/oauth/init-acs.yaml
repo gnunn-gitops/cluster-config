@@ -11,6 +11,9 @@ spec:
     spec:
       containers:
         - image: registry.redhat.io/ansible-automation-platform-21/ee-supported-rhel8:1.0
+          env:
+          - name: ANSIBLE_REMOTE_TMP
+            value: /tmp
           envFrom:
           - secretRef:
               name: central-htpasswd
