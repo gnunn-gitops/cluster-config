@@ -28,6 +28,7 @@ patches:
       - op: add
         path: /spec/extraConfig
         value:
+          resource.respectRBAC: "normal"
           exec.enabled: "true"
           resource.customizations.health.PersistentVolumeClaim: |
             hs = {}
