@@ -3,7 +3,7 @@ kind: ConsoleNotification
 metadata:
   name: banner
 spec:
-  text: "Cluster: ${CLUSTER_NAME}"
+  text: "Managed Cluster: ${CLUSTER_NAME}"
   location: BannerTop
   color: '#fff'
   backgroundColor: '#808080'
