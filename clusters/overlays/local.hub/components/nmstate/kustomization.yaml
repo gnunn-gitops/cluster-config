@@ -1,13 +1,12 @@
 resources:
-- github.com/redhat-cop/gitops-catalog/nmstate/operator
-- github.com/redhat-cop/gitops-catalog/nmstate/instance
+- github.com/redhat-cop/gitops-catalog/nmstate/aggregate/overlays/default
 - node-network-configuration-policy.yaml
 
 patches:
   - patch: |-
       - op: replace
         path: /spec/channel
-        value: "4.13"
+        value: "stable"
     target:
       kind: Subscription
       name: kubernetes-nmstate-operator
