@@ -7,3 +7,5 @@ commonAnnotations:
 resources:
 - github.com/redhat-cop/gitops-catalog/external-secrets-operator/operator/overlays/stable
 - github.com/redhat-cop/gitops-catalog/external-secrets-operator/instance/overlays/default
+- podmonitor.yaml
+- prometheus-rule.yaml

@@ -7,7 +7,7 @@ spec:
   groups:
   - name: ExternalSecrets
     rules:
-    - alert: SyncErrorAlert
+    - alert: ExternalSecretSyncError
       annotations:
         message: External secret {{ $labels.name }} is not synced
       labels:
