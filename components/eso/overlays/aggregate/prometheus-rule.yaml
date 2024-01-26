@@ -9,7 +9,11 @@ spec:
     rules:
     - alert: ExternalSecretSyncError
       annotations:
-        message: External secret {{ $labels.name }} is not synced
+        description: |-
+          The external secret {{ $labels.name }} in namespace {{ $labels.namespace }} failed to be synced.
+          Use this command to check the status:
+          oc get externalsecret {{ $labels.name }} -n {{ $labels.namespace }}
+        summary: External secret failed to sync
       labels:
         severity: warning
       expr: externalsecret_status_condition{status="False"} == 1
