@@ -1,0 +1,16 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: external-secrets
+  namespace: external-secrets
+spec:
+  groups:
+  - name: ExternalSecrets
+    rules:
+    - alert: SyncErrorAlert
+      annotations:
+        message: External secret {{ $labels.name }} is not synced
+      labels:
+        severity: warning
+      expr: externalsecret_status_condition{status="False"} == 1
+      for: 5m
