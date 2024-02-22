@@ -79,6 +79,7 @@ patches:
             g, system:cluster-admins, role:admin
             g, cluster-admins, role:admin
             p, role:developers, clusters, get, *, allow
+            p, role:developers, repositories, get, *, allow
             g, developers, role:developers
           scopes: "[accounts,groups]"
       - op: add
