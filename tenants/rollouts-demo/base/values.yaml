@@ -32,7 +32,6 @@ namespaces:
       openshift.io/description: Project for dev environment of rollouts demo application
       openshift.io/display-name: Rollouts Demo Development
 
-
   prod:
     annotations:
       openshift.io/description: Project for prod environment of rollouts demo application
