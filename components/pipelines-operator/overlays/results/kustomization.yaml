@@ -4,3 +4,4 @@ resources:
 - pvc.yaml
 - tekton-results-db-secret.yaml
 - tekton-results-tls-secret.yaml
+- tektonresults.yaml
