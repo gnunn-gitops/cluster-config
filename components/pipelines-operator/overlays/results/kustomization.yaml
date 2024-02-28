@@ -1,0 +1,6 @@
+namespace: openshift-pipelines
+
+resources:
+- pvc.yaml
+- tekton-results-db-secret.yaml
+- tekton-results-tls-secret.yaml
