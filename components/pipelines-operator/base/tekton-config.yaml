@@ -39,10 +39,10 @@ spec:
     enable-hub-resolver: true
     enable-provenance-in-status: false
     enable-tekton-oci-bundles: false
-    metrics.pipelinerun.duration-type: histogram
-    metrics.pipelinerun.level: pipeline
-    metrics.taskrun.duration-type: histogram
-    metrics.taskrun.level: task
+    metrics.pipelinerun.duration-type: lastvalue
+    metrics.pipelinerun.level: pipelinerun
+    metrics.taskrun.duration-type: lastvalue
+    metrics.taskrun.level: taskrun
     params:
     - name: enableMetrics
       value: "true"
