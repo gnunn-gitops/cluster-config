@@ -1,4 +1,0 @@
-plugin:
-  name: gitops-admin-plugin
-  namespace: gitops-admin-plugin
-  image: quay.io/gnunn/gitops-admin-plugin:latest
