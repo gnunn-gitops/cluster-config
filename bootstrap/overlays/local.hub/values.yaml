@@ -75,6 +75,7 @@ applications:
       path: components/apps/acm/overlays/observability
 
   acm-policies:
+    enableAutoSync: false
     annotations:
       argocd.argoproj.io/sync-wave: '31'
     labels:
