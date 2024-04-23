@@ -99,6 +99,14 @@ applications:
     source:
       path: components/pipelines-operator/overlays/results
 
+  rhtas-operator:
+    annotations:
+      argocd.argoproj.io/sync-wave: '21'
+    destination:
+      namespace: trusted-artifact-signer
+    source:
+      path: clusters/overlays/local.home/components/rhtas-operator
+
 # Tenants
   gitops:
     project: cluster-config

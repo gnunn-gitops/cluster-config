@@ -1,0 +1,6 @@
+namespace: rhtas-operator
+
+resources:
+- namespace.yaml
+- operator-group.yaml
+- subscription.yaml
