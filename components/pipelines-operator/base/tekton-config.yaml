@@ -21,6 +21,8 @@ spec:
     artifacts.oci.format: simplesigning
     artifacts.oci.signer: x509
     transparency.enabled: "true"
+    transparency.url: https://rekor-server-trusted-artifact-signer.apps.home.ocplab.com
+    #signers.x509.tuf.mirror.url: https://tuf-trusted-artifact-signer.apps.home.ocplab.com
   dashboard:
     readonly: false
   params:
