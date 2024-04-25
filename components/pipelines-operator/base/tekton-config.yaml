@@ -22,7 +22,10 @@ spec:
     artifacts.oci.signer: x509
     transparency.enabled: "true"
     transparency.url: https://rekor-server-trusted-artifact-signer.apps.home.ocplab.com
-    #signers.x509.tuf.mirror.url: https://tuf-trusted-artifact-signer.apps.home.ocplab.com
+    signers.x509.fulcio.enabled: true
+    signers.x509.fulcio.address: fulcio-server-trusted-artifact-signer.apps.home.ocplab.com
+    signers.x509.fulcio.issuer: https://sso.ocplab.com/realms/ocplab
+    signers.x509.tuf.mirror.url: https://tuf-trusted-artifact-signer.apps.home.ocplab.com
   dashboard:
     readonly: false
   params:
