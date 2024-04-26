@@ -14,6 +14,20 @@ default:
       repoURL: https://github.com/gnunn-gitops/cluster-config.git
       targetRevision: HEAD
 
+projects:
+
+  demo:
+    description: Project for ad-hoc demos and testing
+    sourceRepos:
+    - "*"
+    destinations: |
+      - namespace: '*'
+        server: https://kubernetes.default.svc
+    extraFields: |
+      clusterResourceWhitelist:
+      - group: '*'
+        kind: '*'
+
 applications:
 
   lvm-operator:
