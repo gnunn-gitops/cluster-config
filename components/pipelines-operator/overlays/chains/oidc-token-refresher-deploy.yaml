@@ -30,6 +30,7 @@ spec:
         - -c
         - |
           #!/bin/bash
+          set -o pipefail
           while true; do
             JWT_TOKEN=$(curl -sL --location "${OIDC_TOKEN_ENDPOINT}" \
             --header "Content-Type: application/x-www-form-urlencoded" \

@@ -27,7 +27,7 @@ patches:
           artifacts.oci.signer: x509
           signers.x509.fulcio.address: 'https://fulcio-server-trusted-artifact-signer.apps.home.ocplab.com'
           artifacts.oci.storage: oci
-          signers.x509.fulcio.issuer: 'https://sso.ocplab.com/realms/openshift'
+          signers.x509.fulcio.issuer: 'https://sso.ocplab.com/realms/ocplab'
           transparency.url: 'https://rekor-server-trusted-artifact-signer.apps.home.ocplab.com'
           disabled: false
           artifacts.oci.format: simplesigning
