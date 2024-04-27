@@ -5,3 +5,64 @@ resources:
 - ../../base
 - openshift-pipelines-namespace.yaml
 - signing-cert-external.yaml
+- oidc-info-secret.yaml
+- oidc-token-refresher-deploy.yaml
+
+patches:
+  - target:
+      kind: TektonConfig
+      name: config
+    patch: |
+      - op: replace
+        path: /spec/chains
+        value:
+          signers.x509.fulcio.enabled: true
+          artifacts.taskrun.storage: oci
+          artifacts.pipelinerun.storage: oci
+          artifacts.pipelinerun.format: in-toto
+          transparency.enabled: 'true'
+          artifacts.taskrun.format: in-toto
+          signers.x509.tuf.mirror.url: 'http://tuf-trusted-artifact-signer.apps.home.ocplab.com'
+          artifacts.oci.signer: x509
+          signers.x509.fulcio.address: 'https://fulcio-server-trusted-artifact-signer.apps.home.ocplab.com'
+          artifacts.oci.storage: oci
+          signers.x509.fulcio.issuer: 'https://sso.ocplab.com/realms/openshift'
+          transparency.url: 'https://rekor-server-trusted-artifact-signer.apps.home.ocplab.com'
+          disabled: false
+          artifacts.oci.format: simplesigning
+          options:
+            deployments:
+              tekton-chains-controller:
+                metadata:
+                  creationTimestamp: null
+                spec:
+                  selector: null
+                  strategy: {}
+                  template:
+                    metadata:
+                      creationTimestamp: null
+                    spec:
+                      containers:
+                        - env:
+                            - name: TUF_ROOT
+                              value: /tuf
+                          name: tekton-chains-controller
+                          resources: {}
+                          volumeMounts:
+                            - mountPath: /tuf
+                              name: tuf
+                            - mountPath: /var/run/sigstore/cosign
+                              name: oidc-info
+                      volumes:
+                        - emptyDir: {}
+                          name: tuf
+                        - name: oidc-info
+                          secret:
+                            items:
+                              - key: id-token
+                                path: oidc-token
+                            secretName: oidc-token
+                status: {}
+            disabled: false
+          signers.x509.identity.token.file: /var/run/sigstore/cosign/oidc-token
+          artifacts.taskrun.signer: x509
