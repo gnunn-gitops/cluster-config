@@ -23,7 +23,7 @@ patches:
           artifacts.pipelinerun.format: in-toto
           transparency.enabled: 'true'
           artifacts.taskrun.format: in-toto
-          signers.x509.tuf.mirror.url: 'http://tuf-trusted-artifact-signer.apps.home.ocplab.com'
+          signers.x509.tuf.mirror.url: 'https://tuf-trusted-artifact-signer.apps.home.ocplab.com'
           artifacts.oci.signer: x509
           signers.x509.fulcio.address: 'https://fulcio-server-trusted-artifact-signer.apps.home.ocplab.com'
           artifacts.oci.storage: oci
