@@ -1,8 +1,6 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  annotations:
-    deployment.kubernetes.io/revision: "4"
   name: oidc-token-refresher
   namespace: openshift-pipelines
 spec:
