@@ -15,7 +15,7 @@ patches:
       name: config
     patch: |
       - op: replace
-        path: /spec/chains
+        path: /spec/chain
         value:
           signers.x509.fulcio.enabled: true
           artifacts.taskrun.storage: oci
