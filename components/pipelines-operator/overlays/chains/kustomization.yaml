@@ -5,7 +5,7 @@ resources:
 - ../../base
 - openshift-pipelines-namespace.yaml
 - oidc-token-refresh-sa.yaml
-- signing-cert-external.yaml
+# - signing-cert-external.yaml
 - oidc-info-secret.yaml
 - oidc-token-refresher-deploy.yaml
 
