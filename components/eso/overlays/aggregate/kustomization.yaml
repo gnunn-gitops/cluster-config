@@ -9,3 +9,12 @@ resources:
 - github.com/redhat-cop/gitops-catalog/external-secrets-operator/instance/overlays/default
 - podmonitor.yaml
 - prometheus-rule.yaml
+
+patches:
+  - patch: |
+      - op: replace
+        path: /spec/installPlanApproval
+        value: Manual
+    target:
+      kind: Subscription
+      name: external-secrets-operator
