@@ -10,7 +10,7 @@ spec:
       org: gnunn-gitops
       type: community
       provider: github
-      url: https://github.com/gnunn-gitops/tekton-tasks
+      url: https://github.com/gnunn-gitops/tekton-catalog
       revision: main
 
   api:
