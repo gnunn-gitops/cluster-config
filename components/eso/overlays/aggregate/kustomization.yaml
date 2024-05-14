@@ -22,3 +22,11 @@ patches:
     target:
       kind: Subscription
       name: external-secrets-operator
+  - patch: |
+      - op: add
+        path: /spec/crds
+        value:
+          conversion:
+            enabled: false
+    target:
+      kind: OperatorConfig
