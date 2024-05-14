@@ -15,7 +15,7 @@ patches:
   - patch: |
       - op: add
         path: /spec/startingCSV
-        value: external-secrets-operator.v0.9.17
+        value: external-secrets-operator.v0.9.18
       - op: replace
         path: /spec/installPlanApproval
         value: Manual
