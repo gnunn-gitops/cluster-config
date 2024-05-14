@@ -5,28 +5,6 @@ commonAnnotations:
   argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
 
 resources:
-- github.com/redhat-cop/gitops-catalog/external-secrets-operator/operator/overlays/stable
-- github.com/redhat-cop/gitops-catalog/external-secrets-operator/instance/overlays/default
+- ../../operator/base
+- ../../instance/base
 - github.com/redhat-cop/gitops-catalog/installplan-approver/base
-- podmonitor.yaml
-- prometheus-rule.yaml
-
-patches:
-  - patch: |
-      - op: add
-        path: /spec/startingCSV
-        value: external-secrets-operator.v0.9.18
-      - op: replace
-        path: /spec/installPlanApproval
-        value: Manual
-    target:
-      kind: Subscription
-      name: external-secrets-operator
-  - patch: |
-      - op: add
-        path: /spec/crds
-        value:
-          conversion:
-            enabled: false
-    target:
-      kind: OperatorConfig
