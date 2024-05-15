@@ -9,6 +9,7 @@ spec:
   storage:
     deviceClasses:
       - name: vg1
+        default: true
         thinPoolConfig:
           name: thin-pool-1
           overprovisionRatio: 10
