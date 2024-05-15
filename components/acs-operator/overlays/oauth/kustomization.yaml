@@ -3,7 +3,7 @@ commonAnnotations:
 
 resources:
   - github.com/redhat-cop/gitops-catalog/advanced-cluster-security-operator/aggregate/default
-  - init-acs.yaml
+  # - init-acs.yaml
 
 patches:
   - patch: |-

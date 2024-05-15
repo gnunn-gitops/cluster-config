@@ -52,6 +52,14 @@ applications:
     source:
       path: clusters/overlays/local.hub/components/acs-operator
 
+  acs-config:
+    annotations:
+      argocd.argoproj.io/sync-wave: '31'
+    destination:
+      namespace: stackrox
+    source:
+      path: components/acs-config/base
+
   acm-hub:
     annotations:
       argocd.argoproj.io/sync-wave: '21'
