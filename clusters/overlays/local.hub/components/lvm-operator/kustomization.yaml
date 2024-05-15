@@ -7,6 +7,6 @@ patches:
         path: /spec/storage/deviceClasses/0/deviceSelector
         value:
           paths:
-            - /dev/nvme1n1
+            - /dev/nvme0n1p5
     target:
       kind: LVMCluster
