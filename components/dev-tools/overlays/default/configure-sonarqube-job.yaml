@@ -25,7 +25,7 @@ spec:
                   name: sonarqube-admin
                   key: password
             - name: SCRIPT_URL
-              value: "https://raw.githubusercontent.com/gnunn-gitops/cluster-config/main/components/apps/dev-tools/scripts/sonarqube-config"
+              value: "https://raw.githubusercontent.com/gnunn-gitops/cluster-config/main/components/dev-tools/scripts/sonarqube-config"
       dnsPolicy: ClusterFirst
       restartPolicy: OnFailure
       serviceAccount: default
