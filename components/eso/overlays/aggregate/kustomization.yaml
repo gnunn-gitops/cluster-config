@@ -7,4 +7,3 @@ commonAnnotations:
 resources:
 - ../../operator/base
 - ../../instance/base
-- github.com/redhat-cop/gitops-catalog/installplan-approver/base
