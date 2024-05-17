@@ -3,7 +3,9 @@ commonAnnotations:
 
 resources:
   - github.com/redhat-cop/gitops-catalog/advanced-cluster-security-operator/aggregate/default
-  # - init-acs.yaml
+  - admission-control-tls-push-secret.yaml
+  - collector-tls-push-secret.yaml
+  - sensor-tls-push-secret.yaml
 
 patches:
   - patch: |-
