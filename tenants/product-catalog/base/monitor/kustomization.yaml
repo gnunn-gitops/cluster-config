@@ -36,6 +36,9 @@ patches:
       value:
         argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
         argocd.argoproj.io/sync-wave: "1"
+    - op: replace
+      path: /apiVersion
+      value: grafana.integreatly.org/v1beta1
   target:
     kind: GrafanaDataSource
 - patch: |-
@@ -45,9 +48,6 @@ patches:
     - op: replace
       path: /metadata/name
       value: cluster-monitoring-view-product-catalog-monitor
-    - op: replace
-      path: /apiVersion
-      value: grafana.integreatly.org/v1beta1
   target:
     group: rbac.authorization.k8s.io
     kind: ClusterRoleBinding
