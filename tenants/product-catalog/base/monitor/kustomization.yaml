@@ -14,22 +14,9 @@ patches:
       path: /spec/config/users
       value:
         default_theme: light
-    - op: add
-      path: /metadata/annotations
-      value:
-        argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
-        argocd.argoproj.io/sync-wave: "1"
   target:
     kind: Grafana
     name: grafana
-- patch: |-
-    - op: add
-      path: /metadata/annotations
-      value:
-        argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
-        argocd.argoproj.io/sync-wave: "1"
-  target:
-    kind: GrafanaDataSource
 - patch: |-
     - op: replace
       path: /subjects/0/namespace
