@@ -4,7 +4,8 @@ kind: Kustomization
 namespace: product-catalog-monitor
 
 resources:
-- github.com/redhat-cop/gitops-catalog/grafana-operator/overlays/user-app
+- https://github.com/gnunn1/gitops-catalog/grafana-operator/overlays/user-app
+#- github.com/redhat-cop/gitops-catalog/grafana-operator/overlays/user-app
 
 # Patch in namespace for Argo CD that is managing this namespace
 patches:
@@ -24,9 +25,6 @@ patches:
     - op: add
       path: /spec/containers/0/ports/0/protocol
       value: TCP
-    - op: replace
-      path: /apiVersion
-      value: grafana.integreatly.org/v1beta1
   target:
     kind: Grafana
     name: grafana
@@ -36,9 +34,6 @@ patches:
       value:
         argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
         argocd.argoproj.io/sync-wave: "1"
-    - op: replace
-      path: /apiVersion
-      value: grafana.integreatly.org/v1beta1
   target:
     kind: GrafanaDataSource
 - patch: |-
