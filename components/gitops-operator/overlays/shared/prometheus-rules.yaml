@@ -1,0 +1,15 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: argocd-additional-alerts
+spec:
+  groups:
+  - name: ArgoCD
+    rules:
+    - alert: ArgoCDHealthAlert
+      annotations:
+        message: ArgoCD application {{ $labels.name }} is not healthy
+      expr: argocd_app_info{namespace="gitops", health_status!~"Healthy|Suspended"} > 0
+      for: 5m
+      labels:
+        severity: warning
