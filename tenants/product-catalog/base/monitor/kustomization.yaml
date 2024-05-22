@@ -18,7 +18,7 @@ patches:
     kind: Grafana
     name: grafana
 - patch: |-
-    - op: replace
+    - op: add
       path: /subjects/0/namespace
       value: product-catalog-monitor
     - op: replace
@@ -28,3 +28,11 @@ patches:
     group: rbac.authorization.k8s.io
     kind: ClusterRoleBinding
     name: cluster-monitoring-view
+- patch: |-
+    - op: add
+      path: /subjects/0/namespace
+      value: product-catalog-monitor
+  target:
+    group: rbac.authorization.k8s.io
+    kind: RoleBinding
+    name: grafana-proxy
