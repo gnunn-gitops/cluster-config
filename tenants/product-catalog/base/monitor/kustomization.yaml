@@ -34,5 +34,5 @@ patches:
       value: product-catalog-monitor
   target:
     group: rbac.authorization.k8s.io
-    kind: RoleBinding
+    kind: ClusterRoleBinding
     name: grafana-proxy
