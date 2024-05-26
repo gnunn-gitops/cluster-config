@@ -93,6 +93,9 @@ applications:
     source:
       repoURL: https://github.com/gnunn-gitops/acm-hub-bootstrap.git
       path: bootstrap/policies/overlays/default
+      extraSourceFields: |
+        plugin:
+          name: setenv-cmp-plugin
 
   # acm-clusters:
   #   annotations:
