@@ -22,16 +22,6 @@ applications:
     source:
       path: components/oauth/overlays/google-with-matrix
 
-  banner:
-    annotations:
-      argocd.argoproj.io/compare-options: IgnoreExtraneous
-      argocd.argoproj.io/sync-wave: '11'
-    source:
-      path: clusters/overlays/aws.cluster/banner
-      extraSourceFields: |
-        plugin:
-          name: setenv-cmp-plugin
-
   cert-manager-operator:
     annotations:
       argocd.argoproj.io/sync-wave: "2"

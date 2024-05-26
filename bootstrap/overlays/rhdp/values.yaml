@@ -29,16 +29,6 @@ applications:
   #   source:
   #     path: tenants/acs-tokens/base
 
-  banner:
-    annotations:
-      argocd.argoproj.io/compare-options: IgnoreExtraneous
-      argocd.argoproj.io/sync-wave: '11'
-    source:
-      path: components/banner/base
-      extraSourceFields: |
-        plugin:
-          name: setenv-cmp-plugin
-
   openshift-monitoring:
     annotations:
       argocd.argoproj.io/compare-options: IgnoreExtraneous
