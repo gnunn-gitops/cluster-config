@@ -45,12 +45,18 @@ applications:
       namespace: rhacs-operator
     source:
       path: components/acs-operator/overlays/secured-cluster
+      extraSourceFields: |
+        plugin:
+          name: setenv-cmp-plugin
 
   banner:
     annotations:
       argocd.argoproj.io/sync-wave: '11'
     source:
       path: clusters/overlays/local.home/components/banner
+      extraSourceFields: |
+        plugin:
+          name: setenv-cmp-plugin
 
   console:
     annotations:
@@ -120,6 +126,9 @@ applications:
       argocd.argoproj.io/sync-wave: '50'
     source:
       path: components/gitops-operator/overlays/shared
+      extraSourceFields: |
+        plugin:
+          name: setenv-cmp-plugin
 
   tenants:
     project: cluster-config

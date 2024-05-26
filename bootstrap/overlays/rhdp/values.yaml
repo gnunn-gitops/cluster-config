@@ -35,6 +35,9 @@ applications:
       argocd.argoproj.io/sync-wave: '11'
     source:
       path: components/banner/base
+      extraSourceFields: |
+        plugin:
+          name: setenv-cmp-plugin
 
   openshift-monitoring:
     annotations:

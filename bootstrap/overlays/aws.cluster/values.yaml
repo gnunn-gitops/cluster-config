@@ -28,6 +28,9 @@ applications:
       argocd.argoproj.io/sync-wave: '11'
     source:
       path: clusters/overlays/aws.cluster/banner
+      extraSourceFields: |
+        plugin:
+          name: setenv-cmp-plugin
 
   cert-manager-operator:
     annotations:
@@ -79,15 +82,15 @@ applications:
   #         jsonPointers:
   #         - /spec/rules
 
-  web-terminal:
-    project: cluster-config
-    annotations:
-      argocd.argoproj.io/compare-options: IgnoreExtraneous
-      argocd.argoproj.io/sync-wave: '21'
-    destination:
-      namespace: openshift-operators
-    source:
-      path: components/web-terminal-operator/base
+  # web-terminal:
+  #   project: cluster-config
+  #   annotations:
+  #     argocd.argoproj.io/compare-options: IgnoreExtraneous
+  #     argocd.argoproj.io/sync-wave: '21'
+  #   destination:
+  #     namespace: openshift-operators
+  #   source:
+  #     path: components/web-terminal-operator/base
 
   # product-catalog-root:
   #   project: cluster-config
