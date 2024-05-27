@@ -3,4 +3,6 @@ kind: Kustomization
 
 resources:
   - cluster-monitoring-config-cm.yaml
-  - ../../../../../components/external-monitor-reader/base
+  - monitoring-role-binding.yaml
+  - service-account.yaml
+  - token-secret.yaml

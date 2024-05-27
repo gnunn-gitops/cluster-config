@@ -54,6 +54,17 @@ applications:
     source:
       path: components/alertmanager/base
 
+  openshift-monitoring:
+    annotations:
+      argocd.argoproj.io/sync-wave: '11'
+    destination:
+      namespace: openshift-monitoring
+    source:
+      path: components/openshift-monitoring
+      extraSourceFields: |
+        plugin:
+          name: setenv-cmp-plugin
+
   rbac:
     annotations:
       argocd.argoproj.io/compare-options: IgnoreExtraneous

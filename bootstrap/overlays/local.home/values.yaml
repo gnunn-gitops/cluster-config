@@ -55,14 +55,6 @@ applications:
     source:
       path: clusters/overlays/local.home/components/consolelinks
 
-  openshift-monitoring:
-    annotations:
-      argocd.argoproj.io/sync-wave: '11'
-    destination:
-      namespace: openshift-monitoring
-    source:
-      path: clusters/overlays/local.home/components/openshift-monitoring
-
   cost-management:
     annotations:
       argocd.argoproj.io/sync-wave: '21'

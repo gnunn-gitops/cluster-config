@@ -10,12 +10,11 @@ data:
       enableUserAlertmanagerConfig: true
     prometheusK8s:
       externalLabels:
-        cluster: local.home
+        cluster: ${CLUSTER_GITOPS_NAME}
       volumeClaimTemplate:
        spec:
          accessModes:
          - ReadWriteOnce
-         storageClassName: lvms-vg1
          volumeMode: Filesystem
          resources:
            requests:
