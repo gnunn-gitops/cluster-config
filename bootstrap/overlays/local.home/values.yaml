@@ -61,17 +61,6 @@ applications:
     source:
       path: clusters/overlays/local.home/components/consolelinks
 
-  certificates:
-    annotations:
-      argocd.argoproj.io/sync-wave: "3"
-    destination:
-      namespace: cert-manager-operator
-    source:
-      path: components/certificates/base
-      extraSourceFields: |
-        plugin:
-          name: setenv-cmp-plugin
-
   openshift-monitoring:
     annotations:
       argocd.argoproj.io/sync-wave: '11'

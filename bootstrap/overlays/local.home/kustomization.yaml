@@ -8,6 +8,9 @@ helmCharts:
   valuesFile: values.yaml
   namespace: openshift-gitops
 
+components:
+- ../../components/sno
+
 resources:
 - ../local
 

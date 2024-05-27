@@ -1,0 +1,41 @@
+default:
+  app:
+    enabled: true
+    enableAutoSync: true
+    autoSyncPrune: false
+    project: cluster-config
+    labels:
+      app-source: local.hub
+      repo: cluster-config
+    destination:
+      namespace: openshift-gitops
+      server: https://kubernetes.default.svc
+    source:
+      repoURL: https://github.com/gnunn-gitops/cluster-config.git
+      targetRevision: HEAD
+
+applications:
+
+  registry:
+    annotations:
+      argocd.argoproj.io/sync-wave: '5'
+    destination:
+      namespace: openshift-image-registry
+    source:
+      path: components/registry-sno/base
+
+  defrag-etcd:
+    annotations:
+      argocd.argoproj.io/sync-wave: '99'
+    destination:
+      namespace: openshift-etcd
+    source:
+      path: components/defrag-etcd/base
+
+  cleanup-completed-pods:
+    annotations:
+      argocd.argoproj.io/sync-wave: '99'
+    destination:
+      namespace: clean-completed-pods
+    source:
+      path: components/clean-completed-pods/base

@@ -5,7 +5,7 @@ default:
     autoSyncPrune: false
     project: cluster-config
     labels:
-      app-source: local
+      app-source: local.hub
       repo: cluster-config
     destination:
       namespace: openshift-gitops
@@ -16,14 +16,6 @@ default:
 
 applications:
 
-  cert-manager-operator:
-    annotations:
-      argocd.argoproj.io/sync-wave: "2"
-    destination:
-      namespace: cert-manager-operator
-    source:
-      path: components/cert-manager-operator/aggregate/overlays/letsencrypt
-
   authentication:
     annotations:
       argocd.argoproj.io/sync-wave: '4'
@@ -32,13 +24,24 @@ applications:
     source:
       path: components/oauth/overlays/homelab
 
-  registry:
+  cert-manager-operator:
     annotations:
-      argocd.argoproj.io/sync-wave: '5'
+      argocd.argoproj.io/sync-wave: "2"
     destination:
-      namespace: openshift-image-registry
+      namespace: cert-manager-operator
     source:
-      path: components/registry-sno/base
+      path: components/cert-manager-operator/aggregate/overlays/letsencrypt
+
+  certificates:
+    annotations:
+      argocd.argoproj.io/sync-wave: "3"
+    destination:
+      namespace: cert-manager-operator
+    source:
+      path: components/certificates/base
+      extraSourceFields: |
+        plugin:
+          name: setenv-cmp-plugin
 
   alertmanager:
     annotations:
@@ -54,53 +57,3 @@ applications:
       argocd.argoproj.io/sync-wave: '11'
     source:
       path: components/rbac/base
-
-  kyverno:
-    enabled: false
-    annotations:
-      argocd.argoproj.io/compare-options: IgnoreExtraneous
-      argocd.argoproj.io/sync-wave: '21'
-    destination:
-      namespace: kyverno
-    source:
-      path: components/kyverno/overlays/policies
-    syncPolicyRetry:
-      limit: 5
-      backoff:
-        duration: 5s
-        factor: 2
-        maxDuration: 3m
-    extraFields: |
-      ignoreDifferences:
-        - group: kyverno.io
-          kind: ClusterPolicy
-          jsonPointers:
-          - /spec/rules
-        - group: kyverno.io
-          kind: Policy
-          jsonPointers:
-          - /spec/rules
-
-  # web-terminal:
-  #   annotations:
-  #     argocd.argoproj.io/sync-wave: '21'
-  #   destination:
-  #     namespace: openshift-operators
-  #   source:
-  #     path: components/web-terminal-operator/base
-
-  defrag-etcd:
-    annotations:
-      argocd.argoproj.io/sync-wave: '99'
-    destination:
-      namespace: openshift-etcd
-    source:
-      path: components/defrag-etcd/base
-
-  cleanup-completed-pods:
-    annotations:
-      argocd.argoproj.io/sync-wave: '99'
-    destination:
-      namespace: clean-completed-pods
-    source:
-      path: components/clean-completed-pods/base

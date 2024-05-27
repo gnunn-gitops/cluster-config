@@ -60,42 +60,6 @@ applications:
     source:
       path: components/acs-config/base
 
-  acm-hub:
-    annotations:
-      argocd.argoproj.io/sync-wave: '21'
-    labels:
-      repo: acm-hub-bootstrap
-    destinations:
-      namespace: open-cluster-management
-    source:
-      repoURL: https://github.com/gnunn-gitops/acm-hub-bootstrap.git
-      path: components/apps/acm/overlays/hub
-
-  acm-observability:
-    annotations:
-      argocd.argoproj.io/sync-wave: '31'
-    labels:
-      repo: acm-hub-bootstrap
-    destinations:
-      namespace: open-cluster-management-observability
-    source:
-      repoURL: https://github.com/gnunn-gitops/acm-hub-bootstrap.git
-      path: components/apps/acm/overlays/observability
-
-  acm-policies:
-    enableAutoSync: false
-    annotations:
-      argocd.argoproj.io/sync-wave: '31'
-    labels:
-      repo: acm-hub-bootstrap
-    destinations:
-      namespace: acm-policies
-    source:
-      repoURL: https://github.com/gnunn-gitops/acm-hub-bootstrap.git
-      path: bootstrap/policies/overlays/default
-      extraSourceFields: |
-        plugin:
-          name: setenv-cmp-plugin
 
   # acm-clusters:
   #   annotations:
@@ -125,17 +89,6 @@ applications:
       argocd.argoproj.io/sync-wave: '11'
     source:
       path: clusters/overlays/local.hub/components/consolelinks
-
-  certificates:
-    annotations:
-      argocd.argoproj.io/sync-wave: "3"
-    destination:
-      namespace: cert-manager-operator
-    source:
-      path: components/certificates/base
-      extraSourceFields: |
-        plugin:
-          name: setenv-cmp-plugin
 
   dev-tools:
     annotations:
