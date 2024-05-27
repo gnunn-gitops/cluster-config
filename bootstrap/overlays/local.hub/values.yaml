@@ -136,7 +136,6 @@ applications:
       extraSourceFields: |
         plugin:
           name: setenv-cmp-plugin
-    enableAutoSync: false
 
   dev-tools:
     annotations:

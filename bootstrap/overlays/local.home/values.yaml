@@ -67,7 +67,10 @@ applications:
     destination:
       namespace: cert-manager-operator
     source:
-      path: clusters/overlays/local.home/components/certificates
+      path: components/certificates/base
+      extraSourceFields: |
+        plugin:
+          name: setenv-cmp-plugin
 
   openshift-monitoring:
     annotations:
