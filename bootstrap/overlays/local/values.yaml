@@ -23,6 +23,9 @@ applications:
       namespace: openshift-config
     source:
       path: components/oauth/overlays/homelab
+      extraSourceFields: |
+        plugin:
+          name: setenv-cmp-plugin
 
   cert-manager-operator:
     annotations:

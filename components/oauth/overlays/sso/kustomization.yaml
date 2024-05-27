@@ -3,6 +3,7 @@ kind: Component
 
 resources:
 - oidc-client-secret.yaml
+- console.yaml
 
 patches:
   - patch: |-

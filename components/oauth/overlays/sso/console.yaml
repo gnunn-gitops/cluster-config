@@ -9,4 +9,4 @@ metadata:
   name: cluster
 spec:
   authentication:
-    logoutRedirect: https://sso.ocplab.com/realms/ocplab/protocol/openid-connect/logout?client_id=openshift&post_logout_redirect_uri=https://console-openshift-console.apps.hub.ocplab.com
+    logoutRedirect: https://sso.ocplab.com/realms/ocplab/protocol/openid-connect/logout?client_id=openshift&post_logout_redirect_uri=https://console-openshift-console.${SUB_DOMAIN}

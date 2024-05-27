@@ -49,12 +49,6 @@ applications:
         plugin:
           name: setenv-cmp-plugin
 
-  console:
-    annotations:
-      argocd.argoproj.io/sync-wave: '11'
-    source:
-      path: clusters/overlays/local.home/components/console
-
   console-links:
     annotations:
       argocd.argoproj.io/sync-wave: '11'
