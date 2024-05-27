@@ -132,7 +132,8 @@ applications:
     destination:
       namespace: cert-manager-operator
     source:
-      path: clusters/overlays/local.hub/components/certificates
+      path: components/certificates/base
+    enableAutoSync: false
 
   dev-tools:
     annotations:

@@ -10,6 +10,6 @@ spec:
   issuerRef:
     name: letsencrypt-prod
     kind: ClusterIssuer
-  commonName: '*.apps.replace.me'
+  commonName: '*.${SUB_DOMAIN}'
   dnsNames:
-  - '*.apps.replace.me'
+  - '*.${SUB_DOMAIN}'

@@ -11,4 +11,4 @@ spec:
     name: letsencrypt-prod
     kind: ClusterIssuer
   dnsNames:
-  - replace.me
+  - api.${BASE_DOMAIN}
