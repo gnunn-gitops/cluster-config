@@ -44,6 +44,19 @@ Other generator types don't allow any post-processing meaning overriding for spe
 
 Having said, the new ApplicationSet feature supporting creating custom generator plugins may make it more amenable for this use case but I have not explored this as of yet.
 
+## Argo CD Plugin
+
+From a GitOps purist point of view there is a desire to have everything in git regardless of how many manifests need to be maintained. Thus with
+kustomize this can make for a significant number of overlays to account for cluster differences in endpoints (each cluster has its own DNS domain) and other
+internal cluster details like cluster name, cluster id, infrastructure id, etc.
+
+I'm more a pragmatist then a purist, as a result I use a Argo CD Configuration Management Plugin (CMP) to template some per cluster static items as environment
+variables to minimize the amount of individual cluster overlays.
+
+I am using ACM's ability to template in policies to automatically populate the required environment variables, you can see that [here](https://github.com/gnunn-gitops/acm-hub-bootstrap/blob/main/components/policies/gitops/base/manifests/gitops-instance/base/argocd.yaml#L54).
+
+Note this works because I am using the distributed topology so the Argo CD sitting on each cluster can have unique environment variables. In a centralized topology you could look at adding labels/annotations to cluster secrets and then use the ApplicationSet cluster generator to pass these into Applications as possibly one way to accomplish the same.
+
 # Usage
 
 As detailed in the layers section, cluster specific configuration is stored in the bootstrap/overlays folder. To deploy a specific cluster configuration, simply create an application in Argo CD that points to the appropriate cluster folder, i.e. `bootstrap/overlays/{clustername}`.
