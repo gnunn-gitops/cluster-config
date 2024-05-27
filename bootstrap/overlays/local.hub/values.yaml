@@ -133,6 +133,9 @@ applications:
       namespace: cert-manager-operator
     source:
       path: components/certificates/base
+      extraSourceFields: |
+        plugin:
+          name: setenv-cmp-plugin
     enableAutoSync: false
 
   dev-tools:
