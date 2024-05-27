@@ -13,34 +13,6 @@ default:
 
 applications:
 
-  authentication:
-    annotations:
-      argocd.argoproj.io/compare-options: IgnoreExtraneous
-      argocd.argoproj.io/sync-wave: '4'
-    destination:
-      namespace: openshift-config
-    source:
-      path: components/oauth/overlays/google-with-matrix
-
-  cert-manager-operator:
-    annotations:
-      argocd.argoproj.io/sync-wave: "2"
-    destination:
-      namespace: cert-manager-operator
-    source:
-      path: components/cert-manager-operator/aggregate/overlays/letsencrypt
-
-  certificates:
-    annotations:
-      argocd.argoproj.io/sync-wave: "3"
-    destination:
-      namespace: cert-manager-operator
-    source:
-      path: components/certificates/base
-      extraSourceFields: |
-        plugin:
-          name: setenv-cmp-plugin
-
   openshift-monitoring:
     annotations:
       argocd.argoproj.io/compare-options: IgnoreExtraneous
@@ -49,46 +21,3 @@ applications:
       namespace: openshift-monitoring
     source:
       path: clusters/overlays/aws.cluster/components/openshift-monitoring
-
-  # kyverno:
-  #   annotations:
-  #     argocd.argoproj.io/compare-options: IgnoreExtraneous
-  #     argocd.argoproj.io/sync-wave: '21'
-  #   destination:
-  #     namespace: kyverno
-  #   source:
-  #     path: components/kyverno/overlays/policies
-  #   syncPolicyRetry:
-  #     limit: 5
-  #     backoff:
-  #       duration: 5s
-  #       factor: 2
-  #       maxDuration: 3m
-  #   extraFields: |
-  #     ignoreDifferences:
-  #       - group: kyverno.io
-  #         kind: ClusterPolicy
-  #         jsonPointers:
-  #         - /spec/rules
-  #       - group: kyverno.io
-  #         kind: Policy
-  #         jsonPointers:
-  #         - /spec/rules
-
-  # web-terminal:
-  #   project: cluster-config
-  #   annotations:
-  #     argocd.argoproj.io/compare-options: IgnoreExtraneous
-  #     argocd.argoproj.io/sync-wave: '21'
-  #   destination:
-  #     namespace: openshift-operators
-  #   source:
-  #     path: components/web-terminal-operator/base
-
-  # product-catalog-root:
-  #   project: cluster-config
-  #   annotations:
-  #     argocd.argoproj.io/compare-options: IgnoreExtraneous
-  #     argocd.argoproj.io/sync-wave: '51'
-  #   source:
-  #     path: tenants/product-catalog/argocd/root/base

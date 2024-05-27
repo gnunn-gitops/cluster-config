@@ -10,7 +10,7 @@ helmCharts:
   releaseName: argocd-app-of-app-0.2.4
 
 resources:
-- ../../local
+- ../local
 
 patches:
   - target:
