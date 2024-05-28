@@ -93,11 +93,24 @@ applications:
     project: cluster-config
     annotations:
       argocd.argoproj.io/sync-wave: '50'
+    destination:
+      namespace: gitops
     source:
       path: components/gitops-operator/overlays/shared
       extraSourceFields: |
         plugin:
           name: setenv-cmp-plugin
+
+  tenant-secrets:
+    project: cluster-config
+    labels:
+      repo: use-head
+    annotations:
+      argocd.argoproj.io/sync-wave: '50'
+    destination:
+      namespace: tenant-secrets
+    source:
+      path: components/tenant-secrets/base
 
   tenants:
     project: cluster-config
