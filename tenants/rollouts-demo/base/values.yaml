@@ -25,6 +25,11 @@ argocd:
   pipelineGroups:
     - rollouts-demo-pipeline
 
+externalSecrets:
+  tenantTokenKey: TENANT_ROLLOUTS_DEMO_DOPPLER_TOKEN
+  tenantClusterSecretStore: doppler-cluster
+  tenantSecretNamespace: tenant-secrets
+
 namespaces:
 
   dev:
