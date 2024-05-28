@@ -60,7 +60,7 @@ applications:
     destination:
       namespace: openshift-monitoring
     source:
-      path: components/openshift-monitoring
+      path: components/openshift-monitoring/base
       extraSourceFields: |
         plugin:
           name: setenv-cmp-plugin
