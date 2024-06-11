@@ -59,7 +59,9 @@ applications:
       namespace: stackrox
     source:
       path: components/acs-config/base
-
+      extraSourceFields: |
+        plugin:
+          name: setenv-cmp-plugin
 
   # acm-clusters:
   #   annotations:

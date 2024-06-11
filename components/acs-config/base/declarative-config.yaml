@@ -1,114 +1,127 @@
-apiVersion: v1
-kind: ConfigMap
+apiVersion: external-secrets.io/v1beta1
+kind: ExternalSecret
 metadata:
   name: declarative-configurations
   namespace: stackrox
-data:
-  # keycloak.yaml: |
-  #   name: keycloak
-  #   minimumRole: None
-  #   uiEndpoint: central-stackrox.{{ $.Values.sub_domain }}:443
-  #   oidc:
-  #       issuer: https://keycloak.{{ $.Values.sub_domain }}/realms/openshift
-  #       mode: auto
-  #       clientID: acs
-  #       clientSecret: 94395add-db2d-4564-bc40-fd9ed4f23cdf
-  #       disableOfflineAccessScope: true
-  #   groups:
-  #       - key: email
-  #         value: admin@ocplab.com
-  #         role: Admin
-  #       - key: email
-  #         value: clusteradmin@workshop-noreply.com
-  #         role: Admin
-  #       - key: email
-  #         value: gnunn+user1@redhat.com
-  #         role: Product Catalog Admins
-  openshift-auth.yaml: |
-    name: openshift
-    uiEndpoint: central-stackrox.{{ $.Values.sub_domain }}:443
-    openshift:
-        enable: true
-    minimumRole: None
-    groups:
-        - key: name
-          value: admin
-          role: Admin
-        - key: groups
-          value: product-catalog-admins
-          role: Product Catalog Admins
+spec:
+  refreshInterval: 1h
+  secretStoreRef:
+    kind: ClusterSecretStore
+    name: doppler-cluster
+  target:
+    name: declarative-configurations
+    creationPolicy: Owner
+    template:
+      data:
+        keycloak-auth.yaml: |
+          name: keycloak
+          minimumRole: None
+          uiEndpoint: central-stackrox.${SUB_DOMAIN}:443
+          oidc:
+              issuer: https://keycloak.${SUB_DOMAIN}/realms/openshift
+              mode: auto
+              clientID: acs
+              clientSecret: {{ .keycloak_client_secret }}
+              disableOfflineAccessScope: true
+          groups:
+              - key: email
+                value: admin@ocplab.com
+                role: Admin
+              - key: email
+                value: clusteradmin@workshop-noreply.com
+                role: Admin
+              - key: email
+                value: gnunn+user1@redhat.com
+                role: Product Catalog Admins
+        openshift-auth.yaml: |
+          name: openshift
+          uiEndpoint: central-stackrox.${SUB_DOMAIN}:443
+          openshift:
+              enable: true
+          minimumRole: None
+          groups:
+              - key: name
+                value: admin
+                role: Admin
+              - key: groups
+                value: product-catalog-admins
+                role: Product Catalog Admins
+        product-catalog-access-scope.yaml: |
+          name: product-catalog-admins
+          description: Access rights for users that can manage Product Catalog namespaces
+          rules:
+            includedNamespaces:
+            - clusterName: home
+              namespaceName: product-catalog-dev
+            - clusterName: home
+              namespaceName: product-catalog-test
+            - clusterName: home
+              namespaceName: product-catalog-monitor
+            - clusterName: home
+              namespaceName: product-catalog-prod
+            - clusterName: home
+              namespaceName: product-catalog-cicd
+            - clusterName: home
+              namespaceName: product-catalog-gitops
+        namespace-admin-permission-set.yaml: |
+          name: Namespace Administrator
+          description: A user that is an administrator of one or namespaces across various clusters
+          resources:
+            - resource: Access
+              access: NO_ACCESS
+            - resource: Administration
+              access: NO_ACCESS
+            - resource: Alert
+              access: READ_ACCESS
+            - resource: CVE
+              access: READ_ACCESS
+            - resource: Cluster
+              access: READ_ACCESS
+            - resource: Compliance
+              access: READ_ACCESS
+            - resource: Deployment
+              access: READ_ACCESS
+            - resource: DeploymentExtension
+              access: READ_ACCESS
+            - resource: Detection
+              access: READ_ACCESS
+            - resource: Image
+              access: READ_ACCESS
+            - resource: Integration
+              access: NO_ACCESS
+            - resource: K8sRole
+              access: READ_ACCESS
+            - resource: K8sRoleBinding
+              access: READ_ACCESS
+            - resource: K8sSubject
+              access: READ_ACCESS
+            - resource: Namespace
+              access: READ_ACCESS
+              resource: NetworkGraph
+              access: READ_ACCESS
+            - resource: NetworkPolicy
+              access: READ_ACCESS
+            - resource: Node
+              access: READ_ACCESS
+            - resource: Secret
+              access: READ_ACCESS
+            - resource: ServiceAccount
+              access: READ_ACCESS
+            - resource: WatchedImage
+              access: READ_WRITE_ACCESS
+            - resource: VulnerabilityManagementApprovals
+              access: READ_ACCESS
+            - resource: VulnerabilityManagementRequests
+              access: READ_WRITE_ACCESS
 
-  product-catalog-access-scope.yaml: |
-    name: product-catalog-admins
-    description: Access rights for users that can manage Product Catalog namespaces
-    rules:
-      includedNamespaces:
-      - clusterName: home
-        namespaceName: product-catalog-dev
-      - clusterName: home
-        namespaceName: product-catalog-test
-      - clusterName: home
-        namespaceName: product-catalog-monitor
-      - clusterName: home
-        namespaceName: product-catalog-prod
-      - clusterName: home
-        namespaceName: product-catalog-cicd
-      - clusterName: home
-        namespaceName: product-catalog-gitops
-  namespace-admin-permission-set.yaml: |
-    name: Namespace Administrator
-    description: A user that is an administrator of one or namespaces across various clusters
-    resources:
-      - resource: Access
-        access: NO_ACCESS
-      - resource: Administration
-        access: NO_ACCESS
-      - resource: Alert
-        access: READ_ACCESS
-      - resource: CVE
-        access: READ_ACCESS
-      - resource: Cluster
-        access: READ_ACCESS
-      - resource: Compliance
-        access: READ_ACCESS
-      - resource: Deployment
-        access: READ_ACCESS
-      - resource: DeploymentExtension
-        access: READ_ACCESS
-      - resource: Detection
-        access: READ_ACCESS
-      - resource: Image
-        access: READ_ACCESS
-      - resource: Integration
-        access: NO_ACCESS
-      - resource: K8sRole
-        access: READ_ACCESS
-      - resource: K8sRoleBinding
-        access: READ_ACCESS
-      - resource: K8sSubject
-        access: READ_ACCESS
-      - resource: Namespace
-        access: READ_ACCESS
-        resource: NetworkGraph
-        access: READ_ACCESS
-      - resource: NetworkPolicy
-        access: READ_ACCESS
-      - resource: Node
-        access: READ_ACCESS
-      - resource: Secret
-        access: READ_ACCESS
-      - resource: ServiceAccount
-        access: READ_ACCESS
-      - resource: WatchedImage
-        access: READ_WRITE_ACCESS
-      - resource: VulnerabilityManagementApprovals
-        access: READ_ACCESS
-      - resource: VulnerabilityManagementRequests
-        access: READ_WRITE_ACCESS
+        product-catalog-roles.yaml: |
+          name: Product Catalog Admins
+          description: Administrators of product catalog namespaces
+          permissionSet: Namespace Administrator
+          accessScope: product-catalog-admins
+          globalAccess: NO_ACCESS
 
-  product-catalog-roles.yaml: |
-    name: Product Catalog Admins
-    description: Administrators of product catalog namespaces
-    permissionSet: Namespace Administrator
-    accessScope: product-catalog-admins
-    globalAccess: NO_ACCESS
+  data:
+  - secretKey: keycloak_client_secret
+    remoteRef:
+      key: ACS_KEYCLOAK_CLIENT_SECRET
