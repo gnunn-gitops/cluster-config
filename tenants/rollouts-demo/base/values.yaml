@@ -26,7 +26,6 @@ argocd:
     - rollouts-demo-pipeline
 
 externalSecrets:
-  tenantTokenKey: TENANT_ROLLOUTS_DEMO_DOPPLER_TOKEN
   tenantClusterSecretStore: doppler-cluster
   tenantSecretNamespace: tenant-secrets
 
@@ -43,6 +42,8 @@ namespaces:
       openshift.io/display-name: Rollouts Demo Production
 
   cicd:
+    externalSecrets:
+      tenantTokenKey: TENANT_ROLLOUTS_DEMO_DOPPLER_TOKEN
     annotations:
       openshift.io/description: Project for ci/cd tools for rollouts demo application
       openshift.io/display-name: Rollouts Demo CI/CD

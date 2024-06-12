@@ -29,7 +29,6 @@ argocd:
     - product-catalog-pipeline
 
 externalSecrets:
-  tenantTokenKey: TENANT_PRODUCT_CATALOG_DOPPLER_TOKEN
   tenantClusterSecretStore: doppler-cluster
   tenantSecretNamespace: tenant-secrets
 
@@ -54,6 +53,8 @@ namespaces:
       openshift.io/display-name: Product Catalog Prod
 
   cicd:
+    externalSecrets:
+      tenantTokenKey: TENANT_PRODUCT_CATALOG_DOPPLER_TOKEN
     annotations:
       openshift.io/description: Project for ci/cd tools for product catalog application
       openshift.io/display-name: Product Catalog CI/CD
