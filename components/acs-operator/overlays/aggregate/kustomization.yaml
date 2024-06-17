@@ -21,3 +21,11 @@ patches:
         value: EBPF
     target:
       kind: SecuredCluster
+  - patch: |-
+      - op: add
+        path: /spec/central/declarativeConfiguration
+        value:
+          secrets:
+            - name: declarative-configurations
+    target:
+      kind: Central

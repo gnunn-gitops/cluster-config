@@ -97,7 +97,7 @@ spec:
               access: READ_ACCESS
             - resource: Namespace
               access: READ_ACCESS
-              resource: NetworkGraph
+            - resource: NetworkGraph
               access: READ_ACCESS
             - resource: NetworkPolicy
               access: READ_ACCESS
@@ -113,14 +113,12 @@ spec:
               access: READ_ACCESS
             - resource: VulnerabilityManagementRequests
               access: READ_WRITE_ACCESS
-
         product-catalog-roles.yaml: |
           name: Product Catalog Admins
           description: Administrators of product catalog namespaces
           permissionSet: Namespace Administrator
           accessScope: product-catalog-admins
           globalAccess: NO_ACCESS
-
   data:
   - secretKey: keycloak_client_secret
     remoteRef:
