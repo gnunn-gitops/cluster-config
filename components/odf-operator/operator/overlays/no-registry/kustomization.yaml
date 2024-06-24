@@ -1,5 +1,5 @@
 resources:
-- github.com/redhat-cop/gitops-catalog/openshift-data-foundation-operator/operator/overlays/stable-4.13
+- github.com/redhat-cop/gitops-catalog/openshift-data-foundation-operator/operator/overlays/stable-4.15
 
 patches:
   - patch: |-
@@ -9,10 +9,3 @@ patches:
     target:
       kind: Job
       name: enable-odf-console-plugin
-  - patch: |-
-      - op: replace
-        path: /spec/channel
-        value: stable-4.14
-    target:
-      kind: Subscription
-      name: odf-operator
