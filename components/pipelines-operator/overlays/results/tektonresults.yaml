@@ -5,7 +5,7 @@ metadata:
 spec:
   targetNamespace: openshift-pipelines
   logs_api: true
-  log_level: debug
+  log_level: info
   db_port: 5432
   db_host: tekton-results-postgres-service.openshift-pipelines.svc.cluster.local
   logs_path: /logs
