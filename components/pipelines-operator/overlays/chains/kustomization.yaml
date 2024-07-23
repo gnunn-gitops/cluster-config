@@ -17,7 +17,7 @@ patches:
       - op: replace
         path: /spec/chain
         value:
-          signers.x509.fulcio.enabled: true
+          signers.x509.fulcio.enabled: 'true'
           artifacts.taskrun.storage: oci
           artifacts.pipelinerun.storage: oci
           artifacts.pipelinerun.format: in-toto
