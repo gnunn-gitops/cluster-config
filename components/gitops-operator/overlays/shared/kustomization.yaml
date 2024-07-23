@@ -2,6 +2,7 @@ namespace: gitops
 
 resources:
   - ../../base
+  - argocd-cluster-role.yaml
   - gitops-monitoring-cluster-role.yaml
   - namespace.yaml
   - argocd-notifications-cm.yaml
