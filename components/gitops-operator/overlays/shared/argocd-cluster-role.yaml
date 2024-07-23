@@ -1,28 +1,34 @@
-apiVersion: rbac.authorization.k8s.io/v1
-kind: ClusterRole
-metadata:
-  name: gitops-shared-access
-rules:
-- apiGroups:
-    - argoproj.io
-  resources:
-    - applications
-    - applicationsets
-    - appprojects
-  verbs:
-    - get
-    - list
-    - watch
----
+# apiVersion: rbac.authorization.k8s.io/v1
+# kind: ClusterRole
+# metadata:
+#   name: gitops-shared-access
+# rules:
+# - apiGroups:
+#     - argoproj.io
+#   resources:
+#     - applications
+#     - applicationsets
+#     - appprojects
+#   verbs:
+#     - get
+#     - list
+#     - watch
+# ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
-  name: gitops-shared-access
+  name: gitops-shared-view
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  name: gitops-shared-access
+  name: gitops-controller-view
 subjects:
   - kind: ServiceAccount
     name: argocd-argocd-application-controller
+    namespace: gitops
+  - kind: ServiceAccount
+    name: argocd-argocd-server
+    namespace: gitops
+  - kind: ServiceAccount
+    name: argocd-applicationset-controller
     namespace: gitops
