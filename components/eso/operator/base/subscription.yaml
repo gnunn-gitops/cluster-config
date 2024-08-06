@@ -5,7 +5,7 @@ metadata:
   namespace: openshift-operators
 spec:
   channel: stable
-  installPlanApproval: Automatic
+  installPlanApproval: Manual
   name: external-secrets-operator
   source: community-operators
   sourceNamespace: openshift-marketplace
