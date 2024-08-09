@@ -23,7 +23,6 @@ rules:
   verbs:
     - list
 - apiGroups:
-  - project.openshift.io
   - config.openshift.io
   resources:
   - projects
@@ -31,6 +30,15 @@ rules:
   - get
   - list
   - watch
+- apiGroups:
+  - ""
+  - project.openshift.io
+  resources:
+  - projects
+  verbs:
+  - get
+  - watch
+  - list
 # Limited resource permissions here for tenants to deploy things
 - apiGroups:
   - ""
