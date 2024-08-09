@@ -35,6 +35,7 @@ rules:
   - project.openshift.io
   resources:
   - projects
+  - Project
   verbs:
   - get
   - watch
