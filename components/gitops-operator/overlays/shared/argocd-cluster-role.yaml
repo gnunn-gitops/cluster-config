@@ -23,7 +23,7 @@ rules:
   verbs:
     - list
 - apiGroups:
-  - openshift.io
+  - project.openshift.io
   - config.openshift.io
   resources:
   - projects
