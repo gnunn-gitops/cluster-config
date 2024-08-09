@@ -176,6 +176,13 @@ spec:
         hs.status = "Progressing"
         hs.message = "Waiting for PVC"
         return hs
+  resourceExclusions: |
+    - apiGroups:
+      - project.openshift.io
+      clusters:
+      - '*'
+      kinds:
+      - Project
   resourceIgnoreDifferences:
     resourceIdentifiers:
       - group: route.openshift.io
