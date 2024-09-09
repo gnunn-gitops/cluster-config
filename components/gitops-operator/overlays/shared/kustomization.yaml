@@ -28,10 +28,6 @@ patches:
       name: argocd
     patch: |-
       - op: add
-        path: /spec/controller
-        value:
-          logLevel: debug
-      - op: add
         path: /spec/defaultClusterScopedRoleDisabled
         value: true
       - op: add
