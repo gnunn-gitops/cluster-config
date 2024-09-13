@@ -82,6 +82,12 @@ applications:
     source:
       path: clusters/overlays/local.home/components/node-config
 
+  rollout-manager:
+    annotations:
+      argocd.argoproj.io/sync-wave: '31'
+    source:
+      path: components/rollout-manager/base
+
   tekton-results:
     annotations:
       argocd.argoproj.io/sync-wave: '21'
