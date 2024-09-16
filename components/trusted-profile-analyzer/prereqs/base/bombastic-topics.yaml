@@ -1,0 +1,41 @@
+kind: KafkaTopic
+apiVersion: kafka.strimzi.io/v1beta2
+metadata:
+  name: bombastic-failed-default
+  labels:
+    strimzi.io/cluster: kafka
+  namespace: trusted-profile-analyzer
+spec:
+  partitions: 10
+  replicas: 3
+  config:
+    retention.ms: 604800000
+    segment.bytes: 1073741824
+---
+kind: KafkaTopic
+apiVersion: kafka.strimzi.io/v1beta2
+metadata:
+  name: bombastic-indexed-default
+  labels:
+    strimzi.io/cluster: kafka
+  namespace: trusted-profile-analyzer
+spec:
+  partitions: 10
+  replicas: 3
+  config:
+    retention.ms: 604800000
+    segment.bytes: 1073741824
+---
+kind: KafkaTopic
+apiVersion: kafka.strimzi.io/v1beta2
+metadata:
+  name: bombastic-stored-default
+  labels:
+    strimzi.io/cluster: kafka
+  namespace: trusted-profile-analyzer
+spec:
+  partitions: 10
+  replicas: 3
+  config:
+    retention.ms: 604800000
+    segment.bytes: 1073741824

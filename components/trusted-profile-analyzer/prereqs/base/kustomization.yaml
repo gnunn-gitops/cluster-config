@@ -1,5 +1,14 @@
+namespace: trusted-profile-analyzer
+
 resources:
 - namespace.yaml
 - vexination-default-obc.yaml
 - v11y-default-obc.yaml
 - bombastic-default-obc.yaml
+- kafka.yaml
+- v11y-topics.yaml
+- bombastic-topics.yaml
+- vexination-topics.yaml
+- postgresql-deploy.yaml
+- postgresql-svc.yaml
+- postgresql-es.yaml
