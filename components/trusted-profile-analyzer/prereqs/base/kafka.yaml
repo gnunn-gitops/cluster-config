@@ -4,6 +4,8 @@ metadata:
   name: kafka
   namespace: trusted-profile-analyzer
 spec:
+  entityOperator:
+    topicOperator: {}
   kafka:
     config:
       default.replication.factor: 1
