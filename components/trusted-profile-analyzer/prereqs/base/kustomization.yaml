@@ -9,6 +9,7 @@ resources:
 - v11y-topics.yaml
 - bombastic-topics.yaml
 - vexination-topics.yaml
+- postgresql-pvc.yaml
+- postgresql-es.yaml
 - postgresql-deploy.yaml
 - postgresql-svc.yaml
-- postgresql-es.yaml
