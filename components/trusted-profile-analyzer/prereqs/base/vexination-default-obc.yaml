@@ -1,0 +1,8 @@
+apiVersion: objectbucket.io/v1alpha1
+kind: ObjectBucketClaim
+metadata:
+  name: vexination-default
+  namespace: trusted-profile-analyzer
+spec:
+  generateBucketName: vexination-default
+  storageClassName: openshift-storage.noobaa.io

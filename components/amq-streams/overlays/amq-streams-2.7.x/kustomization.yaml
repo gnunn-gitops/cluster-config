@@ -1,0 +1,11 @@
+resources:
+- ../../base
+
+patches:
+  - patch: |
+      - op: replace
+        path: /spec/channel
+        value: 'amq-streams-2.7.x'
+    target:
+      kind: Subscription
+      name: amq-streams

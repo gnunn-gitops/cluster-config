@@ -1,0 +1,5 @@
+resources:
+- namespace.yaml
+- vexination-default-obc.yaml
+- v11y-default-obc.yaml
+- bombastic-default-obc.yaml

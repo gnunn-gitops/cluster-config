@@ -63,6 +63,22 @@ applications:
         plugin:
           name: setenv-cmp-plugin
 
+  amq-streams:
+    annotations:
+      argocd.argoproj.io/sync-wave: '21'
+    destination:
+      namespace: openshift-gitops
+    source:
+      path: components/amq-streams/overlays/amq-streams-2.7.x/
+
+  trusted-profile-analyzer-prereqs:
+    annotations:
+      argocd.argoproj.io/sync-wave: '31'
+    destination:
+      namespace: openshift-gitops
+    source:
+      path: components/trusted-profile-analyzer/prereqs/base
+
   # acm-clusters:
   #   annotations:
   #     argocd.argoproj.io/sync-wave: '31'
