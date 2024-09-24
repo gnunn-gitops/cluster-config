@@ -1,7 +1,20 @@
+# ClusterRole to aggregate permissions needed to use respectRBAC
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
   name: gitops-shared-cluster-access
+aggregationRule:
+  clusterRoleSelectors:
+  - matchLabels:
+      gitops/aggregate-to-gitops-shared: "true"
+rules: []
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: gitops-shared-cluster-access-view
+  labels:
+    gitops/aggregate-to-gitops-shared: "true"
 # Use the aggrated view permission to determine what resources can be deployed.
 #
 # Note that write permissions for these resources in specific namespaces
@@ -9,11 +22,18 @@ metadata:
 # You still need to grant the controller cluster level list permissions
 # to pass the SubjectAccessReview. The view role gives get and watch as well
 # so if you want to restrict permissions to just list you need to maintain
-# your own hand-crafted list which turns out to be burdensome, see below.
+# your own hand-crafted list which turns out to be burdensome.
 aggregationRule:
   clusterRoleSelectors:
   - matchLabels:
       rbac.authorization.k8s.io/aggregate-to-view: "true"
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: gitops-shared-cluster-access-base
+  labels:
+    gitops/aggregate-to-gitops-shared: "true"
 rules:
 # Base permissions the applicaton-controller needs for respectRBAC separate from resources
 # grant read/write permissions so Argo CD UI and controllers can update status of resources.
