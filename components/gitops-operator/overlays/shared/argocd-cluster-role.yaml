@@ -2,8 +2,21 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
   name: gitops-shared-cluster-access
+# Use the aggrated view permission to determine what resources can be deployed.
+#
+# Note that write permissions for these resources in specific namespaces
+# are determined by the cluster role granted via the "managed-by" label.
+# You still need to grant the controller cluster level list permissions
+# to pass the SubjectAccessReview. The view role gives get and watch as well
+# so if you want to restrict permissions to just list you need to maintain
+# your own hand-crafted list which turns out to be burdensome, see below.
+aggregationRule:
+  clusterRoleSelectors:
+  - matchLabels:
+      rbac.authorization.k8s.io/aggregate-to-view: "true"
 rules:
 # Base permissions the applicaton-controller needs for respectRBAC separate from resources
+# grant read/write permissions so Argo CD UI and controllers can update status of resources.
 - apiGroups:
     - argoproj.io
   resources:
@@ -14,117 +27,122 @@ rules:
     - rollouts
   verbs:
     - "*"
+# SubjectAccessReview needed for respectRBAC=strict setting in Argo CD
 - apiGroups:
     - authorization.k8s.io
   resources:
     - SelfSubjectAccessReview
   verbs:
     - list
-- apiGroups:
-  - config.openshift.io
-  resources:
-  - projects
-  verbs:
-  - get
-  - list
-  - watch
-# Limited resource permissions here for tenants to deploy things
-- apiGroups:
-  - ""
-  resources:
-  - configmaps
-  - endpoints
-  - persistentvolumeclaims
-  - persistentvolumeclaims/status
-  - pods
-  - replicationcontrollers
-  - replicationcontrollers/scale
-  - serviceaccounts
-  - services
-  - services/status
-  verbs:
-  - get
-  - list
-  - watch
-- apiGroups:
-  - ""
-  resources:
-  - bindings
-  - events
-  - limitranges
-  - namespaces/status
-  - pods/log
-  - pods/status
-  - replicationcontrollers/status
-  - resourcequotas
-  - resourcequotas/status
-  verbs:
-  - get
-  - list
-  - watch
-- apiGroups:
-  - apps
-  resources:
-  - controllerrevisions
-  - daemonsets
-  - daemonsets/status
-  - deployments
-  - deployments/scale
-  - deployments/status
-  - replicasets
-  - replicasets/scale
-  - replicasets/status
-  - statefulsets
-  - statefulsets/scale
-  - statefulsets/status
-  verbs:
-  - get
-  - list
-  - watch
-- apiGroups:
-  - ""
-  - route.openshift.io
-  resources:
-  - routes
-  verbs:
-  - get
-  - list
-  - watch
-- apiGroups:
-  - ""
-  - route.openshift.io
-  resources:
-  - routes/status
-  verbs:
-  - get
-  - list
-  - watch
-- apiGroups:
-  - networking.k8s.io
-  resources:
-  - networkpolicies
-  verbs:
-  - get
-  - list
-  - watch
-- apiGroups:
-  -  rbac.authorization.k8s.io
-  resources:
-  - roles
-  - rolebindings
-  verbs:
-  - get
-  - list
-  - watch
-- apiGroups:
-  - monitoring.coreos.com
-  resources:
-  - servicemonitors
-  verbs:
-  - get
-  - list
-  - watch
----
+# Hand-crafted list of what we want to have Argo CD be able to use, turns
+# out list becomes huge and hard to maintain so I have opted to just leverage
+# the built-in view role. However if you want total control over permissions
+# you can use these instead
+# - apiGroups:
+#   - config.openshift.io
+#   resources:
+#   - projects
+#   verbs:
+#   - get
+#   - list
+#   - watch
+# # Limited resource permissions here for tenants to deploy things
+# - apiGroups:
+#   - ""
+#   resources:
+#   - configmaps
+#   - endpoints
+#   - persistentvolumeclaims
+#   - persistentvolumeclaims/status
+#   - pods
+#   - replicationcontrollers
+#   - replicationcontrollers/scale
+#   - serviceaccounts
+#   - services
+#   - services/status
+#   verbs:
+#   - get
+#   - list
+#   - watch
+# - apiGroups:
+#   - ""
+#   resources:
+#   - bindings
+#   - events
+#   - limitranges
+#   - namespaces/status
+#   - pods/log
+#   - pods/status
+#   - replicationcontrollers/status
+#   - resourcequotas
+#   - resourcequotas/status
+#   verbs:
+#   - get
+#   - list
+#   - watch
+# - apiGroups:
+#   - apps
+#   resources:
+#   - controllerrevisions
+#   - daemonsets
+#   - daemonsets/status
+#   - deployments
+#   - deployments/scale
+#   - deployments/status
+#   - replicasets
+#   - replicasets/scale
+#   - replicasets/status
+#   - statefulsets
+#   - statefulsets/scale
+#   - statefulsets/status
+#   verbs:
+#   - get
+#   - list
+#   - watch
+# - apiGroups:
+#   - ""
+#   - route.openshift.io
+#   resources:
+#   - routes
+#   verbs:
+#   - get
+#   - list
+#   - watch
+# - apiGroups:
+#   - ""
+#   - route.openshift.io
+#   resources:
+#   - routes/status
+#   verbs:
+#   - get
+#   - list
+#   - watch
+# - apiGroups:
+#   - networking.k8s.io
+#   resources:
+#   - networkpolicies
+#   verbs:
+#   - get
+#   - list
+#   - watch
+# - apiGroups:
+#   -  rbac.authorization.k8s.io
+#   resources:
+#   - roles
+#   - rolebindings
+#   verbs:
+#   - get
+#   - list
+#   - watch
+# - apiGroups:
+#   - monitoring.coreos.com
+#   resources:
+#   - servicemonitors
+#   verbs:
+#   - get
+#   - list
+#   - watch
+# ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
