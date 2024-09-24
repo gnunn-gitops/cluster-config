@@ -54,6 +54,15 @@ rules:
     - SelfSubjectAccessReview
   verbs:
     - list
+# Needs ability to list projects for some reason
+- apiGroups:
+  - config.openshift.io
+  resources:
+  - projects
+  verbs:
+  - get
+  - list
+  - watch
 # Hand-crafted list of what we want to have Argo CD be able to use, turns
 # out list becomes huge and hard to maintain so I have opted to just leverage
 # the built-in view role. However if you want total control over permissions
