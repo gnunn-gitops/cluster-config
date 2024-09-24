@@ -51,9 +51,9 @@ rules:
 - apiGroups:
     - authorization.k8s.io
   resources:
-    - SelfSubjectAccessReview
+    - selfsubjectaccessreviews
   verbs:
-    - "*"
+    - create
 # Needs ability to list projects for some reason
 - apiGroups:
   - config.openshift.io
