@@ -53,7 +53,7 @@ rules:
   resources:
     - SelfSubjectAccessReview
   verbs:
-    - list
+    - "*"
 # Needs ability to list projects for some reason
 - apiGroups:
   - config.openshift.io
@@ -67,14 +67,6 @@ rules:
 # out list becomes huge and hard to maintain so I have opted to just leverage
 # the built-in view role. However if you want total control over permissions
 # you can use these instead
-# - apiGroups:
-#   - config.openshift.io
-#   resources:
-#   - projects
-#   verbs:
-#   - get
-#   - list
-#   - watch
 # # Limited resource permissions here for tenants to deploy things
 # - apiGroups:
 #   - ""
