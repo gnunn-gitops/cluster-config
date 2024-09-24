@@ -33,7 +33,7 @@ patches:
       - op: add
         path: /spec/extraConfig
         value:
-          resource.respectRBAC: "strict"
+          resource.respectRBAC: "normal"
           exec.enabled: "true"
           globalProjects: |-
             - labelSelector:
