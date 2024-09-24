@@ -13,9 +13,7 @@ rules:
     - rolloutmanagers
     - rollouts
   verbs:
-    - get
-    - list
-    - watch
+    - "*"
 - apiGroups:
     - authorization.k8s.io
   resources:
