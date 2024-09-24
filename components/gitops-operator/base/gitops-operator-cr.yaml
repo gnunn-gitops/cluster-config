@@ -10,6 +10,8 @@ spec:
   kustomizeBuildOptions: "--enable-helm"
   notifications:
     enabled: true
+  controller:
+    logLevel: debug
   repo:
     sidecarContainers:
       - name: setenv-plugin
@@ -260,10 +262,3 @@ spec:
             - /status/ingress
   ha:
     enabled: false
-  # rbac:
-  #   defaultPolicy: role:readonly
-  #   policy: |
-  #     g, system:cluster-admins, role:admin
-  #     g, argocdadmins, role:admin
-  #     g, argocdusers, role:readonly
-  #   scopes: "[groups]"
