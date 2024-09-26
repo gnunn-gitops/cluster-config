@@ -58,7 +58,7 @@ rules:
 - apiGroups:
   - config.openshift.io
   resources:
-  - projects
+  - "*"
   verbs:
   - get
   - list
