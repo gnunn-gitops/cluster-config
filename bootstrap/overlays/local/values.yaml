@@ -64,6 +64,8 @@ applications:
       extraSourceFields: |
         plugin:
           name: setenv-cmp-plugin
+    syncOptions:
+      - RespectIgnoreDifferences=true
 
   rbac:
     annotations:
