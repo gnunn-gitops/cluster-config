@@ -1,6 +1,8 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
+  annotations:
+    argocd.argoproj.io/sync-options: Validate=false,ServerSideApply=true
   name: cluster-monitoring-config
   namespace: openshift-monitoring
 data:
