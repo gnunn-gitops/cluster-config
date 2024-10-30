@@ -64,6 +64,7 @@ applications:
           name: setenv-cmp-plugin
 
   amq-streams:
+    enabled: false
     annotations:
       argocd.argoproj.io/sync-wave: '21'
     destination:
@@ -72,6 +73,7 @@ applications:
       path: components/amq-streams/overlays/amq-streams-2.7.x/
 
   trusted-profile-analyzer-prereqs:
+    enabled: false
     annotations:
       argocd.argoproj.io/sync-wave: '31'
     destination:
