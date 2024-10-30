@@ -15,6 +15,10 @@ spec:
       value: "true"
     - name: communityClusterTasks
       value: "true"
+    - name: resolverTasks
+      value: 'true'
+    - name: resolverStepActions
+      value: 'true'
   chain:
     artifacts.taskrun.format: in-toto
     artifacts.taskrun.storage: tekton
