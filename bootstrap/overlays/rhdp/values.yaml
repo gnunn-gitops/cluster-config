@@ -36,7 +36,7 @@ applications:
     destination:
       namespace: openshift-monitoring
     source:
-      path: clusters/overlays/rhpds/components/openshift-monitoring/base
+      path: clusters/overlays/rhdp/components/openshift-monitoring/base
 
   # product-catalog-root:
   #   project: cluster-config
