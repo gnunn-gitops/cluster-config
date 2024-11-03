@@ -55,16 +55,16 @@ applications:
       namespace: openshift-monitoring
     source:
       path: clusters/overlays/rhdp/components/openshift-monitoring/base
-    syncOptions:
-      - RespectIgnoreDifferences=true
-    extraFields: |
-      ignoreDifferences:
-      - group: ""
-        kind: ConfigMap
-        jsonPointers:
-        - /data/config.yaml/prometheusK8s/externalLabels/managed-cluster
-        name: cluster-monitoring-config
-        namespace: openshift-monitoring
+    # syncOptions:
+    #   - RespectIgnoreDifferences=true
+    # extraFields: |
+    #   ignoreDifferences:
+    #   - group: ""
+    #     kind: ConfigMap
+    #     jsonPointers:
+    #     - /data/config.yaml
+    #     name: cluster-monitoring-config
+    #     namespace: openshift-monitoring
 
   # product-catalog-root:
   #   project: cluster-config

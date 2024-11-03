@@ -35,7 +35,7 @@ data:
           insecureSkipVerify: false
       externalLabels:
         cluster: ${CLUSTER_GITOPS_NAME}
-        managed_cluster: f20f4b1f-1421-4f94-883b-18486bd38f7b
+        managed_cluster: ${CLUSTER_ID}
       volumeClaimTemplate:
         metadata: {}
         spec:
