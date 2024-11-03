@@ -22,6 +22,9 @@ patches:
         value:
           - alias: provider-proxy
             authorization: None
+      - op: replace
+        path: /apiVersion
+        value: console.openshift.io/v1
     target:
       kind: ConsolePlugin
       name: odf-console
