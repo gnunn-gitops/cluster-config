@@ -15,29 +15,11 @@ patches:
         value: stable-4.17
     target:
       kind: Subscription
-      name: odf-operator
+      name: openshift-storage
   - patch: |-
-      - op: add
-        path: /spec/proxy
-        value:
-          - alias: provider-proxy
-            authorization: None
       - op: replace
         path: /apiVersion
         value: console.openshift.io/v1
     target:
       kind: ConsolePlugin
       name: odf-console
-  # - patch: |
-  #     apiVersion: console.openshift.io/v1
-  #     kind: ConsolePlugin
-  #     metadata:
-  #       name: odf-console
-  #       namespace: openshift-storage
-  #     spec:
-  #       displayName: ODF Plugin
-  #       proxy:
-  #       - alias: provider-proxy
-  #         authorization: None
-  #       service:
-  #         $patch: delete
