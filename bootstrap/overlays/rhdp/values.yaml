@@ -29,6 +29,17 @@ applications:
   #   source:
   #     path: tenants/acs-tokens/base
 
+  authentication:
+    annotations:
+      argocd.argoproj.io/sync-wave: '4'
+    destination:
+      namespace: openshift-config
+    source:
+      path: components/oauth/overlays/homelab
+      extraSourceFields: |
+        plugin:
+          name: setenv-cmp-plugin
+
   openshift-monitoring:
     annotations:
       argocd.argoproj.io/compare-options: IgnoreExtraneous
