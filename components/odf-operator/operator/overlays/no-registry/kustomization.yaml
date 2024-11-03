@@ -27,7 +27,7 @@ patches:
                 name: ux-backend-proxy
                 namespace: openshift-storage
                 port: 8888
-              type: Service
+            type: Service
     target:
       kind: ConsolePlugin
       name: odf-console
