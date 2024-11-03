@@ -28,16 +28,16 @@ patches:
     target:
       kind: ConsolePlugin
       name: odf-console
-  - patch: |
-      apiVersion: console.openshift.io/v1
-      kind: ConsolePlugin
-      metadata:
-        name: odf-console
-        namespace: openshift-storage
-      spec:
-        displayName: ODF Plugin
-        proxy:
-        - alias: provider-proxy
-          authorization: None
-        service:
-          $patch: delete
+  # - patch: |
+  #     apiVersion: console.openshift.io/v1
+  #     kind: ConsolePlugin
+  #     metadata:
+  #       name: odf-console
+  #       namespace: openshift-storage
+  #     spec:
+  #       displayName: ODF Plugin
+  #       proxy:
+  #       - alias: provider-proxy
+  #         authorization: None
+  #       service:
+  #         $patch: delete
