@@ -21,13 +21,7 @@ patches:
         path: /spec/proxy
         value:
           - alias: provider-proxy
-            authorization: UserToken
-            endpoint:
-              service:
-                name: ux-backend-proxy
-                namespace: openshift-storage
-                port: 8888
-            type: Service
+            authorization: None
     target:
       kind: ConsolePlugin
       name: odf-console
