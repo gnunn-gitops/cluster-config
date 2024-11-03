@@ -55,8 +55,7 @@ patches:
                             - mountPath: /var/run/sigstore/cosign
                               name: oidc-info
                       volumes:
-                        - emptyDir: {}
-                          name: tuf
+                        - name: tuf
                         - name: oidc-info
                           secret:
                             items:
