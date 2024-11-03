@@ -16,3 +16,18 @@ patches:
     target:
       kind: Subscription
       name: odf-operator
+  - patch: |-
+      - op: add
+        path: /spec/proxy
+        value:
+          - alias: provider-proxy
+            authorization: UserToken
+            endpoint:
+              service:
+                name: ux-backend-proxy
+                namespace: openshift-storage
+                port: 8888
+              type: Service
+    target:
+      kind: ConsolePlugin
+      name: odf-console
