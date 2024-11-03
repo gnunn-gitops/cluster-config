@@ -40,6 +40,13 @@ applications:
         plugin:
           name: setenv-cmp-plugin
 
+  rbac:
+    annotations:
+      argocd.argoproj.io/compare-options: IgnoreExtraneous
+      argocd.argoproj.io/sync-wave: '11'
+    source:
+      path: components/rbac/base
+
   openshift-monitoring:
     annotations:
       argocd.argoproj.io/compare-options: IgnoreExtraneous
