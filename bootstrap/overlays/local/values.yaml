@@ -69,7 +69,7 @@ applications:
     extraFields: |
       ignoreDifferences:
       - group: ""
-        kind: Secret
+        kind: ConfigMap
         jsonPointers:
         - /data/config.yaml/prometheusK8s/externalLabels/managed-cluster
         name: cluster-monitoring-config
