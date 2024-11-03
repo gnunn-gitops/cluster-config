@@ -61,7 +61,7 @@ applications:
     destination:
       namespace: openshift-operators
     source:
-      path: components/container-security-operator/overlays/stable-3.11
+      path: components/container-security-operator/overlays/stable-3.13
 
   external-secrets:
     annotations:
