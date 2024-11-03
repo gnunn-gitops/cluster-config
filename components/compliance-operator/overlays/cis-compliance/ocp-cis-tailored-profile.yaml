@@ -30,3 +30,7 @@ spec:
     rationale: Home lab, open registries is fine
   - name: ocp4-api-server-api-priority-gate-enabled
     rationale: Need to understand mis-behaving clients in Home lab
+  - name: ocp4-kubelet-configure-tls-cipher-suites-ingresscontroller
+    rationale: Home lab
+  - name: ocp4-lab-kubelet-configure-tls-cipher-suites-ingresscontroller
+    rationale: Home lab
