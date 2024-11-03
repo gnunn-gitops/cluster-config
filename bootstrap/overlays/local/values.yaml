@@ -66,6 +66,14 @@ applications:
           name: setenv-cmp-plugin
     syncOptions:
       - RespectIgnoreDifferences=true
+    extraFields: |
+      ignoreDifferences:
+      - group: ""
+        kind: Secret
+        jsonPointers:
+        - /data/config.yaml/prometheusK8s/externalLabels/managed-cluster
+        name: cluster-monitoring-config
+        namespace: openshift-monitoring
 
   rbac:
     annotations:
