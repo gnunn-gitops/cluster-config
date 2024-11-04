@@ -49,22 +49,14 @@ applications:
 
   openshift-monitoring:
     annotations:
-      argocd.argoproj.io/compare-options: IgnoreExtraneous
       argocd.argoproj.io/sync-wave: '11'
     destination:
       namespace: openshift-monitoring
     source:
-      path: clusters/overlays/rhdp/components/openshift-monitoring/base
-    # syncOptions:
-    #   - RespectIgnoreDifferences=true
-    # extraFields: |
-    #   ignoreDifferences:
-    #   - group: ""
-    #     kind: ConfigMap
-    #     jsonPointers:
-    #     - /data/config.yaml
-    #     name: cluster-monitoring-config
-    #     namespace: openshift-monitoring
+      path: components/openshift-monitoring/base
+      extraSourceFields: |
+        plugin:
+          name: setenv-cmp-plugin
 
   # product-catalog-root:
   #   project: cluster-config
