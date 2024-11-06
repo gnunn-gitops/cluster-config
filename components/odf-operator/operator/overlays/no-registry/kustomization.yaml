@@ -15,7 +15,7 @@ patches:
         value: stable-4.17
     target:
       kind: Subscription
-      name: openshift-storage
+      name: odf-operator
   - patch: |-
       - op: replace
         path: /apiVersion
