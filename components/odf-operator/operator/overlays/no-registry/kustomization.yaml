@@ -20,6 +20,36 @@ patches:
       - op: replace
         path: /apiVersion
         value: console.openshift.io/v1
+      - op: replace
+        path: /spec
+        value:
+          backend:
+            service:
+              basePath: /
+              name: odf-console-service
+              namespace: openshift-storage
+              port: 9001
+            type: Service
+          displayName: ODF Plugin
+          i18n:
+            loadType: ""
+          proxy:
+          - alias: provider-proxy
+            authorization: UserToken
+            endpoint:
+              service:
+                name: ux-backend-proxy
+                namespace: openshift-storage
+                port: 8888
+              type: Service
+          - alias: rosa-prometheus
+            authorization: None
+            endpoint:
+              service:
+                name: prometheus
+                namespace: openshift-storage
+                port: 9339
+              type: Service
     target:
       kind: ConsolePlugin
       name: odf-console
