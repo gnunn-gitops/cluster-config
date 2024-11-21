@@ -10,6 +10,7 @@ spec:
   clusterName: ${CLUSTER_NAME}
   centralEndpoint: central-stackrox.apps.hub.ocplab.com:443
   admissionControl:
+    contactImageScanners: ScanIfMissing
     listenOnCreates: true
     listenOnUpdates: true
     timeoutSeconds: 6
