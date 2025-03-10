@@ -1,0 +1,15 @@
+apiVersion: olm.operatorframework.io/v1
+kind: ClusterExtension
+metadata:
+  name: amq-streams
+spec:
+  namespace: amq-streams-operator
+  serviceAccount:
+    name: amq-streams-installer
+  source:
+    sourceType: Catalog
+    catalog:
+      packageName: amq-streams
+      channels:
+        - amq-streams-2.9.x
+      upgradeConstraintPolicy: CatalogProvided
