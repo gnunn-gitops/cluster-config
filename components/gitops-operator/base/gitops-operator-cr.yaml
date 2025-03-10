@@ -40,17 +40,7 @@ spec:
           name: setenv-cmp-plugin
         name: setenv-cmp-plugin
   server:
-    initContainers:
-      - env:
-          - name: EXTENSION_URL
-            value: 'https://github.com/argoproj-labs/rollout-extension/releases/download/v0.3.5/extension.tar'
-        image: 'quay.io/argoprojlabs/argocd-extension-installer:v0.0.5'
-        name: rollout-extension
-        securityContext:
-          allowPrivilegeEscalation: false
-        volumeMounts:
-          - mountPath: /tmp/extensions/
-            name: extensions
+    enableRolloutsUI: true
     insecure: true
     route:
       enabled: true
