@@ -32,3 +32,5 @@ spec:
     rationale: Need to understand mis-behaving clients in Home lab
   - name: ocp4-kubelet-configure-tls-cipher-suites-ingresscontroller
     rationale: Home lab
+  - name: ocp4-api-server-tls-cipher-suites
+    rationale: Home lab
