@@ -88,12 +88,6 @@ applications:
     source:
       path: components/rollout-manager/base
 
-  tekton-results:
-    annotations:
-      argocd.argoproj.io/sync-wave: '21'
-    source:
-      path: components/pipelines-operator/overlays/results
-
 # Tenants
   gitops:
     project: cluster-config
