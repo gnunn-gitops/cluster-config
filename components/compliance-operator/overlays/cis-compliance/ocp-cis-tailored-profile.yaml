@@ -34,3 +34,5 @@ spec:
     rationale: Home lab
   - name: ocp4-api-server-tls-cipher-suites
     rationale: Home lab
+  - name: ocp4-kubelet-configure-tls-cipher-suites
+    rationale: Home lab
