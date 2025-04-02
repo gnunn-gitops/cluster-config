@@ -15,4 +15,6 @@ spec:
     listenOnUpdates: true
     timeoutSeconds: 6
   scannerV4:
-    scannerComponent: Default
+    scannerComponent: AutoSense
+    monitoring:
+      exposeEndpoint: Enabled

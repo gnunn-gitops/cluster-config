@@ -19,7 +19,9 @@ patches:
       - op: add
         path: /spec/scannerV4
         value:
-          scannerComponent: Default
+          scannerComponent: AutoSense
+          monitoring:
+            exposeEndpoint: Enabled
     target:
       kind: SecuredCluster
   - patch: |-
