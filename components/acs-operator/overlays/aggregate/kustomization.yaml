@@ -30,5 +30,11 @@ patches:
         value:
           secrets:
             - name: declarative-configurations
+      - op: add
+        path: /spec/scannerV4
+        value:
+          scannerComponent: Enabled
+          monitoring:
+            exposeEndpoint: Enabled
     target:
       kind: Central
