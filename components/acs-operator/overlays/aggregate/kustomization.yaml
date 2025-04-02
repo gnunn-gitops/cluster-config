@@ -16,9 +16,10 @@ patches:
       kind: Subscription
       name: rhacs-operator
   - patch: |-
-      - op: replace
-        path: /spec/perNode/collector/collection
-        value: EBPF
+      - op: add
+        path: /spec/scannerV4
+        value:
+          scannerComponent: Default
     target:
       kind: SecuredCluster
   - patch: |-
