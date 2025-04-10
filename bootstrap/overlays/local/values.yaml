@@ -58,7 +58,7 @@ applications:
     annotations:
       argocd.argoproj.io/sync-wave: '11'
     destination:
-      namespace: openshift-monitoring
+      namespace: openshift-lightspeed
     source:
       path: components/lightspeed/base
 
