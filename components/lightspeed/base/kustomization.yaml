@@ -3,3 +3,4 @@ resources:
 - externalsecret.yaml
 - subscription.yaml
 - olsconfig.yaml
+- route.yaml
