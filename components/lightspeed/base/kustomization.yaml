@@ -1,6 +1,7 @@
 resources:
 - ns.yaml
 - externalsecret.yaml
+- operator-group.yaml
 - subscription.yaml
 - olsconfig.yaml
 - route.yaml
