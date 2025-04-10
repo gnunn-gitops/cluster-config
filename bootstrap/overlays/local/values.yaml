@@ -54,6 +54,14 @@ applications:
     source:
       path: components/alertmanager/base
 
+  lightspeed:
+    annotations:
+      argocd.argoproj.io/sync-wave: '11'
+    destination:
+      namespace: openshift-monitoring
+    source:
+      path: components/lightspeed/base
+
   openshift-monitoring:
     annotations:
       argocd.argoproj.io/sync-wave: '11'
