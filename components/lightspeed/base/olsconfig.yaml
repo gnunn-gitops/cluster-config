@@ -1,0 +1,21 @@
+apiVersion: ols.openshift.io/v1alpha1
+kind: OLSConfig
+metadata:
+  annotation:
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+    argocd.argoproj.io/sync-wave: "1"
+  name: cluster
+spec:
+  llm:
+    providers:
+    - credentialsSecretRef:
+        name: credentials
+      models:
+      - name: deepseek-r1-distill-qwen-14b
+      name: red_hat_openshift_ai
+      type: rhoai_vllm
+      url: https://deepseek-r1-distill-qwen-14b-maas-apicast-production.apps.prod.rhoai.rh-aiservices-bu.com:443/v1
+  ols:
+    defaultModel: deepseek-r1-distill-qwen-14b
+    defaultProvider: red_hat_openshift_ai
+    logLevel: INFO
