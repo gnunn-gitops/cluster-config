@@ -1,7 +1,7 @@
 apiVersion: ols.openshift.io/v1alpha1
 kind: OLSConfig
 metadata:
-  annotation:
+  annotations:
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
     argocd.argoproj.io/sync-wave: "1"
   name: cluster
