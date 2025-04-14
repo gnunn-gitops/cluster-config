@@ -14,7 +14,7 @@ spec:
       idleConnectionTimeout: 360s
       maxIdleConnections: 30
       services:
-      - url: https://argocd-server-gitops.apps.home.ocplab.com
+      - url: https://lightspeed-app-server-openshift-lightspeed.apps.home.ocplab.com
         headers:
         - name: Authorization
           value: '$lightspeed.auth.header'
