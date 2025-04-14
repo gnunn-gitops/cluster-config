@@ -7,6 +7,17 @@ spec:
   # defaultClusterScopedRoleDisabled: true
   resourceTrackingMethod: annotation
   applicationSet: {}
+  extraConfig:
+    extension.config.lightspeed: |
+      connectionTimeout: 2s
+      keepAlive: 360s
+      idleConnectionTimeout: 360s
+      maxIdleConnections: 30
+      services:
+      - url: https://argocd-server-gitops.apps.home.ocplab.com
+        headers:
+        - name: Authorization
+          value: '$lightspeed.auth.header'
   kustomizeBuildOptions: "--enable-helm"
   notifications:
     enabled: true
