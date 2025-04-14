@@ -41,7 +41,7 @@ spec:
         name: setenv-cmp-plugin
   server:
     extraCommandArgs:
-     - "--enable-proxy-extension"
+      - "--enable-proxy-extension"
     enableRolloutsUI: true
     initContainers:
       - env:
