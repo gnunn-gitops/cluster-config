@@ -3,6 +3,7 @@ kind: Kustomization
 
 resources:
 - external-secret.yaml
+- token-secret.yaml
 - setenv-cmp-plugin-cm.yaml
 - argocd-external-secret.yaml
 - create-pipeline-local-user-job.yaml
