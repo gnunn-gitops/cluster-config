@@ -71,20 +71,3 @@ patches:
       - op: add
         path: /spec/server/host
         value: "argocd-server-gitops.${SUB_DOMAIN}"
-      - op: add
-        path: /spec/server/extraCommandArgs
-        value:
-          - "--enable-proxy-extension"
-      - op: add
-        path: /spec/server/initContainers
-        value:
-          - env:
-              - name: EXTENSION_URL
-                value: "https://gexperts.com/files/extension-lightspeed-0.1.0.tar"
-            image: "quay.io/argoprojlabs/argocd-extension-installer:v0.0.8"
-            name: extension-lightspeed
-            securityContext:
-              allowPrivilegeEscalation: false
-            volumeMounts:
-              - mountPath: /tmp/extensions/
-                name: extension-lightspeed
