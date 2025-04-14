@@ -51,9 +51,6 @@ spec:
         name: extension-lightspeed
         securityContext:
           allowPrivilegeEscalation: false
-        volumeMounts:
-          - mountPath: /tmp/extensions/
-            name: extension-lightspeed
     insecure: true
     route:
       enabled: true
