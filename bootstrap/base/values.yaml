@@ -36,14 +36,14 @@ projects:
 
 applications:
 
-  banner:
-    annotations:
-      argocd.argoproj.io/sync-wave: '11'
-    source:
-      path: components/banner/base
-      extraSourceFields: |
-        plugin:
-          name: setenv-cmp-plugin
+  # banner:
+  #   annotations:
+  #     argocd.argoproj.io/sync-wave: '11'
+  #   source:
+  #     path: components/banner/base
+  #     extraSourceFields: |
+  #       plugin:
+  #         name: setenv-cmp-plugin
 
   compliance-operator:
     annotations:
