@@ -1,0 +1,45 @@
+# Lightspeed uses NetworkPolicy so we need to set one up to
+# to enable GitOps to talk to the Lightspeed service directly
+kind: NetworkPolicy
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: lightspeed-app-server-gitops
+  namespace: openshift-lightspeed
+  labels:
+    app.kubernetes.io/component: application-server
+    app.kubernetes.io/name: lightspeed-service-api
+    app.kubernetes.io/part-of: openshift-lightspeed
+spec:
+  podSelector:
+    matchLabels:
+      app.kubernetes.io/component: application-server
+      app.kubernetes.io/managed-by: lightspeed-operator
+      app.kubernetes.io/name: lightspeed-service-api
+      app.kubernetes.io/part-of: openshift-lightspeed
+  ingress:
+    - ports:
+        - protocol: TCP
+          port: 8443
+      from:
+        - podSelector:
+            matchExpressions:
+              - key: app.kubernetes.io/name
+                operator: In
+                values:
+                  - argocd-server
+          namespaceSelector:
+            matchLabels:
+              kubernetes.io/metadata.name: gitops
+    - ports:
+        - protocol: TCP
+          port: 8443
+      from:
+        - podSelector:
+            matchExpressions:
+              - key: app.kubernetes.io/name
+                operator: In
+                values:
+                  - openshift-gitops-server
+          namespaceSelector:
+            matchLabels:
+              kubernetes.io/metadata.name: openshift-gitops

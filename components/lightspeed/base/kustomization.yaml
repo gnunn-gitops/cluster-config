@@ -1,5 +1,6 @@
 resources:
 - ns.yaml
+- networkpolicy.yaml
 - externalsecret.yaml
 - operator-group.yaml
 - subscription.yaml
