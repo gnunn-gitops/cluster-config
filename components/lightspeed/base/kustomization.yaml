@@ -5,4 +5,5 @@ resources:
 - operator-group.yaml
 - subscription.yaml
 - olsconfig.yaml
-- route.yaml
+# no longer need the route now that Argo CD extension can use the service
+# - route.yaml
