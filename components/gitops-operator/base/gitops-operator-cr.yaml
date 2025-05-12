@@ -73,12 +73,13 @@ spec:
         insecureEdgeTerminationPolicy: Redirect
     # need the service-ca to communicate directly with lightspeed service
     volumeMounts:
-      - mountPath: /etc/pki/ca-trust/source/whitelist/service-ca.crt
+      - mountPath: /etc/pki/tls/certs/service-ca.crt
         name: config-service-cabundle
         subPath: service-ca.crt
     volumes:
       - configMap:
           name: config-service-cabundle
+          defaultMode: 420
         name: config-service-cabundle
         optional: true
   resourceHealthChecks:
