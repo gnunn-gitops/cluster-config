@@ -67,6 +67,9 @@ spec:
             mountPath: /tmp/extensions/
     insecure: true
     route:
+      annotations:
+        # Needed to support longer queries to lightspeed
+        haproxy.router.openshift.io/timeout: 360s
       enabled: true
       tls:
         termination: edge
