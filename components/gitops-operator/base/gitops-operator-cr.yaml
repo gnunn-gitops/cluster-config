@@ -14,7 +14,7 @@ spec:
       idleConnectionTimeout: 360s
       maxIdleConnections: 30
       services:
-      - url: https://lightspeed-app-server-openshift-lightspeed.apps.home.ocplab.com
+      - url: https://lightspeed-app-server.openshift-lightspeed.svc.cluster.local:8443
         headers:
         - name: Authorization
           value: '$lightspeed.auth.header'
