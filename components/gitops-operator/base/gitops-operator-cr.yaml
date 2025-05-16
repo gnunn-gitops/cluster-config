@@ -21,8 +21,6 @@ spec:
   kustomizeBuildOptions: "--enable-helm"
   notifications:
     enabled: true
-  controller:
-    logLevel: debug
   repo:
     sidecarContainers:
       - name: setenv-plugin
@@ -84,7 +82,6 @@ spec:
           name: config-service-cabundle
           defaultMode: 420
         name: config-service-cabundle
-        optional: true
   resourceHealthChecks:
     - group: argoproj.io
       kind: Application
