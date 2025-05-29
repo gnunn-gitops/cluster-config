@@ -1,0 +1,15 @@
+namespace: trusted-profile-analyzer
+
+helmCharts:
+- name: redhat-trusted-profile-analyzer
+  version: 1.0.0
+  repo: https://charts.openshift.io/
+  valuesFile: values.yaml
+  namespace: trusted-profile-analyzer
+  releaseName: rhtpa
+
+resources:
+- namespace.yaml
+- obc.yaml
+- postgresql-es.yaml
+- postgresql.yaml

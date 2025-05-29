@@ -1,0 +1,100 @@
+appDomain: apps.hub.ocplab.com
+
+ingress:
+  className: openshift-default
+  additionalAnnotations:
+    "haproxy.router.openshift.io/timeout": "5m"
+
+authenticator:
+  type: cognito
+
+storage:
+  type: s3
+  region: REGION
+  bucket: trustify-UNIQUE_ID
+  accessKey:
+    valueFrom:
+      secretKeyRef:
+        name: rhtpa-storage
+        key: AWS_ACCESS_KEY_ID
+  secretKey:
+    valueFrom:
+      secretKeyRef:
+        name: rhtpa-storage
+        key: AWS_SECRET_ACCESS_KEY
+
+database:
+  sslMode: require
+  host:
+    valueFrom:
+      secretKeyRef:
+        name: postgresql-credentials
+        key: db.host
+  port:
+    valueFrom:
+      secretKeyRef:
+        name: postgresql-credentials
+        key: db.port
+  name:
+    valueFrom:
+      secretKeyRef:
+        name: postgresql-credentials
+        key: db.name
+  username:
+    valueFrom:
+      secretKeyRef:
+        name: postgresql-credentials
+        key: db.user
+  password:
+    valueFrom:
+      secretKeyRef:
+        name: postgresql-credentials
+        key: db.password
+
+createDatabase:
+  name:
+    valueFrom:
+      secretKeyRef:
+        name: createdb
+        key: database-name
+  username:
+    valueFrom:
+      secretKeyRef:
+        name: createdb
+        key: database-user
+  password:
+    valueFrom:
+      secretKeyRef:
+        name: createdb
+        key: database-password
+
+migrateDatabase:
+  username:
+    valueFrom:
+      secretKeyRef:
+        name: migratedb
+        key: database-name
+  password:
+    valueFrom:
+      secretKeyRef:
+        name: migratedb
+        key: database-password
+
+modules:
+  createDatabase:
+    enabled: false
+  migrateDatabase:
+    enabled: false
+
+oidc:
+  issuerUrl: https://sso.ocplab.com/realms/ocplab
+  clients:
+    frontend:
+      clientId: rhtpa
+    cli:
+      clientId: rhtpa
+      clientSecret:
+        valueFrom:
+          secretKeyRef:
+            name: rhtpa-oidc
+            key: clientSecret

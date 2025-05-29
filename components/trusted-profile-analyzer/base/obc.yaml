@@ -1,8 +1,9 @@
 apiVersion: objectbucket.io/v1alpha1
 kind: ObjectBucketClaim
 metadata:
-  name: vexination-default
-  namespace: trusted-profile-analyzer
+  annotations:
+    argocd.argoproj.io/sync-wave: "-1"
+  name: rhtpa-storage
 spec:
-  generateBucketName: vexination-default
+  generateBucketName: storage
   storageClassName: openshift-storage.noobaa.io
