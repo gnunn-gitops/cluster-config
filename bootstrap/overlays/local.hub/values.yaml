@@ -72,14 +72,14 @@ applications:
     source:
       path: components/amq-streams/overlays/amq-streams-2.7.x/
 
-  trusted-profile-analyzer-prereqs:
+  trusted-profile-analyzer:
     enabled: false
     annotations:
       argocd.argoproj.io/sync-wave: '31'
     destination:
       namespace: openshift-gitops
     source:
-      path: components/trusted-profile-analyzer/prereqs/base
+      path: components/trusted-profile-analyzer/base
 
   # acm-clusters:
   #   annotations:
