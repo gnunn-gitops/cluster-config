@@ -11,7 +11,7 @@ authenticator:
 storage:
   type: s3
   region: REGION
-  bucket: trustify-UNIQUE_ID
+  bucket: storage
   accessKey:
     valueFrom:
       secretKeyRef:
