@@ -28,28 +28,28 @@ database:
   host:
     valueFrom:
       secretKeyRef:
-        name: postgresql-credentials
-        key: db.host
+        name: postgresql
+        key: database-host
   port:
     valueFrom:
       secretKeyRef:
-        name: postgresql-credentials
-        key: db.port
+        name: postgresql
+        key: database-port
   name:
     valueFrom:
       secretKeyRef:
-        name: postgresql-credentials
-        key: db.name
+        name: postgresql
+        key: database-name
   username:
     valueFrom:
       secretKeyRef:
         name: postgresql-credentials
-        key: db.user
+        key: database-user
   password:
     valueFrom:
       secretKeyRef:
         name: postgresql-credentials
-        key: db.password
+        key: database-password
 
 createDatabase:
   name:
