@@ -85,6 +85,38 @@ modules:
     enabled: false
   migrateDatabase:
     enabled: false
+  createImporters:
+    enabled: true
+    importers:
+      redhat-sboms:
+        sbom:
+          description: All Red Hat SBOMs
+          period: 1d
+          source: https://access.redhat.com/security/data/sbom/beta/
+          keys:
+            - https://access.redhat.com/security/data/97f5eac4.txt#77E79ABE93673533ED09EBE2DCE3823597F5EAC4
+          disabled: true
+          fetchRetries: 50
+      redhat-csaf:
+        csaf:
+          description: All Red Hat CSAF data
+          period: 1d
+          source: redhat.com
+          disabled: true
+          fetchRetries: 50
+      cve:
+        cve:
+          description: CVE list v5
+          period: 1d
+          source: https://github.com/CVEProject/cvelistV5
+          disabled: false
+      osv-github:
+        osv:
+          description: GitHub Advisory Database
+          period: 1d
+          source: https://github.com/github/advisory-database
+          path: advisories
+          disabled: false
 
 oidc:
   issuerUrl: https://sso.ocplab.com/realms/ocplab
