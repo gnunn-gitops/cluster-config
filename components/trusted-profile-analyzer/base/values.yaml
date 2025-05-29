@@ -6,7 +6,7 @@ ingress:
     "haproxy.router.openshift.io/timeout": "5m"
 
 authenticator:
-  type: cognito
+  type: keycloak
 
 storage:
   type: s3
@@ -24,7 +24,7 @@ storage:
         key: AWS_SECRET_ACCESS_KEY
 
 database:
-  sslMode: require
+  sslMode: disable
   host:
     valueFrom:
       secretKeyRef:
