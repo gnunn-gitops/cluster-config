@@ -11,8 +11,10 @@ helmCharts:
 resources:
 - namespace.yaml
 - obc.yaml
+- oidc-es.yaml
 - postgresql-es.yaml
 - postgresql.yaml
+- consolelink.yaml
 
 patches:
   - patch: |

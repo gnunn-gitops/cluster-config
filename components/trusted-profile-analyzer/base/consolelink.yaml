@@ -1,0 +1,11 @@
+apiVersion: console.openshift.io/v1
+kind: ConsoleLink
+metadata:
+  name: quay
+spec:
+  href: 'https://server.apps.hub.ocplab.com'
+  location: ApplicationMenu
+  text: Trusted Profile Analyzer
+  applicationMenu:
+    section: Tools
+    imageURL: https://server.apps.hub.ocplab.com/favicon.ico
