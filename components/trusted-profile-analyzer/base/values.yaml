@@ -1,4 +1,4 @@
-appDomain: apps.hub.ocplab.com
+appDomain: .apps.hub.ocplab.com
 
 ingress:
   className: openshift-default
