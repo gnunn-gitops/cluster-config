@@ -55,17 +55,17 @@ createDatabase:
   name:
     valueFrom:
       secretKeyRef:
-        name: createdb
+        name: postgresql
         key: database-name
   username:
     valueFrom:
       secretKeyRef:
-        name: createdb
+        name: postgresql
         key: database-user
   password:
     valueFrom:
       secretKeyRef:
-        name: createdb
+        name: postgresql
         key: database-password
 
 migrateDatabase:
@@ -82,7 +82,7 @@ migrateDatabase:
 
 modules:
   createDatabase:
-    enabled: false
+    enabled: true
   migrateDatabase:
     enabled: false
   createImporters:
