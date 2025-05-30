@@ -73,7 +73,7 @@ migrateDatabase:
     valueFrom:
       secretKeyRef:
         name: postgresql
-        key: database-name
+        key: database-user
   password:
     valueFrom:
       secretKeyRef:
