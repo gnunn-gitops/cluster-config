@@ -72,19 +72,19 @@ migrateDatabase:
   username:
     valueFrom:
       secretKeyRef:
-        name: migratedb
+        name: postgresql
         key: database-name
   password:
     valueFrom:
       secretKeyRef:
-        name: migratedb
+        name: postgresql
         key: database-password
 
 modules:
   createDatabase:
     enabled: true
   migrateDatabase:
-    enabled: false
+    enabled: true
   createImporters:
     enabled: true
     importers:
