@@ -1,7 +1,7 @@
 apiVersion: console.openshift.io/v1
 kind: ConsoleLink
 metadata:
-  name: quay
+  name: rhtpa
 spec:
   href: 'https://server.apps.hub.ocplab.com'
   location: ApplicationMenu
