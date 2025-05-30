@@ -13,3 +13,12 @@ resources:
 - obc.yaml
 - postgresql-es.yaml
 - postgresql.yaml
+
+patches:
+  - patch: |
+      - op: add
+        path: /metadata/labels/argocd.argoproj.io~1sync-wave
+        value: "5"
+    target:
+      kind: Deployment
+      name: importer
