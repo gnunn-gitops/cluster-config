@@ -17,8 +17,15 @@ resources:
 patches:
   - patch: |
       - op: add
-        path: /metadata/labels/argocd.argoproj.io~1sync-wave
+        path: /metadata/annotations/argocd.argoproj.io~1sync-wave
         value: "5"
     target:
       kind: Deployment
       name: importer
+  # - patch: |
+  #     - op: replace
+  #       path: /metadata/annotations/argocd.argoproj.io~1sync-wave
+  #       value: "0"
+  #   target:
+  #     kind: Job
+  #     name: migrate-db
