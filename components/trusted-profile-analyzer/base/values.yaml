@@ -4,6 +4,7 @@ ingress:
   className: openshift-default
   additionalAnnotations:
     "haproxy.router.openshift.io/timeout": "5m"
+    "route.openshift.io/termination": "edge"
 
 authenticator:
   type: keycloak
