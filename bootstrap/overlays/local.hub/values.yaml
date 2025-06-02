@@ -78,7 +78,7 @@ applications:
     destination:
       namespace: openshift-gitops
     source:
-      path: components/trusted-profile-analyzer/base
+      path: components/trusted-profile-analyzer/overlays/noobaa
 
   # acm-clusters:
   #   annotations:
