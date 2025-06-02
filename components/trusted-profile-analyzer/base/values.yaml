@@ -11,7 +11,7 @@ authenticator:
 
 storage:
   type: s3
-  region: REGION
+  region: s3-openshift-storage.apps.hub.ocplab.com
   bucket: rhtpa
   accessKey:
     valueFrom:
