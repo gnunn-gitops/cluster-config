@@ -10,5 +10,8 @@ patches:
     - op: replace
       path: /spec/fulcio/config/OIDCIssuers/0/IssuerURL
       value: https://sso.ocplab.com/realms/ocplab
+    - op: replace
+      path: /spec/fulcio/config/OIDCIssuers/0/ClientID
+      value: tekton-builder
   target:
     kind: Securesign
