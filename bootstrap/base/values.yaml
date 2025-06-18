@@ -61,7 +61,7 @@ applications:
     destination:
       namespace: openshift-operators
     source:
-      path: components/container-security-operator/overlays/stable-3.13
+      path: components/container-security-operator/overlays/stable-3.14
 
   external-secrets:
     annotations:
@@ -92,13 +92,6 @@ applications:
         duration: 5s
         factor: 2
         maxDuration: 3m
-
-  dev-console-plugin:
-    destination:
-      namespace: dev-console-plugin
-      argocd.argoproj.io/sync-wave: '41'
-    source:
-      path: components/dev-console-plugin/base
 
   gitops-admin-plugin:
     destination:
