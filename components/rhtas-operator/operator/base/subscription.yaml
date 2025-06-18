@@ -11,7 +11,7 @@ spec:
       requests:
         cpu: 5m
         memory: 128Mi
-  channel: stable-v1.2.0
+  channel: stable-v1.2
   installPlanApproval: Automatic
   name: rhtas-operator
   source: redhat-operators
