@@ -7,5 +7,5 @@ spec:
   location: ApplicationMenu
   text: Trusted Profile Analyzer
   applicationMenu:
-    section: Tools
+    section: Red Hat Applications
     imageURL: https://server.apps.hub.ocplab.com/favicon.ico
