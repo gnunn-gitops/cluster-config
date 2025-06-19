@@ -96,14 +96,14 @@ modules:
           source: https://access.redhat.com/security/data/sbom/beta/
           keys:
             - https://access.redhat.com/security/data/97f5eac4.txt#77E79ABE93673533ED09EBE2DCE3823597F5EAC4
-          disabled: true
+          disabled: false
           fetchRetries: 50
       redhat-csaf:
         csaf:
           description: All Red Hat CSAF data
           period: 1d
           source: redhat.com
-          disabled: true
+          disabled: false
           fetchRetries: 50
       cve:
         cve:
