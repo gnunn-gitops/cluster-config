@@ -73,7 +73,8 @@ spec:
           successThreshold: 1
           timeoutSeconds: 1
         resources:
-          requests: 1Gi
+          requests:
+            memory: 1Gi
           limits:
             memory: 2Gi
         securityContext:
