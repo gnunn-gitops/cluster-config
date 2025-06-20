@@ -82,6 +82,12 @@ migrateDatabase:
         key: database-password
 
 modules:
+  server:
+    rust:
+      logFilter: warn
+  importer:
+    rust:
+      logFilter: warn
   createDatabase:
     enabled: true
   migrateDatabase:
