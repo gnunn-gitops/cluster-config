@@ -73,8 +73,9 @@ spec:
           successThreshold: 1
           timeoutSeconds: 1
         resources:
+          requests: 1Gi
           limits:
-            memory: 512Mi
+            memory: 2Gi
         securityContext:
           privileged: false
         terminationMessagePath: /dev/termination-log
