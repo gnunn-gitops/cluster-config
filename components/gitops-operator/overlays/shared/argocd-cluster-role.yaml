@@ -15,7 +15,7 @@ metadata:
   name: gitops-shared-cluster-access-view
   labels:
     gitops/aggregate-to-gitops-shared: "true"
-# Use the aggrated view permission to determine what resources can be deployed.
+# Use the aggregated view permission to determine what resources can be deployed.
 #
 # Note that write permissions for these resources in specific namespaces
 # are determined by the cluster role granted via the "managed-by" label.
