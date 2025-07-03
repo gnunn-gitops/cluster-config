@@ -64,6 +64,7 @@ applications:
       path: components/container-security-operator/overlays/stable-3.14
 
   external-secrets:
+    enabled: false
     annotations:
       argocd.argoproj.io/sync-wave: '1'
     destination:
