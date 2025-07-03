@@ -9,6 +9,7 @@ resources:
   - console-link.yaml
   - global-appproject.yaml
   - prometheus-rules.yaml
+  - validatingadmissionpolicy.yaml
 
 patches:
   # Update permissions for tenants and local accounts, note ACCOUNT_NAMESPACES is space separated

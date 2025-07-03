@@ -1,0 +1,35 @@
+# Policy is used to prevent tenants from creating Applications
+# in the Argo CD control plane (i.e. gitops) rather then in
+# their own namespace
+#
+# See discussion here: https://github.com/argoproj/argo-cd/pull/20827
+# Thanks to Matt Gaimaro for pointing this out to me
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  name: gitops-deny-apps-in-control-plane
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    resourceRules:
+    - apiGroups:   ["argoproj.io"]
+      apiVersions: ["v1alpha1"]
+      operations:  ["CREATE", "UPDATE"]
+      resources:   ["applications"]
+  validations:
+    - expression: "!object.metadata.namespace.contains('gitops')"
+      message: "Applications may not be created in the 'gitops' namespace"
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: gitops-deny-apps-in-control-plane
+spec:
+  policyName: gitops-deny-apps-in-control-plane
+  validationActions: [Deny]
+  matchResources:
+    resourceRules:
+    - apiGroups:   ["argoproj.io"]
+      apiVersions: ["v1alpha1"]
+      operations:  ["CREATE", "UPDATE"]
+      resources:   ["applications"]
