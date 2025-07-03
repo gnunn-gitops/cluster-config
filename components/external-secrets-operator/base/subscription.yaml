@@ -1,0 +1,22 @@
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+  labels:
+    operators.coreos.com/openshift-external-secrets-operator.external-secrets-operator: ""
+  name: openshift-external-secrets-operator
+  namespace: external-secrets-operator
+spec:
+  config:
+    resources:
+      requests:
+        cpu: 10m
+        memory: 128Mi
+      limits:
+        cpu: 500m
+        memory: 256Mi
+  channel: tech-preview-v0.1
+  installPlanApproval: Automatic
+  name: openshift-external-secrets-operator
+  source: redhat-operators
+  sourceNamespace: openshift-marketplace
+  startingCSV: external-secrets-operator.v0.1.0

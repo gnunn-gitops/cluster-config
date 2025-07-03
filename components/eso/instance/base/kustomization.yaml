@@ -1,7 +1,0 @@
-namespace: external-secrets
-
-resources:
-- namespace.yaml
-- operatorconfig.yaml
-- podmonitor.yaml
-- prometheus-rule.yaml

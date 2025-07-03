@@ -1,0 +1,3 @@
+resources:
+- subscription.yaml
+- externalsecrets.yaml

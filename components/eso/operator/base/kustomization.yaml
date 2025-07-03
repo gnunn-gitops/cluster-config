@@ -1,7 +1,0 @@
-namespace: external-secrets-operator
-
-resources:
-- namespace.yaml
-- operatorgroup.yaml
-- subscription.yaml
-- github.com/redhat-cop/gitops-catalog/installplan-approver/base
