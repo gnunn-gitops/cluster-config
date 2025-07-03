@@ -1,0 +1,14 @@
+# Noobaa complaining about not being able to view Routes, give it View access as a quick remedy
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: noobaa-core-view
+  namespace: openshift-storage
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: view
+subjects:
+- kind: ServiceAccount
+  name: noobaa-core
+  namespace: openshift-storage
