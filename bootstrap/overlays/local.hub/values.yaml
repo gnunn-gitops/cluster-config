@@ -80,6 +80,14 @@ applications:
     source:
       path: components/trusted-profile-analyzer/overlays/noobaa
 
+  external-secrets-doppler-push:
+    annotations:
+      argocd.argoproj.io/sync-wave: '2'
+    destination:
+      namespace: external-secrets-operator
+    source:
+      path: components/external-secrets-doppler-push/base
+
   # acm-clusters:
   #   annotations:
   #     argocd.argoproj.io/sync-wave: '31'

@@ -1,0 +1,2 @@
+resources:
+- doppler-push-secret-store.yaml

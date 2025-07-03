@@ -1,3 +1,0 @@
-resources:
-- ../../../../../components/eso/overlays/aggregate
-- doppler-push-secret-store.yaml

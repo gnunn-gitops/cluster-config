@@ -23,10 +23,3 @@ patches:
       - op: replace
         path: /spec/source/path
         value: 'components/compliance-operator/overlays/cis-compliance-master-only'
-  - target:
-      kind: Application
-      name: external-secrets
-    patch: |-
-      - op: replace
-        path: /spec/source/path
-        value: 'clusters/overlays/local.hub/components/eso'
