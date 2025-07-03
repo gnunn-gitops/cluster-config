@@ -3,7 +3,8 @@ kind: Kustomization
 
 resources:
 - openshift-service-ca.yaml
-- lightspeed-cluster-role-binding.yaml
+# Being handled by policy since it's needed for all GitOps instances
+# - lightspeed-cluster-role-binding.yaml
 - external-secret.yaml
 - token-secret.yaml
 - setenv-cmp-plugin-cm.yaml
