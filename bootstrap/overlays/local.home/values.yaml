@@ -100,6 +100,14 @@ applications:
       extraSourceFields: |
         plugin:
           name: setenv-cmp-plugin
+    extraFields: |
+      ignoreDifferences:
+      - group: ""
+        kind: ConfigMap
+        jsonPointers:
+        - /data/service-ca.crt
+        name: config-service-cabundle
+        namespace: gitops
 
   tenant-secrets:
     project: cluster-config
