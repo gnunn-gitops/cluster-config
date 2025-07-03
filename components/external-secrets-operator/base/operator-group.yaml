@@ -1,0 +1,7 @@
+apiVersion: operators.coreos.com/v1
+kind: OperatorGroup
+metadata:
+  name: external-secrets-operator
+  namespace: external-secrets-operator
+spec:
+  upgradeStrategy: Default
