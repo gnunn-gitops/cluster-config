@@ -6,5 +6,4 @@ metadata:
   name: rhtpa-storage
 spec:
   generateBucketName: rhtpa
-  objectBucketName: rhtpa
   storageClassName: openshift-storage.noobaa.io
