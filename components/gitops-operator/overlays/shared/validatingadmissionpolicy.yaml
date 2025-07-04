@@ -12,10 +12,10 @@ spec:
   failurePolicy: Fail
   matchConstraints:
     resourceRules:
-    - apiGroups:   ["argoproj.io"]
-      apiVersions: ["v1alpha1"]
-      operations:  ["CREATE", "UPDATE"]
-      resources:   ["applications"]
+      - apiGroups: ["argoproj.io"]
+        apiVersions: ["v1alpha1"]
+        operations: ["CREATE", "UPDATE"]
+        resources: ["applications"]
   validations:
     - expression: "!object.metadata.namespace.contains('gitops')"
       message: "Applications may not be created in the 'gitops' namespace"
@@ -29,7 +29,7 @@ spec:
   validationActions: [Deny]
   matchResources:
     resourceRules:
-    - apiGroups:   ["argoproj.io"]
-      apiVersions: ["v1alpha1"]
-      operations:  ["CREATE", "UPDATE"]
-      resources:   ["applications"]
+      - apiGroups: ["argoproj.io"]
+        apiVersions: ["v1alpha1"]
+        operations: ["CREATE", "UPDATE"]
+        resources: ["applications"]
