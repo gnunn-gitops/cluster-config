@@ -11,11 +11,11 @@ spec:
     - credentialsSecretRef:
         name: credentials
       models:
-      - name: deepseek-r1-qwen-14b-w4a16
+      - name: r1-qwen-14b-w4a16
       name: red_hat_openshift_ai
       type: rhoai_vllm
       url: https://deepseek-r1-qwen-14b-w4a16-maas-apicast-production.apps.prod.rhoai.rh-aiservices-bu.com:443/v1
   ols:
-    defaultModel: deepseek-r1-qwen-14b-w4a16
+    defaultModel: r1-qwen-14b-w4a16
     defaultProvider: red_hat_openshift_ai
     logLevel: INFO
