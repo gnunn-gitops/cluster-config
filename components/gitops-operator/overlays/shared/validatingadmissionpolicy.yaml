@@ -17,7 +17,7 @@ spec:
         operations: ["CREATE", "UPDATE"]
         resources: ["applications"]
   validations:
-    - expression: "!object.metadata.namespace.contains('gitops')"
+    - expression: "object.metadata.namespace != 'gitops'"
       message: "Applications may not be created in the 'gitops' namespace"
 ---
 apiVersion: admissionregistration.k8s.io/v1
