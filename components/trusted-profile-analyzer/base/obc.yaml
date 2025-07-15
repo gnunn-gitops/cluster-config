@@ -7,5 +7,5 @@ metadata:
 spec:
   # generateBucketName: rhtpa
   bucketName: rhtpa
-  objectBucketName: rhtpa
+  objectBucketName: obc-trusted-profile-analyzer-rhtpa-storage
   storageClassName: openshift-storage.noobaa.io
