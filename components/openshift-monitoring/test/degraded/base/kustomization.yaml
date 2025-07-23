@@ -1,0 +1,10 @@
+resources:
+- github.com/gitops-examples/getting-started/bgd/base
+
+patches:
+- patch: |
+    - op: replace
+      path: /spec/template/spec/containers/0/image
+      value: quay.io/rhdevelopers/bgd:non-existent
+  target:
+    kind: Deployment

@@ -1,0 +1,14 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: bad-resource
+  namespace: openshift-gitops
+spec:
+  destination:
+    namespace: demo
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: components/openshift-monitoring/test/degraded/base
+    repoURL: https://github.com/gnunn-gitops/cluster-config.git
+    targetRevision: HEAD
