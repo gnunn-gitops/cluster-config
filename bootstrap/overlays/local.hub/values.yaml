@@ -73,6 +73,7 @@ applications:
       path: components/amq-streams/overlays/amq-streams-2.7.x/
 
   trusted-profile-analyzer:
+    enabled: false
     annotations:
       argocd.argoproj.io/sync-wave: '31'
     destination:
