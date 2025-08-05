@@ -1,0 +1,9 @@
+apiVersion: operators.coreos.com/v1
+kind: OperatorGroup
+metadata:
+  name: trusted-profile-analyzer-h2d7x
+  namespace: trusted-profile-analyzer
+spec:
+  targetNamespaces:
+  - trusted-profile-analyzer
+  upgradeStrategy: Default

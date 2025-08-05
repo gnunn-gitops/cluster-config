@@ -1,0 +1,14 @@
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+  labels:
+    operators.coreos.com/rhtpa-operator.trusted-profile-analyzer: ""
+  name: rhtpa-operator
+  namespace: trusted-profile-analyzer
+spec:
+  channel: stable
+  installPlanApproval: Automatic
+  name: rhtpa-operator
+  source: redhat-operators
+  sourceNamespace: openshift-marketplace
+  startingCSV: rhtpa-operator.v1.0.0
