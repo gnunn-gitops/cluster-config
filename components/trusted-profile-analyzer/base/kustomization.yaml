@@ -1,3 +1,5 @@
+namespace: trusted-profile-analyzer
+
 resources:
 - namespace.yaml
 - operatorgroup.yaml
