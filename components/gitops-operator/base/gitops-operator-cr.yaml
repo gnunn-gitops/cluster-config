@@ -82,6 +82,8 @@ spec:
           name: config-service-cabundle
           defaultMode: 420
         name: config-service-cabundle
+      - name: extensions
+        emptyDir: {} 
   resourceHealthChecks:
     - group: argoproj.io
       kind: Application
