@@ -2,7 +2,7 @@ apiVersion: rhtpa.io/v1
 kind: TrustedProfileAnalyzer
 metadata:
   annotations:
-    argocd.argoproj.io/sync-wave: "5"  
+    argocd.argoproj.io/sync-wave: "5"
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
   name: trustedprofileanalyzer
   namespace: trusted-profile-analyzer
