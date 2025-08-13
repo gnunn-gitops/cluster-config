@@ -5,4 +5,5 @@ metadata:
   namespace: trusted-profile-analyzer
 spec:
   generateBucketName: rhtpa
+  objectBucketName: rhtpa
   storageClassName: openshift-storage.noobaa.io
