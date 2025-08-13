@@ -1,0 +1,11 @@
+namespace: trusted-profile-analyzer
+
+resources:
+- s3-rhtpa-certificate.yaml
+- s3-rhtpa-ingress.yaml
+- namespace.yaml
+- obc.yaml
+- oidc-es.yaml
+- postgresql-es.yaml
+- postgresql.yaml
+- consolelink.yaml

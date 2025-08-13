@@ -1,4 +1,0 @@
-resources:
-- ../../base
-- s3-rhtpa-certificate.yaml
-- s3-rhtpa-ingress.yaml

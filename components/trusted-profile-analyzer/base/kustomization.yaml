@@ -7,27 +7,3 @@ helmCharts:
   valuesFile: values.yaml
   namespace: trusted-profile-analyzer
   releaseName: rhtpa
-
-resources:
-- namespace.yaml
-- obc.yaml
-- oidc-es.yaml
-- postgresql-es.yaml
-- postgresql.yaml
-- consolelink.yaml
-
-patches:
-  - patch: |
-      - op: add
-        path: /medata/labels
-        path: /metadata/annotations/argocd.argoproj.io~1sync-wave
-        value: "1"
-    target:
-      labelSelector: "app.kubernetes.io/managed-by=Helm"
-  - patch: |
-      - op: add
-        path: /metadata/annotations/argocd.argoproj.io~1sync-wave
-        value: "5"
-    target:
-      kind: Deployment
-      name: importer

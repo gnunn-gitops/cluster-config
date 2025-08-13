@@ -71,13 +71,21 @@ applications:
     source:
       path: components/amq-streams/overlays/amq-streams-2.7.x/
 
+  trusted-profile-analyzer-dependencies:
+    annotations:
+      argocd.argoproj.io/sync-wave: "30"
+    destination:
+      namespace: trusted-profile-analyzer
+    source:
+      path: components/trusted-profile-analyzer-dependencies/base
+
   trusted-profile-analyzer:
     annotations:
       argocd.argoproj.io/sync-wave: "31"
     destination:
       namespace: trusted-profile-analyzer
     source:
-      path: components/trusted-profile-analyzer/overlays/noobaa
+      path: components/trusted-profile-analyzer/base
 
   external-secrets-doppler-push:
     annotations:
