@@ -1,0 +1,9 @@
+apiVersion: objectbucket.io/v1alpha1
+kind: ObjectBucketClaim
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "-1"
+  name: rhtpa-storage
+spec:
+  generateBucketName: rhtpa
+  storageClassName: openshift-storage.noobaa.io
