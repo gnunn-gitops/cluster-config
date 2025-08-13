@@ -1,38 +1,32 @@
-kind: TrustedProfileAnalyzer
 apiVersion: rhtpa.io/v1
+kind: TrustedProfileAnalyzer
 metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "5"  
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
   name: trustedprofileanalyzer
   namespace: trusted-profile-analyzer
+
 spec:
+  $schema: charts/trustify/values.schema.json
   appDomain: .apps.hub.ocplab.com
-
-  ingress:
-    className: openshift-default
-    additionalAnnotations:
-      "haproxy.router.openshift.io/timeout": "5m"
-      "route.openshift.io/termination": "edge"
-
-  authenticator:
-    type: keycloak
-
-  storage:
-    type: s3
-    region: s3-openshift-storage.apps.hub.ocplab.com
-    bucket: rhtpa
-    accessKey:
+  collector: {}
+  createDatabase:
+    name:
       valueFrom:
         secretKeyRef:
-          name: rhtpa-storage
-          key: AWS_ACCESS_KEY_ID
-    secretKey:
+          name: postgresql
+          key: database-name
+    username:
       valueFrom:
         secretKeyRef:
-          name: rhtpa-storage
-          key: AWS_SECRET_ACCESS_KEY
-
+          name: postgresql
+          key: database-user
+    password:
+      valueFrom:
+        secretKeyRef:
+          name: postgresql
+          key: database-password
   database:
     sslMode: disable
     host:
@@ -60,24 +54,17 @@ spec:
         secretKeyRef:
           name: postgresql
           key: database-password
-
-  createDatabase:
-    name:
-      valueFrom:
-        secretKeyRef:
-          name: postgresql
-          key: database-name
-    username:
-      valueFrom:
-        secretKeyRef:
-          name: postgresql
-          key: database-user
-    password:
-      valueFrom:
-        secretKeyRef:
-          name: postgresql
-          key: database-password
-
+  image:
+    fullName: registry.redhat.io/rhtpa/rhtpa-trustification-service-rhel9@sha256:ed67a8b0d4fc3fd5ce4dffcebc534290e97df6a99c55c4830bb150fc4d0f4825
+    pullPolicy: IfNotPresent
+  infrastructure:
+    port: 9010
+  ingress:
+    additionalAnnotations:
+      haproxy.router.openshift.io/timeout: 5m
+    className: openshift-default
+  metrics:
+    enabled: false
   migrateDatabase:
     username:
       valueFrom:
@@ -89,51 +76,83 @@ spec:
         secretKeyRef:
           name: postgresql
           key: database-password
-
   modules:
-    server:
-      rust:
-        logFilter: warn
-    importer:
-      rust:
-        logFilter: warn
     createDatabase:
       enabled: true
-    migrateDatabase:
-      enabled: true
+      image: {}
     createImporters:
       enabled: true
+      image: {}
       importers:
-        redhat-sboms:
-          sbom:
-            description: All Red Hat SBOMs
-            period: 1d
-            source: https://access.redhat.com/security/data/sbom/beta/
-            keys:
-              - https://access.redhat.com/security/data/97f5eac4.txt#77E79ABE93673533ED09EBE2DCE3823597F5EAC4
-            disabled: false
-            fetchRetries: 50
-        redhat-csaf:
-          csaf:
-            description: All Red Hat CSAF data
-            period: 1d
-            source: redhat.com
-            disabled: false
-            fetchRetries: 50
         cve:
           cve:
             description: CVE list v5
+            disabled: false
             period: 1d
             source: https://github.com/CVEProject/cvelistV5
-            disabled: false
         osv-github:
           osv:
             description: GitHub Advisory Database
+            disabled: false
+            path: advisories
             period: 1d
             source: https://github.com/github/advisory-database
-            path: advisories
-            disabled: false
-
+        quay-redhat-user-workloads:
+          quay:
+            description: SBOMs from konflux image attachments
+            disabled: true
+            namespace: redhat-user-workloads
+            period: 1d
+            source: quay.io
+        redhat-csaf:
+          csaf:
+            description: All Red Hat CSAF data
+            disabled: true
+            fetchRetries: 50
+            period: 1d
+            source: redhat.com
+        redhat-sboms:
+          sbom:
+            description: All Red Hat SBOMs
+            disabled: true
+            fetchRetries: 50
+            keys:
+            - https://access.redhat.com/security/data/97f5eac4.txt#77E79ABE93673533ED09EBE2DCE3823597F5EAC4
+            period: 1d
+            source: https://access.redhat.com/security/data/sbom/beta/
+    importer:
+      concurrency: 4
+      enabled: true
+      image: {}
+      infrastructure: {}
+      metrics: {}
+      replicas: 1
+      resources:
+        requests:
+          cpu: 1
+          memory: 8Gi
+      rust:
+        logFilter: warn
+      tracing: {}
+      workingDirectory:
+        size: 32Gi
+    migrateDatabase:
+      enabled: true
+      image: {}
+    server:
+      enabled: true
+      image: {}
+      infrastructure: {}
+      ingress: {}
+      metrics: {}
+      replicas: 1
+      resources:
+        requests:
+          cpu: 1
+          memory: 8Gi
+      rust:
+        logFilter: warn
+      tracing: {}
   oidc:
     issuerUrl: https://sso.ocplab.com/realms/ocplab
     clients:
@@ -146,6 +165,178 @@ spec:
             secretKeyRef:
               name: rhtpa-oidc
               key: clientSecret
+  openshift:
+    useServiceCa: true
+  partOf: trustify
+  postgresql:
+    enabled: true
+  replicas: 1
+  rust: {}
+  storage:
+    type: s3
+    region: s3-openshift-storage.apps.hub.ocplab.com
+    bucket: rhtpa
+    accessKey:
+      valueFrom:
+        secretKeyRef:
+          name: rhtpa-storage
+          key: AWS_ACCESS_KEY_ID
+    secretKey:
+      valueFrom:
+        secretKeyRef:
+          name: rhtpa-storage
+          key: AWS_SECRET_ACCESS_KEY
+  tracing:
+    enabled: false
+
+# apiVersion: rhtpa.io/v1
+# kind: TrustedProfileAnalyzer
+# metadata:
+#   annotations:
+#     argocd.argoproj.io/sync-wave: "5"  
+#     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+#   name: trustedprofileanalyzer
+#   namespace: trusted-profile-analyzer
+# spec:
+#   appDomain: .apps.hub.ocplab.com
+
+#   ingress:
+#     className: openshift-default
+#     additionalAnnotations:
+#       "haproxy.router.openshift.io/timeout": "5m"
+#       "route.openshift.io/termination": "edge"
+
+#   authenticator:
+#     type: keycloak
+
+#   storage:
+#     type: s3
+#     region: s3-openshift-storage.apps.hub.ocplab.com
+#     bucket: rhtpa
+#     accessKey:
+#       valueFrom:
+#         secretKeyRef:
+#           name: rhtpa-storage
+#           key: AWS_ACCESS_KEY_ID
+#     secretKey:
+#       valueFrom:
+#         secretKeyRef:
+#           name: rhtpa-storage
+#           key: AWS_SECRET_ACCESS_KEY
+
+#   database:
+#     sslMode: disable
+#     host:
+#       valueFrom:
+#         secretKeyRef:
+#           name: postgresql
+#           key: database-host
+#     port:
+#       valueFrom:
+#         secretKeyRef:
+#           name: postgresql
+#           key: database-port
+#     name:
+#       valueFrom:
+#         secretKeyRef:
+#           name: postgresql
+#           key: database-name
+#     username:
+#       valueFrom:
+#         secretKeyRef:
+#           name: postgresql
+#           key: database-user
+#     password:
+#       valueFrom:
+#         secretKeyRef:
+#           name: postgresql
+#           key: database-password
+
+#   createDatabase:
+#     name:
+#       valueFrom:
+#         secretKeyRef:
+#           name: postgresql
+#           key: database-name
+#     username:
+#       valueFrom:
+#         secretKeyRef:
+#           name: postgresql
+#           key: database-user
+#     password:
+#       valueFrom:
+#         secretKeyRef:
+#           name: postgresql
+#           key: database-password
+
+#   migrateDatabase:
+#     username:
+#       valueFrom:
+#         secretKeyRef:
+#           name: postgresql
+#           key: database-user
+#     password:
+#       valueFrom:
+#         secretKeyRef:
+#           name: postgresql
+#           key: database-password
+
+#   modules:
+#     server:
+#       rust:
+#         logFilter: warn
+#     importer:
+#       rust:
+#         logFilter: warn
+#     createDatabase:
+#       enabled: true
+#     migrateDatabase:
+#       enabled: true
+#     createImporters:
+#       enabled: true
+#       importers:
+#         redhat-sboms:
+#           sbom:
+#             description: All Red Hat SBOMs
+#             period: 1d
+#             source: https://access.redhat.com/security/data/sbom/beta/
+#             keys:
+#               - https://access.redhat.com/security/data/97f5eac4.txt#77E79ABE93673533ED09EBE2DCE3823597F5EAC4
+#             disabled: false
+#             fetchRetries: 50
+#         redhat-csaf:
+#           csaf:
+#             description: All Red Hat CSAF data
+#             period: 1d
+#             source: redhat.com
+#             disabled: false
+#             fetchRetries: 50
+#         cve:
+#           cve:
+#             description: CVE list v5
+#             period: 1d
+#             source: https://github.com/CVEProject/cvelistV5
+#             disabled: false
+#         osv-github:
+#           osv:
+#             description: GitHub Advisory Database
+#             period: 1d
+#             source: https://github.com/github/advisory-database
+#             path: advisories
+#             disabled: false
+
+#   oidc:
+#     issuerUrl: https://sso.ocplab.com/realms/ocplab
+#     clients:
+#       frontend:
+#         clientId: rhtpa
+#       cli:
+#         clientId: rhtpa
+#         clientSecret:
+#           valueFrom:
+#             secretKeyRef:
+#               name: rhtpa-oidc
+#               key: clientSecret
 
   # appDomain: .apps.hub.ocplab.com
   # database:
