@@ -15,22 +15,21 @@ default:
       targetRevision: HEAD
 
 applications:
-
   node-config:
     annotations:
-      argocd.argoproj.io/sync-wave: '0'
+      argocd.argoproj.io/sync-wave: "0"
     source:
       path: clusters/overlays/local.hub/components/node-config
 
   odf-operator:
     annotations:
-      argocd.argoproj.io/sync-wave: '1'
+      argocd.argoproj.io/sync-wave: "1"
     source:
       path: components/odf-operator/operator/overlays/no-registry
 
   lvm-operator:
     annotations:
-      argocd.argoproj.io/sync-wave: '2'
+      argocd.argoproj.io/sync-wave: "2"
     destination:
       namespace: openshift-storage
     source:
@@ -38,7 +37,7 @@ applications:
 
   odf-instance:
     annotations:
-      argocd.argoproj.io/sync-wave: '2'
+      argocd.argoproj.io/sync-wave: "2"
     destination:
       namespace: openshift-storage
     source:
@@ -46,7 +45,7 @@ applications:
 
   acs:
     annotations:
-      argocd.argoproj.io/sync-wave: '21'
+      argocd.argoproj.io/sync-wave: "21"
     destination:
       namespace: stackrox
     source:
@@ -54,7 +53,7 @@ applications:
 
   acs-config:
     annotations:
-      argocd.argoproj.io/sync-wave: '31'
+      argocd.argoproj.io/sync-wave: "31"
     destination:
       namespace: stackrox
     source:
@@ -66,7 +65,7 @@ applications:
   amq-streams:
     enabled: false
     annotations:
-      argocd.argoproj.io/sync-wave: '21'
+      argocd.argoproj.io/sync-wave: "21"
     destination:
       namespace: openshift-gitops
     source:
@@ -74,7 +73,7 @@ applications:
 
   trusted-profile-analyzer:
     annotations:
-      argocd.argoproj.io/sync-wave: '31'
+      argocd.argoproj.io/sync-wave: "31"
     destination:
       namespace: trusted-profile-analyzer
     source:
@@ -82,7 +81,7 @@ applications:
 
   external-secrets-doppler-push:
     annotations:
-      argocd.argoproj.io/sync-wave: '2'
+      argocd.argoproj.io/sync-wave: "2"
     destination:
       namespace: external-secrets-operator
     source:
@@ -107,13 +106,13 @@ applications:
 
   console-links:
     annotations:
-      argocd.argoproj.io/sync-wave: '11'
+      argocd.argoproj.io/sync-wave: "11"
     source:
       path: clusters/overlays/local.hub/components/consolelinks
 
   dev-tools:
     annotations:
-      argocd.argoproj.io/sync-wave: '31'
+      argocd.argoproj.io/sync-wave: "31"
     destination:
       namespace: dev-tools
     source:
@@ -123,13 +122,13 @@ applications:
     # leave disabled unless needed for demo
     enabled: false
     annotations:
-      argocd.argoproj.io/sync-wave: '21'
+      argocd.argoproj.io/sync-wave: "21"
     source:
       path: clusters/overlays/local.hub/components/quay-registry-operator
 
   cost-management:
     annotations:
-      argocd.argoproj.io/sync-wave: '21'
+      argocd.argoproj.io/sync-wave: "21"
     destination:
       namespace: costmanagement-metrics-operator
     source:
@@ -138,7 +137,7 @@ applications:
   lokistack:
     enabled: false
     annotations:
-      argocd.argoproj.io/sync-wave: '21'
+      argocd.argoproj.io/sync-wave: "21"
     source:
       path: clusters/overlays/local.hub/components/lokistack
     syncPolicyRetry:
@@ -152,7 +151,7 @@ applications:
     enabled: false
     annotations:
       argocd.argoproj.io/compare-options: IgnoreExtraneous
-      argocd.argoproj.io/sync-wave: '21'
+      argocd.argoproj.io/sync-wave: "21"
     destination:
       namespace: acm-policies
     source:
@@ -160,7 +159,7 @@ applications:
 
   rhtas-operator:
     annotations:
-      argocd.argoproj.io/sync-wave: '21'
+      argocd.argoproj.io/sync-wave: "21"
     destination:
       namespace: trusted-artifact-signer
     source:

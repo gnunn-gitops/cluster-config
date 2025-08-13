@@ -15,11 +15,10 @@ default:
       targetRevision: HEAD
 
 projects:
-
   demo:
     description: Project for ad-hoc demos and testing
     sourceRepos:
-    - "*"
+      - "*"
     destinations: |
       - namespace: '*'
         server: https://kubernetes.default.svc
@@ -29,10 +28,9 @@ projects:
         kind: '*'
 
 applications:
-
   lvm-operator:
     annotations:
-      argocd.argoproj.io/sync-wave: '2'
+      argocd.argoproj.io/sync-wave: "2"
     destination:
       namespace: openshift-storage
     source:
@@ -40,7 +38,7 @@ applications:
 
   acs-secured-cluster:
     annotations:
-      argocd.argoproj.io/sync-wave: '21'
+      argocd.argoproj.io/sync-wave: "21"
     destination:
       namespace: rhacs-operator
     source:
@@ -51,13 +49,13 @@ applications:
 
   console-links:
     annotations:
-      argocd.argoproj.io/sync-wave: '11'
+      argocd.argoproj.io/sync-wave: "11"
     source:
       path: clusters/overlays/local.home/components/consolelinks
 
   cost-management:
     annotations:
-      argocd.argoproj.io/sync-wave: '21'
+      argocd.argoproj.io/sync-wave: "21"
     destination:
       namespace: costmanagement-metrics-operator
     source:
@@ -66,7 +64,7 @@ applications:
   lokistack:
     enabled: false
     annotations:
-      argocd.argoproj.io/sync-wave: '21'
+      argocd.argoproj.io/sync-wave: "21"
     source:
       path: clusters/overlays/local.home/components/lokistack
     syncPolicyRetry:
@@ -78,21 +76,21 @@ applications:
 
   node-config:
     annotations:
-      argocd.argoproj.io/sync-wave: '99'
+      argocd.argoproj.io/sync-wave: "99"
     source:
       path: clusters/overlays/local.home/components/node-config
 
   rollout-manager:
     annotations:
-      argocd.argoproj.io/sync-wave: '31'
+      argocd.argoproj.io/sync-wave: "31"
     source:
       path: components/rollout-manager/base
 
-# Tenants
+  # Tenants
   gitops:
     project: cluster-config
     annotations:
-      argocd.argoproj.io/sync-wave: '50'
+      argocd.argoproj.io/sync-wave: "50"
     destination:
       namespace: gitops
     source:
@@ -114,7 +112,7 @@ applications:
     labels:
       repo: use-head
     annotations:
-      argocd.argoproj.io/sync-wave: '50'
+      argocd.argoproj.io/sync-wave: "50"
     destination:
       namespace: tenant-secrets
     source:
@@ -125,6 +123,6 @@ applications:
     labels:
       repo: use-head
     annotations:
-      argocd.argoproj.io/sync-wave: '51'
+      argocd.argoproj.io/sync-wave: "51"
     source:
       path: clusters/overlays/local.home/components/tenants
