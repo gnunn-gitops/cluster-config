@@ -19,6 +19,13 @@ resources:
 patches:
   - patch: |
       - op: add
+        path: /medata/labels
+        path: /metadata/annotations/argocd.argoproj.io~1sync-wave
+        value: "1"
+    target:
+      labelSelector: "app.kubernetes.io/managed-by=Helm"
+  - patch: |
+      - op: add
         path: /metadata/annotations/argocd.argoproj.io~1sync-wave
         value: "5"
     target:
