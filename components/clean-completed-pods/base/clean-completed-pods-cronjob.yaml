@@ -25,7 +25,8 @@ spec:
                          oc -n $NS_NAME delete pod $POD_NAME;
                       done <<< "$COMPLETED_POD"
                   fi
-              image: registry.redhat.io/openshift4/ose-cli:latest # change the image in disconnected environment
+              # change the image in disconnected environment
+              image: registry.redhat.io/openshift4/ose-cli:latest
               imagePullPolicy: IfNotPresent
               name: completed-pod-cleanup
               terminationMessagePath: /dev/termination-log
