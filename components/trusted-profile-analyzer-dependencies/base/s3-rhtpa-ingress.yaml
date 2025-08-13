@@ -7,7 +7,6 @@ metadata:
   name: s3-rhtpa
   namespace: openshift-storage
 spec:
-  ingressClassName: openshift-default
   tls:
   - hosts:
       - rhtpa.s3-openshift-storage.apps.hub.ocplab.com

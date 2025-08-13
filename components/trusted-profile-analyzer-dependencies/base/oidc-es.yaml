@@ -2,6 +2,7 @@ apiVersion: external-secrets.io/v1beta1
 kind: ExternalSecret
 metadata:
   name: rhtpa-oidc
+  namespace: trusted-profile-analyzer
 spec:
   secretStoreRef:
     kind: ClusterSecretStore
