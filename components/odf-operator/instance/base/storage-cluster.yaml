@@ -10,4 +10,3 @@ spec:
     reconcileStrategy: standalone
   nfs:
     enable: false
-    
