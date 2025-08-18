@@ -124,6 +124,13 @@ modules:
           source: https://github.com/github/advisory-database
           path: advisories
           disabled: false
+      quay-redhat-user-workloads:
+        quay:
+          description: SBOMs from konflux image attachments
+          disabled: true
+          namespace: redhat-user-workloads
+          period: 1d
+          source: quay.io
 
 oidc:
   issuerUrl: https://sso.ocplab.com/realms/ocplab
