@@ -1,0 +1,14 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: llamastack
+  annotations:
+    argocd.argoproj.io/sync-wave: "5"
+spec:
+  ports:
+    - protocol: TCP
+      port: 8321
+      targetPort: 8321
+  type: ClusterIP
+  selector:
+    app: llamastack

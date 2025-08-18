@@ -1,0 +1,17 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: llamastack
+  annotations:
+    argocd.argoproj.io/sync-wave: "5"
+spec:
+  to:
+    kind: Service
+    name: llamastack-server
+    weight: 100
+  port:
+    targetPort: 8321
+  wildcardPolicy: None
+  tls:
+    termination: edge
+    insecureEdgeTerminationPolicy: Redirect
