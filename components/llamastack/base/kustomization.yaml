@@ -8,5 +8,5 @@ resources:
   - openai-token-secret.yaml
   - deployment.yaml
   # - pvc.yaml
-  - route.yaml
+  # - route.yaml
   - service.yaml
