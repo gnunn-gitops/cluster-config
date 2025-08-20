@@ -4,9 +4,13 @@ metadata:
   name: ocs-storagecluster
   namespace: openshift-storage
 spec:
-  enableCephTools: false
+  encryption:
+    clusterWide: false
+    enable: false
+    kms:
+      enable: false
+    storageClass: false
   multiCloudGateway:
     dbStorageClassName: lvms-vg1
     reconcileStrategy: standalone
-  nfs:
-    enable: false
+  resourceProfile: balanced
