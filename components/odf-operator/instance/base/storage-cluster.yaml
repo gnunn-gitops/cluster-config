@@ -13,4 +13,4 @@ spec:
   multiCloudGateway:
     dbStorageClassName: lvms-vg1
     reconcileStrategy: standalone
-  resourceProfile: balanced
+  resourceProfile: lean
