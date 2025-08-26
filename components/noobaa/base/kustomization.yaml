@@ -1,4 +1,5 @@
-namespace: openshift-storage
+namespace: noobaa
 
 resources:
+- namespace.yaml
 - noobaa.yaml
