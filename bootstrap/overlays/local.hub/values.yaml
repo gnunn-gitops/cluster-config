@@ -72,7 +72,6 @@ applications:
       path: components/amq-streams/overlays/amq-streams-2.7.x/
 
   noobaa:
-    enabled: false
     annotations:
       argocd.argoproj.io/sync-wave: "21"
     destination:
