@@ -174,7 +174,7 @@ spec:
   rust: {}
   storage:
     type: s3
-    region: s3-openshift-storage.apps.hub.ocplab.com
+    region: https://s3-openshift-storage.apps.hub.ocplab.com
     bucket: rhtpa
     accessKey:
       valueFrom:

@@ -1,0 +1,4 @@
+namespace: openshift-storage
+
+resources:
+- noobaa.yaml
