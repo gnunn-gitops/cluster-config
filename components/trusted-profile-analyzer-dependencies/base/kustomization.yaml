@@ -1,6 +1,6 @@
 resources:
-- s3-rhtpa-certificate.yaml
-- s3-rhtpa-ingress.yaml
+# - s3-rhtpa-certificate.yaml
+# - s3-rhtpa-ingress.yaml
 - namespace.yaml
 - obc.yaml
 - oidc-es.yaml
