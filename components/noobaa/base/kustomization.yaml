@@ -1,5 +1,4 @@
 namespace: noobaa
 
 resources:
-- namespace.yaml
 - noobaa.yaml
