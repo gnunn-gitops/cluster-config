@@ -3973,7 +3973,7 @@ rules:
   - use
 - apiGroups:
   - route.openshift.io
-  resourceNames:
+  resources:
   - routes
   verbs:
   - get
