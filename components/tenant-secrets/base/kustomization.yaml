@@ -1,6 +1,6 @@
 namespace: tenant-secrets
 
 resources:
-- copy-secrets-rbac.yaml
-- copy-secrets-cronjob.yaml
 - namespace.yaml
+- tenants-token-secret.yaml
+- tenants-secret-store.yaml
