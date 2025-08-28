@@ -8,5 +8,5 @@ spec:
     bucketclass: noobaa-default-bucket-class
   bucketName: rhtpa
   generateBucketName: rhtpa
-  objectBucketName: rhtpa
+  objectBucketName: obc-trusted-profile-analyzer-rhtpa-storage
   storageClassName: noobaa.noobaa.io
