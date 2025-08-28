@@ -4,5 +4,9 @@ metadata:
   name: rhtpa-storage
   namespace: trusted-profile-analyzer
 spec:
+  additionalConfig:
+    bucketclass: noobaa-default-bucket-class
   bucketName: rhtpa
+  generateBucketName: rhtpa
+  objectBucketName: rhtpa
   storageClassName: noobaa.noobaa.io
