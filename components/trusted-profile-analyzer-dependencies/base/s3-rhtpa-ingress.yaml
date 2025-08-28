@@ -5,7 +5,7 @@ metadata:
     haproxy.router.openshift.io/timeout: 5m
     route.openshift.io/termination: reencrypt
   name: s3-rhtpa
-  namespace: openshift-storage
+  namespace: noobaa
 spec:
   tls:
   - hosts:
