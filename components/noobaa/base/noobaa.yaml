@@ -4340,6 +4340,7 @@ spec:
   dbImage: quay.io/sclorg/postgresql-16-c9s
   dbType: postgres
   image: noobaa/noobaa-core:master-20250521
+  disableLoadBalancerService: true
   loadBalancerSourceSubnets: {}
   security:
     kms: {}
