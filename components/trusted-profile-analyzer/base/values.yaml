@@ -84,7 +84,7 @@ migrateDatabase:
 modules:
   server:
     rust:
-      logFilter: debug
+      logFilter: warn
   importer:
     rust:
       logFilter: warn
