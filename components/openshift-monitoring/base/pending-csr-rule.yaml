@@ -1,0 +1,15 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: csr-alerts
+spec:
+  groups:
+  - name: CSR
+    rules:
+    - alert: PendingCSR
+      annotations:
+        message: There are pending CSRs that require Approval
+      expr: mapi_current_pending_csr > 0
+      for: 5m
+      labels:
+        severity: critical
