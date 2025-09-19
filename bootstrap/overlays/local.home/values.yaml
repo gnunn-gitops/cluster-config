@@ -92,7 +92,7 @@ applications:
     destination:
       namespace: llamastack
     source:
-      path: components/llama-stack/base
+      path: components/llamastack/base
 
   # Tenants
   gitops:
