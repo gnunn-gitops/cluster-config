@@ -111,7 +111,7 @@ applications:
       - group: ""
         kind: ConfigMap
         jsonPointers:
-        - /data/service-ca.crt
+        - /data
         name: config-service-cabundle
         namespace: gitops
 
