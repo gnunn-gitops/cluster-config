@@ -10,10 +10,10 @@ spec:
     resources:
       requests:
         cpu: 10m
-        memory: 128Mi
+        memory: 256Mi
       limits:
         cpu: 500m
-        memory: 256Mi
+        memory: 512Mi
   channel: tech-preview-v0.1
   installPlanApproval: Automatic
   name: openshift-external-secrets-operator
