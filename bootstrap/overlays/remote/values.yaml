@@ -45,4 +45,3 @@ applications:
       argocd.argoproj.io/sync-wave: '11'
     source:
       path: components/helm-repos/base
-
