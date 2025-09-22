@@ -108,8 +108,7 @@ applications:
           name: setenv-cmp-plugin
     extraFields: |
       ignoreDifferences:
-      - group: ""
-        kind: ConfigMap
+      - kind: ConfigMap
         jsonPointers:
         - /data
         name: config-service-cabundle
