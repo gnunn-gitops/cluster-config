@@ -92,10 +92,3 @@ applications:
         duration: 5s
         factor: 2
         maxDuration: 3m
-
-  gitops-admin-plugin:
-    destination:
-      namespace: gitops-admin-plugin
-      argocd.argoproj.io/sync-wave: '41'
-    source:
-      path: components/gitops-admin-plugin/base
