@@ -4,9 +4,8 @@ metadata:
   name: lightspeed-operator
   namespace: openshift-lightspeed
 spec:
-  channel: alpha
+  channel: stable
   installPlanApproval: Automatic
   name: lightspeed-operator
   source: redhat-operators
   sourceNamespace: openshift-marketplace
-  startingCSV: lightspeed-operator.v0.3.3
