@@ -1,0 +1,7 @@
+namespace: mcp-for-argocd
+
+resources:
+- namespace.yaml
+- external-secret.yaml
+- deployment.yaml
+- service.yaml

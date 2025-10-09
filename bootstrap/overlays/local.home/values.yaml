@@ -94,6 +94,14 @@ applications:
     source:
       path: components/llamastack/base
 
+  mcp-for-argocd:
+    annotations:
+      argocd.argoproj.io/sync-wave: "31"
+    destination:
+      namespace: mcp-for-argocd
+    source:
+      path: components/mcp-for-argocd/base
+
   # Tenants
   gitops:
     project: cluster-config
