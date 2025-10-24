@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  annotations:
+    openshift.io/description: External Secrets Operator (Community)
+    openshift.io/display-name: External Secrets Operator
+  name: external-secrets

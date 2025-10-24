@@ -69,7 +69,8 @@ applications:
     destination:
       namespace: external-secrets-operator
     source:
-      path: components/external-secrets-operator/base
+      path: components/external-secrets-operator/overlays/helm
+
 
   helm-repos:
     annotations:

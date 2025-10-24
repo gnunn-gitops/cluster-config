@@ -1,0 +1,9 @@
+resources:
+- namespace.yaml
+
+helmCharts:
+- name: external-secrets
+  version: v0.20.4
+  repo: https://charts.external-secrets.io
+  namespace: external-secrets
+  releaseName: external-secrets
