@@ -7,3 +7,11 @@ helmCharts:
   repo: https://charts.external-secrets.io
   namespace: external-secrets
   releaseName: external-secrets
+
+# Delete kyverno PDB, not useful on SNO
+patches:
+  - patch: |-
+      - op: remove
+        path: /spec/template/spec/containers/0/securityContext/runAsUser
+    target:
+      kind: Deployment
