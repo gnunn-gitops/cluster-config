@@ -7,10 +7,3 @@ helmCharts:
   repo: https://charts.external-secrets.io
   namespace: external-secrets
   releaseName: external-secrets
-
-patches:
-  - patch: |-
-      - op: remove
-        path: /spec/template/spec/containers/0/securityContext/runAsUser
-    target:
-      kind: Deployment
