@@ -65,7 +65,7 @@ applications:
     annotations:
       argocd.argoproj.io/sync-wave: "1"
     destination:
-      namespace: external-secrets-operator
+      namespace: external-secrets
     source:
       path: components/external-secrets-operator/overlays/helm
     syncOptions:
