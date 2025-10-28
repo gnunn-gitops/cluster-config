@@ -7,3 +7,4 @@ helmCharts:
   repo: https://charts.external-secrets.io
   namespace: external-secrets
   releaseName: external-secrets
+  valuesFile: values.yaml

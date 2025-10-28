@@ -1,0 +1,20 @@
+global:
+  compatibility:
+    openshift:
+      # -- Manages the securityContext properties to make them compatible with OpenShift.
+      # Possible values:
+      # auto - Apply configurations if it is detected that OpenShift is the target platform.
+      # force - Always apply configurations.
+      # disabled - No modification applied.
+      adaptSecurityContext: force
+
+# securityContext:
+#   allowPrivilegeEscalation: false
+#   capabilities:
+#     drop:
+#       - ALL
+#   enabled: true
+#   readOnlyRootFilesystem: true
+#   runAsNonRoot: true
+#   seccompProfile:
+#     type: RuntimeDefault
