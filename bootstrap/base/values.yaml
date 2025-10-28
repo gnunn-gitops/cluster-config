@@ -44,6 +44,7 @@ applications:
           name: setenv-cmp-plugin
 
   compliance-operator:
+    enabled: false # Disable in 4.20 for now
     annotations:
       argocd.argoproj.io/compare-options: IgnoreExtraneous
       argocd.argoproj.io/sync-wave: "21"
