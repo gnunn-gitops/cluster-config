@@ -26,13 +26,15 @@ spec:
                   key: OPENAI_TOKEN
             - name: ENABLE_OPENAI
               value: openai
+            - name: VLLM_MAX_TOKENS
+              value: 4096
           ports:
             - containerPort: 8321
               protocol: TCP
           imagePullPolicy: Always
           terminationMessagePolicy: File
-          #image: 'docker.io/llamastack/distribution-starter:0.3.2'
-          image: docker.io/llamastack/distribution-starter:0.2.24
+          image: 'docker.io/llamastack/distribution-starter:0.3.2'
+          #image: docker.io/llamastack/distribution-starter:0.2.24
           volumeMounts:
             - mountPath: /.llama/distributions
               name: distributions
