@@ -27,7 +27,7 @@ spec:
             - name: ENABLE_OPENAI
               value: openai
             - name: VLLM_MAX_TOKENS
-              value: 4096
+              value: "4096"
           ports:
             - containerPort: 8321
               protocol: TCP
