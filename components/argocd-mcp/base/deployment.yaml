@@ -1,0 +1,39 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  labels:
+    app.kubernetes.io/name: argocd-mcp
+  name: argocd-mcp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: argocd-mcp
+  template:
+    metadata:
+      labels:
+        app: argocd-mcp
+        app.kubernetes.io/name: argocd-mcp
+    spec:
+      containers:
+        - resources: {}
+          terminationMessagePath: /dev/termination-log
+          name: mcp
+          ports:
+            - containerPort: 80
+              protocol: TCP
+          imagePullPolicy: Always
+          terminationMessagePolicy: File
+          image: quay.io/gnunn/mcp-for-argocd:v0.5.0
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      securityContext: {}
+      schedulerName: default-scheduler
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 25%
+      maxSurge: 25%
+  revisionHistoryLimit: 10
+  progressDeadlineSeconds: 600

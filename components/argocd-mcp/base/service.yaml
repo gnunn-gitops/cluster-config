@@ -1,0 +1,14 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: argocd-mcp
+  labels:
+    app.kubernetes.io/name: argocd-mcp
+spec:
+  ports:
+    - protocol: TCP
+      port: 3000
+      targetPort: 3000
+  type: ClusterIP
+  selector:
+    app: argocd-mcp

@@ -86,6 +86,14 @@ applications:
     source:
       path: components/rollout-manager/base
 
+  argocd-mcp:
+    annotations:
+      argocd.argoproj.io/sync-wave: "31"
+    destination:
+      namespace: argocd-mcp
+    source:
+      path: components/argocd-mcp/base
+
   llama-stack:
     annotations:
       argocd.argoproj.io/sync-wave: "31"
