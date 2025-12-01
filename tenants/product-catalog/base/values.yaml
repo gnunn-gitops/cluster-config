@@ -29,7 +29,7 @@ argocd:
     - product-catalog-pipeline
 
 externalSecrets:
-  tenantClusterSecretStore: doppler-cluster
+  tenantClusterSecretStore: tenants-token
   tenantSecretNamespace: tenant-secrets
   tenantTokenKey: PRODUCT_CATALOG
 
