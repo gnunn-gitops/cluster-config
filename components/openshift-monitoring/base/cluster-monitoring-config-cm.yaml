@@ -34,7 +34,7 @@ data:
             name: hub-alertmanager-router-ca
           insecureSkipVerify: false
       externalLabels:
-        cluster: ${CLUSTER_GITOPS_NAME}
+        cluster_name: ${CLUSTER_GITOPS_NAME}
         managed_cluster: ${CLUSTER_ID}
       volumeClaimTemplate:
         metadata: {}
