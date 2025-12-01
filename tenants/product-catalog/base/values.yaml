@@ -31,6 +31,7 @@ argocd:
 externalSecrets:
   tenantClusterSecretStore: doppler-cluster
   tenantSecretNamespace: tenant-secrets
+  tenantTokenKey: PRODUCT_CATALOG
 
 namespaces:
 

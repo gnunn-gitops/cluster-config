@@ -28,6 +28,7 @@ argocd:
 externalSecrets:
   tenantClusterSecretStore: doppler-cluster
   tenantSecretNamespace: tenant-secrets
+  tenantTokenKey: ROLLOUTS
 
 namespaces:
 
