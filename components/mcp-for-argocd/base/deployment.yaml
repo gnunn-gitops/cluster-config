@@ -19,7 +19,7 @@ spec:
           command:
             - node
             - dist/index.js
-            - sse
+            - http
           ports:
             - containerPort: 3000
           # env:
