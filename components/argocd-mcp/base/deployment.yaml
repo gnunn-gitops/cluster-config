@@ -25,6 +25,10 @@ spec:
           imagePullPolicy: Always
           terminationMessagePolicy: File
           image: quay.io/gnunn/mcp-for-argocd:v0.5.0
+          command:
+            - node
+            - dist/index.js
+            - sse
       restartPolicy: Always
       terminationGracePeriodSeconds: 30
       dnsPolicy: ClusterFirst

@@ -16,16 +16,20 @@ spec:
         - name: argocd-mcp
           image: quay.io/gnunn/mcp-for-argocd:latest
           imagePullPolicy: Always
+          command:
+            - node
+            - dist/index.js
+            - sse
           ports:
             - containerPort: 3000
-          env:
-            - name: ARGOCD_BASE_URL
-              value: "http://argocd-server.demo-gitops.svc.cluster.local"
-            - name: ARGOCD_API_TOKEN
-              valueFrom:
-                secretKeyRef:
-                  name: argocd-secret
-                  key: ARGOCD_API_TOKEN
+          # env:
+          #   - name: ARGOCD_BASE_URL
+          #     value: "http://argocd-server.demo-gitops.svc.cluster.local"
+          #   - name: ARGOCD_API_TOKEN
+          #     valueFrom:
+          #       secretKeyRef:
+          #         name: argocd-secret
+          #         key: ARGOCD_API_TOKEN
           resources:
             requests:
               memory: "128Mi"
