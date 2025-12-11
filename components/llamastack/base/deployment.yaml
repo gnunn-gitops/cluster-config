@@ -33,7 +33,7 @@ spec:
               protocol: TCP
           imagePullPolicy: Always
           terminationMessagePolicy: File
-          image: 'docker.io/llamastack/distribution-starter:0.3.2'
+          image: 'docker.io/llamastack/distribution-starter:0.3.4'
           # image: docker.io/llamastack/distribution-starter:0.2.24
           volumeMounts:
             - mountPath: /.llama/distributions
