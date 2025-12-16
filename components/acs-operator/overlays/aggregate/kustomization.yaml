@@ -11,7 +11,7 @@ patches:
   - patch: |-
       - op: replace
         path: /spec/channel
-        value: 'rhacs-4.8'
+        value: 'rhacs-4.9'
     target:
       kind: Subscription
       name: rhacs-operator
