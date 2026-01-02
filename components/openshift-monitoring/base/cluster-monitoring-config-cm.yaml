@@ -24,18 +24,18 @@ data:
       - apiVersion: v2
         bearerToken:
           key: token
-          name: observability-alertmanager-accessor
-        resources:
-          memory:
-            request: 8Gi
+          name: observability-alertmanager-accessor-hub
         scheme: https
         staticConfigs:
         - alertmanager-open-cluster-management-observability.apps.hub.ocplab.com
         tlsConfig:
           ca:
             key: service-ca.crt
-            name: hub-alertmanager-router-ca
+            name: hub-alertmanager-router-ca-hub
           insecureSkipVerify: false
+      resources:
+        memory:
+          requests: 8Gi
       externalLabels:
         cluster_name: ${CLUSTER_GITOPS_NAME}
         managed_cluster: ${CLUSTER_ID}
