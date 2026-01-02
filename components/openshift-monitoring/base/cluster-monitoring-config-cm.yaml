@@ -25,6 +25,9 @@ data:
         bearerToken:
           key: token
           name: observability-alertmanager-accessor
+        resources:
+          memory:
+            request: 8Gi
         scheme: https
         staticConfigs:
         - alertmanager-open-cluster-management-observability.apps.hub.ocplab.com
