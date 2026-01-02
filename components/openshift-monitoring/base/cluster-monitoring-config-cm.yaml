@@ -34,8 +34,8 @@ data:
             name: hub-alertmanager-router-ca-hub
           insecureSkipVerify: false
       resources:
-        memory:
-          requests: 8Gi
+        requests:
+          memory: 8Gi
       externalLabels:
         cluster_name: ${CLUSTER_GITOPS_NAME}
         managed_cluster: ${CLUSTER_ID}
