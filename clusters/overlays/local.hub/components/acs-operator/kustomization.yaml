@@ -1,6 +1,0 @@
-commonAnnotations:
-  argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
-
-resources:
-- ../../../../../components/acs-operator/overlays/aggregate
-- certificate.yaml

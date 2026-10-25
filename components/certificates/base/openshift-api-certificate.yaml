@@ -5,10 +5,11 @@ metadata:
   namespace: openshift-config
   annotations:
     argocd.argoproj.io/sync-wave: '0'
+    argocd.argoproj.io/sync-options: Delete=false
 spec:
-  secretName: openshift-api-certificate
+  secretName: api-custom-domain-cert
   issuerRef:
     name: letsencrypt-prod
     kind: ClusterIssuer
   dnsNames:
-  - api.${BASE_DOMAIN}
+  - api.ocplocal.techilm.net

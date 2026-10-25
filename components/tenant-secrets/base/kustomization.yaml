@@ -1,4 +1,0 @@
-namespace: tenant-secrets
-
-resources:
-- namespace.yaml

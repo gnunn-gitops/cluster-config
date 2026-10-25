@@ -1,5 +1,0 @@
-resources:
-- ../../base
-
-components:
-- ../sso

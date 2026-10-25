@@ -1,5 +1,0 @@
-namespace: openshift-etcd
-
-resources:
-- sa-rbac.yaml
-- cronjob.yaml

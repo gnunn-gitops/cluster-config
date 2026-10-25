@@ -1,6 +1,0 @@
-- op: replace
-  path: /spec/source/name
-  value: aws.cluster
-- op: replace
-  path: /metadata/name
-  value: aws-cluster

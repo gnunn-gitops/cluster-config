@@ -1,9 +1,0 @@
-apiVersion: kustomize.config.k8s.io/v1alpha1
-kind: Component
-
-helmCharts:
-- name: argocd-app-of-app
-  version: 0.4.1
-  repo: https://gnunn-gitops.github.io/helm-charts
-  valuesFile: values.yaml
-  namespace: openshift-gitops

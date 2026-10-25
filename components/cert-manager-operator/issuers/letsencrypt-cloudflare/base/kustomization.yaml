@@ -1,0 +1,10 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+commonAnnotations:
+  argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true,Delete=false
+
+# Requires secret cloudflare-api-token-secret (key: api-token) in the
+# cert-manager namespace; it is created out of band and not stored in git.
+resources:
+- letsencrypt-prod-cluster-issuer.yaml

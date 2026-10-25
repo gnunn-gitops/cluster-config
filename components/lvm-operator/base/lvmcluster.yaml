@@ -1,15 +1,15 @@
 apiVersion: lvm.topolvm.io/v1alpha1
 kind: LVMCluster
 metadata:
-  name: lvmcluster
-  namespace: openshift-storage
+  name: local-lvmcluster
   annotations:
-    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true,Delete=false
 spec:
   storage:
     deviceClasses:
       - name: vg1
         default: true
+        fstype: xfs
         thinPoolConfig:
           name: thin-pool-1
           overprovisionRatio: 10

@@ -1,4 +1,0 @@
-plugin:
-  name: dev-console-plugin
-  namespace: dev-console-plugin
-  image: quay.io/gnunn/dev-console-plugin:latest

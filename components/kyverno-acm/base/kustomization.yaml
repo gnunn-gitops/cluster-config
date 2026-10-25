@@ -1,8 +1,0 @@
-namespace: acm-policies
-
-commonAnnotations:
-  argocd.argoproj.io/compare-options: IgnoreExtraneous
-
-resources:
-- placementrule.yaml
-- kyverno-acm-policies.yaml

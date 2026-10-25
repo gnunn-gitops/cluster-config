@@ -5,11 +5,12 @@ metadata:
   namespace: openshift-ingress
   annotations:
     argocd.argoproj.io/sync-wave: '0'
+    argocd.argoproj.io/sync-options: Delete=false
 spec:
   secretName: openshift-wildcard-certificate
   issuerRef:
     name: letsencrypt-prod
     kind: ClusterIssuer
-  commonName: '*.${SUB_DOMAIN}'
+  commonName: '*.apps.ocplocal.techilm.net'
   dnsNames:
-  - '*.${SUB_DOMAIN}'
+  - '*.apps.ocplocal.techilm.net'

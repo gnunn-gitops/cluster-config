@@ -1,7 +1,9 @@
+# Name matches the OperatorGroup that already exists on the cluster;
+# a second OperatorGroup in the namespace would break OLM.
 apiVersion: operators.coreos.com/v1
 kind: OperatorGroup
 metadata:
-  name: openshift-cert-manager-operator
+  name: cert-manager-operator-kqwkp
 spec:
   targetNamespaces:
   - cert-manager-operator

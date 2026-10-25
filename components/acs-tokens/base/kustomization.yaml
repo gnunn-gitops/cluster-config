@@ -1,6 +1,0 @@
-namespace: stackrox
-
-resources:
-  - postsync-create-roxsecrets-sa-rbac.yaml
-  - postsync-create-roxsecrets-job.yaml
-  - postsync-roxsecret-namespaces.yaml

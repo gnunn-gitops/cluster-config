@@ -1,6 +1,0 @@
-namespace: clean-completed-pods
-
-resources:
-  - namespace.yaml
-  - clean-completed-pods-cronjob.yaml
-  - sa-rbac.yaml

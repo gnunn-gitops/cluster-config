@@ -4,11 +4,11 @@ metadata:
   name: cluster
   annotations:
     argocd.argoproj.io/sync-wave: "1"
-    argocd.argoproj.io/sync-options: Validate=false,ServerSideApply=true
+    argocd.argoproj.io/sync-options: Validate=false,ServerSideApply=true,Delete=false
 spec:
   servingCerts:
     namedCertificates:
     - names:
-      - api.${BASE_DOMAIN}
+      - api.ocplocal.techilm.net
       servingCertificate:
-        name: openshift-api-certificate
+        name: api-custom-domain-cert

@@ -16,29 +16,12 @@ default:
 
 projects:
 
-  demo:
-    description: Project for ad-hoc demos and testing
-    sourceRepos:
-    - "*"
-    destinations: |
-      - namespace: '*'
-        server: https://kubernetes.default.svc
-    extraFields: |
-      clusterResourceWhitelist:
-      - group: '*'
-        kind: '*'
-
   cluster-config:
-    annotations:
-      notifications.argoproj.io/subscribe.on-sync-failed.slack: cluster-gitops
-      notifications.argoproj.io/subscribe.on-health-degraded.slack: cluster-gitops
     description: Project for overall cluster configuration
     namespace: openshift-gitops
     sourceRepos:
-    - https://github.com/gnunn-gitops/cluster-config
-    - https://github.com/redhat-cop/gitops-catalog
-    - https://github.com/gnunn-gitops/acm-hub-bootstrap
     - https://github.com/codieman/cluster-config
+    - https://github.com/codieman/cluster-config.git
     destinations: |
       - namespace: '*'
         server: https://kubernetes.default.svc
@@ -47,13 +30,26 @@ projects:
       - group: '*'
         kind: '*'
 
-
 applications:
 
-  cost-management:
+  lvm-operator:
     annotations:
-      argocd.argoproj.io/sync-wave: '21'
+      argocd.argoproj.io/sync-wave: '1'
     destination:
-      namespace: costmanagement-metrics-operator
+      namespace: openshift-storage
     source:
-      path: clusters/overlays/local.sno/components/cost-management-operator
+      path: components/lvm-operator/base
+
+  cert-manager:
+    annotations:
+      argocd.argoproj.io/sync-wave: '1'
+    destination:
+      namespace: cert-manager-operator
+    source:
+      path: components/cert-manager-operator/aggregate/overlays/letsencrypt
+
+  certificates:
+    annotations:
+      argocd.argoproj.io/sync-wave: '2'
+    source:
+      path: components/certificates/base

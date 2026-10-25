@@ -1,6 +1,0 @@
-- op: replace
-  path: /spec/source/name
-  value: Home
-- op: replace
-  path: /metadata/name
-  value: home-cluster
